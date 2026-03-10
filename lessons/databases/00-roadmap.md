@@ -59,3 +59,12 @@ No CS degree assumed. Everyday analogies for everything.
 
 **Start with Lesson 01 if databases are new.** If you already use databases
 but want to understand internals, start with Lesson 02.
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Designing Data-Intensive Applications** by Martin Kleppmann (O'Reilly, 2017) — The modern data systems bible
+- **Database Internals** by Alex Petrov (O'Reilly, 2019) — How databases work under the hood

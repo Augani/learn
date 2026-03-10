@@ -54,3 +54,13 @@ Every lesson has:
 Focus is on UNDERSTANDING, not memorizing algorithms. If you understand
 WHY a hash map is O(1) and a linear search is O(n), you'll make better
 decisions forever.
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Introduction to Algorithms** by Cormen, Leiserson, Rivest, and Stein (MIT Press, 4th Edition 2022) — The comprehensive algorithms reference (CLRS)
+- **The Algorithm Design Manual** by Steven Skiena (Springer, 3rd Edition 2020) — Practical algorithm design
+- **Grokking Algorithms** by Aditya Bhargava (Manning, 2nd Edition 2024) — Visual, beginner-friendly algorithms

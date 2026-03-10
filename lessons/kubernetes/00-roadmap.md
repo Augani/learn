@@ -62,3 +62,12 @@ Every lesson has:
 3. Real YAML manifests you apply and experiment with
 4. "What happens when..." walkthroughs of failure scenarios
 5. Go/TypeScript deployment examples where relevant
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Kubernetes in Action** by Marko Luksa (Manning, 2nd Edition 2024) — The most thorough K8s book
+- **Kubernetes: Up and Running** by Brendan Burns, Joe Beda, Kelsey Hightower, and Lachlan Evenson (O'Reilly, 3rd Edition 2022) — By K8s creators

@@ -1,12 +1,130 @@
 {
   "tracks": [
     {
+      "id": "cs-fundamentals",
+      "title": "CS Fundamentals",
+      "description": "Everything a self-taught programmer needs to know about how computers",
+      "lessonCount": 12,
+      "status": "Complete",
+      "order": 1,
+      "lessons": [
+        {
+          "id": "cs-fundamentals/01-how-computers-work",
+          "filename": "01-how-computers-work.md",
+          "title": "Lesson 01: How a Computer Runs Your Program",
+          "trackId": "cs-fundamentals",
+          "order": 1,
+          "wordCount": 1920,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/02-stack-and-heap",
+          "filename": "02-stack-and-heap.md",
+          "title": "Lesson 02: Stack and Heap — Where Your Data Lives",
+          "trackId": "cs-fundamentals",
+          "order": 2,
+          "wordCount": 2123,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/03-memory",
+          "filename": "03-memory.md",
+          "title": "Lesson 03: Memory — Allocation, Freeing, and What Can Go Wrong",
+          "trackId": "cs-fundamentals",
+          "order": 3,
+          "wordCount": 1922,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/04-types",
+          "filename": "04-types.md",
+          "title": "Lesson 4: Types and Type Systems",
+          "trackId": "cs-fundamentals",
+          "order": 4,
+          "wordCount": 2703,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/05-pointers-references",
+          "filename": "05-pointers-references.md",
+          "title": "Lesson 5: Pointers and References — Addresses in Memory",
+          "trackId": "cs-fundamentals",
+          "order": 5,
+          "wordCount": 2511,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/06-binary-encoding",
+          "filename": "06-binary-encoding.md",
+          "title": "Lesson 6: Binary, Bits, and How Data Is Encoded",
+          "trackId": "cs-fundamentals",
+          "order": 6,
+          "wordCount": 2960,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/07-compilation",
+          "filename": "07-compilation.md",
+          "title": "Lesson 7: From Source Code to Running Program — Compilation and Interpretation",
+          "trackId": "cs-fundamentals",
+          "order": 7,
+          "wordCount": 3663,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/08-concurrency-parallelism",
+          "filename": "08-concurrency-parallelism.md",
+          "title": "Lesson 8: Concurrency and Parallelism — Doing Multiple Things",
+          "trackId": "cs-fundamentals",
+          "order": 8,
+          "wordCount": 3499,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/09-garbage-collection",
+          "filename": "09-garbage-collection.md",
+          "title": "Lesson 9: Garbage Collection vs Manual Memory Management",
+          "trackId": "cs-fundamentals",
+          "order": 9,
+          "wordCount": 3953,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/10-process-model",
+          "filename": "10-process-model.md",
+          "title": "Lesson 10: The Process Model — How Programs Run on an OS",
+          "trackId": "cs-fundamentals",
+          "order": 10,
+          "wordCount": 3720,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/11-algorithms-thinking",
+          "filename": "11-algorithms-thinking.md",
+          "title": "Lesson 11: Algorithms Thinking — How to Reason About Efficiency",
+          "trackId": "cs-fundamentals",
+          "order": 11,
+          "wordCount": 3275,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/12-full-picture",
+          "filename": "12-full-picture.md",
+          "title": "Lesson 12: Putting It All Together — How a Web Request Actually Works",
+          "trackId": "cs-fundamentals",
+          "order": 12,
+          "wordCount": 4142,
+          "isReference": false
+        }
+      ]
+    },
+    {
       "id": "rust",
       "title": "Rust",
       "description": "This track is for learners from any programming background, including people",
       "lessonCount": 20,
       "status": "Complete",
-      "order": 1,
+      "order": 2,
       "lessons": [
         {
           "id": "rust/01-ownership",
@@ -205,7 +323,7 @@
       "description": "The tools, concepts, and mental models for working effectively in a",
       "lessonCount": 18,
       "status": "Complete",
-      "order": 2,
+      "order": 3,
       "lessons": [
         {
           "id": "linux-fundamentals/01-terminal-shell",
@@ -404,7 +522,7 @@
       "description": "What the OS does between your Rust binary and the hardware.",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 3,
+      "order": 4,
       "lessons": [
         {
           "id": "os-concepts/01-what-os-does",
@@ -567,7 +685,7 @@
       "description": "Not LeetCode grind. Understanding how data is organized in memory so you",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 4,
+      "order": 5,
       "lessons": [
         {
           "id": "data-structures/01-arrays-memory",
@@ -739,7 +857,7 @@
       "description": "How databases actually work — from bits on disk to production schemas.",
       "lessonCount": 22,
       "status": "Complete",
-      "order": 5,
+      "order": 6,
       "lessons": [
         {
           "id": "databases/01-what-is-a-database",
@@ -965,7 +1083,7 @@
       "description": "From electrical signals to HTTP APIs. How the internet actually works,",
       "lessonCount": 18,
       "status": "Complete",
-      "order": 6,
+      "order": 7,
       "lessons": [
         {
           "id": "networking/01-big-picture",
@@ -1146,7 +1264,7 @@
       "description": "> From systems programmer to AI practitioner.",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 7,
+      "order": 8,
       "lessons": [
         {
           "id": "python-for-ai/01-python-for-systems-programmers",
@@ -1318,7 +1436,7 @@
       "description": "> The math you actually need to understand AI — no PhD required.",
       "lessonCount": 18,
       "status": "Complete",
-      "order": 8,
+      "order": 9,
       "lessons": [
         {
           "id": "math-for-ai/01-vectors",
@@ -1508,7 +1626,7 @@
       "description": "From zero to understanding how neural networks actually work.",
       "lessonCount": 14,
       "status": "Complete",
-      "order": 9,
+      "order": 10,
       "lessons": [
         {
           "id": "ml-fundamentals/01-what-is-ml",
@@ -1662,7 +1780,7 @@
       "description": "Welcome to the Applied ML track. This is not a theory-heavy academic",
       "lessonCount": 18,
       "status": "Complete",
-      "order": 10,
+      "order": 11,
       "lessons": [
         {
           "id": "applied-ml/01-data-collection-quality",
@@ -1852,7 +1970,7 @@
       "description": "Welcome to the **Advanced Deep Learning** track. You already know",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 11,
+      "order": 12,
       "lessons": [
         {
           "id": "advanced-deep-learning/01-regularization",
@@ -2024,7 +2142,7 @@
       "description": "This track takes you from zero to building RL agents that learn from experience.",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 12,
+      "order": 13,
       "lessons": [
         {
           "id": "reinforcement-learning/01-what-is-rl",
@@ -2196,7 +2314,7 @@
       "description": "From \"Attention Is All You Need\" to modern LLMs.",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 13,
+      "order": 14,
       "lessons": [
         {
           "id": "llms-transformers/01-language-modeling",
@@ -2377,7 +2495,7 @@
       "description": "Welcome to AI Engineering. This track takes you from writing your first",
       "lessonCount": 20,
       "status": "Complete",
-      "order": 14,
+      "order": 15,
       "lessons": [
         {
           "id": "ai-engineering/01-prompt-engineering",
@@ -2585,7 +2703,7 @@
       "description": "Natural Language Processing beyond just LLMs. You'll learn how text",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 15,
+      "order": 16,
       "lessons": [
         {
           "id": "nlp/01-text-preprocessing",
@@ -2757,7 +2875,7 @@
       "description": "Welcome to the Computer Vision deep dive. You already know what a CNN is from",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 16,
+      "order": 17,
       "lessons": [
         {
           "id": "computer-vision/01-how-computers-see",
@@ -2929,7 +3047,7 @@
       "description": "> You know Rust and Python. Now learn just enough C/C++ to understand",
       "lessonCount": 14,
       "status": "Complete",
-      "order": 17,
+      "order": 18,
       "lessons": [
         {
           "id": "c-cpp-for-ml/01-c-for-rust-devs",
@@ -3083,7 +3201,7 @@
       "description": "Welcome to the Go track. If you know Rust, you'll find Go refreshingly",
       "lessonCount": 18,
       "status": "Complete",
-      "order": 18,
+      "order": 19,
       "lessons": [
         {
           "id": "go/01-why-go",
@@ -3273,7 +3391,7 @@
       "description": "This track is about making things happen at the same time -- or at least",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 19,
+      "order": 20,
       "lessons": [
         {
           "id": "concurrency-parallelism/01-concurrency-vs-parallelism",
@@ -3445,7 +3563,7 @@
       "description": "> You've seen the big picture in System Design.",
       "lessonCount": 20,
       "status": "Complete",
-      "order": 20,
+      "order": 21,
       "lessons": [
         {
           "id": "distributed-systems/01-why-distributed",
@@ -3653,7 +3771,7 @@
       "description": "This track is a deep dive into designing, building, and consuming APIs.",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 21,
+      "order": 22,
       "lessons": [
         {
           "id": "api-design/01-what-is-an-api",
@@ -3825,7 +3943,7 @@
       "description": "You touched Docker in the Linux track. Now we go deep — how containers",
       "lessonCount": 18,
       "status": "Complete",
-      "order": 22,
+      "order": 23,
       "lessons": [
         {
           "id": "docker/01-containers-vs-vms",
@@ -4015,7 +4133,7 @@
       "description": "Docker runs one container on one machine. Kubernetes runs thousands of",
       "lessonCount": 20,
       "status": "Complete",
-      "order": 23,
+      "order": 24,
       "lessons": [
         {
           "id": "kubernetes/01-why-k8s",
@@ -4223,7 +4341,7 @@
       "description": "How to design systems that handle millions of users, stay up when things",
       "lessonCount": 38,
       "status": "Complete",
-      "order": 24,
+      "order": 25,
       "lessons": [
         {
           "id": "system-design/01-thinking-in-tradeoffs",
@@ -4593,7 +4711,7 @@
       "description": "+------------------------------------------------------------------+",
       "lessonCount": 18,
       "status": "Complete",
-      "order": 25,
+      "order": 26,
       "lessons": [
         {
           "id": "cloud-architecture/01-cloud-fundamentals",
@@ -4783,7 +4901,7 @@
       "description": "YOU ARE HERE",
       "lessonCount": 16,
       "status": "Complete",
-      "order": 26,
+      "order": 27,
       "lessons": [
         {
           "id": "sre-observability/01-what-is-sre",
@@ -4955,7 +5073,7 @@
       "description": "+---------------------------------------------------------+",
       "lessonCount": 18,
       "status": "Complete",
-      "order": 27,
+      "order": 28,
       "lessons": [
         {
           "id": "mlops/01-model-serialization",
@@ -5145,7 +5263,7 @@
       "description": "Welcome to the Data Engineering for ML track. This track takes you from",
       "lessonCount": 14,
       "status": "Complete",
-      "order": 28,
+      "order": 29,
       "lessons": [
         {
           "id": "data-engineering/01-data-formats",
@@ -5299,7 +5417,7 @@
       "description": "Every system you build will be attacked. This track teaches you how",
       "lessonCount": 22,
       "status": "Complete",
-      "order": 29,
+      "order": 30,
       "lessons": [
         {
           "id": "security-cryptography/01-why-crypto",
@@ -5525,7 +5643,7 @@
       "description": "Every language you've used — TypeScript, Go, Rust, Python — goes through",
       "lessonCount": 22,
       "status": "Complete",
-      "order": 30,
+      "order": 31,
       "lessons": [
         {
           "id": "compilers-interpreters/01-compilation-pipeline",
@@ -5751,7 +5869,7 @@
       "description": "You know Rust or Go. You think in types, ownership, and concurrency.",
       "lessonCount": 18,
       "status": "Complete",
-      "order": 31,
+      "order": 32,
       "lessons": [
         {
           "id": "typescript-web/01-typescript-for-systems-devs",
@@ -5941,7 +6059,7 @@
       "description": "> The mathematical backbone of computer science.",
       "lessonCount": 14,
       "status": "Complete",
-      "order": 32,
+      "order": 33,
       "lessons": [
         {
           "id": "discrete-math/01-propositional-logic",
@@ -6090,124 +6208,2497 @@
       ]
     },
     {
-      "id": "cs-fundamentals",
-      "title": "Cs Fundamentals",
-      "description": "Everything a self-taught programmer needs to know about how computers",
-      "lessonCount": 12,
+      "id": "testing-quality",
+      "title": "Testing & Quality",
+      "description": "> **Why this topic matters**: Software that isn't tested is software you",
+      "lessonCount": 18,
       "status": "Complete",
-      "order": 99,
+      "order": 34,
       "lessons": [
         {
-          "id": "cs-fundamentals/01-how-computers-work",
-          "filename": "01-how-computers-work.md",
-          "title": "Lesson 01: How a Computer Runs Your Program",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/01-why-testing",
+          "filename": "01-why-testing.md",
+          "title": "Lesson 01: Why Testing Matters",
+          "trackId": "testing-quality",
           "order": 1,
-          "wordCount": 1920,
+          "wordCount": 1342,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/02-stack-and-heap",
-          "filename": "02-stack-and-heap.md",
-          "title": "Lesson 02: Stack and Heap — Where Your Data Lives",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/02-testing-pyramid",
+          "filename": "02-testing-pyramid.md",
+          "title": "Lesson 02: The Testing Pyramid",
+          "trackId": "testing-quality",
           "order": 2,
-          "wordCount": 2123,
+          "wordCount": 1530,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/03-memory",
-          "filename": "03-memory.md",
-          "title": "Lesson 03: Memory — Allocation, Freeing, and What Can Go Wrong",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/03-unit-testing",
+          "filename": "03-unit-testing.md",
+          "title": "Lesson 03: Unit Testing Fundamentals",
+          "trackId": "testing-quality",
           "order": 3,
-          "wordCount": 1922,
+          "wordCount": 1652,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/04-types",
-          "filename": "04-types.md",
-          "title": "Lesson 4: Types and Type Systems",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/04-assertions",
+          "filename": "04-assertions.md",
+          "title": "Lesson 04: Writing Good Assertions",
+          "trackId": "testing-quality",
           "order": 4,
-          "wordCount": 2703,
+          "wordCount": 1343,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/05-pointers-references",
-          "filename": "05-pointers-references.md",
-          "title": "Lesson 5: Pointers and References — Addresses in Memory",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/05-mocking",
+          "filename": "05-mocking.md",
+          "title": "Lesson 05: Mocking, Stubs, Fakes, and Spies",
+          "trackId": "testing-quality",
           "order": 5,
-          "wordCount": 2511,
+          "wordCount": 1460,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/06-binary-encoding",
-          "filename": "06-binary-encoding.md",
-          "title": "Lesson 6: Binary, Bits, and How Data Is Encoded",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/06-integration-testing",
+          "filename": "06-integration-testing.md",
+          "title": "Lesson 06: Integration Testing",
+          "trackId": "testing-quality",
           "order": 6,
-          "wordCount": 2960,
+          "wordCount": 1399,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/07-compilation",
-          "filename": "07-compilation.md",
-          "title": "Lesson 7: From Source Code to Running Program — Compilation and Interpretation",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/07-e2e-testing",
+          "filename": "07-e2e-testing.md",
+          "title": "Lesson 07: End-to-End Testing",
+          "trackId": "testing-quality",
           "order": 7,
-          "wordCount": 3663,
+          "wordCount": 1375,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/08-concurrency-parallelism",
-          "filename": "08-concurrency-parallelism.md",
-          "title": "Lesson 8: Concurrency and Parallelism — Doing Multiple Things",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/08-tdd",
+          "filename": "08-tdd.md",
+          "title": "Lesson 08: Test-Driven Development",
+          "trackId": "testing-quality",
           "order": 8,
-          "wordCount": 3499,
+          "wordCount": 1519,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/09-garbage-collection",
-          "filename": "09-garbage-collection.md",
-          "title": "Lesson 9: Garbage Collection vs Manual Memory Management",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/09-property-based-testing",
+          "filename": "09-property-based-testing.md",
+          "title": "Lesson 09: Property-Based Testing",
+          "trackId": "testing-quality",
           "order": 9,
-          "wordCount": 3953,
+          "wordCount": 1239,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/10-process-model",
-          "filename": "10-process-model.md",
-          "title": "Lesson 10: The Process Model — How Programs Run on an OS",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/10-snapshot-testing",
+          "filename": "10-snapshot-testing.md",
+          "title": "Lesson 10: Snapshot and Golden File Testing",
+          "trackId": "testing-quality",
           "order": 10,
-          "wordCount": 3720,
+          "wordCount": 1262,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/11-algorithms-thinking",
-          "filename": "11-algorithms-thinking.md",
-          "title": "Lesson 11: Algorithms Thinking — How to Reason About Efficiency",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/11-fixtures-factories",
+          "filename": "11-fixtures-factories.md",
+          "title": "Lesson 11: Fixtures, Factories, and Builders",
+          "trackId": "testing-quality",
           "order": 11,
-          "wordCount": 3275,
+          "wordCount": 1417,
           "isReference": false
         },
         {
-          "id": "cs-fundamentals/12-full-picture",
-          "filename": "12-full-picture.md",
-          "title": "Lesson 12: Putting It All Together — How a Web Request Actually Works",
-          "trackId": "cs-fundamentals",
+          "id": "testing-quality/12-code-coverage",
+          "filename": "12-code-coverage.md",
+          "title": "Lesson 12: Code Coverage Metrics",
+          "trackId": "testing-quality",
           "order": 12,
-          "wordCount": 4142,
+          "wordCount": 1409,
           "isReference": false
+        },
+        {
+          "id": "testing-quality/13-mutation-testing",
+          "filename": "13-mutation-testing.md",
+          "title": "Lesson 13: Mutation Testing",
+          "trackId": "testing-quality",
+          "order": 13,
+          "wordCount": 1410,
+          "isReference": false
+        },
+        {
+          "id": "testing-quality/14-testing-async",
+          "filename": "14-testing-async.md",
+          "title": "Lesson 14: Testing Async Code",
+          "trackId": "testing-quality",
+          "order": 14,
+          "wordCount": 1435,
+          "isReference": false
+        },
+        {
+          "id": "testing-quality/15-testing-databases",
+          "filename": "15-testing-databases.md",
+          "title": "Lesson 15: Testing Database Code",
+          "trackId": "testing-quality",
+          "order": 15,
+          "wordCount": 1462,
+          "isReference": false
+        },
+        {
+          "id": "testing-quality/16-performance-testing",
+          "filename": "16-performance-testing.md",
+          "title": "Lesson 16: Performance and Load Testing",
+          "trackId": "testing-quality",
+          "order": 16,
+          "wordCount": 1418,
+          "isReference": false
+        },
+        {
+          "id": "testing-quality/17-test-architecture",
+          "filename": "17-test-architecture.md",
+          "title": "Lesson 17: Test Organization and Architecture",
+          "trackId": "testing-quality",
+          "order": 17,
+          "wordCount": 1391,
+          "isReference": false
+        },
+        {
+          "id": "testing-quality/18-build-test-suite",
+          "filename": "18-build-test-suite.md",
+          "title": "Lesson 18: Capstone — Build a Complete Test Suite",
+          "trackId": "testing-quality",
+          "order": 18,
+          "wordCount": 1989,
+          "isReference": false
+        },
+        {
+          "id": "testing-quality/reference-testing-patterns",
+          "filename": "reference-testing-patterns.md",
+          "title": "Quick Reference: Testing Patterns",
+          "trackId": "testing-quality",
+          "order": 918,
+          "wordCount": 770,
+          "isReference": true
+        },
+        {
+          "id": "testing-quality/reference-tools",
+          "filename": "reference-tools.md",
+          "title": "Quick Reference: Testing Tools by Language",
+          "trackId": "testing-quality",
+          "order": 919,
+          "wordCount": 1070,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "design-patterns",
+      "title": "Design Patterns",
+      "description": "> **Why this topic matters**: Design patterns are proven solutions to",
+      "lessonCount": 18,
+      "status": "Complete",
+      "order": 35,
+      "lessons": [
+        {
+          "id": "design-patterns/01-why-patterns",
+          "filename": "01-why-patterns.md",
+          "title": "Lesson 01: Why Design Patterns Exist",
+          "trackId": "design-patterns",
+          "order": 1,
+          "wordCount": 1277,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/02-solid-srp-ocp",
+          "filename": "02-solid-srp-ocp.md",
+          "title": "Lesson 02: SOLID — Single Responsibility and Open/Closed Principle",
+          "trackId": "design-patterns",
+          "order": 2,
+          "wordCount": 1647,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/03-solid-lsp-isp-dip",
+          "filename": "03-solid-lsp-isp-dip.md",
+          "title": "Lesson 03: SOLID — Liskov Substitution, Interface Segregation, Dependency Inversion",
+          "trackId": "design-patterns",
+          "order": 3,
+          "wordCount": 1737,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/04-factory-builder",
+          "filename": "04-factory-builder.md",
+          "title": "Lesson 04: Factory Method, Abstract Factory, and Builder",
+          "trackId": "design-patterns",
+          "order": 4,
+          "wordCount": 1785,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/05-singleton-prototype",
+          "filename": "05-singleton-prototype.md",
+          "title": "Lesson 05: Singleton and Prototype",
+          "trackId": "design-patterns",
+          "order": 5,
+          "wordCount": 1504,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/06-adapter-facade",
+          "filename": "06-adapter-facade.md",
+          "title": "Lesson 06: Adapter and Facade",
+          "trackId": "design-patterns",
+          "order": 6,
+          "wordCount": 1548,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/07-decorator-proxy",
+          "filename": "07-decorator-proxy.md",
+          "title": "Lesson 07: Decorator and Proxy",
+          "trackId": "design-patterns",
+          "order": 7,
+          "wordCount": 1599,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/08-composite-bridge",
+          "filename": "08-composite-bridge.md",
+          "title": "Lesson 08: Composite and Bridge",
+          "trackId": "design-patterns",
+          "order": 8,
+          "wordCount": 1757,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/09-strategy-observer",
+          "filename": "09-strategy-observer.md",
+          "title": "Lesson 09: Strategy and Observer",
+          "trackId": "design-patterns",
+          "order": 9,
+          "wordCount": 1580,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/10-command-state",
+          "filename": "10-command-state.md",
+          "title": "Lesson 10: Command and State",
+          "trackId": "design-patterns",
+          "order": 10,
+          "wordCount": 1943,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/11-iterator-template",
+          "filename": "11-iterator-template.md",
+          "title": "Lesson 11: Iterator and Template Method",
+          "trackId": "design-patterns",
+          "order": 11,
+          "wordCount": 1717,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/12-dependency-injection",
+          "filename": "12-dependency-injection.md",
+          "title": "Lesson 12: Dependency Injection",
+          "trackId": "design-patterns",
+          "order": 12,
+          "wordCount": 1397,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/13-clean-architecture",
+          "filename": "13-clean-architecture.md",
+          "title": "Lesson 13: Clean Architecture",
+          "trackId": "design-patterns",
+          "order": 13,
+          "wordCount": 1533,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/14-hexagonal-architecture",
+          "filename": "14-hexagonal-architecture.md",
+          "title": "Lesson 14: Hexagonal Architecture (Ports and Adapters)",
+          "trackId": "design-patterns",
+          "order": 14,
+          "wordCount": 1441,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/15-ddd-basics",
+          "filename": "15-ddd-basics.md",
+          "title": "Lesson 15: Domain-Driven Design Basics",
+          "trackId": "design-patterns",
+          "order": 15,
+          "wordCount": 1610,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/16-repository-uow",
+          "filename": "16-repository-uow.md",
+          "title": "Lesson 16: Repository and Unit of Work",
+          "trackId": "design-patterns",
+          "order": 16,
+          "wordCount": 1944,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/17-anti-patterns",
+          "filename": "17-anti-patterns.md",
+          "title": "Lesson 17: Anti-Patterns",
+          "trackId": "design-patterns",
+          "order": 17,
+          "wordCount": 1766,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/18-build-with-patterns",
+          "filename": "18-build-with-patterns.md",
+          "title": "Lesson 18: Build With Patterns (Capstone)",
+          "trackId": "design-patterns",
+          "order": 18,
+          "wordCount": 1852,
+          "isReference": false
+        },
+        {
+          "id": "design-patterns/reference-patterns",
+          "filename": "reference-patterns.md",
+          "title": "Quick Reference: All Design Patterns",
+          "trackId": "design-patterns",
+          "order": 918,
+          "wordCount": 992,
+          "isReference": true
+        },
+        {
+          "id": "design-patterns/reference-solid",
+          "filename": "reference-solid.md",
+          "title": "Quick Reference: SOLID Principles",
+          "trackId": "design-patterns",
+          "order": 919,
+          "wordCount": 1392,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "ci-cd-pipelines",
+      "title": "CI/CD Pipelines",
+      "description": "> **What you'll learn**: How to automate the journey from code on your",
+      "lessonCount": 16,
+      "status": "Complete",
+      "order": 36,
+      "lessons": [
+        {
+          "id": "ci-cd-pipelines/01-why-cicd",
+          "filename": "01-why-cicd.md",
+          "title": "Lesson 01: Why CI/CD Matters",
+          "trackId": "ci-cd-pipelines",
+          "order": 1,
+          "wordCount": 1553,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/02-version-control-workflows",
+          "filename": "02-version-control-workflows.md",
+          "title": "Lesson 02: Version Control Workflows",
+          "trackId": "ci-cd-pipelines",
+          "order": 2,
+          "wordCount": 1418,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/03-git-hooks",
+          "filename": "03-git-hooks.md",
+          "title": "Lesson 03: Git Hooks",
+          "trackId": "ci-cd-pipelines",
+          "order": 3,
+          "wordCount": 1502,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/04-github-actions-intro",
+          "filename": "04-github-actions-intro.md",
+          "title": "Lesson 04: GitHub Actions Intro",
+          "trackId": "ci-cd-pipelines",
+          "order": 4,
+          "wordCount": 1666,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/05-workflows-jobs-steps",
+          "filename": "05-workflows-jobs-steps.md",
+          "title": "Lesson 05: Workflows, Jobs, and Steps — Deep Dive",
+          "trackId": "ci-cd-pipelines",
+          "order": 5,
+          "wordCount": 1445,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/06-build-automation",
+          "filename": "06-build-automation.md",
+          "title": "Lesson 06: Build Automation",
+          "trackId": "ci-cd-pipelines",
+          "order": 6,
+          "wordCount": 1459,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/07-automated-testing-ci",
+          "filename": "07-automated-testing-ci.md",
+          "title": "Lesson 07: Automated Testing in CI",
+          "trackId": "ci-cd-pipelines",
+          "order": 7,
+          "wordCount": 1449,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/08-linting-quality-gates",
+          "filename": "08-linting-quality-gates.md",
+          "title": "Lesson 08: Linting & Quality Gates",
+          "trackId": "ci-cd-pipelines",
+          "order": 8,
+          "wordCount": 1436,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/09-artifacts-caching",
+          "filename": "09-artifacts-caching.md",
+          "title": "Lesson 09: Artifacts & Caching",
+          "trackId": "ci-cd-pipelines",
+          "order": 9,
+          "wordCount": 1404,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/10-env-vars-secrets",
+          "filename": "10-env-vars-secrets.md",
+          "title": "Lesson 10: Environment Variables & Secrets",
+          "trackId": "ci-cd-pipelines",
+          "order": 10,
+          "wordCount": 1493,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/11-deployment-blue-green",
+          "filename": "11-deployment-blue-green.md",
+          "title": "Lesson 11: Blue-Green Deployment",
+          "trackId": "ci-cd-pipelines",
+          "order": 11,
+          "wordCount": 1413,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/12-canary-rolling",
+          "filename": "12-canary-rolling.md",
+          "title": "Lesson 12: Canary & Rolling Deployments",
+          "trackId": "ci-cd-pipelines",
+          "order": 12,
+          "wordCount": 1319,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/13-feature-flags",
+          "filename": "13-feature-flags.md",
+          "title": "Lesson 13: Feature Flags",
+          "trackId": "ci-cd-pipelines",
+          "order": 13,
+          "wordCount": 1446,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/14-monitoring-deployments",
+          "filename": "14-monitoring-deployments.md",
+          "title": "Lesson 14: Monitoring Deployments",
+          "trackId": "ci-cd-pipelines",
+          "order": 14,
+          "wordCount": 1448,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/15-multi-env-pipelines",
+          "filename": "15-multi-env-pipelines.md",
+          "title": "Lesson 15: Multi-Environment Pipelines",
+          "trackId": "ci-cd-pipelines",
+          "order": 15,
+          "wordCount": 1544,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/16-build-pipeline-project",
+          "filename": "16-build-pipeline-project.md",
+          "title": "Lesson 16: Capstone — Build a Complete CI/CD Pipeline",
+          "trackId": "ci-cd-pipelines",
+          "order": 16,
+          "wordCount": 1971,
+          "isReference": false
+        },
+        {
+          "id": "ci-cd-pipelines/reference-deployment-patterns",
+          "filename": "reference-deployment-patterns.md",
+          "title": "Quick Reference: Deployment Patterns",
+          "trackId": "ci-cd-pipelines",
+          "order": 916,
+          "wordCount": 1392,
+          "isReference": true
+        },
+        {
+          "id": "ci-cd-pipelines/reference-github-actions",
+          "filename": "reference-github-actions.md",
+          "title": "Quick Reference: GitHub Actions",
+          "trackId": "ci-cd-pipelines",
+          "order": 917,
+          "wordCount": 1137,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "infrastructure-as-code",
+      "title": "Infrastructure as Code",
+      "description": "> **What you'll learn**: How to define, provision, and manage servers,",
+      "lessonCount": 15,
+      "status": "Complete",
+      "order": 37,
+      "lessons": [
+        {
+          "id": "infrastructure-as-code/01-why-iac",
+          "filename": "01-why-iac.md",
+          "title": "Lesson 01: Why Infrastructure as Code",
+          "trackId": "infrastructure-as-code",
+          "order": 1,
+          "wordCount": 1431,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/02-declarative-vs-imperative",
+          "filename": "02-declarative-vs-imperative.md",
+          "title": "Lesson 02: Declarative vs Imperative Approaches",
+          "trackId": "infrastructure-as-code",
+          "order": 2,
+          "wordCount": 1538,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/03-terraform-first-resource",
+          "filename": "03-terraform-first-resource.md",
+          "title": "Lesson 03: Your First Terraform Resource",
+          "trackId": "infrastructure-as-code",
+          "order": 3,
+          "wordCount": 1382,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/04-providers-resources",
+          "filename": "04-providers-resources.md",
+          "title": "Lesson 04: Providers and Resources",
+          "trackId": "infrastructure-as-code",
+          "order": 4,
+          "wordCount": 1412,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/05-variables-outputs",
+          "filename": "05-variables-outputs.md",
+          "title": "Lesson 05: Variables and Outputs",
+          "trackId": "infrastructure-as-code",
+          "order": 5,
+          "wordCount": 1404,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/06-state-management",
+          "filename": "06-state-management.md",
+          "title": "Lesson 06: State Management",
+          "trackId": "infrastructure-as-code",
+          "order": 6,
+          "wordCount": 1379,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/07-modules",
+          "filename": "07-modules.md",
+          "title": "Lesson 07: Terraform Modules",
+          "trackId": "infrastructure-as-code",
+          "order": 7,
+          "wordCount": 1219,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/08-data-sources",
+          "filename": "08-data-sources.md",
+          "title": "Lesson 08: Data Sources and Dependencies",
+          "trackId": "infrastructure-as-code",
+          "order": 8,
+          "wordCount": 1124,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/09-workspaces-environments",
+          "filename": "09-workspaces-environments.md",
+          "title": "Lesson 09: Workspaces and Environments",
+          "trackId": "infrastructure-as-code",
+          "order": 9,
+          "wordCount": 1165,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/10-remote-state",
+          "filename": "10-remote-state.md",
+          "title": "Lesson 10: Remote State",
+          "trackId": "infrastructure-as-code",
+          "order": 10,
+          "wordCount": 1336,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/11-advanced-patterns",
+          "filename": "11-advanced-patterns.md",
+          "title": "Lesson 11: Advanced HCL Patterns",
+          "trackId": "infrastructure-as-code",
+          "order": 11,
+          "wordCount": 1332,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/12-testing-iac",
+          "filename": "12-testing-iac.md",
+          "title": "Lesson 12: Testing Infrastructure Code",
+          "trackId": "infrastructure-as-code",
+          "order": 12,
+          "wordCount": 1293,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/13-policy-as-code",
+          "filename": "13-policy-as-code.md",
+          "title": "Lesson 13: Policy as Code",
+          "trackId": "infrastructure-as-code",
+          "order": 13,
+          "wordCount": 1261,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/14-drift-remediation",
+          "filename": "14-drift-remediation.md",
+          "title": "Lesson 14: Drift and Remediation",
+          "trackId": "infrastructure-as-code",
+          "order": 14,
+          "wordCount": 1318,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/15-build-infrastructure",
+          "filename": "15-build-infrastructure.md",
+          "title": "Lesson 15: Build a Multi-Environment AWS Infrastructure (Capstone)",
+          "trackId": "infrastructure-as-code",
+          "order": 15,
+          "wordCount": 2395,
+          "isReference": false
+        },
+        {
+          "id": "infrastructure-as-code/reference-providers",
+          "filename": "reference-providers.md",
+          "title": "Reference: Common Provider Resources (AWS / GCP / Azure)",
+          "trackId": "infrastructure-as-code",
+          "order": 915,
+          "wordCount": 1341,
+          "isReference": true
+        },
+        {
+          "id": "infrastructure-as-code/reference-terraform",
+          "filename": "reference-terraform.md",
+          "title": "Reference: Terraform CLI & HCL Syntax",
+          "trackId": "infrastructure-as-code",
+          "order": 916,
+          "wordCount": 1312,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "message-queues-streaming",
+      "title": "Message Queues & Streaming",
+      "description": "> **What this module covers**: How modern systems communicate without",
+      "lessonCount": 16,
+      "status": "Complete",
+      "order": 38,
+      "lessons": [
+        {
+          "id": "message-queues-streaming/01-why-async-messaging",
+          "filename": "01-why-async-messaging.md",
+          "title": "Lesson 01: Why Asynchronous Messaging",
+          "trackId": "message-queues-streaming",
+          "order": 1,
+          "wordCount": 1398,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/02-queues-vs-streams",
+          "filename": "02-queues-vs-streams.md",
+          "title": "Lesson 02: Message Queues vs Event Streams",
+          "trackId": "message-queues-streaming",
+          "order": 2,
+          "wordCount": 1496,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/03-pub-sub",
+          "filename": "03-pub-sub.md",
+          "title": "Lesson 03: Publish/Subscribe Pattern",
+          "trackId": "message-queues-streaming",
+          "order": 3,
+          "wordCount": 1416,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/04-point-to-point",
+          "filename": "04-point-to-point.md",
+          "title": "Lesson 04: Point-to-Point Messaging",
+          "trackId": "message-queues-streaming",
+          "order": 4,
+          "wordCount": 1523,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/05-kafka-architecture",
+          "filename": "05-kafka-architecture.md",
+          "title": "Lesson 05: Apache Kafka Architecture",
+          "trackId": "message-queues-streaming",
+          "order": 5,
+          "wordCount": 1697,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/06-kafka-producers-consumers",
+          "filename": "06-kafka-producers-consumers.md",
+          "title": "Lesson 06: Kafka Producers and Consumers",
+          "trackId": "message-queues-streaming",
+          "order": 6,
+          "wordCount": 1808,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/07-kafka-consumer-groups",
+          "filename": "07-kafka-consumer-groups.md",
+          "title": "Lesson 07: Kafka Consumer Groups",
+          "trackId": "message-queues-streaming",
+          "order": 7,
+          "wordCount": 1684,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/08-kafka-exactly-once",
+          "filename": "08-kafka-exactly-once.md",
+          "title": "Lesson 08: Exactly-Once Semantics",
+          "trackId": "message-queues-streaming",
+          "order": 8,
+          "wordCount": 1491,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/09-rabbitmq-architecture",
+          "filename": "09-rabbitmq-architecture.md",
+          "title": "Lesson 09: RabbitMQ Architecture",
+          "trackId": "message-queues-streaming",
+          "order": 9,
+          "wordCount": 1596,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/10-rabbitmq-queues",
+          "filename": "10-rabbitmq-queues.md",
+          "title": "Lesson 10: RabbitMQ Queues and Routing",
+          "trackId": "message-queues-streaming",
+          "order": 10,
+          "wordCount": 1309,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/11-dead-letter-queues",
+          "filename": "11-dead-letter-queues.md",
+          "title": "Lesson 11: Dead Letter Queues",
+          "trackId": "message-queues-streaming",
+          "order": 11,
+          "wordCount": 1694,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/12-event-driven-architecture",
+          "filename": "12-event-driven-architecture.md",
+          "title": "Lesson 12: Event-Driven Architecture",
+          "trackId": "message-queues-streaming",
+          "order": 12,
+          "wordCount": 1540,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/13-event-sourcing",
+          "filename": "13-event-sourcing.md",
+          "title": "Lesson 13: Event Sourcing",
+          "trackId": "message-queues-streaming",
+          "order": 13,
+          "wordCount": 1473,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/14-cqrs",
+          "filename": "14-cqrs.md",
+          "title": "Lesson 14: CQRS — Command Query Responsibility Segregation",
+          "trackId": "message-queues-streaming",
+          "order": 14,
+          "wordCount": 1549,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/15-stream-processing",
+          "filename": "15-stream-processing.md",
+          "title": "Lesson 15: Stream Processing",
+          "trackId": "message-queues-streaming",
+          "order": 15,
+          "wordCount": 1752,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/16-build-event-system",
+          "filename": "16-build-event-system.md",
+          "title": "Lesson 16: Capstone — Build an Event-Driven Order Processing System",
+          "trackId": "message-queues-streaming",
+          "order": 16,
+          "wordCount": 1680,
+          "isReference": false
+        },
+        {
+          "id": "message-queues-streaming/reference-patterns",
+          "filename": "reference-patterns.md",
+          "title": "Reference: Messaging Patterns",
+          "trackId": "message-queues-streaming",
+          "order": 916,
+          "wordCount": 1107,
+          "isReference": true
+        },
+        {
+          "id": "message-queues-streaming/reference-tools",
+          "filename": "reference-tools.md",
+          "title": "Reference: Messaging Tools Comparison",
+          "trackId": "message-queues-streaming",
+          "order": 917,
+          "wordCount": 1460,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "authentication-authorization",
+      "title": "Authentication & Authorization",
+      "description": "> **The one thing to remember**: Authentication is \"who are you?\" and",
+      "lessonCount": 16,
+      "status": "Complete",
+      "order": 39,
+      "lessons": [
+        {
+          "id": "authentication-authorization/01-identity-basics",
+          "filename": "01-identity-basics.md",
+          "title": "Lesson 01: Identity Basics",
+          "trackId": "authentication-authorization",
+          "order": 1,
+          "wordCount": 1356,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/02-password-auth",
+          "filename": "02-password-auth.md",
+          "title": "Lesson 02: Password Authentication",
+          "trackId": "authentication-authorization",
+          "order": 2,
+          "wordCount": 1552,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/03-hashing-salting",
+          "filename": "03-hashing-salting.md",
+          "title": "Lesson 03: Hashing & Salting",
+          "trackId": "authentication-authorization",
+          "order": 3,
+          "wordCount": 1589,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/04-sessions-cookies",
+          "filename": "04-sessions-cookies.md",
+          "title": "Lesson 04: Sessions & Cookies",
+          "trackId": "authentication-authorization",
+          "order": 4,
+          "wordCount": 1518,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/05-token-auth",
+          "filename": "05-token-auth.md",
+          "title": "Lesson 05: Token-Based Authentication",
+          "trackId": "authentication-authorization",
+          "order": 5,
+          "wordCount": 1492,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/06-jwt-deep-dive",
+          "filename": "06-jwt-deep-dive.md",
+          "title": "Lesson 06: JWT Deep Dive",
+          "trackId": "authentication-authorization",
+          "order": 6,
+          "wordCount": 1483,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/07-oauth2-big-picture",
+          "filename": "07-oauth2-big-picture.md",
+          "title": "Lesson 07: OAuth 2.0 — The Big Picture",
+          "trackId": "authentication-authorization",
+          "order": 7,
+          "wordCount": 1626,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/08-oauth2-auth-code",
+          "filename": "08-oauth2-auth-code.md",
+          "title": "Lesson 08: OAuth 2.0 Authorization Code Flow",
+          "trackId": "authentication-authorization",
+          "order": 8,
+          "wordCount": 1534,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/09-oauth2-other-flows",
+          "filename": "09-oauth2-other-flows.md",
+          "title": "Lesson 09: Other OAuth 2.0 Flows",
+          "trackId": "authentication-authorization",
+          "order": 9,
+          "wordCount": 1541,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/10-oidc",
+          "filename": "10-oidc.md",
+          "title": "Lesson 10: OpenID Connect (OIDC)",
+          "trackId": "authentication-authorization",
+          "order": 10,
+          "wordCount": 1664,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/11-saml-sso",
+          "filename": "11-saml-sso.md",
+          "title": "Lesson 11: SAML & Enterprise SSO",
+          "trackId": "authentication-authorization",
+          "order": 11,
+          "wordCount": 1632,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/12-rbac",
+          "filename": "12-rbac.md",
+          "title": "Lesson 12: Role-Based Access Control (RBAC)",
+          "trackId": "authentication-authorization",
+          "order": 12,
+          "wordCount": 1671,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/13-abac",
+          "filename": "13-abac.md",
+          "title": "Lesson 13: Attribute-Based Access Control (ABAC)",
+          "trackId": "authentication-authorization",
+          "order": 13,
+          "wordCount": 1482,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/14-mfa",
+          "filename": "14-mfa.md",
+          "title": "Lesson 14: Multi-Factor Authentication (MFA)",
+          "trackId": "authentication-authorization",
+          "order": 14,
+          "wordCount": 1949,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/15-passkeys-webauthn",
+          "filename": "15-passkeys-webauthn.md",
+          "title": "Lesson 15: Passkeys & WebAuthn",
+          "trackId": "authentication-authorization",
+          "order": 15,
+          "wordCount": 1774,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/16-build-auth-system",
+          "filename": "16-build-auth-system.md",
+          "title": "Lesson 16: Build a Complete Auth System (Capstone)",
+          "trackId": "authentication-authorization",
+          "order": 16,
+          "wordCount": 2292,
+          "isReference": false
+        },
+        {
+          "id": "authentication-authorization/reference-checklist",
+          "filename": "reference-checklist.md",
+          "title": "Reference: Authentication Security Checklist",
+          "trackId": "authentication-authorization",
+          "order": 916,
+          "wordCount": 1368,
+          "isReference": true
+        },
+        {
+          "id": "authentication-authorization/reference-flows",
+          "filename": "reference-flows.md",
+          "title": "Reference: OAuth 2.0 & OIDC Flows",
+          "trackId": "authentication-authorization",
+          "order": 917,
+          "wordCount": 944,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "ml-systems-at-scale",
+      "title": "ML Systems at Scale",
+      "description": "Welcome to the **ML Systems at Scale** track. You know how to train",
+      "lessonCount": 12,
+      "status": "Complete",
+      "order": 40,
+      "lessons": [
+        {
+          "id": "ml-systems-at-scale/01-training-infrastructure",
+          "filename": "01-training-infrastructure.md",
+          "title": "Lesson 01: Training Infrastructure",
+          "trackId": "ml-systems-at-scale",
+          "order": 1,
+          "wordCount": 1974,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/02-data-loading-at-scale",
+          "filename": "02-data-loading-at-scale.md",
+          "title": "Lesson 02: Data Loading at Scale",
+          "trackId": "ml-systems-at-scale",
+          "order": 2,
+          "wordCount": 1806,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/03-distributed-training-patterns",
+          "filename": "03-distributed-training-patterns.md",
+          "title": "Lesson 03: Distributed Training Patterns",
+          "trackId": "ml-systems-at-scale",
+          "order": 3,
+          "wordCount": 2430,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/04-deepspeed-fsdp",
+          "filename": "04-deepspeed-fsdp.md",
+          "title": "Lesson 04: DeepSpeed & FSDP",
+          "trackId": "ml-systems-at-scale",
+          "order": 4,
+          "wordCount": 2225,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/05-training-large-models",
+          "filename": "05-training-large-models.md",
+          "title": "Lesson 05: Training Large Models",
+          "trackId": "ml-systems-at-scale",
+          "order": 5,
+          "wordCount": 2070,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/06-training-stability",
+          "filename": "06-training-stability.md",
+          "title": "Lesson 06: Training Stability",
+          "trackId": "ml-systems-at-scale",
+          "order": 6,
+          "wordCount": 2080,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/07-training-orchestration",
+          "filename": "07-training-orchestration.md",
+          "title": "Lesson 07: Training Orchestration",
+          "trackId": "ml-systems-at-scale",
+          "order": 7,
+          "wordCount": 1874,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/08-large-scale-data-processing",
+          "filename": "08-large-scale-data-processing.md",
+          "title": "Lesson 08: Large-Scale Data Processing",
+          "trackId": "ml-systems-at-scale",
+          "order": 8,
+          "wordCount": 1985,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/09-evaluation-at-scale",
+          "filename": "09-evaluation-at-scale.md",
+          "title": "Lesson 09: Evaluation at Scale",
+          "trackId": "ml-systems-at-scale",
+          "order": 9,
+          "wordCount": 1785,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/10-cost-engineering",
+          "filename": "10-cost-engineering.md",
+          "title": "Lesson 10: Cost Engineering",
+          "trackId": "ml-systems-at-scale",
+          "order": 10,
+          "wordCount": 2085,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/11-reproducibility",
+          "filename": "11-reproducibility.md",
+          "title": "Lesson 11: Reproducibility",
+          "trackId": "ml-systems-at-scale",
+          "order": 11,
+          "wordCount": 1836,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/12-build-training-cluster",
+          "filename": "12-build-training-cluster.md",
+          "title": "Lesson 12: Build a Training Cluster (Capstone)",
+          "trackId": "ml-systems-at-scale",
+          "order": 12,
+          "wordCount": 2119,
+          "isReference": false
+        },
+        {
+          "id": "ml-systems-at-scale/reference-distributed",
+          "filename": "reference-distributed.md",
+          "title": "Reference: Distributed Training Patterns & Configs",
+          "trackId": "ml-systems-at-scale",
+          "order": 912,
+          "wordCount": 1095,
+          "isReference": true
+        },
+        {
+          "id": "ml-systems-at-scale/reference-hardware",
+          "filename": "reference-hardware.md",
+          "title": "Reference: GPU/TPU Hardware Comparison",
+          "trackId": "ml-systems-at-scale",
+          "order": 913,
+          "wordCount": 1437,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "ml-research-to-production",
+      "title": "ML Research to Production",
+      "description": "Welcome to the **ML Research to Production** track. You can train",
+      "lessonCount": 12,
+      "status": "Complete",
+      "order": 41,
+      "lessons": [
+        {
+          "id": "ml-research-to-production/01-reading-ml-papers",
+          "filename": "01-reading-ml-papers.md",
+          "title": "Lesson 01: Reading ML Papers",
+          "trackId": "ml-research-to-production",
+          "order": 1,
+          "wordCount": 1682,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/02-reproducing-results",
+          "filename": "02-reproducing-results.md",
+          "title": "Lesson 02: Reproducing Results",
+          "trackId": "ml-research-to-production",
+          "order": 2,
+          "wordCount": 1698,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/03-implementing-papers",
+          "filename": "03-implementing-papers.md",
+          "title": "Lesson 03: Implementing Papers",
+          "trackId": "ml-research-to-production",
+          "order": 3,
+          "wordCount": 1710,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/04-experiment-design",
+          "filename": "04-experiment-design.md",
+          "title": "Lesson 04: Experiment Design",
+          "trackId": "ml-research-to-production",
+          "order": 4,
+          "wordCount": 1853,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/05-research-engineering-workflow",
+          "filename": "05-research-engineering-workflow.md",
+          "title": "Lesson 05: Research Engineering Workflow",
+          "trackId": "ml-research-to-production",
+          "order": 5,
+          "wordCount": 1758,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/06-custom-training-loops",
+          "filename": "06-custom-training-loops.md",
+          "title": "Lesson 06: Custom Training Loops",
+          "trackId": "ml-research-to-production",
+          "order": 6,
+          "wordCount": 1838,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/07-custom-architectures",
+          "filename": "07-custom-architectures.md",
+          "title": "Lesson 07: Custom Architectures",
+          "trackId": "ml-research-to-production",
+          "order": 7,
+          "wordCount": 1856,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/08-custom-losses",
+          "filename": "08-custom-losses.md",
+          "title": "Lesson 08: Custom Loss Functions",
+          "trackId": "ml-research-to-production",
+          "order": 8,
+          "wordCount": 1831,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/09-dataset-creation",
+          "filename": "09-dataset-creation.md",
+          "title": "Lesson 09: Dataset Creation",
+          "trackId": "ml-research-to-production",
+          "order": 9,
+          "wordCount": 1882,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/10-benchmarking",
+          "filename": "10-benchmarking.md",
+          "title": "Lesson 10: Benchmarking",
+          "trackId": "ml-research-to-production",
+          "order": 10,
+          "wordCount": 1551,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/11-from-prototype-to-production",
+          "filename": "11-from-prototype-to-production.md",
+          "title": "Lesson 11: From Prototype to Production",
+          "trackId": "ml-research-to-production",
+          "order": 11,
+          "wordCount": 1706,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/12-build-research-project",
+          "filename": "12-build-research-project.md",
+          "title": "Lesson 12: Build a Research Project (Capstone)",
+          "trackId": "ml-research-to-production",
+          "order": 12,
+          "wordCount": 2179,
+          "isReference": false
+        },
+        {
+          "id": "ml-research-to-production/reference-paper-reading",
+          "filename": "reference-paper-reading.md",
+          "title": "Reference: Paper Reading",
+          "trackId": "ml-research-to-production",
+          "order": 912,
+          "wordCount": 981,
+          "isReference": true
+        },
+        {
+          "id": "ml-research-to-production/reference-workflow",
+          "filename": "reference-workflow.md",
+          "title": "Reference: Research Engineering Workflow",
+          "trackId": "ml-research-to-production",
+          "order": 913,
+          "wordCount": 1596,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "advanced-llm-engineering",
+      "title": "Advanced LLM Engineering",
+      "description": "You know how to use LLMs. You have called APIs, fine-tuned models, maybe",
+      "lessonCount": 14,
+      "status": "Complete",
+      "order": 42,
+      "lessons": [
+        {
+          "id": "advanced-llm-engineering/01-pretraining-from-scratch",
+          "filename": "01-pretraining-from-scratch.md",
+          "title": "Lesson 01: Pre-training from Scratch — The Full Pipeline",
+          "trackId": "advanced-llm-engineering",
+          "order": 1,
+          "wordCount": 1936,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/02-custom-tokenizers",
+          "filename": "02-custom-tokenizers.md",
+          "title": "Lesson 02: Custom Tokenizers — Controlling How Your Model Sees Text",
+          "trackId": "advanced-llm-engineering",
+          "order": 2,
+          "wordCount": 1888,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/03-mixture-of-experts",
+          "filename": "03-mixture-of-experts.md",
+          "title": "Lesson 03: Mixture of Experts — Scaling Without Scaling Compute",
+          "trackId": "advanced-llm-engineering",
+          "order": 3,
+          "wordCount": 2152,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/04-attention-variants",
+          "filename": "04-attention-variants.md",
+          "title": "Lesson 04: Attention Variants — Faster, Leaner, Longer",
+          "trackId": "advanced-llm-engineering",
+          "order": 4,
+          "wordCount": 2261,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/05-positional-encoding-advances",
+          "filename": "05-positional-encoding-advances.md",
+          "title": "Lesson 05: Positional Encoding Advances — Teaching Models Where Tokens Are",
+          "trackId": "advanced-llm-engineering",
+          "order": 5,
+          "wordCount": 2235,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/06-kv-cache-optimization",
+          "filename": "06-kv-cache-optimization.md",
+          "title": "Lesson 06: KV Cache Optimization — Taming the Memory Monster",
+          "trackId": "advanced-llm-engineering",
+          "order": 6,
+          "wordCount": 2108,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/07-speculative-decoding",
+          "filename": "07-speculative-decoding.md",
+          "title": "Lesson 07: Speculative Decoding — Using a Small Model to Speed Up a Big One",
+          "trackId": "advanced-llm-engineering",
+          "order": 7,
+          "wordCount": 1964,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/08-model-quantization-advanced",
+          "filename": "08-model-quantization-advanced.md",
+          "title": "Lesson 08: Advanced Model Quantization — Shrinking Models Without Losing Their Minds",
+          "trackId": "advanced-llm-engineering",
+          "order": 8,
+          "wordCount": 2148,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/09-serving-at-scale",
+          "filename": "09-serving-at-scale.md",
+          "title": "Lesson 09: Serving at Scale — From Model to API",
+          "trackId": "advanced-llm-engineering",
+          "order": 9,
+          "wordCount": 1838,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/10-multi-gpu-inference",
+          "filename": "10-multi-gpu-inference.md",
+          "title": "Lesson 10: Multi-GPU Inference — Splitting Models Across Hardware",
+          "trackId": "advanced-llm-engineering",
+          "order": 10,
+          "wordCount": 2026,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/11-training-alignment",
+          "filename": "11-training-alignment.md",
+          "title": "Lesson 11: Training Alignment — Teaching Models to Follow Instructions",
+          "trackId": "advanced-llm-engineering",
+          "order": 11,
+          "wordCount": 1831,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/12-efficient-finetuning",
+          "filename": "12-efficient-finetuning.md",
+          "title": "Lesson 12: Efficient Fine-tuning — Adapting Models Without Breaking the Bank",
+          "trackId": "advanced-llm-engineering",
+          "order": 12,
+          "wordCount": 2042,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/13-evaluation-llms",
+          "filename": "13-evaluation-llms.md",
+          "title": "Lesson 13: Evaluating LLMs — Beyond Benchmark Scores",
+          "trackId": "advanced-llm-engineering",
+          "order": 13,
+          "wordCount": 1873,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/14-build-llm-system",
+          "filename": "14-build-llm-system.md",
+          "title": "Lesson 14: Build a Complete LLM System — Capstone Project",
+          "trackId": "advanced-llm-engineering",
+          "order": 14,
+          "wordCount": 2063,
+          "isReference": false
+        },
+        {
+          "id": "advanced-llm-engineering/reference-architectures",
+          "filename": "reference-architectures.md",
+          "title": "Reference: LLM Architectures — Parameter Counts, Context Lengths, and Key Design Choices",
+          "trackId": "advanced-llm-engineering",
+          "order": 914,
+          "wordCount": 1106,
+          "isReference": true
+        },
+        {
+          "id": "advanced-llm-engineering/reference-serving",
+          "filename": "reference-serving.md",
+          "title": "Reference: LLM Serving Engines — Comparing vLLM, TGI, TensorRT-LLM, and Ollama",
+          "trackId": "advanced-llm-engineering",
+          "order": 915,
+          "wordCount": 1488,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "ml-performance-optimization",
+      "title": "ML Performance Optimization",
+      "description": "You have an ML model that works. It trains. It produces results. But it takes",
+      "lessonCount": 12,
+      "status": "Complete",
+      "order": 43,
+      "lessons": [
+        {
+          "id": "ml-performance-optimization/01-profiling-ml-code",
+          "filename": "01-profiling-ml-code.md",
+          "title": "01 - Profiling ML Code",
+          "trackId": "ml-performance-optimization",
+          "order": 1,
+          "wordCount": 1718,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/02-gpu-memory-deep-dive",
+          "filename": "02-gpu-memory-deep-dive.md",
+          "title": "02 - GPU Memory Deep Dive",
+          "trackId": "ml-performance-optimization",
+          "order": 2,
+          "wordCount": 1921,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/03-memory-optimization",
+          "filename": "03-memory-optimization.md",
+          "title": "03 - Memory Optimization",
+          "trackId": "ml-performance-optimization",
+          "order": 3,
+          "wordCount": 1933,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/04-data-pipeline-optimization",
+          "filename": "04-data-pipeline-optimization.md",
+          "title": "04 - Data Pipeline Optimization",
+          "trackId": "ml-performance-optimization",
+          "order": 4,
+          "wordCount": 1656,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/05-pytorch-performance",
+          "filename": "05-pytorch-performance.md",
+          "title": "05 - PyTorch Performance",
+          "trackId": "ml-performance-optimization",
+          "order": 5,
+          "wordCount": 1500,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/06-torch-compile",
+          "filename": "06-torch-compile.md",
+          "title": "06 - torch.compile Deep Dive",
+          "trackId": "ml-performance-optimization",
+          "order": 6,
+          "wordCount": 1548,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/07-operator-fusion",
+          "filename": "07-operator-fusion.md",
+          "title": "07 - Operator Fusion",
+          "trackId": "ml-performance-optimization",
+          "order": 7,
+          "wordCount": 1562,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/08-cuda-kernels-for-ml",
+          "filename": "08-cuda-kernels-for-ml.md",
+          "title": "08 - CUDA Kernels for ML",
+          "trackId": "ml-performance-optimization",
+          "order": 8,
+          "wordCount": 1933,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/09-tensorrt-optimization",
+          "filename": "09-tensorrt-optimization.md",
+          "title": "09 - TensorRT Optimization",
+          "trackId": "ml-performance-optimization",
+          "order": 9,
+          "wordCount": 1486,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/10-batch-optimization",
+          "filename": "10-batch-optimization.md",
+          "title": "10 - Batch Optimization",
+          "trackId": "ml-performance-optimization",
+          "order": 10,
+          "wordCount": 1464,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/11-inference-optimization",
+          "filename": "11-inference-optimization.md",
+          "title": "11 - Inference Optimization",
+          "trackId": "ml-performance-optimization",
+          "order": 11,
+          "wordCount": 1781,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/12-build-optimized-pipeline",
+          "filename": "12-build-optimized-pipeline.md",
+          "title": "12 - Build an Optimized Pipeline (Capstone)",
+          "trackId": "ml-performance-optimization",
+          "order": 12,
+          "wordCount": 1860,
+          "isReference": false
+        },
+        {
+          "id": "ml-performance-optimization/reference-optimization",
+          "filename": "reference-optimization.md",
+          "title": "Optimization Checklist by Bottleneck Type",
+          "trackId": "ml-performance-optimization",
+          "order": 912,
+          "wordCount": 1343,
+          "isReference": true
+        },
+        {
+          "id": "ml-performance-optimization/reference-profiling",
+          "filename": "reference-profiling.md",
+          "title": "Profiling Quick Reference",
+          "trackId": "ml-performance-optimization",
+          "order": 913,
+          "wordCount": 997,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "advanced-system-design",
+      "title": "Advanced System Design",
+      "description": "> You've built systems that work. Now learn to build systems",
+      "lessonCount": 13,
+      "status": "Complete",
+      "order": 44,
+      "lessons": [
+        {
+          "id": "advanced-system-design/01-architecture-at-scale",
+          "filename": "01-architecture-at-scale.md",
+          "title": "Lesson 1: Architecture at Scale",
+          "trackId": "advanced-system-design",
+          "order": 1,
+          "wordCount": 1614,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/02-distributed-transactions",
+          "filename": "02-distributed-transactions.md",
+          "title": "Lesson 2: Distributed Transactions",
+          "trackId": "advanced-system-design",
+          "order": 2,
+          "wordCount": 2279,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/03-event-sourcing-at-scale",
+          "filename": "03-event-sourcing-at-scale.md",
+          "title": "Lesson 3: Event Sourcing at Scale",
+          "trackId": "advanced-system-design",
+          "order": 3,
+          "wordCount": 2221,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/04-multi-region-architecture",
+          "filename": "04-multi-region-architecture.md",
+          "title": "Lesson 4: Multi-Region Architecture",
+          "trackId": "advanced-system-design",
+          "order": 4,
+          "wordCount": 1991,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/05-zero-downtime-migrations",
+          "filename": "05-zero-downtime-migrations.md",
+          "title": "Lesson 5: Zero-Downtime Migrations",
+          "trackId": "advanced-system-design",
+          "order": 5,
+          "wordCount": 2162,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/06-observability-at-scale",
+          "filename": "06-observability-at-scale.md",
+          "title": "Lesson 6: Observability at Scale",
+          "trackId": "advanced-system-design",
+          "order": 6,
+          "wordCount": 1888,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/07-capacity-planning",
+          "filename": "07-capacity-planning.md",
+          "title": "Lesson 7: Capacity Planning",
+          "trackId": "advanced-system-design",
+          "order": 7,
+          "wordCount": 2167,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/08-service-mesh-deep-dive",
+          "filename": "08-service-mesh-deep-dive.md",
+          "title": "Lesson 8: Service Mesh Deep Dive",
+          "trackId": "advanced-system-design",
+          "order": 8,
+          "wordCount": 1939,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/09-api-evolution",
+          "filename": "09-api-evolution.md",
+          "title": "Lesson 9: API Evolution",
+          "trackId": "advanced-system-design",
+          "order": 9,
+          "wordCount": 2113,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/10-data-architecture",
+          "filename": "10-data-architecture.md",
+          "title": "Lesson 10: Data Architecture",
+          "trackId": "advanced-system-design",
+          "order": 10,
+          "wordCount": 1928,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/11-reliability-engineering",
+          "filename": "11-reliability-engineering.md",
+          "title": "Lesson 11: Reliability Engineering",
+          "trackId": "advanced-system-design",
+          "order": 11,
+          "wordCount": 2047,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/12-tech-strategy",
+          "filename": "12-tech-strategy.md",
+          "title": "Lesson 12: Technical Strategy",
+          "trackId": "advanced-system-design",
+          "order": 12,
+          "wordCount": 2401,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/13-design-real-systems",
+          "filename": "13-design-real-systems.md",
+          "title": "Lesson 13: Design a Global-Scale E-Commerce Platform",
+          "trackId": "advanced-system-design",
+          "order": 13,
+          "wordCount": 2899,
+          "isReference": false
+        },
+        {
+          "id": "advanced-system-design/reference-adrs",
+          "filename": "reference-adrs.md",
+          "title": "Architecture Decision Records (ADRs)",
+          "trackId": "advanced-system-design",
+          "order": 913,
+          "wordCount": 1962,
+          "isReference": true
+        },
+        {
+          "id": "advanced-system-design/reference-patterns",
+          "filename": "reference-patterns.md",
+          "title": "Advanced Architecture Patterns Quick Reference",
+          "trackId": "advanced-system-design",
+          "order": 914,
+          "wordCount": 1598,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "platform-engineering",
+      "title": "Platform Engineering",
+      "description": "This track teaches you how to build internal developer platforms that make",
+      "lessonCount": 12,
+      "status": "Complete",
+      "order": 45,
+      "lessons": [
+        {
+          "id": "platform-engineering/01-what-is-platform-engineering",
+          "filename": "01-what-is-platform-engineering.md",
+          "title": "Lesson 01: What Is Platform Engineering?",
+          "trackId": "platform-engineering",
+          "order": 1,
+          "wordCount": 1918,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/02-golden-paths",
+          "filename": "02-golden-paths.md",
+          "title": "Lesson 02: Golden Paths",
+          "trackId": "platform-engineering",
+          "order": 2,
+          "wordCount": 2221,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/03-developer-portals",
+          "filename": "03-developer-portals.md",
+          "title": "Lesson 03: Developer Portals",
+          "trackId": "platform-engineering",
+          "order": 3,
+          "wordCount": 2293,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/04-internal-apis",
+          "filename": "04-internal-apis.md",
+          "title": "Lesson 04: Internal APIs & SDKs",
+          "trackId": "platform-engineering",
+          "order": 4,
+          "wordCount": 1932,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/05-ci-cd-platform",
+          "filename": "05-ci-cd-platform.md",
+          "title": "Lesson 05: CI/CD as a Platform Service",
+          "trackId": "platform-engineering",
+          "order": 5,
+          "wordCount": 2194,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/06-infrastructure-abstraction",
+          "filename": "06-infrastructure-abstraction.md",
+          "title": "Lesson 06: Infrastructure Abstraction",
+          "trackId": "platform-engineering",
+          "order": 6,
+          "wordCount": 2102,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/07-secrets-config-platform",
+          "filename": "07-secrets-config-platform.md",
+          "title": "Lesson 07: Secrets & Configuration at Scale",
+          "trackId": "platform-engineering",
+          "order": 7,
+          "wordCount": 2253,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/08-observability-platform",
+          "filename": "08-observability-platform.md",
+          "title": "Lesson 08: Observability as a Platform Service",
+          "trackId": "platform-engineering",
+          "order": 8,
+          "wordCount": 1983,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/09-database-as-service",
+          "filename": "09-database-as-service.md",
+          "title": "Lesson 09: Database as a Service",
+          "trackId": "platform-engineering",
+          "order": 9,
+          "wordCount": 2206,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/10-measuring-platform",
+          "filename": "10-measuring-platform.md",
+          "title": "Lesson 10: Measuring Platform Success",
+          "trackId": "platform-engineering",
+          "order": 10,
+          "wordCount": 2143,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/11-platform-team-dynamics",
+          "filename": "11-platform-team-dynamics.md",
+          "title": "Lesson 11: Platform Team Dynamics",
+          "trackId": "platform-engineering",
+          "order": 11,
+          "wordCount": 2348,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/12-build-developer-platform",
+          "filename": "12-build-developer-platform.md",
+          "title": "Lesson 12: Design an Internal Developer Platform (Capstone)",
+          "trackId": "platform-engineering",
+          "order": 12,
+          "wordCount": 2628,
+          "isReference": false
+        },
+        {
+          "id": "platform-engineering/reference-patterns",
+          "filename": "reference-patterns.md",
+          "title": "Platform Engineering Patterns & Anti-Patterns",
+          "trackId": "platform-engineering",
+          "order": 912,
+          "wordCount": 1709,
+          "isReference": true
+        },
+        {
+          "id": "platform-engineering/reference-tools",
+          "filename": "reference-tools.md",
+          "title": "Platform Engineering Tools Reference",
+          "trackId": "platform-engineering",
+          "order": 913,
+          "wordCount": 1431,
+          "isReference": true
         }
       ]
     }
   ],
-  "totalLessons": 590,
-  "generatedAt": "2026-03-10T12:56:43.369Z"
+  "careerTracks": [
+    {
+      "id": "backend-engineer",
+      "title": "Backend Engineer",
+      "description": "Build robust, scalable server-side systems. Learn databases, APIs, concurrency, and deployment — everything needed to design and maintain the systems behind modern applications.",
+      "difficulty": "beginner-intermediate",
+      "icon": "Server",
+      "color": "text-emerald-500",
+      "estimatedHours": 200,
+      "topicIds": [
+        "cs-fundamentals",
+        "data-structures",
+        "databases",
+        "go",
+        "networking",
+        "api-design",
+        "linux-fundamentals",
+        "testing-quality",
+        "design-patterns",
+        "concurrency-parallelism",
+        "ci-cd-pipelines",
+        "authentication-authorization",
+        "message-queues-streaming",
+        "system-design",
+        "docker",
+        "security-cryptography"
+      ],
+      "books": [
+        {
+          "title": "Designing Data-Intensive Applications",
+          "author": "Martin Kleppmann",
+          "year": 2017,
+          "description": "The modern backend engineering bible"
+        },
+        {
+          "title": "System Design Interview (Vol 1 & 2)",
+          "author": "Alex Xu",
+          "year": 2020,
+          "description": "Practical system design walkthroughs"
+        },
+        {
+          "title": "Building Microservices",
+          "author": "Sam Newman",
+          "year": 2021,
+          "description": "Microservices architecture patterns"
+        },
+        {
+          "title": "The Go Programming Language",
+          "author": "Alan Donovan and Brian Kernighan",
+          "year": 2015,
+          "description": "The definitive Go book"
+        }
+      ]
+    },
+    {
+      "id": "ml-engineer",
+      "title": "ML Engineer",
+      "description": "Build, train, deploy, and monitor machine learning models at scale. From mathematical foundations to production MLOps pipelines.",
+      "difficulty": "intermediate-advanced",
+      "icon": "Brain",
+      "color": "text-purple-500",
+      "estimatedHours": 220,
+      "topicIds": [
+        "python-for-ai",
+        "math-for-ai",
+        "data-structures",
+        "ml-fundamentals",
+        "advanced-deep-learning",
+        "llms-transformers",
+        "applied-ml",
+        "testing-quality",
+        "ci-cd-pipelines",
+        "mlops",
+        "docker",
+        "kubernetes",
+        "cloud-architecture",
+        "data-engineering"
+      ],
+      "books": [
+        {
+          "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow",
+          "author": "Aurelien Geron",
+          "year": 2022,
+          "description": "The most practical ML book"
+        },
+        {
+          "title": "Designing Machine Learning Systems",
+          "author": "Chip Huyen",
+          "year": 2022,
+          "description": "Production ML system design"
+        },
+        {
+          "title": "Deep Learning",
+          "author": "Ian Goodfellow, Yoshua Bengio, and Aaron Courville",
+          "year": 2016,
+          "free": true,
+          "description": "The deep learning bible — free at deeplearningbook.org"
+        }
+      ]
+    },
+    {
+      "id": "systems-programmer",
+      "title": "Systems Programmer",
+      "description": "Work at the OS, compiler, and runtime level. Build the infrastructure that other software runs on. Master memory, concurrency, and low-level programming.",
+      "difficulty": "intermediate-advanced",
+      "icon": "Cpu",
+      "color": "text-orange-500",
+      "estimatedHours": 180,
+      "topicIds": [
+        "cs-fundamentals",
+        "data-structures",
+        "c-cpp-for-ml",
+        "rust",
+        "os-concepts",
+        "concurrency-parallelism",
+        "networking",
+        "compilers-interpreters",
+        "linux-fundamentals",
+        "discrete-math"
+      ],
+      "books": [
+        {
+          "title": "The Rust Programming Language",
+          "author": "Steve Klabnik and Carol Nichols",
+          "year": 2023,
+          "free": true,
+          "description": "The official Rust book — free at doc.rust-lang.org/book"
+        },
+        {
+          "title": "Operating Systems: Three Easy Pieces",
+          "author": "Remzi and Andrea Arpaci-Dusseau",
+          "year": 2018,
+          "free": true,
+          "description": "Best OS textbook — free at pages.cs.wisc.edu/~remzi/OSTEP"
+        },
+        {
+          "title": "Crafting Interpreters",
+          "author": "Robert Nystrom",
+          "year": 2021,
+          "free": true,
+          "description": "Build two interpreters from scratch — free at craftinginterpreters.com"
+        }
+      ]
+    },
+    {
+      "id": "cloud-devops-engineer",
+      "title": "Cloud / DevOps Engineer",
+      "description": "Automate infrastructure, manage deployments, and keep systems running reliably at scale. Master containers, orchestration, CI/CD, and cloud services.",
+      "difficulty": "beginner-intermediate",
+      "icon": "Cloud",
+      "color": "text-sky-500",
+      "estimatedHours": 170,
+      "topicIds": [
+        "linux-fundamentals",
+        "networking",
+        "docker",
+        "kubernetes",
+        "ci-cd-pipelines",
+        "infrastructure-as-code",
+        "cloud-architecture",
+        "sre-observability",
+        "security-cryptography",
+        "message-queues-streaming",
+        "databases"
+      ],
+      "books": [
+        {
+          "title": "Kubernetes in Action",
+          "author": "Marko Luksa",
+          "year": 2024,
+          "description": "The most thorough Kubernetes book"
+        },
+        {
+          "title": "Terraform: Up & Running",
+          "author": "Yevgeniy Brikman",
+          "year": 2022,
+          "description": "Infrastructure as Code with Terraform"
+        },
+        {
+          "title": "Site Reliability Engineering",
+          "author": "Betsy Beyer et al.",
+          "year": 2016,
+          "free": true,
+          "description": "How Google runs production — free at sre.google/books"
+        }
+      ]
+    },
+    {
+      "id": "fullstack-developer",
+      "title": "Full-Stack Developer",
+      "description": "Build complete web applications from database to browser. Learn frontend, backend, APIs, authentication, and deployment.",
+      "difficulty": "beginner-intermediate",
+      "icon": "Layers",
+      "color": "text-violet-500",
+      "estimatedHours": 190,
+      "topicIds": [
+        "cs-fundamentals",
+        "data-structures",
+        "typescript-web",
+        "databases",
+        "api-design",
+        "testing-quality",
+        "ci-cd-pipelines",
+        "authentication-authorization",
+        "networking",
+        "linux-fundamentals",
+        "docker",
+        "security-cryptography",
+        "system-design"
+      ],
+      "books": [
+        {
+          "title": "Effective TypeScript",
+          "author": "Dan Vanderkam",
+          "year": 2024,
+          "description": "83 ways to improve your TypeScript"
+        },
+        {
+          "title": "Designing Data-Intensive Applications",
+          "author": "Martin Kleppmann",
+          "year": 2017,
+          "description": "Understand the data layer deeply"
+        },
+        {
+          "title": "The Road to React",
+          "author": "Robin Wieruch",
+          "year": 2024,
+          "description": "Modern React with hooks and TypeScript"
+        }
+      ]
+    },
+    {
+      "id": "ai-engineer",
+      "title": "AI Engineer",
+      "description": "Build AI-powered products. Focus on integrating LLMs, building RAG systems, agents, and production AI tooling rather than training models from scratch.",
+      "difficulty": "intermediate",
+      "icon": "Sparkles",
+      "color": "text-amber-500",
+      "estimatedHours": 160,
+      "topicIds": [
+        "python-for-ai",
+        "ml-fundamentals",
+        "llms-transformers",
+        "nlp",
+        "ai-engineering",
+        "applied-ml",
+        "testing-quality",
+        "api-design",
+        "databases",
+        "docker",
+        "cloud-architecture",
+        "ci-cd-pipelines"
+      ],
+      "books": [
+        {
+          "title": "Build a Large Language Model (From Scratch)",
+          "author": "Sebastian Raschka",
+          "year": 2024,
+          "description": "Understand what is under the hood of LLMs"
+        },
+        {
+          "title": "Natural Language Processing with Transformers",
+          "author": "Lewis Tunstall, Leandro von Werra, and Thomas Wolf",
+          "year": 2022,
+          "description": "Practical transformer-based NLP by Hugging Face authors"
+        },
+        {
+          "title": "Designing Machine Learning Systems",
+          "author": "Chip Huyen",
+          "year": 2022,
+          "description": "Production AI system design"
+        }
+      ]
+    },
+    {
+      "id": "data-engineer",
+      "title": "Data Engineer",
+      "description": "Build and maintain data infrastructure that powers analytics and ML. Design pipelines, warehouses, and streaming systems.",
+      "difficulty": "intermediate",
+      "icon": "Database",
+      "color": "text-teal-500",
+      "estimatedHours": 160,
+      "topicIds": [
+        "python-for-ai",
+        "databases",
+        "data-engineering",
+        "linux-fundamentals",
+        "message-queues-streaming",
+        "docker",
+        "kubernetes",
+        "infrastructure-as-code",
+        "cloud-architecture",
+        "distributed-systems",
+        "ci-cd-pipelines"
+      ],
+      "books": [
+        {
+          "title": "Fundamentals of Data Engineering",
+          "author": "Joe Reis and Matt Housley",
+          "year": 2022,
+          "description": "Modern data engineering foundations"
+        },
+        {
+          "title": "Designing Data-Intensive Applications",
+          "author": "Martin Kleppmann",
+          "year": 2017,
+          "description": "The data systems architecture bible"
+        },
+        {
+          "title": "The Data Warehouse Toolkit",
+          "author": "Ralph Kimball and Margy Ross",
+          "year": 2013,
+          "description": "Dimensional modeling bible"
+        }
+      ]
+    },
+    {
+      "id": "security-engineer",
+      "title": "Security Engineer",
+      "description": "Defend systems, find vulnerabilities, and build secure infrastructure. Covers application security, cryptography, and infrastructure security.",
+      "difficulty": "intermediate-advanced",
+      "icon": "Shield",
+      "color": "text-red-500",
+      "estimatedHours": 175,
+      "topicIds": [
+        "cs-fundamentals",
+        "networking",
+        "linux-fundamentals",
+        "os-concepts",
+        "security-cryptography",
+        "authentication-authorization",
+        "docker",
+        "kubernetes",
+        "cloud-architecture",
+        "api-design",
+        "databases",
+        "ci-cd-pipelines"
+      ],
+      "books": [
+        {
+          "title": "Serious Cryptography",
+          "author": "Jean-Philippe Aumasson",
+          "year": 2024,
+          "description": "Modern applied cryptography"
+        },
+        {
+          "title": "Real-World Cryptography",
+          "author": "David Wong",
+          "year": 2021,
+          "description": "Practical crypto for developers"
+        },
+        {
+          "title": "OAuth 2 in Action",
+          "author": "Justin Richer and Antonio Sanso",
+          "year": 2017,
+          "description": "Deep dive into OAuth 2.0"
+        }
+      ]
+    },
+    {
+      "id": "site-reliability-engineer",
+      "title": "Site Reliability Engineer",
+      "description": "Keep systems reliable at scale. Balance development velocity with system reliability using SLOs, error budgets, observability, and automation.",
+      "difficulty": "intermediate-advanced",
+      "icon": "Activity",
+      "color": "text-rose-500",
+      "estimatedHours": 200,
+      "topicIds": [
+        "linux-fundamentals",
+        "networking",
+        "os-concepts",
+        "databases",
+        "docker",
+        "kubernetes",
+        "ci-cd-pipelines",
+        "infrastructure-as-code",
+        "cloud-architecture",
+        "sre-observability",
+        "message-queues-streaming",
+        "distributed-systems",
+        "system-design",
+        "security-cryptography"
+      ],
+      "books": [
+        {
+          "title": "Site Reliability Engineering",
+          "author": "Betsy Beyer, Chris Jones, Jennifer Petoff, and Niall Richard Murphy",
+          "year": 2016,
+          "free": true,
+          "description": "How Google runs production — free at sre.google/books"
+        },
+        {
+          "title": "Observability Engineering",
+          "author": "Charity Majors, Liz Fong-Jones, and George Miranda",
+          "year": 2022,
+          "description": "Modern observability practices"
+        },
+        {
+          "title": "Systems Performance",
+          "author": "Brendan Gregg",
+          "year": 2020,
+          "description": "Performance analysis and tuning"
+        }
+      ]
+    },
+    {
+      "id": "advanced-ml-engineer",
+      "title": "Advanced ML Engineer",
+      "description": "For seasoned ML engineers ready to train and serve models at massive scale. Covers distributed training, LLM internals, performance optimization, and research engineering.",
+      "difficulty": "advanced",
+      "icon": "Brain",
+      "color": "text-fuchsia-500",
+      "estimatedHours": 250,
+      "topicIds": [
+        "ml-systems-at-scale",
+        "advanced-llm-engineering",
+        "ml-performance-optimization",
+        "ml-research-to-production",
+        "advanced-deep-learning",
+        "llms-transformers",
+        "c-cpp-for-ml",
+        "mlops",
+        "distributed-systems",
+        "concurrency-parallelism"
+      ],
+      "books": [
+        {
+          "title": "Build a Large Language Model (From Scratch)",
+          "author": "Sebastian Raschka",
+          "year": 2024,
+          "description": "Understand LLMs from the ground up"
+        },
+        {
+          "title": "Programming Massively Parallel Processors",
+          "author": "David Kirk and Wen-mei Hwu",
+          "year": 2022,
+          "description": "GPU programming fundamentals"
+        },
+        {
+          "title": "Designing Machine Learning Systems",
+          "author": "Chip Huyen",
+          "year": 2022,
+          "description": "Production ML at scale"
+        },
+        {
+          "title": "Deep Learning",
+          "author": "Ian Goodfellow, Yoshua Bengio, and Aaron Courville",
+          "year": 2016,
+          "free": true,
+          "description": "The deep learning bible — free at deeplearningbook.org"
+        }
+      ]
+    },
+    {
+      "id": "staff-backend-engineer",
+      "title": "Staff+ Backend Engineer",
+      "description": "For senior engineers leveling up to staff/principal. Master advanced system design, distributed architecture at scale, and technical strategy.",
+      "difficulty": "advanced",
+      "icon": "Zap",
+      "color": "text-yellow-500",
+      "estimatedHours": 230,
+      "topicIds": [
+        "advanced-system-design",
+        "distributed-systems",
+        "system-design",
+        "message-queues-streaming",
+        "databases",
+        "concurrency-parallelism",
+        "design-patterns",
+        "sre-observability",
+        "security-cryptography",
+        "cloud-architecture",
+        "infrastructure-as-code",
+        "platform-engineering"
+      ],
+      "books": [
+        {
+          "title": "Designing Data-Intensive Applications",
+          "author": "Martin Kleppmann",
+          "year": 2017,
+          "description": "The distributed systems and data bible"
+        },
+        {
+          "title": "Staff Engineer: Leadership Beyond the Management Track",
+          "author": "Will Larson",
+          "year": 2021,
+          "description": "The staff engineer playbook"
+        },
+        {
+          "title": "Building Microservices",
+          "author": "Sam Newman",
+          "year": 2021,
+          "description": "Advanced microservices patterns"
+        },
+        {
+          "title": "Understanding Distributed Systems",
+          "author": "Roberto Vitillo",
+          "year": 2022,
+          "description": "Practical distributed systems guide"
+        }
+      ]
+    },
+    {
+      "id": "platform-engineer",
+      "title": "Platform Engineer",
+      "description": "Build internal developer platforms that accelerate engineering teams. Design golden paths, self-service infrastructure, and developer experience tooling.",
+      "difficulty": "intermediate-advanced",
+      "icon": "Layers",
+      "color": "text-indigo-500",
+      "estimatedHours": 190,
+      "topicIds": [
+        "platform-engineering",
+        "kubernetes",
+        "docker",
+        "ci-cd-pipelines",
+        "infrastructure-as-code",
+        "cloud-architecture",
+        "sre-observability",
+        "api-design",
+        "design-patterns",
+        "testing-quality",
+        "security-cryptography",
+        "message-queues-streaming"
+      ],
+      "books": [
+        {
+          "title": "Team Topologies",
+          "author": "Matthew Skelton and Manuel Pais",
+          "year": 2019,
+          "description": "How teams should be organized for fast flow"
+        },
+        {
+          "title": "Platform Engineering on Kubernetes",
+          "author": "Mauricio Salatino",
+          "year": 2024,
+          "description": "Building platforms on K8s"
+        },
+        {
+          "title": "Site Reliability Engineering",
+          "author": "Betsy Beyer et al.",
+          "year": 2016,
+          "free": true,
+          "description": "How Google runs production — free at sre.google/books"
+        }
+      ]
+    },
+    {
+      "id": "ml-research-engineer",
+      "title": "ML Research Engineer",
+      "description": "Bridge the gap between ML research and production. Implement papers, build custom architectures, design experiments, and ship research into products.",
+      "difficulty": "advanced",
+      "icon": "Sparkles",
+      "color": "text-cyan-500",
+      "estimatedHours": 200,
+      "topicIds": [
+        "ml-research-to-production",
+        "ml-performance-optimization",
+        "advanced-deep-learning",
+        "llms-transformers",
+        "math-for-ai",
+        "c-cpp-for-ml",
+        "python-for-ai",
+        "ml-fundamentals",
+        "reinforcement-learning",
+        "computer-vision"
+      ],
+      "books": [
+        {
+          "title": "Deep Learning",
+          "author": "Ian Goodfellow, Yoshua Bengio, and Aaron Courville",
+          "year": 2016,
+          "free": true,
+          "description": "The deep learning bible — free at deeplearningbook.org"
+        },
+        {
+          "title": "Machine Learning Engineering",
+          "author": "Andriy Burkov",
+          "year": 2020,
+          "description": "From research to production"
+        },
+        {
+          "title": "Pattern Recognition and Machine Learning",
+          "author": "Christopher Bishop",
+          "year": 2006,
+          "description": "Theoretical ML foundations"
+        }
+      ]
+    }
+  ],
+  "totalLessons": 764,
+  "generatedAt": "2026-03-10T15:41:34.655Z"
 }

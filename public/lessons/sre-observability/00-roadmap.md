@@ -97,4 +97,13 @@ Each lesson is 5-10 minutes of reading. Do one per day or binge them all. The ex
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Site Reliability Engineering** by Betsy Beyer, Chris Jones, Jennifer Petoff, and Niall Richard Murphy (O'Reilly, 2016) — How Google runs production. *Free at sre.google/books*
+- **Observability Engineering** by Charity Majors, Liz Fong-Jones, and George Miranda (O'Reilly, 2022) — Modern observability practices
+
+---
+
 [Start with Lesson 01: What is SRE? -->](01-what-is-sre.md)

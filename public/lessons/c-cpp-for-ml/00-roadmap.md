@@ -94,4 +94,13 @@ By the end of this track you will have:
 
 **Ready? Let's go.**
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **The C Programming Language** by Brian Kernighan and Dennis Ritchie (Prentice Hall, 2nd Edition 1988) — The original C book, still essential
+- **A Tour of C++** by Bjarne Stroustrup (Addison-Wesley, 3rd Edition 2022) — Modern C++ overview by the creator
+
+---
+
 [Start Lesson 01 — C for Rust Devs →](01-c-for-rust-devs.md)

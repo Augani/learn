@@ -81,4 +81,14 @@ Foundations      Concurrency      Ecosystem        Building         Advanced
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **The Go Programming Language** by Alan Donovan and Brian Kernighan (Addison-Wesley, 2015) — The definitive Go book, by a co-creator of C
+- **Learning Go** by Jon Bodner (O'Reilly, 2nd Edition 2024) — Modern Go idioms and best practices
+- **Concurrency in Go** by Katherine Cox-Buday (O'Reilly, 2017) — Deep dive into goroutines, channels, and concurrency patterns
+
+---
+
 [Start the track -> Lesson 01: Why Go](01-why-go.md)

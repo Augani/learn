@@ -154,4 +154,14 @@ Start with [Lesson 01 - Regularization](./01-regularization.md)
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Deep Learning** by Ian Goodfellow, Yoshua Bengio, and Aaron Courville (MIT Press, 2016) — The deep learning bible. *Free at deeplearningbook.org*
+- **Deep Learning with Python** by Francois Chollet (Manning, 2nd Edition 2021) — By the creator of Keras
+- **Dive into Deep Learning** by Aston Zhang, Zachary Lipton, Mu Li, and Alexander Smola (Cambridge University Press, 2023) — Interactive with code. *Free at d2l.ai*
+
+---
+
 *Track version: 2026.03*

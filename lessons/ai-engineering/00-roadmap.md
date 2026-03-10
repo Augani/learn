@@ -144,3 +144,12 @@ Each lesson is designed to be completed in 30-60 minutes.
 Do them in order. The exercises build on each other.
 
 Start here: [01 - Prompt Engineering](01-prompt-engineering.md)
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Designing Machine Learning Systems** by Chip Huyen (O'Reilly, 2022) — Production ML system design
+- **Build a Large Language Model (From Scratch)** by Sebastian Raschka (Manning, 2024) — Understand what's under the hood

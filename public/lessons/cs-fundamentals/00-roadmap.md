@@ -58,3 +58,12 @@ You'll understand what's happening "under the hood" when you write code
 in any language. You'll know why Rust has ownership, why Go has a garbage
 collector, why JavaScript is single-threaded, and why C programmers
 worry about buffer overflows.
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Code: The Hidden Language of Computer Hardware and Software** by Charles Petzold (Microsoft Press, 2nd Edition 2022) — From electricity to code, beautifully explained
+- **The Elements of Computing Systems** by Noam Nisan and Shimon Schocken (MIT Press, 2nd Edition 2021) — Build a computer from logic gates (Nand2Tetris). *Free course at nand2tetris.org*

@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Settings, ChevronLeft, ArrowRight, Check, X, ArrowUp, BookOpen, Layers, Zap, Brain, Server, Code2, GraduationCap, Download, CheckCircle, WifiOff, Trash2 } from 'lucide-react';
+import { Settings, ChevronLeft, ArrowRight, Check, X, ArrowUp, BookOpen, Layers, Zap, Brain, Server, Code2, GraduationCap, Download, CheckCircle, WifiOff, Trash2, Cpu, Cloud, Shield, Activity, Sparkles, Database, Map } from 'lucide-react';
 import { motion, useScroll, useSpring } from 'motion/react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import type { Track, LessonMeta, Manifest, ViewState, Theme } from './types';
+import type { Track, LessonMeta, Manifest, ViewState, Theme, CareerTrack } from './types';
 import { useOffline } from './useOffline';
 import { getCachedLesson } from './offline';
 
@@ -35,12 +35,48 @@ const TRACK_CATEGORIES: Record<string, { label: string; icon: typeof Zap; color:
   'distributed-systems': { label: 'Architecture', icon: Zap, color: 'text-rose-400' },
   'networking': { label: 'Architecture', icon: Zap, color: 'text-cyan-500' },
   'api-design': { label: 'Architecture', icon: Zap, color: 'text-lime-400' },
+  'cs-fundamentals': { label: 'Fundamentals', icon: GraduationCap, color: 'text-blue-400' },
+  'testing-quality': { label: 'Engineering', icon: Check, color: 'text-green-400' },
+  'design-patterns': { label: 'Engineering', icon: Layers, color: 'text-purple-400' },
+  'ci-cd-pipelines': { label: 'Engineering', icon: Zap, color: 'text-cyan-400' },
+  'infrastructure-as-code': { label: 'Infra', icon: Server, color: 'text-emerald-400' },
+  'message-queues-streaming': { label: 'Architecture', icon: Zap, color: 'text-amber-400' },
+  'authentication-authorization': { label: 'Engineering', icon: Shield, color: 'text-red-400' },
+  'data-engineering': { label: 'Infra', icon: Database, color: 'text-teal-400' },
+  'discrete-math': { label: 'Fundamentals', icon: GraduationCap, color: 'text-indigo-400' },
+  'compilers-interpreters': { label: 'Systems', icon: Code2, color: 'text-rose-400' },
+  'concurrency-parallelism': { label: 'Systems', icon: Code2, color: 'text-yellow-400' },
+  'security-cryptography': { label: 'Engineering', icon: Shield, color: 'text-red-500' },
+  'typescript-web': { label: 'Engineering', icon: Code2, color: 'text-blue-500' },
+  'ml-systems-at-scale': { label: 'AI/ML', icon: Brain, color: 'text-fuchsia-400' },
+  'ml-research-to-production': { label: 'AI/ML', icon: Brain, color: 'text-cyan-400' },
+  'advanced-llm-engineering': { label: 'AI/ML', icon: Brain, color: 'text-rose-400' },
+  'ml-performance-optimization': { label: 'AI/ML', icon: Brain, color: 'text-orange-400' },
+  'advanced-system-design': { label: 'Architecture', icon: Zap, color: 'text-yellow-500' },
+  'platform-engineering': { label: 'Infra', icon: Server, color: 'text-indigo-400' },
 };
 
-function parseHash(): { view: ViewState; trackId?: string; filename?: string } {
+const CAREER_TRACK_ICONS: Record<string, typeof Zap> = {
+  'Server': Server,
+  'Brain': Brain,
+  'Cpu': Cpu,
+  'Cloud': Cloud,
+  'Layers': Layers,
+  'Sparkles': Sparkles,
+  'Database': Database,
+  'Shield': Shield,
+  'Activity': Activity,
+};
+
+function parseHash(): { view: ViewState; trackId?: string; filename?: string; careerTrackId?: string } {
   const hash = window.location.hash.replace(/^#\/?/, '');
   if (!hash || hash === '/') return { view: 'tracks' };
   if (hash === 'settings') return { view: 'settings' };
+
+  if (hash.startsWith('career/')) {
+    const careerTrackId = hash.slice(7);
+    return { view: 'careerTrack', careerTrackId };
+  }
 
   const parts = hash.split('/');
   if (parts.length === 2) {
@@ -64,6 +100,7 @@ export default function App() {
   const [lessonContent, setLessonContent] = useState<string>('');
   const [loadingContent, setLoadingContent] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentCareerTrack, setCurrentCareerTrack] = useState<CareerTrack | null>(null);
 
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('theme') as Theme) || 'dark');
   const [scale, setScale] = useState(() => parseInt(localStorage.getItem('scale') || '100', 10));
@@ -90,9 +127,19 @@ export default function App() {
     if (!manifest) return;
 
     const navigate = () => {
-      const { view, trackId, filename } = parseHash();
+      const { view, trackId, filename, careerTrackId } = parseHash();
       if (view === 'settings') {
         setCurrentView('settings');
+        return;
+      }
+      if (view === 'careerTrack' && careerTrackId) {
+        const ct = manifest.careerTracks?.find(c => c.id === careerTrackId);
+        if (ct) {
+          setCurrentCareerTrack(ct);
+          setCurrentView('careerTrack');
+        } else {
+          setCurrentView('tracks');
+        }
         return;
       }
       if (trackId) {
@@ -115,6 +162,7 @@ export default function App() {
         setCurrentView('tracks');
         setCurrentTrack(null);
         setCurrentLesson(null);
+        setCurrentCareerTrack(null);
       }
     };
 
@@ -188,6 +236,9 @@ export default function App() {
       setHash('');
       setCurrentTrack(null);
       setCurrentLesson(null);
+      setCurrentCareerTrack(null);
+    } else if (view === 'careerTrack' && currentCareerTrack) {
+      setHash(`career/${currentCareerTrack.id}`);
     } else if (view === 'track' && currentTrack) {
       setHash(currentTrack.id);
       setCurrentLesson(null);
@@ -196,7 +247,39 @@ export default function App() {
     } else if (view === 'settings') {
       setHash('settings');
     }
-  }, [currentTrack, currentLesson]);
+  }, [currentTrack, currentLesson, currentCareerTrack]);
+
+  const openCareerTrack = useCallback((ct: CareerTrack) => {
+    setCurrentCareerTrack(ct);
+    setCurrentView('careerTrack');
+    setHash(`career/${ct.id}`);
+    scrollToTop();
+  }, []);
+
+  const getCareerTrackProgress = useCallback((ct: CareerTrack): number => {
+    if (!manifest) return 0;
+    let totalLessons = 0;
+    let completed = 0;
+    for (const topicId of ct.topicIds) {
+      const topic = manifest.tracks.find(t => t.id === topicId);
+      if (!topic) continue;
+      const lessons = topic.lessons.filter(l => !l.isReference);
+      totalLessons += lessons.length;
+      completed += lessons.filter(l => completedLessons.includes(l.id)).length;
+    }
+    return totalLessons > 0 ? Math.round((completed / totalLessons) * 100) : 0;
+  }, [manifest, completedLessons]);
+
+  const getDifficultyLabel = (difficulty: string): string => {
+    const labels: Record<string, string> = {
+      'beginner': 'Beginner',
+      'intermediate': 'Intermediate',
+      'advanced': 'Advanced',
+      'beginner-intermediate': 'Beginner \u2192 Intermediate',
+      'intermediate-advanced': 'Intermediate \u2192 Advanced',
+    };
+    return labels[difficulty] || difficulty;
+  };
 
   const handleLessonComplete = () => {
     if (currentLesson && !completedLessons.includes(currentLesson.id)) {
@@ -251,7 +334,7 @@ export default function App() {
   const totalLessons = manifest?.totalLessons || 0;
   const overallProgress = totalLessons > 0 ? Math.round((totalCompleted / totalLessons) * 100) : 0;
 
-  const categories = ['All', 'Systems', 'AI/ML', 'Infra', 'Architecture'];
+  const categories = ['All', 'Fundamentals', 'Systems', 'AI/ML', 'Engineering', 'Infra', 'Architecture'];
   const [activeCategory, setActiveCategory] = useState('All');
 
   const categoryFilteredTracks = filteredTracks.filter(t => {
@@ -289,8 +372,8 @@ export default function App() {
               <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Everything</span>
             </h1>
             <p className="text-secondary font-sans text-lg max-w-lg leading-relaxed">
-              Systems programming, AI/ML engineering, infrastructure, and architecture.
-              From first principles to production systems.
+              From CS fundamentals to production systems. Follow a career path
+              or explore topics at your own pace. Free forever.
             </p>
           </div>
 
@@ -323,10 +406,67 @@ export default function App() {
       </div>
 
       <div className="flex-1 p-6 max-w-3xl mx-auto w-full">
+        {manifest?.careerTracks && manifest.careerTracks.length > 0 && (
+          <div className="mb-12">
+            <div className="flex items-center gap-2 mb-6">
+              <Map size={14} className="text-orange-500" />
+              <span className="text-[10px] font-mono tracking-widest text-secondary uppercase">Career Paths</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {manifest.careerTracks.map((ct) => {
+                const progress = getCareerTrackProgress(ct);
+                const IconComponent = CAREER_TRACK_ICONS[ct.icon] || GraduationCap;
+                return (
+                  <motion.div
+                    key={ct.id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="group cursor-pointer border border-theme hover:border-orange-600/50 p-4 transition-all hover:bg-surface/50"
+                    onClick={() => openCareerTrack(ct)}
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <IconComponent size={14} className={ct.color} />
+                      <span className="text-[10px] font-mono tracking-widest text-secondary uppercase">
+                        {getDifficultyLabel(ct.difficulty)}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-xl uppercase tracking-tight group-hover:text-orange-500 transition-colors leading-tight mb-1">
+                      {ct.title}
+                    </h3>
+                    <p className="text-[11px] text-secondary leading-relaxed line-clamp-2 mb-3">
+                      {ct.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono tracking-widest text-secondary">
+                        {ct.topicIds.length} topics
+                      </span>
+                      {progress > 0 && (
+                        <span className="text-[10px] font-mono tracking-widest text-orange-500">
+                          {progress}%
+                        </span>
+                      )}
+                    </div>
+                    {progress > 0 && (
+                      <div className="mt-2 h-0.5 bg-theme w-full rounded-full overflow-hidden">
+                        <div className="h-full bg-orange-600 transition-all duration-500 rounded-full" style={{ width: `${progress}%` }}></div>
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        <div className="flex items-center gap-2 mb-6">
+          <BookOpen size={14} className="text-orange-500" />
+          <span className="text-[10px] font-mono tracking-widest text-secondary uppercase">All Topics</span>
+        </div>
+
         <div className="mb-6">
           <input
             type="text"
-            placeholder="SEARCH TRACKS..."
+            placeholder="SEARCH TOPICS..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-transparent border-b-2 border-theme pb-2 font-display text-xl uppercase tracking-wide text-secondary placeholder:text-secondary focus:outline-none focus:border-orange-600 focus:text-[var(--text-primary)] transition-colors"
@@ -694,14 +834,45 @@ export default function App() {
                     },
                     pre: ({ children }) => <>{children}</>,
                     a: ({ href, children, ...props }) => {
-                      if (href?.endsWith('.md') && currentTrack) {
+                      if (href?.endsWith('.md') && manifest) {
                         const filename = href.split('/').pop() || '';
-                        const targetLesson = currentTrack.lessons.find(l => l.filename === filename);
-                        if (targetLesson) {
+                        const pathParts = href.replace(/^\.\.?\//, '').split('/');
+                        let targetLesson: LessonMeta | undefined;
+                        let targetTrack: Track | undefined;
+
+                        if (pathParts.length >= 2) {
+                          const trackId = pathParts[pathParts.length - 2];
+                          targetTrack = manifest.tracks.find(t => t.id === trackId);
+                          if (targetTrack) {
+                            targetLesson = targetTrack.lessons.find(l => l.filename === filename);
+                          }
+                        }
+
+                        if (!targetLesson && currentTrack) {
+                          targetLesson = currentTrack.lessons.find(l => l.filename === filename);
+                          if (targetLesson) targetTrack = currentTrack;
+                        }
+
+                        if (!targetLesson) {
+                          for (const track of manifest.tracks) {
+                            const found = track.lessons.find(l => l.filename === filename);
+                            if (found) {
+                              targetLesson = found;
+                              targetTrack = track;
+                              break;
+                            }
+                          }
+                        }
+
+                        if (targetLesson && targetTrack) {
                           return (
                             <a
-                              href="#"
-                              onClick={(e) => { e.preventDefault(); openLesson(targetLesson); }}
+                              href={`#/${targetLesson.trackId}/${targetLesson.filename}`}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setCurrentTrack(targetTrack!);
+                                openLesson(targetLesson!);
+                              }}
                               className="text-orange-500 hover:underline cursor-pointer"
                               {...props}
                             >
@@ -847,6 +1018,157 @@ export default function App() {
     );
   };
 
+  const renderCareerTrack = () => {
+    if (!currentCareerTrack || !manifest) return null;
+    const progress = getCareerTrackProgress(currentCareerTrack);
+    const IconComponent = CAREER_TRACK_ICONS[currentCareerTrack.icon] || GraduationCap;
+    const topics = currentCareerTrack.topicIds
+      .map(id => manifest.tracks.find(t => t.id === id))
+      .filter((t): t is Track => t !== undefined);
+
+    const totalTopicLessons = topics.reduce((sum, t) => sum + t.lessons.filter(l => !l.isReference).length, 0);
+
+    return (
+      <div className="min-h-screen p-6 max-w-2xl mx-auto flex flex-col">
+        <header className="flex justify-between items-center mb-12">
+          <button
+            onClick={() => { navigateTo('tracks'); setSearchQuery(''); }}
+            className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-secondary hover:text-[var(--text-primary)] transition-colors group"
+          >
+            <ChevronLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+            Career Paths
+          </button>
+          <button onClick={() => navigateTo('settings')} className="text-secondary hover:text-[var(--text-primary)] transition-colors">
+            <Settings size={20} />
+          </button>
+        </header>
+
+        <div className="mb-8">
+          <div className="flex items-center gap-2 mb-3">
+            <IconComponent size={16} className={currentCareerTrack.color} />
+            <span className="text-[10px] font-mono tracking-widest text-secondary uppercase">
+              {getDifficultyLabel(currentCareerTrack.difficulty)} • {topics.length} topics • {totalTopicLessons} lessons
+            </span>
+          </div>
+          <h1 className="font-display text-5xl sm:text-6xl uppercase leading-[0.85] tracking-tight mb-4">
+            {currentCareerTrack.title.split(' ').map((word, i) => (
+              <span key={i} className={i % 2 !== 0 ? 'text-secondary' : ''}>
+                {word}{' '}
+              </span>
+            ))}
+          </h1>
+          <p className="text-secondary text-sm leading-relaxed max-w-lg">
+            {currentCareerTrack.description}
+          </p>
+        </div>
+
+        {progress > 0 && (
+          <div className="mb-8">
+            <div className="flex justify-between items-end mb-2">
+              <span className="text-[10px] font-mono tracking-widest text-secondary uppercase">Overall Progress</span>
+              <span className="text-orange-600 font-mono text-xs tracking-widest">{progress}%</span>
+            </div>
+            <div className="h-1 bg-surface w-full rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-orange-600 to-amber-600"
+                initial={{ width: 0 }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 1, ease: 'easeOut' }}
+              />
+            </div>
+          </div>
+        )}
+
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-1.5 h-1.5 bg-orange-600"></div>
+            <span className="text-[10px] font-mono tracking-widest text-secondary uppercase">Learning Path</span>
+          </div>
+          <div className="space-y-3">
+            {topics.map((topic, idx) => {
+              const topicProgress = getTrackProgress(topic);
+              const topicLessons = topic.lessons.filter(l => !l.isReference).length;
+              const cat = TRACK_CATEGORIES[topic.id];
+              const TopicIcon = cat?.icon || GraduationCap;
+
+              return (
+                <div
+                  key={topic.id}
+                  className="group cursor-pointer border border-theme hover:border-orange-600/50 p-4 transition-all hover:bg-surface/50"
+                  onClick={() => openTrack(topic)}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-3 flex-1 min-w-0">
+                      <div className="flex-shrink-0 mt-0.5">
+                        {topicProgress === 100 ? (
+                          <div className="w-6 h-6 bg-green-500/20 border border-green-500 flex items-center justify-center">
+                            <Check size={14} className="text-green-500" />
+                          </div>
+                        ) : (
+                          <div className="w-6 h-6 border border-theme flex items-center justify-center">
+                            <span className="text-[10px] font-mono text-secondary">{String(idx + 1).padStart(2, '0')}</span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <TopicIcon size={10} className={cat?.color || 'text-secondary'} />
+                          <span className="text-[10px] font-mono tracking-widest text-secondary uppercase">
+                            {topicLessons} lessons
+                          </span>
+                        </div>
+                        <h3 className="font-display text-xl sm:text-2xl uppercase tracking-tight group-hover:text-orange-500 transition-colors leading-tight">
+                          {topic.title}
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 mt-1 flex-shrink-0">
+                      {topicProgress > 0 && topicProgress < 100 && (
+                        <span className="text-[10px] font-mono tracking-widest text-orange-500">{topicProgress}%</span>
+                      )}
+                      <ArrowRight size={16} className="text-secondary group-hover:text-orange-500 transition-colors" />
+                    </div>
+                  </div>
+                  {topicProgress > 0 && topicProgress < 100 && (
+                    <div className="mt-3 ml-9 h-0.5 bg-theme w-auto rounded-full overflow-hidden">
+                      <div className="h-full bg-orange-600 transition-all duration-500 rounded-full" style={{ width: `${topicProgress}%` }}></div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {currentCareerTrack.books.length > 0 && (
+          <div className="mb-10 border border-theme p-5">
+            <div className="flex items-center gap-2 mb-4">
+              <BookOpen size={14} className="text-orange-500" />
+              <span className="text-[10px] font-mono tracking-widest text-secondary uppercase">Recommended Reading</span>
+            </div>
+            <p className="text-[11px] text-secondary mb-4 leading-relaxed">
+              These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+            </p>
+            <div className="space-y-3">
+              {currentCareerTrack.books.map((book, idx) => (
+                <div key={idx} className="flex gap-3">
+                  <div className="w-1 h-1 bg-orange-600 mt-2 flex-shrink-0 rounded-full"></div>
+                  <div>
+                    <div className="text-sm font-medium">{book.title}</div>
+                    <div className="text-[11px] text-secondary">
+                      {book.author} ({book.year}){book.free && <span className="text-green-500 ml-1">Free online</span>}
+                    </div>
+                    <div className="text-[11px] text-secondary/70">{book.description}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   const renderSettings = () => (
     <div className="min-h-screen p-6 max-w-2xl mx-auto flex flex-col">
       <header className="flex justify-between items-center mb-12">
@@ -978,6 +1300,7 @@ export default function App() {
   return (
     <div className="min-h-screen transition-colors duration-300">
       {currentView === 'tracks' && renderTracks()}
+      {currentView === 'careerTrack' && renderCareerTrack()}
       {currentView === 'track' && renderTrackLessons()}
       {currentView === 'lesson' && renderLesson()}
       {currentView === 'complete' && renderComplete()}

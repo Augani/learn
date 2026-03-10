@@ -139,4 +139,13 @@ Before starting this track, you should be comfortable with:
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Designing Machine Learning Systems** by Chip Huyen (O'Reilly, 2022) — End-to-end ML system design for production
+- **Introducing MLOps** by Mark Treveil and the Dataiku Team (O'Reilly, 2020) — MLOps principles and practices
+
+---
+
 [Start with Lesson 01: Model Serialization -->](01-model-serialization.md)

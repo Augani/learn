@@ -95,4 +95,13 @@ copy them into a Python file or Jupyter notebook and experiment.
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Reinforcement Learning: An Introduction** by Richard Sutton and Andrew Barto (MIT Press, 2nd Edition 2018) — The RL bible. *Free at incompleteideas.net/book/the-book-2nd.html*
+- **Grokking Deep Reinforcement Learning** by Miguel Morales (Manning, 2020) — Visual, intuitive approach to deep RL
+
+---
+
 [Start the track: What is RL? ->](01-what-is-rl.md)

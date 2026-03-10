@@ -83,3 +83,13 @@ Every lesson has:
 4. Back-of-envelope calculations where relevant
 5. How you'd implement key pieces in Go/TypeScript/Rust
 6. Interview-style walkthrough for the design problems
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **System Design Interview** by Alex Xu (Volume 1: 2020, Volume 2: 2022) — Practical system design walkthroughs
+- **Designing Data-Intensive Applications** by Martin Kleppmann (O'Reilly, 2017) — The foundation for system design thinking
+- **Building Microservices** by Sam Newman (O'Reilly, 2nd Edition 2021) — Microservices architecture patterns

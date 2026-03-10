@@ -112,4 +112,13 @@ Prerequisites: Experience with any compiled language
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Python for Data Analysis** by Wes McKinney (O'Reilly, 3rd Edition 2022) — By the creator of pandas
+- **Python Data Science Handbook** by Jake VanderPlas (O'Reilly, 2nd Edition 2023) — NumPy, pandas, matplotlib, scikit-learn
+
+---
+
 [Start the track -> Lesson 01: Python for Systems Programmers](01-python-for-systems-programmers.md)

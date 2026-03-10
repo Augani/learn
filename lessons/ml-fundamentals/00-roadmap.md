@@ -47,3 +47,12 @@ Every lesson has:
 4. Exercises to build intuition
 
 This track is the prerequisite for Track 8 (LLMs & Transformers).
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow** by Aurelien Geron (O'Reilly, 3rd Edition 2022) — The most practical ML book
+- **Pattern Recognition and Machine Learning** by Christopher Bishop (Springer, 2006) — Theoretical foundations of ML

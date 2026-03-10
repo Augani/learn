@@ -69,3 +69,13 @@ Run examples by editing `src/main.rs` and running:
 ```bash
 cargo run
 ```
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **The Rust Programming Language** by Steve Klabnik and Carol Nichols (No Starch Press, 2nd Edition 2023) — The official Rust book, covers everything from ownership to async. *Free online at doc.rust-lang.org/book*
+- **Rust for Rustaceans** by Jon Gjengset (No Starch Press, 2021) — Intermediate to advanced Rust patterns and idioms
+- **Programming Rust** by Jim Blandy, Jason Orendorff, and Leonora Tindall (O'Reilly, 2nd Edition 2021) — Comprehensive reference for experienced programmers

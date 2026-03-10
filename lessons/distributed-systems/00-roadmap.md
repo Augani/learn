@@ -104,4 +104,13 @@ Total: ~30-35 hours at a comfortable pace.
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Designing Data-Intensive Applications** by Martin Kleppmann (O'Reilly, 2017) — Essential distributed systems reading
+- **Understanding Distributed Systems** by Roberto Vitillo (2nd Edition 2022) — Practical, concise distributed systems guide
+
+---
+
 [Start with Lesson 1: Why Distributed Systems -->](01-why-distributed.md)

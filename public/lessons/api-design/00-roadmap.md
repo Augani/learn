@@ -71,4 +71,13 @@ The capstone in lesson 16 ties everything together.
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **API Design Patterns** by JJ Geewax (Manning, 2021) — Comprehensive API design patterns
+- **The Design of Web APIs** by Arnaud Lauret (Manning, 2019) — API design from the consumer's perspective
+
+---
+
 [Start with Lesson 01: What Is an API? ->](01-what-is-an-api.md)
