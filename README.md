@@ -1,6 +1,6 @@
 # Learn Everything
 
-A free, comprehensive learning platform covering computer science, software engineering, AI/ML, and infrastructure. Designed for people who can't afford textbooks — every lesson teaches concepts from first principles with everyday analogies, ASCII diagrams, and real code examples.
+Bite-sized lessons for learning computer science, software engineering, AI/ML, and infrastructure on the go. Every concept explained with everyday analogies first, then the technical details. Short enough to read on a commute, deep enough to actually understand.
 
 **[Live Site](https://augani.github.io/learn)**
 
