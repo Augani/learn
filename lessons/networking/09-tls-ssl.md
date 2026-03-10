@@ -166,6 +166,55 @@ The entire handshake takes **1 round trip** in TLS 1.3 (down from 2 in TLS
 1.2). With **0-RTT resumption**, a returning client can send encrypted data
 with the very first packet.
 
+### The Handshake as a Diplomatic Meeting
+
+**Analogy — two embassies establishing a secure channel:**
+
+Imagine the US Embassy and the French Embassy need to exchange classified documents. Neither trusts the postal system (the internet).
+
+**Step 1 — Proposal (ClientHello):** The US Embassy sends a messenger to the French Embassy saying: "We'd like to set up a secure communication channel. We can use secret codes A, B, or C. Here's half of a combination lock."
+
+**Step 2 — Agreement (ServerHello + Certificate):** The French Embassy responds: "Let's use code B. Here's the other half of the combination lock. Also, here's my official government ID (certificate) signed by the United Nations (Certificate Authority) to prove I'm really the French Embassy, not a spy pretending to be."
+
+**Step 3 — Verification:** The US Embassy checks the ID with the United Nations (trust store). It's legitimate. Both embassies now combine their halves of the combination lock to create a shared secret key that NO ONE ELSE has — not even the messenger who carried the halves.
+
+**Step 4 — Secure communication:** All future messages are locked with the shared combination. The messenger can carry them, but can't read them.
+
+```
+The beauty of this system:
+  - The messenger (network) NEVER sees the final key
+  - Even if someone recorded ALL the messages, they can't
+    derive the key (Diffie-Hellman key exchange)
+  - Even if the French Embassy's long-term private key is
+    stolen LATER, past conversations are safe
+    (this is FORWARD SECRECY)
+```
+
+### Forward Secrecy: Why Past Conversations Stay Safe
+
+**Analogy — temporary phone numbers:**
+
+Without forward secrecy, it's like using the same phone number forever. If someone later finds your number in a phone book, they can listen to all your past recorded calls.
+
+With forward secrecy (which TLS 1.3 mandates), it's like using a NEW burner phone for every conversation. Even if someone finds yesterday's burner phone, they can't decrypt last week's conversations — those used a different phone entirely.
+
+```
+Without forward secrecy (RSA key exchange, TLS 1.2):
+  Server has permanent private key K
+  All sessions encrypted with keys derived from K
+  If K is stolen → ALL past sessions can be decrypted
+
+With forward secrecy (ECDHE, TLS 1.3):
+  Each session generates EPHEMERAL key pair
+  Session key = ECDHE(client_ephemeral, server_ephemeral)
+  Ephemeral keys are deleted after the session
+
+  Private key stolen → only FUTURE sessions at risk
+  Past sessions → keys are gone, cannot be recovered
+```
+
+This is why TLS 1.3 removed RSA key exchange entirely and mandates ephemeral Diffie-Hellman (ECDHE).
+
 ### What Is a Cipher Suite?
 
 A cipher suite specifies the algorithms used for each part of TLS:
@@ -238,6 +287,31 @@ All checks pass = green lock icon.
 Any check fails = security warning.
 ```
 
+### Certificate Pinning: Extra Trust Verification
+
+Standard certificate verification trusts ANY CA in your trust store (~150 CAs). If any one of them is compromised, they could issue a fake certificate for your domain.
+
+**Analogy — knowing your friend's actual signature:**
+
+Certificate verification is like accepting any notarized document. Certificate pinning is like saying "I know what my friend's actual signature looks like — I'll verify it myself, regardless of who notarized it."
+
+```
+Standard verification:
+  "Is this certificate signed by ANY trusted CA?" → Accept
+
+Certificate pinning:
+  "Is this the EXACT certificate (or public key) I expect
+   for this server?" → Accept only if it matches
+
+Used by:
+  - Mobile banking apps (pin the bank's certificate)
+  - High-security APIs (pin the API server's public key)
+
+Risk: if you rotate certificates, pinned clients break.
+That's why key pinning (pin the public key, not the cert)
+is preferred — keys survive certificate rotation.
+```
+
 ### Let's Encrypt
 
 Let's Encrypt is a free, automated, open Certificate Authority. It issues
@@ -276,6 +350,30 @@ Caddy (automatic HTTPS), and many hosting platforms.
 - **Traffic analysis:** An observer can see you are connecting to example.com
   (via SNI in TLS 1.2, or DNS queries), even if they cannot read the content.
   Encrypted Client Hello (ECH) in TLS 1.3 mitigates this.
+
+### HSTS: Preventing the Downgrade Attack
+
+**Analogy — "always lock the door, even if someone says it's safe":**
+
+Without HSTS, an attacker on your network can intercept your first HTTP request (before the redirect to HTTPS) and strip the encryption entirely. You THINK you're on HTTPS, but the attacker is translating between HTTP (you) and HTTPS (the server). This is an **SSL stripping attack**.
+
+```
+Without HSTS (vulnerable):
+  You → http://bank.com → Attacker intercepts!
+  Attacker → https://bank.com (pretends to be you)
+  You see http:// but don't notice. Attacker sees all your data.
+
+With HSTS:
+  First visit: Server sends header:
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+  Browser remembers: "ALWAYS use HTTPS for bank.com for 1 year"
+
+  Next visit: You type bank.com → browser auto-upgrades to HTTPS
+  Attacker can't strip the TLS because the browser REFUSES HTTP.
+```
+
+Major sites are on the **HSTS preload list** — browsers ship with a built-in list of domains that should ONLY be accessed via HTTPS, even on the very first visit. Submit your domain at hstspreload.org.
 
 ---
 

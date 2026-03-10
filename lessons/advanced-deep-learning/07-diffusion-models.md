@@ -30,6 +30,29 @@ REVERSE PROCESS (create):
   at each step. That's it. That's the whole idea.
 ```
 
+### Why This Works: The Denoising Score Matching Insight
+
+**Analogy — a sculptor vs a painter:**
+
+A GAN is like a painter who tries to create a masterpiece from a blank canvas in one stroke. They need to learn the entire distribution of "what a good painting looks like" all at once. This is hard — sometimes they paint the same face over and over (mode collapse), and their training is unstable (the art critic keeps changing their standards).
+
+A diffusion model is like a sculptor who starts with a rough stone (noise) and chips away at it gradually. Each chip is a tiny, easy decision: "should this spot be slightly lighter or darker?" After a thousand tiny chips, a masterpiece emerges. The sculptor never needs to envision the whole piece at once — just the next small improvement.
+
+```
+GAN training:         Diffusion training:
+
+Random noise ──→ ???  Clean image + random noise = noisy image
+               ↓     Model predicts: "this noise was added"
+          Generator   Loss: how wrong was the noise prediction?
+               ↓
+          Fake image  That's literally it. No adversary.
+               ↓     No minimax game. Just regression.
+          Discriminator
+               ↓
+          "Real or fake?"
+          (unstable!)
+```
+
 ---
 
 ## Why Not Just Denoise in One Step?
@@ -46,6 +69,30 @@ Multi-step denoising (diffusion):
 Like cleaning a messy room:
   - "Clean the whole room" = overwhelming
   - "Pick up one item" x 100 = manageable
+```
+
+### The Connection to Thermodynamics
+
+The name "diffusion" comes from physics. When you drop a blob of ink into water, the ink molecules **diffuse** — they spread out randomly until evenly distributed (maximum entropy). This is the forward process: structured data → uniform noise.
+
+The reverse process is like filming the ink diffusing and playing the video backward — order emerging from disorder. In physics this is impossible (second law of thermodynamics). But a neural network can learn the statistical reverse because it's seen millions of examples of the forward process.
+
+**Analogy — unscrambling an egg:**
+
+You can't unscramble a physical egg. But if you watched a million eggs being scrambled (and recorded exactly how the yolk moved at each moment), you could learn the STATISTICAL pattern of "what does an egg look like one step before this level of scrambling?" Apply that knowledge step by step, and you can approximately reconstruct the egg.
+
+```
+Physics:  Can't reverse diffusion (entropy always increases)
+ML:       CAN learn the statistical reverse
+          (because it's trained on the forward process)
+
+This is the key insight of score-based generative models:
+  The "score" = gradient of log probability density
+  ∇_x log p(x)  ← "which direction makes x more probable?"
+
+At each denoising step, the model asks:
+  "Which direction should I nudge each pixel to make
+   this image look more like a real image?"
 ```
 
 ---
@@ -315,6 +362,31 @@ REALLY matched the prompt vs not matching at all?"
 Then amplifying the difference.
 ```
 
+### Guidance Scale Intuition: The Caricature Effect
+
+**Analogy — asking an artist for a portrait:**
+
+- **Guidance scale 1.0**: "Draw a face." The artist draws a generic, average face. Diverse but not specific.
+- **Guidance scale 7.5**: "Draw a face that REALLY looks like this person." The artist captures distinctive features. The sweet spot.
+- **Guidance scale 20.0**: "Make it REALLY REALLY look like this person!" The artist draws a caricature — exaggerated features, oversaturated colors. Too much guidance = artifacts.
+
+```
+guidance_scale = 1.0    → Diverse, but ignores prompt
+guidance_scale = 7.5    → Good balance (the default)
+guidance_scale = 15.0   → Very prompt-faithful, less diverse
+guidance_scale = 30.0   → Oversaturated, artifacts
+
+Mathematically:
+  ε_guided = ε_uncond + scale × (ε_cond - ε_uncond)
+                        ^^^^^
+                   This amplifies the "what's different
+                   about the conditional prediction"
+
+  When scale = 1: ε_guided = ε_cond (no amplification)
+  When scale > 1: amplifies the conditioning signal
+  When scale >> 1: over-amplifies → artifacts
+```
+
 ---
 
 ## How Stable Diffusion Works
@@ -349,6 +421,32 @@ Text: "a cat sitting on a rainbow"
 Key insight: Diffusion happens in LATENT space (small),
 not pixel space (huge). This is why it's called a
 Latent Diffusion Model (LDM).
+```
+
+### Why Latent Space? The Compression Trick
+
+**Analogy — writing a description vs photocopying:**
+
+Doing diffusion in pixel space (512×512×3 = 786,432 values) is like photocopying a painting 1000 times, adding noise each time. Extremely expensive.
+
+Doing diffusion in latent space (64×64×4 = 16,384 values) is like writing a compressed description of the painting, adding noise to the description, and then denoising the description. 48x smaller — 48x faster.
+
+```
+Pixel-space diffusion:
+  512×512×3 = 786,432 dimensions
+  1000 denoising steps × 786K dims = incredibly slow
+
+Latent-space diffusion:
+  VAE Encoder: 512×512×3 → 64×64×4 (48x compression)
+  Diffuse in latent space: 1000 steps × 16K dims = fast!
+  VAE Decoder: 64×64×4 → 512×512×3
+
+The VAE (Variational Autoencoder) was trained separately
+to compress/decompress images. The diffusion model never
+sees pixels — it only works with the compressed codes.
+
+This is why Stable Diffusion can run on consumer GPUs
+while pixel-space diffusion models need supercomputers.
 ```
 
 ---
