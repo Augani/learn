@@ -6,6 +6,32 @@ reading, updating, and iterating over them.
 
 ---
 
+## The Everyday Analogy: Three Ways to Store Things
+
+Rust's three core collections map to everyday storage:
+
+- **Vec** is like a **notebook with numbered pages**. You write things in order, one after another. You can quickly flip to page 47 (O(1) index access). Adding a new page at the end is fast. But inserting a page in the middle means renumbering everything after it — slow.
+
+- **HashMap** is like a **filing cabinet with labeled folders**. You store things by name ("taxes_2024", "recipes"). Looking up a folder by name is instant (O(1) average). But the folders aren't in any particular order — you can't say "give me the third folder."
+
+- **HashSet** is like a **guest list at a party**. It only tracks WHO is on the list, not any associated data. Checking "is Alice invited?" is instant. Adding someone who's already on the list does nothing (no duplicates).
+
+```
+Vec<T>:       [item0, item1, item2, item3, ...]
+              Ordered. Indexed. Contiguous in memory.
+              Like an array that grows.
+
+HashMap<K,V>: { "key1" => val1, "key2" => val2, ... }
+              Unordered. Keyed. O(1) lookup.
+              Like a dictionary.
+
+HashSet<T>:   { item1, item2, item3, ... }
+              Unordered. Unique. O(1) membership test.
+              Like a mathematical set.
+```
+
+---
+
 ## Vec<T> — Dynamic Array
 
 Go: `[]T` (slice). TS: `T[]` / `Array<T>`.
@@ -20,6 +46,30 @@ fn main() {
     let v4: Vec<i32> = (1..=5).collect();
     let v5 = Vec::with_capacity(100);    // pre-allocate
 }
+```
+
+### Vec Under the Hood
+
+```
+let v = vec![10, 20, 30];
+
+Stack:                  Heap:
++----------+           +----+----+----+----+----+
+| ptr   ───┼──────────>| 10 | 20 | 30 |    |    |
+| len: 3   |           +----+----+----+----+----+
+| cap: 5   |           ← len=3 →← unused  →
++----------+           ← capacity=5 ────────→
+
+v.push(40):  len becomes 4, no reallocation (cap=5)
+v.push(50):  len becomes 5, no reallocation
+v.push(60):  len would exceed cap!
+             → Allocate new buffer (cap=10)
+             → Copy all elements
+             → Free old buffer
+
+This is why Vec::with_capacity(n) exists —
+if you know you'll need 1000 elements,
+pre-allocate to avoid repeated reallocations.
 ```
 
 ### Access
@@ -188,7 +238,40 @@ alice, ok := scores["Alice"]  // Go returns (value, bool)
 
 Rust returns `Option` instead of `(value, bool)`.
 
-### The Entry API (Rust's killer feature for maps)
+### The Entry API: Rust's Elegant Update Pattern
+
+**Analogy — a hotel check-in desk:**
+
+You arrive at a hotel. The receptionist checks if you have a reservation:
+- If YES (occupied entry): they update your room details
+- If NO (vacant entry): they create a new reservation
+
+Without the Entry API, you'd check, then insert — two lookups. The Entry API does it in one:
+
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    // Count word frequencies — the classic example
+    let mut counts: HashMap<String, i32> = HashMap::new();
+    let text = "hello world hello rust hello";
+
+    for word in text.split_whitespace() {
+        // One lookup: check if entry exists, insert 0 if not, then increment
+        *counts.entry(word.to_string()).or_insert(0) += 1;
+    }
+    // {"hello": 3, "world": 1, "rust": 1}
+
+    // Without Entry API (two lookups, clunky):
+    // for word in text.split_whitespace() {
+    //     if counts.contains_key(word) {    // lookup #1
+    //         *counts.get_mut(word).unwrap() += 1;  // lookup #2
+    //     } else {
+    //         counts.insert(word.to_string(), 1);   // lookup #2
+    //     }
+    // }
+}
+```
 
 ```rust
 use std::collections::HashMap;
@@ -289,6 +372,36 @@ fn main() {
     let is_disjoint = a.is_disjoint(&b); // false
 }
 ```
+
+---
+
+### The Borrow Checker and Collections
+
+This is where Rust collections feel different from every other language. The borrow checker prevents you from modifying a collection while iterating over it.
+
+**Analogy — restocking shelves in a store:**
+
+Imagine you're counting items on a shelf (iterating). A coworker tries to add new items to the shelf while you're counting (modifying). Your count would be wrong! Rust prevents this at compile time.
+
+```rust
+let mut v = vec![1, 2, 3, 4, 5];
+
+// ✗ COMPILE ERROR: can't mutate while iterating
+for x in &v {
+    if *x > 3 {
+        v.push(*x * 2);  // Error! v is borrowed by the loop
+    }
+}
+
+// ✓ Solution: collect what to add, then add after
+let additions: Vec<i32> = v.iter()
+    .filter(|&&x| x > 3)
+    .map(|&x| x * 2)
+    .collect();
+v.extend(additions);
+```
+
+This rule applies to all collections — Vec, HashMap, HashSet, and their sorted variants. If you're iterating (`&collection`), you cannot simultaneously call methods that modify the collection (`.push()`, `.insert()`, `.remove()`, etc.).
 
 ---
 

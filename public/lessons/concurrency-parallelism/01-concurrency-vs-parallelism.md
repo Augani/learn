@@ -183,6 +183,115 @@ Concurrency and parallelism aren't binary. They exist on a spectrum:
                                      (N threads)           Parallel
 ```
 
+## Shared State: Why Concurrency Is Hard
+
+Concurrency is easy when tasks are independent. It becomes dangerous when
+tasks share data — because now they can step on each other's toes.
+
+**Analogy — two people editing the same shopping list:**
+
+You and your roommate both look at the fridge, see you're out of milk,
+and each add "milk" to the shared shopping list. Now you have "milk" on
+the list twice and you'll buy two cartons. That's a **race condition** —
+the result depends on the timing of who reads and writes when.
+
+Worse: you both see the list says "eggs (3)" and each decide to cross it
+off and write "eggs (0)". But between reading "3" and writing "0", your
+roommate already bought eggs and wrote "eggs (0)". Your write of "0"
+overwrites their update. This is a **lost update** — a classic concurrency
+bug.
+
+```
+Thread A reads counter: 10
+Thread B reads counter: 10
+Thread A writes counter: 11  (10 + 1)
+Thread B writes counter: 11  (10 + 1, not 12!)
+
+Expected: 12    Actual: 11    One increment was lost.
+```
+
+### Locks: The Bathroom Key
+
+The simplest solution: a lock. Only one person can hold it at a time.
+
+**Analogy — a single bathroom key on a hook:**
+Only whoever holds the key can enter the bathroom. Everyone else waits.
+When they're done, they hang the key back. This is a **mutex** (mutual
+exclusion lock).
+
+```go
+var mu sync.Mutex
+var counter int
+
+func increment() {
+    mu.Lock()         // grab the bathroom key
+    counter++         // safe — you're the only one in here
+    mu.Unlock()       // hang the key back
+}
+```
+
+### Deadlock: The Mexican Standoff
+
+Locks solve race conditions but introduce a new problem: **deadlock**.
+
+**Analogy — two people, two doors, two keys:**
+
+Alice holds the kitchen key and needs the bathroom key.
+Bob holds the bathroom key and needs the kitchen key.
+Neither will give up their key until they get the other.
+They wait forever. The house is frozen.
+
+```
+Thread A:                    Thread B:
+  Lock(resource_1) ✓          Lock(resource_2) ✓
+  Lock(resource_2) ... wait   Lock(resource_1) ... wait
+       │                           │
+       └─── both waiting forever ──┘
+                DEADLOCK
+```
+
+Four conditions must ALL be true for deadlock:
+1. **Mutual exclusion** — resources can't be shared
+2. **Hold and wait** — holding one resource while waiting for another
+3. **No preemption** — can't force someone to give up their resource
+4. **Circular wait** — A waits for B, B waits for A
+
+Break any one condition and deadlock becomes impossible. The simplest
+strategy: always acquire locks in the same order (e.g., always kitchen
+before bathroom). This prevents circular wait.
+
+### Async/Await: Concurrency Without Threads
+
+Modern languages offer a lighter alternative to threads: **async/await**.
+Instead of the OS scheduling threads, your program cooperatively yields
+control when it's waiting for something.
+
+**Analogy — a chef with a timer:** Instead of standing and watching water
+boil (blocking), the chef sets a timer and starts chopping vegetables.
+When the timer rings (the I/O completes), they go back to the pot. One
+chef, multiple dishes, no wasted time standing around.
+
+```
+Threads (OS manages):         Async (your code manages):
+┌─────────────────────┐       ┌─────────────────────┐
+│ Thread 1: ████░░████│       │ Task 1: ████    ████│
+│ Thread 2: ░░████░░░░│       │ Task 2:     ████    │
+│ Thread 3: ████░░░░██│       │ All on ONE thread   │
+└─────────────────────┘       └─────────────────────┘
+ ████ = running                ████ = running
+ ░░░░ = blocked, wasting       (gaps) = yielded, another task runs
+        an OS thread                    on same thread
+
+ 3 threads × 8MB = 24MB       1 thread × 8MB = 8MB
+```
+
+The tradeoff: async code can't do CPU-heavy work without blocking the
+event loop (since it's all on one thread). That's why Approach C from
+earlier (event loop + thread pool) is the real-world pattern: async for
+I/O, threads for computation.
+
+---
+
 ## Key Takeaways
 
 1. Concurrency = structure (your code *can* handle multiple tasks)

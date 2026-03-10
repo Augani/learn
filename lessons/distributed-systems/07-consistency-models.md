@@ -8,16 +8,19 @@
 
 ## The Analogy
 
-You post a photo on social media:
+**Analogy — A chain of bookstores updating their inventory system:**
 
-- **Linearizable:** Everyone in the world sees it the
-  instant you post it. Or not at all.
-- **Sequential:** Everyone sees posts in the same order,
-  but that order might not match real-time.
-- **Causal:** Your friend who commented sees the photo
-  before the comment. Others might see them in any order.
-- **Eventual:** Everyone will see it... eventually.
-  Could take seconds or minutes.
+Imagine you own five bookstores across the country. Each store has its own copy of the inventory database. When a book sells at Store A, that sale needs to propagate to all other stores.
+
+- **Linearizable**: When Store A sells the last copy of a book, ALL stores immediately show "out of stock." A customer walking into Store B one second later cannot buy that book. It's as if there's one global inventory. **Cost**: every sale requires a phone call to ALL stores before confirming the purchase. Slow, but perfectly accurate.
+
+- **Sequential**: All stores agree on the same ORDER of sales, but there might be a small delay. If Store A and Store B both sell a book at 2:00 PM, all stores will agree on who sold "first" — but that ordering might not match the actual clock times. Like a judge watching a race replay to determine the winner.
+
+- **Causal**: If Alice buys a book at Store A, and then Alice's friend Bob (who saw Alice's purchase) tries to buy the same book at Store B, Bob must see that Alice already bought it. But Charlie at Store C, who has no connection to Alice, might still see the book as available — until the update reaches him. **Key insight**: only causally-related events need ordering.
+
+- **Read-your-writes**: You sell a book at Store A, then immediately walk to the computer and check inventory. YOU always see the updated count. But a customer at Store B might still see the old count for a few seconds.
+
+- **Eventual**: All stores will eventually have the same inventory. But for a while after a sale, different stores might show different stock counts. The popular books might briefly show "in stock" at Store C even though they're sold out everywhere else.
 
 ---
 
@@ -93,6 +96,29 @@ ONE copy of the data.
   +----------------------------------------------+
 ```
 
+### Linearizability in the Real World: Why It's Expensive
+
+**Analogy — a synchronized swimming team:**
+
+Every swimmer must move in perfect unison. To achieve this, they must constantly watch the lead swimmer and adjust. If one swimmer can't see the lead (network partition), the whole routine stops — they can't risk being out of sync.
+
+This is why linearizability requires consensus protocols like Raft or Paxos. Every write must be acknowledged by a majority of nodes before it's considered committed. In a 5-node cluster spread across continents:
+
+```
+Write request arrives at leader in Virginia
+  → Replicate to Virginia replica:  1ms    ✓
+  → Replicate to Ohio replica:      15ms   ✓  (majority achieved!)
+  → Replicate to Ireland replica:   85ms   (still in flight)
+  → Replicate to Tokyo replica:     150ms  (still in flight)
+
+Client gets response after: 15ms (waited for majority)
+
+Compare eventual consistency:
+  Client gets response after: <1ms (wrote locally, replicate later)
+```
+
+That 15x latency difference is why most systems don't use linearizability for every operation. Banks use it for transfers. Social media uses eventual consistency for likes.
+
 ---
 
 ## Sequential Consistency
@@ -150,6 +176,29 @@ order. Concurrent operations can be seen in any order.
   This is why many systems target causal consistency.
 ```
 
+### Implementing Causal Consistency: Vector Clocks
+
+**Analogy — a group of friends passing notes in class:**
+
+Each friend keeps a tally of how many notes they've written. When they pass a note, they include their tally AND the tallies they've seen from others. This way, if Friend A's note #3 references Friend B's note #2, anyone reading A's note knows they need B's note #2 first.
+
+```
+Vector clock example with 3 nodes:
+
+Node A sends message m1:     A=[1,0,0]
+Node B receives m1:          B=[1,1,0]  (merged A's clock, incremented own)
+Node B sends reply m2:       B=[1,2,0]
+Node C receives m2:          C=[1,2,1]
+
+Now Node C knows:
+  m1 happened before m2 (because m2's clock includes m1's)
+
+  Any message from Node A with clock [0,0,1] is
+  CONCURRENT with m1 — no causal relationship.
+```
+
+The size of vector clocks grows with the number of nodes — which is why they work for small clusters but not for millions of clients. Systems like DynamoDB use **version vectors** (a similar but bounded concept) instead.
+
 ---
 
 ## Read-Your-Writes
@@ -191,6 +240,36 @@ on subsequent reads.
 
   Stick to the same replica, or track version numbers
   and reject stale responses.
+```
+
+---
+
+## Session Guarantees: The Practical Middle Ground
+
+Real applications rarely need linearizability everywhere. Instead, they combine weaker guarantees per-session:
+
+**Analogy — your personal assistant who keeps notes:**
+
+Imagine your assistant follows you to different store locations. They keep a notebook of everything you've done. When you check inventory at any store, your assistant says "wait — you sold that book 5 minutes ago, this store hasn't caught up yet. Let me find a store that has." Your experience is consistent, even if the global system isn't.
+
+```
+Session guarantees combine:
+
+  ┌─────────────────┐
+  │ Read-your-writes │ → You see your own updates
+  ├─────────────────┤
+  │ Monotonic reads  │ → Time doesn't go backwards
+  ├─────────────────┤
+  │ Monotonic writes │ → Your writes apply in order
+  ├─────────────────┤
+  │ Writes-follow-   │ → Your writes reflect what
+  │ reads            │   you've previously read
+  └─────────────────┘
+
+Together: "causal consistency within a session"
+
+This is what MongoDB sessions, DynamoDB consistent reads,
+and most modern databases actually provide.
 ```
 
 ---

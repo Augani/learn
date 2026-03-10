@@ -294,6 +294,72 @@ A public key and a private key. The public key encrypts or verifies. The private
 
 Analogy: A mailbox. Anyone can drop a letter in (public key encrypts), but only you have the key to open it (private key decrypts).
 
+### The Key Distribution Problem: Crypto's Chicken-and-Egg
+
+Symmetric encryption has a fatal flaw: both sides need the same key. But
+how do you share that key in the first place?
+
+**Analogy — the locked box problem:**
+
+Alice wants to send Bob a secret message. She puts it in a box and locks
+it. But Bob doesn't have the key! She can't mail the key — the thieving
+postal workers will copy it. She can't call Bob — the phone is tapped.
+She can't meet in person — they're on different continents.
+
+This is the key distribution problem, and it stumped cryptographers for
+thousands of years. Every symmetric cipher has this weakness: the key
+itself must somehow be shared securely.
+
+Diffie-Hellman solved it in 1976 (the paint-mixing protocol above). But
+even today, the key distribution problem haunts systems. If your key is
+compromised, ALL past and future messages encrypted with it are exposed.
+
+This led to **Forward Secrecy** — the idea that you should generate a
+NEW key for every session. If your key from Tuesday leaks, only
+Tuesday's messages are compromised. Monday's and Wednesday's are safe
+because they used different keys.
+
+**Analogy — a hotel room key:** The hotel gives you a new key card for
+each stay. If someone steals Tuesday's key card, they can only access
+the room during that stay. They can't get into the room you had last
+month (different key) or next month (key not yet created).
+
+TLS 1.3 enforces forward secrecy by default. Every connection generates
+a fresh set of ephemeral keys using X25519, and the keys are discarded
+when the connection closes. Even if an attacker records all your encrypted
+traffic AND later steals the server's private key, they STILL can't
+decrypt the recorded traffic. The ephemeral keys are gone forever.
+
+### Side-Channel Attacks: When the Math is Perfect but Physics Betrays You
+
+Sometimes the cryptographic algorithm is mathematically unbreakable, but
+the IMPLEMENTATION leaks information through unexpected channels.
+
+**Analogy — the poker tell:** A poker player's cards are hidden, but they
+always fidget with their chips when they have a good hand. The cards are
+secure; the player's behavior leaks the secret.
+
+Real side channels:
+
+- **Timing attacks:** A password comparison that returns faster for "wrong
+  first character" than "wrong last character" leaks how many characters
+  are correct. Attackers measure response time to guess one character at a
+  time.
+
+- **Power analysis:** A smart card's power consumption spikes differently
+  when processing a 1-bit vs a 0-bit. With an oscilloscope, an attacker
+  can literally watch the key being processed.
+
+- **Cache attacks:** On shared hardware (cloud servers), one VM can
+  observe another VM's memory access patterns through CPU cache timing.
+  This has been used to extract AES keys from co-hosted VMs.
+
+This is why cryptographic code uses "constant-time" implementations —
+operations that take the same amount of time regardless of the data.
+Comparing passwords byte-by-byte and returning early on mismatch is
+fast but insecure. Comparing ALL bytes and then checking is slower but
+doesn't leak timing information.
+
 ### The Hybrid Approach (How It Actually Works)
 
 In practice, every real system uses both:

@@ -6,6 +6,29 @@ type system helps keep concurrent code safe.
 
 ---
 
+## Why Rust Concurrency Is Different
+
+**Analogy — a construction site with safety inspectors:**
+
+In Go, you build with goroutines and HOPE nobody makes a mistake sharing data (the race detector catches some, but only at runtime). In Python, the GIL acts as a safety net by preventing true parallelism. In Rust, the compiler IS the safety inspector — it reads your blueprints (code) and REFUSES to let you build if it spots a data race. Zero construction accidents, guaranteed.
+
+```
+Language         Data Race Prevention         When Caught?
+─────────────────────────────────────────────────────────
+Go               Race detector (runtime)      Testing (if triggered)
+Python           GIL (prevents parallelism)   Never (can't happen*)
+Java             Programmer discipline        Production (oops)
+Rust             Compiler (Send/Sync traits)  Compile time (before ship)
+
+* Python's GIL prevents CPU parallelism but NOT I/O races
+```
+
+The key Rust insight: **if it compiles, there are no data races.** This is enforced by two marker traits:
+- `Send`: This type can be transferred to another thread
+- `Sync`: This type can be shared (referenced) by multiple threads
+
+---
+
 ## OS Threads
 
 ### Spawning threads
@@ -45,6 +68,34 @@ go func() {
 Rust's `thread::spawn` creates OS threads (~8MB stack). For lightweight
 concurrency, Rust uses async/await with tokio.
 
+### OS Threads vs Async Tasks: The Real Numbers
+
+**Analogy — hiring employees vs delegating tasks:**
+
+An OS thread is like hiring a full-time employee. They get their own desk (stack), benefits (OS scheduling), and overhead. Great for CPU-heavy work.
+
+An async task is like adding an item to a to-do list. Barely any overhead. A few workers (threads) process a massive to-do list. Great for I/O-heavy work.
+
+```
+OS Thread:                    Async Task:
+┌────────────────────┐       ┌──────────────────┐
+│ Stack: 8 MB        │       │ Future: 64-256 B │
+│ OS resources: yes  │       │ OS resources: no │
+│ Context switch:    │       │ Context switch:  │
+│   1-10 μs (kernel) │       │   ~50 ns (user)  │
+│ Max practical:     │       │ Max practical:   │
+│   ~10,000          │       │   ~1,000,000     │
+└────────────────────┘       └──────────────────┘
+
+10,000 threads × 8MB = 80GB RAM
+1,000,000 tasks × 256B = 256MB RAM
+
+Rule of thumb:
+  CPU-bound work → std::thread (one per core)
+  I/O-bound work → tokio::spawn (thousands)
+  Mixed → thread pool + async I/O
+```
+
 ### Moving data into threads
 
 ```rust
@@ -66,6 +117,33 @@ fn main() {
 ---
 
 ## Channels (like Go channels)
+
+### Channels: The Conveyor Belt
+
+**Analogy — a sushi conveyor belt restaurant:**
+
+A channel is like a conveyor belt. The kitchen (sender) places dishes on the belt. Customers (receivers) pick dishes off. The belt has a maximum capacity (bounded channel). If the belt is full, the kitchen waits. If the belt is empty, customers wait.
+
+```
+                  Bounded channel (capacity=4)
+  Sender ──> [item][item][item][item] ──> Receiver
+             ─────────────────────────
+             Belt full? Sender blocks.
+             Belt empty? Receiver blocks.
+
+  mpsc = Multiple Producers, Single Consumer
+
+  Producer 1 ──┐
+  Producer 2 ──┼──> [conveyor belt] ──> Consumer
+  Producer 3 ──┘
+
+  Many kitchens, one conveyor, one customer.
+
+  tokio::sync::mpsc     → async, bounded
+  std::sync::mpsc        → blocking
+  tokio::sync::broadcast → one sender, MANY receivers (like TV)
+  tokio::sync::watch     → latest value only (like a scoreboard)
+```
 
 ```rust
 use std::sync::mpsc;  // multiple producer, single consumer
@@ -266,6 +344,29 @@ async fn main() {
 
 ## Shared State in Async
 
+### RwLock: The Museum Analogy
+
+**Analogy — a museum exhibit:**
+
+A `Mutex` is like a private viewing room — only one person at a time, whether they're looking or touching. An `RwLock` is like a museum exhibit — unlimited visitors can look simultaneously, but if someone needs to restore the painting, everyone must leave and the room is locked until they're done.
+
+```
+Mutex:
+  Reader 1: lock() → read → unlock()
+  Reader 2:          (waiting...)  → lock() → read → unlock()
+  Only ONE reader at a time. Unnecessary bottleneck!
+
+RwLock:
+  Reader 1: read_lock() → read ─────────→ unlock()
+  Reader 2: read_lock() → read ─────────→ unlock()
+  Reader 3: read_lock() → read ─────────→ unlock()
+  Writer:   (waits for all readers)  → write_lock() → write → unlock()
+
+  Many readers OR one writer. Never both.
+  Use when reads >> writes (config, caches).
+  Use Mutex when reads ≈ writes (simpler, less overhead).
+```
+
 ```rust
 use std::sync::Arc;
 use tokio::sync::Mutex;
@@ -346,6 +447,30 @@ case <-time.After(time.Second):
 | Simple parallelism | `rayon` (parallel iterators) | Easiest API |
 | Message passing | channels (mpsc) | Decoupled communication |
 | Shared mutable state | `Arc<Mutex<T>>` | Thread-safe interior mutability |
+
+---
+
+## The Concurrency Decision Tree
+
+```
+What kind of work?
+├── I/O-bound (network, disk, database)
+│   └── Use async/await (tokio)
+│       ├── Need request/response? → tokio::spawn + await
+│       ├── Need streaming? → tokio::sync::mpsc channels
+│       └── Need broadcast? → tokio::sync::broadcast
+│
+├── CPU-bound (computation, parsing, crypto)
+│   └── Use OS threads (std::thread or rayon)
+│       ├── Embarrassingly parallel? → rayon::par_iter()
+│       ├── Need shared state? → Arc<Mutex<T>>
+│       └── Need message passing? → std::sync::mpsc
+│
+└── Mixed (web server: I/O + some CPU)
+    └── Async I/O + tokio::spawn_blocking for CPU work
+        Don't block the async runtime with CPU work!
+        spawn_blocking runs it on a separate thread pool.
+```
 
 ---
 

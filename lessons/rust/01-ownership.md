@@ -100,8 +100,49 @@ fn main() {
 }
 ```
 
-**Analogy:** A move is like handing someone the storage-unit contract.
-The boxes stay in the unit. What changes is who is responsible for them.
+**Analogy — the library book:** Think of a `String` like a library book.
+When you check out a book, YOU are responsible for returning it. You can't
+just hand it to your friend and walk away — the library doesn't know your
+friend has it, and nobody will return it. In Rust, a "move" is like
+officially transferring your checkout to someone else. The library updates
+its records: now THEY are responsible. The old borrower's library card
+shows nothing checked out.
+
+**What actually happens in memory:**
+```
+Before move (let s1 = String::from("hello")):
+
+  Stack (s1):           Heap:
+  ┌──────────┐         ┌───┬───┬───┬───┬───┐
+  │ ptr  ────┼────────>│ h │ e │ l │ l │ o │
+  │ len: 5   │         └───┴───┴───┴───┴───┘
+  │ cap: 5   │
+  └──────────┘
+
+After move (let s2 = s1):
+
+  Stack (s1):           Heap:
+  ┌──────────┐         ┌───┬───┬───┬───┬───┐
+  │ INVALID  │    ┌───>│ h │ e │ l │ l │ o │
+  └──────────┘    │    └───┴───┴───┴───┴───┘
+                  │
+  Stack (s2):     │
+  ┌──────────┐    │
+  │ ptr  ────┼────┘
+  │ len: 5   │
+  │ cap: 5   │
+  └──────────┘
+
+The heap data NEVER moves. Only the stack metadata (pointer, length,
+capacity) gets copied. Then the old variable is marked invalid.
+This is why moves are cheap — it's just copying 24 bytes on the stack.
+```
+
+This is fundamentally different from a language like Python or Java, where
+`s2 = s1` makes both variables point to the same object. In those languages,
+a garbage collector figures out when nobody points to it anymore. Rust
+doesn't have a GC, so it enforces that exactly ONE variable owns each piece
+of heap memory at any time.
 
 ### Explicit clone when you actually want a copy
 
@@ -268,6 +309,56 @@ fn main() {
 }
 ```
 Hint: think about when `first` is used relative to the mutation.
+
+---
+
+## RAII: Ownership Is About More Than Memory
+
+Rust's ownership model is actually an implementation of **RAII** (Resource
+Acquisition Is Initialization) — a concept from C++ that Rust perfects.
+
+The idea: every resource (memory, file handle, network socket, mutex lock)
+is tied to a variable's lifetime. When the variable goes out of scope, the
+resource is automatically released.
+
+**Analogy — the hotel key card:** When you check into a hotel, you get a key
+card. That card IS your access. When you check out, the card is deactivated
+and the room is cleaned for the next guest. You don't have to remember to
+"release the room" — it happens automatically when your stay ends.
+
+```rust
+fn process_file() -> std::io::Result<()> {
+    let file = File::open("data.txt")?;  // file handle acquired
+    // ... use the file ...
+    Ok(())
+}   // file goes out of scope here → file handle is automatically closed
+    // No need for file.close() — the OS file descriptor is released
+    // Even if an error occurs above, the file is still properly closed
+```
+
+This matters because resource leaks are insidious. In languages without
+RAII, forgetting to close a file handle or release a database connection
+doesn't crash your program — it slowly degrades until you run out of
+resources hours or days later. Rust makes this impossible. If a type holds
+a resource, it MUST be cleaned up when dropped. The compiler guarantees it.
+
+**Real bugs ownership prevents:**
+
+1. **Use-after-free** — In C, you can free memory and then accidentally read
+   from it. Rust won't compile this — once ownership moves, the old variable
+   is dead.
+
+2. **Double-free** — In C, two parts of code might both try to free the same
+   memory. Rust's single-owner rule makes this structurally impossible.
+
+3. **Data races** — Two threads mutating the same data simultaneously. The
+   borrowing rules prevent this at compile time: you can't have two `&mut`
+   references, period.
+
+4. **Iterator invalidation** — Pushing to a vector while iterating over it
+   can reallocate the vector's memory, leaving the iterator pointing at freed
+   memory. Rust's borrow checker catches this: you can't mutate a collection
+   while something borrows it.
 
 ---
 

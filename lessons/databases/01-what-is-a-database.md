@@ -118,6 +118,97 @@ Your Application (Rust, Go, TS)
 
 ---
 
+## How Indexes Actually Work: B-Trees Under the Hood
+
+We said indexes let you "jump straight to the data." But how? The answer
+is one of the most elegant data structures in computer science: the **B-tree**.
+
+**Analogy — the library card catalog:** Imagine a library with 10 million
+books. Without a catalog, finding a book means walking every aisle, scanning
+every shelf. With a card catalog, you look up the author's last name, and
+the card tells you "Aisle 14, Shelf 3, Position 7." You walk straight there.
+
+A B-tree works like a multi-level card catalog:
+
+```
+Looking for user with id = 42:
+
+Level 1 (root):     [50]
+                   /     \
+Level 2:      [25]        [75]
+             /    \      /    \
+Level 3:  [10,20] [30,42] [60,70] [80,90]
+                      ^
+                   FOUND IT! → points to row on disk
+
+Only 3 comparisons to search millions of rows!
+```
+
+Without an index, finding id=42 in a table with 10 million rows means
+reading ALL 10 million rows (a **sequential scan**). With a B-tree index,
+it takes about `log(10,000,000) ≈ 23` comparisons. That's the difference
+between reading 10 million rows and reading 23. Not 23 thousand. Twenty-three.
+
+This is why adding an index to a slow query can make it 100,000x faster.
+It's also why databases don't index everything by default — each index is
+a separate B-tree that must be updated on every INSERT, UPDATE, and DELETE.
+More indexes = faster reads, slower writes. There's always a tradeoff.
+
+---
+
+## ACID: The Four Promises a Database Makes
+
+Databases guarantee four properties that flat files never could. Together
+they're called **ACID**, and they're the reason you can trust a database
+with your money.
+
+**Analogy — a bank transfer:** You're moving $500 from checking to savings.
+
+**A — Atomicity:** "All or nothing." Either BOTH accounts update (checking
+-$500, savings +$500) or NEITHER does. If the power goes out halfway through,
+the database rolls back to the state before the transfer. You'll never have
+$500 vanish into thin air. It's like a light switch — it's either on or off,
+never stuck halfway.
+
+**C — Consistency:** "The rules always hold." If you have a rule that
+account balances can't go negative, the database won't let a transfer
+violate that, even in a crash. The database moves from one valid state to
+another valid state, never passing through an invalid state.
+
+**I — Isolation:** "Transactions don't see each other's unfinished work."
+If you're transferring money while someone else is checking your balance,
+they see either the old balance or the new one — never a partial state where
+checking has -$500 but savings hasn't gained it yet.
+
+**D — Durability:** "Once committed, it's permanent." When the database
+says "transfer complete," the data is safely on disk. Even if the server
+catches fire the next millisecond, your transfer survives.
+
+```
+Without ACID (flat files):
+  1. Read checking: $1000 ✓
+  2. Write checking: $500  ✓
+  --- POWER FAILURE ---
+  3. Write savings: $500   ✗ (never happened)
+  Result: $500 vanished.
+
+With ACID (database):
+  1. BEGIN TRANSACTION
+  2. Write to WAL: "checking -500, savings +500"
+  3. Update checking: $500
+  --- POWER FAILURE ---
+  On restart: database reads WAL, sees uncommitted transaction, rolls back.
+  Result: checking is back to $1000. No money lost.
+```
+
+The **Write-Ahead Log (WAL)** is the secret ingredient. Before changing any
+data, the database writes a record of WHAT it's about to do to a separate
+log file. If it crashes, it replays the log on startup to recover.
+Think of it as a "shopping list" — even if you drop your groceries in the
+parking lot, you still have the list to start over.
+
+---
+
 ## Types of Databases
 
 ### Relational (what we're learning)

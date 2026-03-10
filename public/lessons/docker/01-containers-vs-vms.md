@@ -383,6 +383,94 @@ docker rm -f sleeper
 
 ---
 
+## Image Layers: Building Blocks, Not Monoliths
+
+Container images aren't single files — they're stacks of **layers**,
+each representing a change from the layer below.
+
+**Analogy — transparent overlays on a map:** Remember old-school overhead
+projectors? You'd have a base map (the country outline), then stack
+transparent sheets on top: one for roads, one for cities, one for rivers.
+The final image is all sheets stacked together. Change the rivers? Swap
+just that one sheet. Everything else stays the same.
+
+Docker images work identically:
+
+```
+Your Dockerfile:                    Image Layers:
+─────────────────────              ─────────────────────
+FROM ubuntu:22.04         →        Layer 1: Ubuntu base filesystem (77MB)
+RUN apt-get install curl  →        Layer 2: curl + dependencies (15MB)
+COPY app /usr/local/bin/  →        Layer 3: your binary (8MB)
+CMD ["app"]               →        (metadata only, no new layer)
+
+Total image: 100MB
+```
+
+The magic: layers are **shared and cached**. If 10 different images all
+start with `FROM ubuntu:22.04`, that 77MB base layer exists only ONCE on
+disk. Change your app binary? Only Layer 3 (8MB) needs to be rebuilt and
+re-pushed. The other layers are already cached everywhere.
+
+This is why build order in Dockerfiles matters enormously:
+
+```
+❌ Bad: change code → rebuild everything
+COPY . /app                    ← changes every time you edit code
+RUN npm install                ← reinstalls ALL packages every time!
+RUN npm run build              ← rebuilds every time
+
+✅ Good: change code → only rebuild code layer
+COPY package.json /app/        ← only changes when dependencies change
+RUN npm install                ← cached if package.json didn't change!
+COPY . /app                    ← this layer changes, but npm install is cached
+RUN npm run build
+```
+
+This turns a 5-minute build into a 10-second build. Understanding layers
+is the single biggest practical Docker optimization.
+
+---
+
+## Container Security: The Shared Wall Problem
+
+Containers share the host kernel. This is their greatest strength (speed,
+efficiency) and their greatest weakness (security).
+
+**Analogy — apartments with thin walls:** In the apartment building, each
+unit has locked doors (namespaces) and utility meters (cgroups). But all
+apartments share the same foundation and plumbing. If someone finds a crack
+in the foundation (a kernel vulnerability), they can potentially reach
+ANY apartment.
+
+```
+VM Security Model:            Container Security Model:
+┌──────────┐ ┌──────────┐    ┌──────────┐ ┌──────────┐
+│  VM 1    │ │  VM 2    │    │Container1│ │Container2│
+│ ┌──────┐ │ │ ┌──────┐ │    │ ┌──────┐ │ │ ┌──────┐ │
+│ │ App  │ │ │ │ App  │ │    │ │ App  │ │ │ │ App  │ │
+│ ├──────┤ │ │ ├──────┤ │    │ └──────┘ │ │ └──────┘ │
+│ │Kernel│ │ │ │Kernel│ │    └────┬─────┘ └────┬─────┘
+│ └──────┘ │ │ └──────┘ │         │              │
+└────┬─────┘ └────┬─────┘    ┌────┴──────────────┴────┐
+┌────┴──────────────┴────┐    │   SHARED HOST KERNEL    │
+│     Hypervisor          │    │   (single attack surface)│
+│     (tiny attack surface)│    └─────────────────────────┘
+└─────────────────────────┘
+
+Kernel exploit in VM: affects only that VM's kernel.
+Kernel exploit in container: affects EVERY container + host.
+```
+
+This is why:
+- **Never run containers as root** unless absolutely necessary
+- **Use read-only filesystems** (`--read-only`) when possible
+- **Drop capabilities** — containers don't need `CAP_SYS_ADMIN`
+- **Use security profiles** (AppArmor, seccomp) to limit syscalls
+- Running untrusted code? Use VMs or gVisor (a user-space kernel)
+
+---
+
 ## When VMs Still Win
 
 Containers aren't always the answer. VMs are better when:

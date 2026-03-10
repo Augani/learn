@@ -80,6 +80,102 @@ manage threads directly. The runtime handles:
 - Growing/shrinking goroutine stacks
 - Parking idle goroutines efficiently
 
+### The GMP Model: How the Scheduler Really Works
+
+Go's scheduler uses three key entities: **G** (goroutines), **M** (OS threads/machines), and **P** (processors/contexts). Understanding this model explains why Go can run millions of goroutines efficiently.
+
+**Analogy — a food court with multiple kitchens:**
+
+Imagine a food court (the Go runtime). There are:
+- **Customers (G — goroutines)**: Thousands of hungry people with orders
+- **Kitchens (M — OS threads)**: Physical kitchens with real equipment. Expensive to build.
+- **Order windows (P — processors)**: The interface between customers and kitchens. Each window has a queue of orders (the local run queue).
+
+```
+The GMP Model:
+
+  Global Run Queue (overflow)
+  [G] [G] [G] [G] [G]
+         |
+    +----+----+----+
+    |         |         |
+    v         v         v
+  +---+     +---+     +---+
+  | P |     | P |     | P |    ← Processor contexts (GOMAXPROCS)
+  +---+     +---+     +---+
+  |[G]|     |[G]|     |[G]|   ← Local run queues (fast, no lock)
+  |[G]|     |[G]|     |   |
+  |[G]|     |   |     |   |
+  +---+     +---+     +---+
+    |         |         |
+    v         v         v
+  +---+     +---+     +---+
+  | M |     | M |     | M |    ← OS threads
+  +---+     +---+     +---+
+    |         |         |
+  [CPU]     [CPU]     [CPU]    ← Hardware cores
+```
+
+**Key insight — the P is the secret sauce.** Without P, every goroutine schedule/deschedule would need to lock the global run queue (slow). With P, each processor has its own local queue — goroutines are scheduled without any locking most of the time.
+
+### Work Stealing: The Idle Kitchen
+
+When a P's local queue is empty, it doesn't just sit idle. It **steals** work from other P's queues.
+
+**Analogy — restaurant kitchen stealing orders:**
+Kitchen C has no orders. Kitchen A has 10 orders backed up. Kitchen C reaches over and grabs half of Kitchen A's orders. Now both kitchens are busy. No manager needed to coordinate — each kitchen looks for work on its own.
+
+```
+Before work stealing:          After work stealing:
+P0: [G][G][G][G][G]           P0: [G][G][G]
+P1: [G][G]                    P1: [G][G]
+P2: (empty, idle!)            P2: [G][G]  ← stole from P0
+
+Order of theft:
+1. Check own local queue       (fastest)
+2. Check global run queue      (needs lock, but rare)
+3. Steal from other P's queue  (lock-free, half the queue)
+4. Check network poller        (any I/O completions?)
+```
+
+### When a Goroutine Blocks
+
+**Analogy — a kitchen worker waiting for a delivery:**
+
+When a goroutine does a blocking syscall (like reading a file), the OS thread (M) gets stuck waiting. But Go doesn't waste the P! The P detaches from the blocked M and finds another M (or creates one) to keep running goroutines.
+
+```
+Before blocking syscall:        During syscall:
+  P0 ←→ M0 running G1           M0 stuck in syscall (with G1)
+                                 P0 ←→ M1 (new thread!) running G2
+
+After syscall completes:
+  G1 goes back into P0's run queue
+  M0 goes back to the idle thread pool
+```
+
+This is why Go can handle thousands of concurrent file reads without creating thousands of permanent threads. The thread pool grows and shrinks dynamically.
+
+### Preemptive Scheduling (Since Go 1.14)
+
+Before Go 1.14, goroutines were only descheduled at specific points (function calls, channel ops, I/O). A tight computational loop with no function calls could starve other goroutines.
+
+**Analogy — a customer who won't stop talking:**
+Imagine a customer at the order window who just keeps talking and never lets anyone else order. Before 1.14, there was nothing you could do. Since 1.14, the Go runtime can tap the customer on the shoulder and say "excuse me, other people are waiting" (using OS signals — specifically SIGURG on Unix).
+
+```
+Before Go 1.14 (cooperative):
+  func cpuHog() {
+      for { /* infinite loop, no yield points */ }
+  }
+  // Other goroutines on same P STARVE
+
+After Go 1.14 (preemptive):
+  Same function — runtime inserts preemption points
+  using asynchronous signals (~10ms time slices)
+  Other goroutines get their turn
+```
+
 ---
 
 ## WaitGroups: Waiting for Goroutines
@@ -356,6 +452,29 @@ func leaky() {
 The goroutine above blocks forever because `ch` is never sent to
 and `leaky()` doesn't close it. Use `context.Context` (Lesson 16)
 to cancel goroutines cleanly.
+
+---
+
+## Goroutine Debugging: How Many Are Running?
+
+In production, goroutine leaks are silent killers. Here's how to monitor:
+
+```go
+import "runtime"
+
+// Check goroutine count
+fmt.Println("Goroutines:", runtime.NumGoroutine())
+
+// Dump all goroutine stacks (like a thread dump in Java)
+import "runtime/debug"
+debug.PrintStack()
+
+// Or use pprof for production monitoring
+import _ "net/http/pprof"
+// Then visit: http://localhost:6060/debug/pprof/goroutine?debug=1
+```
+
+**Rule of thumb:** If `runtime.NumGoroutine()` keeps growing over time, you have a leak. Add this to your health check endpoint.
 
 ---
 

@@ -11,6 +11,31 @@ A Series is a single column. A DataFrame is a table of columns.
 Think of a DataFrame like a filing cabinet: each drawer (column)
 holds one type of document, and every document has the same row number.
 
+**Analogy — a spreadsheet that remembers everything:**
+
+Imagine a smart spreadsheet. In Excel, you click cells, type formulas, and pray you don't overwrite something. In pandas, every operation creates a RECORD of what you did. You can chain operations like a recipe: "take the data → filter rows → group by category → compute averages → sort descending." If something goes wrong, you can see exactly which step broke.
+
+The key mental model: a DataFrame is NOT just a table. It's a **table with superpowers**:
+- Every column has a strict type (no mixing strings and numbers accidentally)
+- Every row has an index (like a primary key in a database)
+- Operations return NEW DataFrames (the original is preserved, like git commits)
+
+```
+NumPy array:               Pandas DataFrame:
+  Just numbers               Numbers + labels + types
+  [[1, 2, 3],               name    score   dept
+   [4, 5, 6]]               Alice   85      ML
+                             Bob     92      NLP
+
+  Access: arr[0, 1]          Access: df.loc["Alice", "score"]
+  No labels. No types.       Labels, types, and missing value handling.
+  Fast math on blocks.       Fast math on labeled, heterogeneous data.
+```
+
+**When to use NumPy vs Pandas:**
+- Pure numerical computation (matrices, linear algebra, neural nets) → **NumPy**
+- Labeled, mixed-type data with missing values (CSV files, experiment logs, feature engineering) → **Pandas**
+
 ```python
 import pandas as pd
 import numpy as np
@@ -337,6 +362,36 @@ print(f"Outer join:\n{outer}")
   outer  All rows from both sides
 ```
 
+### Join Types Visualized
+
+**Analogy — matching students to test scores:**
+
+You have two lists: a class roster (names) and a grade sheet (names + scores). Some students on the roster didn't take the test. Some scores belong to students who transferred out.
+
+```
+  Roster:     [Alice, Bob, Carol]
+  Grades:     [Bob: 92, Carol: 85, Dave: 78]
+
+  INNER JOIN (only matches):
+  ┌─────────────────────────┐
+  │    Roster    │  Grades   │
+  │  ┌───────┐  │           │
+  │  │ Alice │  │           │
+  │  │       │ ╔═══════════╗│
+  │  │  Bob ─┼─║─ Bob: 92  ║│
+  │  │ Carol ┼─║─Carol: 85 ║│
+  │  │       │ ║ Dave: 78  ║│
+  │  └───────┘ ╚═══════════╝│
+  └─────────────────────────┘
+  Result: Bob (92), Carol (85)  ← only students in BOTH lists
+
+  LEFT JOIN (all from left):
+  Result: Alice (NaN), Bob (92), Carol (85)  ← all roster students
+
+  OUTER JOIN (everyone):
+  Result: Alice (NaN), Bob (92), Carol (85), Dave (78)  ← everyone
+```
+
 ---
 
 ## Pivot Tables
@@ -399,6 +454,59 @@ result = (
 print(result)
 ```
 
+### Why Method Chaining Matters: Debugging and Reproducibility
+
+**Analogy — a cooking recipe vs ad-hoc cooking:**
+
+Without method chaining, your data pipeline looks like a messy kitchen — ingredients everywhere, half-finished steps, no clear order. WITH chaining, it reads like a recipe: step 1, step 2, step 3. If the dish tastes wrong, you can pinpoint exactly which step to fix.
+
+```
+Without chaining (hard to debug):
+  df2 = df[df["valid"] == True]
+  df3 = df2.copy()
+  df3["efficiency"] = df3["score"] / df3["latency"]
+  df4 = df3.groupby("model").agg(avg=("score", "mean"))
+  result = df4.sort_values("avg", ascending=False)
+  # 5 intermediate variables. Which one broke?
+
+With chaining (clear pipeline):
+  result = (
+      df
+      .query("valid == True")
+      .assign(efficiency=lambda x: x["score"] / x["latency"])
+      .groupby("model")
+      .agg(avg=("score", "mean"))
+      .sort_values("avg", ascending=False)
+  )
+  # One pipeline. Comment out any line to debug.
+```
+
+### Performance: When Pandas Gets Slow
+
+Pandas is single-threaded and operates in memory. Here's when it breaks:
+
+```
+Data size guide:
+  < 100MB    → Pandas is great. No worries.
+  100MB - 1GB → Pandas works but watch memory (2-5x data size)
+  1GB - 10GB  → Consider chunking or Polars
+  > 10GB      → Use Spark, DuckDB, or Polars
+
+Common performance traps:
+  ✗ Looping with iterrows()        → 100x slower than vectorized
+  ✗ apply(func, axis=1)            → Still a Python loop under the hood
+  ✓ Vectorized operations           → Uses C/NumPy, fast
+  ✓ .query() for filtering          → Optimized, avoids temp arrays
+
+  # SLOW (Python loop):
+  for idx, row in df.iterrows():
+      df.loc[idx, "new"] = row["a"] * 2
+
+  # FAST (vectorized):
+  df["new"] = df["a"] * 2
+  # 100x faster for 1M rows
+```
+
 ---
 
 ## Saving Data
@@ -414,6 +522,31 @@ df.to_json("output.json", orient="records")
 ```
 
 Parquet is best for ML: smaller files, preserves types, fast reads.
+
+### Why Parquet Over CSV?
+
+**Analogy — a filing cabinet vs a text file:**
+
+CSV is like writing everything on a long scroll of paper. To find one column, you have to read the entire scroll. Parquet is like a filing cabinet with labeled drawers — you can pull out just the drawer you need.
+
+```
+CSV:                          Parquet:
+  Row-oriented                  Column-oriented
+  name,score,dept               name: [Alice,Bob,Carol...]
+  Alice,85,ML                   score: [85,92,78...]
+  Bob,92,NLP                    dept: [ML,NLP,ML...]
+  Carol,78,ML
+
+  Read "score" column:          Read "score" column:
+  → read ENTIRE file            → read ONLY the score block
+  → parse every row             → skip name and dept entirely
+
+  1GB CSV of 50 columns →       1GB Parquet, read 1 column →
+  reads 1GB                      reads ~20MB (1/50th)
+
+  Also: Parquet compresses 5-10x better than CSV
+  Also: Parquet preserves exact types (no "is 42 a string or int?")
+```
 
 ---
 
