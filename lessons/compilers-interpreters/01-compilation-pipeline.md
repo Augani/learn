@@ -213,6 +213,96 @@ goes through TWO compilation pipelines before it runs.
 
 ---
 
+## Optimization: Making the Translation Better, Not Just Correct
+
+A compiler doesn't just translate — it IMPROVES your code. The optimization
+stage is like a skilled editor who doesn't just translate a book but makes
+the translated version clearer and more concise than the original.
+
+**Analogy — a travel itinerary optimizer:** You plan a road trip: Home →
+Gas Station → Grocery Store → Gas Station → Home. An optimizer looks at
+this and says "You're visiting the gas station twice — combine those into
+one stop." It might also say "The grocery store is next to a gas station —
+go there instead of your usual one."
+
+Compilers do the same things with your code:
+
+```
+Your code:                    What the compiler actually generates:
+──────────────────            ──────────────────────────────────────
+
+let x = 2 + 3;               let x = 5;  // computed at compile time
+let y = x;                   // ("constant folding" — why compute at
+                             // runtime what you can compute now?)
+
+for i in 0..1000 {           let base = expensive_lookup();
+    result += arr[i] *       for i in 0..1000 {
+              expensive_lookup();    result += arr[i] * base;
+}                            }
+                             // ("loop-invariant code motion" — don't
+                             // recompute what doesn't change each iteration)
+
+if condition {               // ("dead code elimination" — if the compiler
+    return 42;               // can prove the else branch is never reached,
+} else {                     // it removes it entirely)
+    return 42;
+}                            return 42;
+
+fn add(a: i32, b: i32)      // The function call disappears entirely.
+  -> i32 { a + b }          // The body is pasted at the call site.
+let result = add(3, 4);     let result = 3 + 4; // = 7
+                             // ("inlining" — remove function call overhead)
+```
+
+Modern compilers apply dozens of these optimizations in multiple passes.
+It's like proofreading a manuscript multiple times, each pass focusing
+on a different improvement: one pass eliminates redundant phrases, another
+restructures paragraphs for flow, another checks consistency.
+
+---
+
+## Linking: Assembling the Book From Chapters
+
+There's a stage most tutorials skip: **linking**. After the compiler
+translates each source file independently, the linker stitches them
+together into a single executable.
+
+**Analogy — publishing a book with multiple authors:** Each author writes
+their chapter independently. One author references "see Chapter 7 by Dr.
+Smith" without knowing what page it'll end up on. The publisher (linker)
+takes all chapters, assigns final page numbers, and updates every
+cross-reference. It also adds the table of contents and the index.
+
+```
+File 1 (main.rs):    File 2 (utils.rs):    Standard Library:
+┌──────────────┐     ┌──────────────┐      ┌──────────────┐
+│ fn main() {  │     │ fn helper()  │      │ fn println!  │
+│   helper();  ├────>│   { ... }    │      │   { ... }    │
+│   println!() ├─────┼──────────────┼─────>│              │
+│ }            │     │              │      │              │
+└──────────────┘     └──────────────┘      └──────────────┘
+       │                    │                      │
+       └─────────┬──────────┘──────────────────────┘
+                 │
+            ┌────▼────┐
+            │  LINKER │
+            └────┬────┘
+                 │
+           ┌─────▼──────┐
+           │  Final      │
+           │  Executable │
+           │  (one file) │
+           └─────────────┘
+```
+
+This is why you get "undefined reference" errors — the linker couldn't
+find the function you called. The compiler was fine with it (it trusted
+that the function exists somewhere), but the linker looked everywhere
+and couldn't find it. It's like the publisher discovering that "Chapter 7
+by Dr. Smith" was never actually written.
+
+---
+
 ## AOT vs JIT — Tradeoffs
 
 **Ahead-of-Time (AOT)**:
