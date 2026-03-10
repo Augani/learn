@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Anton", sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-accent: #ea580c;
+  --color-accent-light: #f97316;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-black text-white;
+  }
+}
+
+.markdown-body {
+  @apply font-sans leading-relaxed;
+}
+.markdown-body h1 {
+  @apply font-display text-4xl uppercase mb-10 mt-8;
+}
+.markdown-body h2 {
+  @apply font-display text-2xl uppercase mb-4 mt-8;
+}
+.markdown-body h3 {
+  @apply font-sans text-xl font-bold mb-3 mt-6;
+}
+.markdown-body p {
+  @apply mb-4;
+  color: var(--text-secondary);
+}
+.markdown-body ul {
+  @apply list-disc list-inside mb-4;
+  color: var(--text-secondary);
+}
+.markdown-body ol {
+  @apply list-decimal list-inside mb-4;
+  color: var(--text-secondary);
+}
+.markdown-body li {
+  @apply mb-1;
+}
+.markdown-body code {
+  @apply font-mono px-1 py-0.5 rounded text-sm;
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+}
+.markdown-body pre {
+  @apply p-4 rounded-lg mb-4 overflow-x-auto;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+}
+.markdown-body pre code {
+  @apply bg-transparent p-0 text-sm;
+}
+.markdown-body blockquote {
+  @apply border-l-4 border-orange-600 pl-4 italic mb-4;
+  color: var(--text-secondary);
+}
+.markdown-body table {
+  @apply w-full mb-4 text-sm;
+  border-collapse: collapse;
+}
+.markdown-body th {
+  @apply text-left p-2 font-mono text-xs uppercase tracking-wider;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-secondary);
+}
+.markdown-body td {
+  @apply p-2;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+.markdown-body hr {
+  @apply my-8;
+  border-color: var(--border-color);
+}
+.markdown-body strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.markdown-body a {
+  @apply text-orange-500 hover:underline;
+}
+
+.markdown-body .ascii-block {
+  @apply p-4 rounded-lg mb-4 overflow-x-auto font-mono text-sm leading-tight;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  white-space: pre;
+}
+.markdown-body .ascii-block code {
+  @apply bg-transparent p-0;
+  white-space: pre;
+  font-family: var(--font-mono);
+  line-height: 1.3;
+}
+
+.theme-dark {
+  --bg-color: #050505;
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --border-color: #222222;
+  --surface-color: #111111;
+}
+
+.theme-light {
+  --bg-color: #f5f5f5;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --border-color: #dddddd;
+  --surface-color: #ffffff;
+}
+
+.theme-sepia {
+  --bg-color: #f4ecd8;
+  --text-primary: #433422;
+  --text-secondary: #7a6a58;
+  --border-color: #d5c8b5;
+  --surface-color: #fffaf0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
+.border-theme {
+  border-color: var(--border-color);
+}
+
+.bg-surface {
+  background-color: var(--surface-color);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
