@@ -6088,8 +6088,126 @@
           "isReference": true
         }
       ]
+    },
+    {
+      "id": "cs-fundamentals",
+      "title": "Cs Fundamentals",
+      "description": "Everything a self-taught programmer needs to know about how computers",
+      "lessonCount": 12,
+      "status": "Complete",
+      "order": 99,
+      "lessons": [
+        {
+          "id": "cs-fundamentals/01-how-computers-work",
+          "filename": "01-how-computers-work.md",
+          "title": "Lesson 01: How a Computer Runs Your Program",
+          "trackId": "cs-fundamentals",
+          "order": 1,
+          "wordCount": 1920,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/02-stack-and-heap",
+          "filename": "02-stack-and-heap.md",
+          "title": "Lesson 02: Stack and Heap — Where Your Data Lives",
+          "trackId": "cs-fundamentals",
+          "order": 2,
+          "wordCount": 2123,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/03-memory",
+          "filename": "03-memory.md",
+          "title": "Lesson 03: Memory — Allocation, Freeing, and What Can Go Wrong",
+          "trackId": "cs-fundamentals",
+          "order": 3,
+          "wordCount": 1922,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/04-types",
+          "filename": "04-types.md",
+          "title": "Lesson 4: Types and Type Systems",
+          "trackId": "cs-fundamentals",
+          "order": 4,
+          "wordCount": 2703,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/05-pointers-references",
+          "filename": "05-pointers-references.md",
+          "title": "Lesson 5: Pointers and References — Addresses in Memory",
+          "trackId": "cs-fundamentals",
+          "order": 5,
+          "wordCount": 2511,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/06-binary-encoding",
+          "filename": "06-binary-encoding.md",
+          "title": "Lesson 6: Binary, Bits, and How Data Is Encoded",
+          "trackId": "cs-fundamentals",
+          "order": 6,
+          "wordCount": 2960,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/07-compilation",
+          "filename": "07-compilation.md",
+          "title": "Lesson 7: From Source Code to Running Program — Compilation and Interpretation",
+          "trackId": "cs-fundamentals",
+          "order": 7,
+          "wordCount": 3663,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/08-concurrency-parallelism",
+          "filename": "08-concurrency-parallelism.md",
+          "title": "Lesson 8: Concurrency and Parallelism — Doing Multiple Things",
+          "trackId": "cs-fundamentals",
+          "order": 8,
+          "wordCount": 3499,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/09-garbage-collection",
+          "filename": "09-garbage-collection.md",
+          "title": "Lesson 9: Garbage Collection vs Manual Memory Management",
+          "trackId": "cs-fundamentals",
+          "order": 9,
+          "wordCount": 3953,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/10-process-model",
+          "filename": "10-process-model.md",
+          "title": "Lesson 10: The Process Model — How Programs Run on an OS",
+          "trackId": "cs-fundamentals",
+          "order": 10,
+          "wordCount": 3720,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/11-algorithms-thinking",
+          "filename": "11-algorithms-thinking.md",
+          "title": "Lesson 11: Algorithms Thinking — How to Reason About Efficiency",
+          "trackId": "cs-fundamentals",
+          "order": 11,
+          "wordCount": 3275,
+          "isReference": false
+        },
+        {
+          "id": "cs-fundamentals/12-full-picture",
+          "filename": "12-full-picture.md",
+          "title": "Lesson 12: Putting It All Together — How a Web Request Actually Works",
+          "trackId": "cs-fundamentals",
+          "order": 12,
+          "wordCount": 4142,
+          "isReference": false
+        }
+      ]
     }
   ],
-  "totalLessons": 578,
-  "generatedAt": "2026-03-10T12:21:18.075Z"
+  "totalLessons": 590,
+  "generatedAt": "2026-03-10T12:56:43.369Z"
 }
