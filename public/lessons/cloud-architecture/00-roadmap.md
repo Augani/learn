@@ -106,4 +106,12 @@ application on AWS using Terraform, complete with:
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Amazon Web Services in Action** by Michael Wittig and Andreas Wittig (Manning, 3rd Edition 2023) — Practical AWS guide
+
+---
+
 [Start the track -> Lesson 1: Cloud Fundamentals](01-cloud-fundamentals.md)

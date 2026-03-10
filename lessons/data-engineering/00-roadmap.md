@@ -164,4 +164,14 @@ Putting it all together for real-world ML systems.
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Fundamentals of Data Engineering** by Joe Reis and Matt Housley (O'Reilly, 2022) — Modern data engineering foundations
+- **Designing Data-Intensive Applications** by Martin Kleppmann (O'Reilly, 2017) — Data systems architecture
+- **The Data Warehouse Toolkit** by Ralph Kimball and Margy Ross (Wiley, 3rd Edition 2013) — Dimensional modeling bible
+
+---
+
 [Start with Lesson 01: Data Formats ->](01-data-formats.md)

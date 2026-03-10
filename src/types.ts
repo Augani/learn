@@ -18,11 +18,32 @@ export interface LessonMeta {
   isReference: boolean;
 }
 
+export interface CareerTrackBook {
+  title: string;
+  author: string;
+  year: number;
+  free?: boolean;
+  description: string;
+}
+
+export interface CareerTrack {
+  id: string;
+  title: string;
+  description: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced' | 'beginner-intermediate' | 'intermediate-advanced';
+  icon: string;
+  color: string;
+  estimatedHours: number;
+  topicIds: string[];
+  books: CareerTrackBook[];
+}
+
 export interface Manifest {
   tracks: Track[];
+  careerTracks: CareerTrack[];
   totalLessons: number;
   generatedAt: string;
 }
 
-export type ViewState = 'tracks' | 'track' | 'lesson' | 'complete' | 'settings';
+export type ViewState = 'tracks' | 'track' | 'lesson' | 'complete' | 'settings' | 'careerTrack';
 export type Theme = 'dark' | 'light' | 'sepia';

@@ -90,4 +90,13 @@ python -m spacy download en_core_web_sm
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Speech and Language Processing** by Dan Jurafsky and James Martin (3rd Edition draft) — The NLP textbook. *Free at web.stanford.edu/~jurafsky/slp3*
+- **Natural Language Processing with Transformers** by Lewis Tunstall, Leandro von Werra, and Thomas Wolf (O'Reilly, Revised Edition 2022) — Practical transformer-based NLP
+
+---
+
 **Next:** [01 - Text Preprocessing](01-text-preprocessing.md)

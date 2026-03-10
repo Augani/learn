@@ -63,3 +63,12 @@ Every lesson has:
 3. Code you build incrementally — by lesson 12 you'll have a working interpreter
 4. By lesson 18 you'll have a bytecode compiler and VM
 5. Exercises that extend what you built
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Crafting Interpreters** by Robert Nystrom (Genever Benning, 2021) — Build two interpreters from scratch. *Free at craftinginterpreters.com*
+- **Writing An Interpreter In Go** and **Writing A Compiler In Go** by Thorsten Ball (2018/2019) — Practical, code-first approach

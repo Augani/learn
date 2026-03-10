@@ -141,4 +141,13 @@ print(f"CUDA:         {torch.cuda.is_available()}")
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Computer Vision: Algorithms and Applications** by Richard Szeliski (Springer, 2nd Edition 2022) — The standard CV textbook. *Free at szeliski.org/Book*
+- **Deep Learning for Vision Systems** by Mohamed Elgendy (Manning, 2020) — From CNNs to object detection
+
+---
+
 **Ready? Start with [Lesson 01 — How Computers See](01-how-computers-see.md)**

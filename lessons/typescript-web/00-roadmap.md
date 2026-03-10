@@ -92,4 +92,13 @@ pnpm create next-app@latest my-app --typescript
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Effective TypeScript** by Dan Vanderkam (O'Reilly, 2nd Edition 2024) — 83 ways to improve your TypeScript
+- **The Road to React** by Robin Wieruch (self-published, 2024 Edition) — Modern React with hooks and TypeScript
+
+---
+
 [Next: Lesson 01 - TypeScript for Systems Devs →](./01-typescript-for-systems-devs.md)

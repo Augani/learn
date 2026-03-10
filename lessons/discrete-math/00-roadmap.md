@@ -76,4 +76,13 @@ COMPUTATION
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Discrete Mathematics and Its Applications** by Kenneth Rosen (McGraw-Hill, 8th Edition 2019) — The standard textbook
+- **Mathematics for Computer Science** by Eric Lehman, F. Thomson Leighton, and Albert Meyer (MIT) — Rigorous and comprehensive. *Free from MIT OpenCourseWare*
+
+---
+
 [Start the track: Lesson 01 — Propositional Logic](01-propositional-logic.md)

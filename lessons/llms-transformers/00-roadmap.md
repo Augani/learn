@@ -53,3 +53,13 @@ Every lesson has:
 3. Python code where helpful (PyTorch for attention, etc.)
 4. "What would happen if..." thought experiments
 5. Connection to real systems (GPT, Claude, etc.)
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Speech and Language Processing** by Dan Jurafsky and James Martin (3rd Edition draft) — Comprehensive NLP/LLM foundations. *Free at web.stanford.edu/~jurafsky/slp3*
+- **Natural Language Processing with Transformers** by Lewis Tunstall, Leandro von Werra, and Thomas Wolf (O'Reilly, Revised Edition 2022) — By Hugging Face authors
+- **Build a Large Language Model (From Scratch)** by Sebastian Raschka (Manning, 2024) — Build a GPT from scratch

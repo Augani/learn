@@ -62,3 +62,12 @@ Every lesson has:
 3. Code examples in Go and TypeScript showing both vulnerable and secure versions
 4. Hands-on exercises (safely — against your own local systems)
 5. Real-world breach examples showing why this matters
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Serious Cryptography** by Jean-Philippe Aumasson (No Starch Press, 2nd Edition 2024) — Modern applied cryptography
+- **Real-World Cryptography** by David Wong (Manning, 2021) — Practical crypto for developers

@@ -151,4 +151,13 @@ Quick-look resources you will keep coming back to.
 > "In theory, there is no difference between theory and practice.
 > In practice, there is." - Yogi Berra
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **An Introduction to Statistical Learning (ISLR)** by James, Witten, Hastie, and Tibshirani (Springer, 2nd Edition 2021) — Practical statistical learning. *Free PDF available*
+- **The Elements of Statistical Learning** by Hastie, Tibshirani, and Friedman (Springer, 2nd Edition 2009) — Advanced reference. *Free PDF available*
+
+---
+
 [Start with Lesson 01: Data Collection & Quality -->](01-data-collection-quality.md)

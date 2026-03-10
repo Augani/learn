@@ -50,3 +50,12 @@ Every lesson has:
 2. Protocol details with ASCII diagrams
 3. Rust code you can run to see networking in action
 4. Exercises (build something, capture packets, debug)
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Computer Networking: A Top-Down Approach** by James Kurose and Keith Ross (Pearson, 8th Edition 2021) — The standard networking textbook
+- **TCP/IP Illustrated, Volume 1** by W. Richard Stevens (Addison-Wesley, 2nd Edition 2011) — Deep protocol internals

@@ -51,3 +51,12 @@ Every lesson has:
 4. Exercises
 
 Many examples use Linux/macOS terminal commands alongside Rust code.
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Operating Systems: Three Easy Pieces** by Remzi and Andrea Arpaci-Dusseau (Arpaci-Dusseau Books) — Best OS textbook, ever. *Free at pages.cs.wisc.edu/~remzi/OSTEP*
+- **Modern Operating Systems** by Andrew Tanenbaum and Herbert Bos (Pearson, 5th Edition 2022) — Comprehensive OS reference

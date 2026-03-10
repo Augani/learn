@@ -139,4 +139,13 @@ confident to be. Information theory tells you how to measure it.
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Mathematics for Machine Learning** by Marc Peter Deisenroth, A. Aldo Faisal, and Cheng Soon Ong (Cambridge University Press, 2020) — Linear algebra, calculus, and probability for ML. *Free at mml-book.github.io*
+- **An Introduction to Statistical Learning (ISLR)** by James, Witten, Hastie, and Tibshirani (Springer, 2nd Edition 2021) — Statistical foundations with R/Python labs. *Free PDF available*
+
+---
+
 [Start the track -> Lesson 01: Vectors](01-vectors.md)

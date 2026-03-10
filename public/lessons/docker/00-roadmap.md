@@ -56,3 +56,12 @@ Every lesson has:
 3. Go/TypeScript comparisons where relevant (build tooling, deployment)
 4. "Under the hood" sections showing what Docker is actually doing
 5. Common mistakes and how to avoid them
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **Docker Deep Dive** by Nigel Poulton (independently published, updated annually) — Comprehensive Docker reference
+- **Kubernetes in Action** by Marko Luksa (Manning, 2nd Edition 2024) — Goes beyond Docker into orchestration

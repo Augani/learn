@@ -59,3 +59,12 @@ Many examples run directly on macOS, but several later lessons use
 Linux-only tools such as `ss`, `iptables`, `journalctl`, and LVM commands.
 macOS equivalents are called out where they exist; use a Linux VM or
 container when you need the Linux-only commands.
+
+---
+
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **How Linux Works** by Brian Ward (No Starch Press, 3rd Edition 2021) — What every power user should know
+- **The Linux Command Line** by William Shotts (No Starch Press, 2nd Edition 2019) — From zero to shell scripting. *Free at linuxcommand.org*

@@ -80,4 +80,13 @@ After completing this track you will:
 
 ---
 
+## Recommended Reading
+
+These books are optional — the lessons above cover everything you need. But if you want to go deeper:
+
+- **The Art of Multiprocessor Programming** by Maurice Herlihy and Nir Shavit (Morgan Kaufmann, 2nd Edition 2020) — Theoretical foundations
+- **Grokking Concurrency** by Kirill Bobrov (Manning, 2024) — Visual, intuitive concurrency guide
+
+---
+
 **Start here** -> [01 - Concurrency vs Parallelism](01-concurrency-vs-parallelism.md)
