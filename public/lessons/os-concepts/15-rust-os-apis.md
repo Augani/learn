@@ -5,9 +5,63 @@ for interacting with the operating system. Everything from the previous
 lessons (processes, files, I/O, signals, sockets) comes together here
 through Rust's well-designed APIs.
 
+## The Everyday Analogy: Your Program Talks to the OS
+
+Your program is like a **tenant in an apartment building**. The OS is the building manager. You can't directly access the plumbing, electricity, or other apartments — you submit requests through the building office (syscalls). Rust's `std` library wraps these requests in safe, ergonomic APIs.
+
+```
+Your Rust program          The OS (building manager)
+┌─────────────┐           ┌─────────────────────────┐
+│ std::fs     │──────────>│ File system (storage)    │
+│ std::net    │──────────>│ Network stack (comms)    │
+│ std::process│──────────>│ Process manager (rooms)  │
+│ std::thread │──────────>│ Thread scheduler (staff) │
+│ std::io     │──────────>│ I/O subsystem (pipes)    │
+└─────────────┘           └─────────────────────────┘
+
+Every arrow is a syscall boundary.
+Crossing it costs ~100-1000 nanoseconds.
+That's why buffering matters.
+```
+
 ---
 
 ## std::process — Running and Managing Processes
+
+### How Process Spawning Works Under the Hood
+
+**Analogy — a cell dividing:**
+
+`Command::new("ls")` doesn't just start a new program. Under the hood, it:
+1. **Fork**: The current process clones itself (cell division). Now there are two identical copies.
+2. **Exec**: The child copy replaces its own code with the new program (the cell specializes).
+
+```
+Before fork:
+  Process 1234 (your Rust program)
+  ├── Memory: your variables
+  ├── fd table: stdin, stdout, stderr, files
+  └── Code: your Rust binary
+
+After fork:
+  Process 1234 (parent, your Rust program)
+  ├── Memory: your variables (unchanged)
+  └── continues running
+
+  Process 1235 (child, copy of your program)
+  ├── Memory: copy of your variables
+  └── immediately calls exec("ls")
+
+After exec in child:
+  Process 1235 (child, now running "ls")
+  ├── Memory: replaced with ls's memory
+  ├── fd table: inherited from parent!
+  └── Code: /bin/ls
+
+  This is why stdout piping works — the child
+  inherited the parent's file descriptors, and
+  Command can redirect them before exec.
+```
 
 ### Running External Commands
 
@@ -61,6 +115,31 @@ fn spawn_and_stream() -> std::io::Result<()> {
     child.wait()?;
     Ok(())
 }
+```
+
+### Pipes: Connecting Processes
+
+**Analogy — a pneumatic tube between offices:**
+
+A pipe is a one-way communication channel. One process writes into one end, another reads from the other. Like the pneumatic tubes in old banks — drop a message in on one floor, it arrives on another.
+
+```
+  Parent process              Child process
+  ┌─────────────┐            ┌─────────────┐
+  │             │            │             │
+  │ stdin_write ├───pipe────>│ stdin (fd 0)│
+  │             │            │             │
+  │ stdout_read │<──pipe─────┤ stdout(fd 1)│
+  │             │            │             │
+  └─────────────┘            └─────────────┘
+
+  Parent writes to child's stdin → child reads it
+  Child writes to stdout → parent reads it
+
+  This is how Command::new("grep")
+    .stdin(Stdio::piped())
+    .stdout(Stdio::piped())
+  works — Rust creates pipes and connects them.
 ```
 
 ### Piping Data Through a Child Process
@@ -139,6 +218,53 @@ fn check_status() -> std::io::Result<()> {
 ---
 
 ## std::fs — File System Operations
+
+### File Descriptors: The OS's Tracking System
+
+**Analogy — library checkout cards:**
+
+When you open a file, the OS gives you a file descriptor — a small number (like a library card number). You use this number for all future operations on that file. The OS maintains a table mapping these numbers to actual files.
+
+```
+Process file descriptor table:
+  fd 0 → stdin  (keyboard)
+  fd 1 → stdout (terminal)
+  fd 2 → stderr (terminal)
+  fd 3 → /home/user/data.txt (you opened this)
+  fd 4 → socket to 10.0.0.5:443 (network connection)
+
+When you call:
+  let file = File::open("data.txt")?;
+
+Under the hood:
+  1. Rust calls open() syscall
+  2. OS finds the file on disk (inode lookup)
+  3. OS creates entry in fd table → fd 3
+  4. Rust wraps fd 3 in a File struct
+  5. When File is dropped → Rust calls close(fd 3)
+```
+
+### Why BufReader Exists: The Post Office Analogy
+
+**Without buffering:** You walk to the post office for every single letter. 100 letters = 100 trips. Each trip (syscall) costs ~1 microsecond in overhead.
+
+**With buffering:** You collect letters in a bag, then make ONE trip and hand them all over. 100 letters = 1 trip. The bag is the buffer.
+
+```
+Without BufReader (unbuffered):
+  read(fd, buf, 1)     ← 1 syscall per byte
+  read(fd, buf, 1)     ← another syscall
+  read(fd, buf, 1)     ← another syscall
+  ... × 1,000,000 = 1,000,000 syscalls = SLOW
+
+With BufReader (8KB buffer):
+  read(fd, buf, 8192)  ← 1 syscall gets 8KB
+  (next 8191 reads served from memory — no syscall!)
+  read(fd, buf, 8192)  ← next batch
+  ... × 122 = 122 syscalls for 1MB = FAST
+
+  Speed difference: 10-100x faster for line-by-line reading
+```
 
 ### Reading and Writing Files
 

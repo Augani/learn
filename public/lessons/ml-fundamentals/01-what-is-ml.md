@@ -226,6 +226,56 @@ general trend. Misses some          Perfect on training data.
 training points. Generalizes.       Terrible on new data.
 ```
 
+### The Bias-Variance Tradeoff: The Heart of Machine Learning
+
+Overfitting is actually one side of a deeper tension. Every prediction
+error comes from two sources:
+
+**Bias** — error from wrong assumptions. A model that's too simple. Like
+trying to describe a curvy mountain road with a single straight line.
+It'll miss every turn.
+
+**Variance** — error from being too sensitive to training data. A model
+that's too complex. Like a GPS route that memorizes every pothole and
+puddle from last Tuesday — useless on a different day.
+
+**Analogy — a weather forecaster:**
+
+- **High bias forecaster:** "It'll be 72°F every day." Simple, consistent,
+  wrong most of the time. Doesn't capture the complexity of weather.
+
+- **High variance forecaster:** "Based on the exact positions of 47
+  butterflies I tracked this morning, tomorrow will be 63.7°F." Incredibly
+  detailed, wildly different every time you ask, and no more accurate.
+
+- **Good forecaster:** "Based on season, pressure systems, and historical
+  patterns, tomorrow will be 65-70°F." Captures the right patterns without
+  memorizing noise.
+
+```
+The Tradeoff:
+
+  Error
+    ^
+    |  \.                      .../
+    |    \.                  ../
+    |      \..           ../
+    |         \.      ../        Total Error
+    |           \.. ../
+    |             \/
+    |            Sweet spot
+    |
+    +──────────────────────────> Model Complexity
+        Simple                Complex
+       (high bias)          (high variance)
+       (underfitting)       (overfitting)
+```
+
+The sweet spot is a model complex enough to capture real patterns, but
+simple enough not to memorize noise. This is the fundamental challenge
+in all of machine learning — and there's no formula for finding it. You
+experiment.
+
 You detect overfitting by splitting your data:
 
 ```
@@ -299,6 +349,82 @@ What this code does:
 This is a complete ML pipeline:
   Data → Preprocessing → Training → Inference
 ```
+
+---
+
+## Hyperparameters: The Knobs You Turn
+
+Here's a subtle but important distinction. A model has **parameters** (the
+things it learns, like weights and biases) and **hyperparameters** (the
+settings YOU choose before training begins).
+
+**Analogy — baking a cake:**
+- **Parameters** are like the skill the baker develops over time — how hard
+  to knead, when the dough looks right. These are LEARNED from experience.
+- **Hyperparameters** are the oven settings — temperature, rack position,
+  baking time. These are SET BY YOU before putting the cake in.
+
+If you set the oven too high (learning rate too large), the cake burns
+(the model diverges). Too low (learning rate too small), the cake never
+finishes (training takes forever). The wrong-sized pan (too few or too
+many parameters), the cake comes out wrong (underfitting or overfitting).
+
+Common hyperparameters you'll encounter:
+
+```
+Hyperparameter     What It Controls                  Analogy
+──────────────────────────────────────────────────────────────────
+Learning rate      How big each adjustment step is   Oven temperature
+Epochs             How many times to see all data    How long to bake
+Batch size         How many examples per step        Tasting frequency
+Regularization     How much to penalize complexity   "Keep it simple" dial
+Hidden layers      Depth of neural network           Layers of a cake
+```
+
+There's no formula for the right hyperparameters. You try different
+combinations and see what works. This process — called **hyperparameter
+tuning** — is why ML engineers often say "training a model is 20%
+science, 80% experimentation."
+
+---
+
+## Why the Loss Function Matters
+
+The model needs a way to measure "how wrong am I?" That's the loss function
+(also called cost function or objective function). It's a single number
+that captures how far your predictions are from the truth.
+
+**Analogy — a game score:** Imagine you're playing darts. The loss function
+is the total distance of all your darts from the bullseye. Your goal is to
+minimize that number. Different scoring systems (loss functions) reward
+different strategies:
+
+- **Mean Squared Error (MSE)**: Punishes big misses MUCH more than small
+  ones (because errors are squared). A dart 10cm away costs 100 points, but
+  a dart 1cm away costs only 1. This pushes the model to avoid catastrophic
+  errors. Used for regression (predicting numbers).
+
+- **Cross-Entropy Loss**: Measures how surprised the model is by the
+  correct answer. If the model says "95% chance this is a cat" and it IS a
+  cat, the loss is low. If it says "5% chance this is a cat" and it IS a
+  cat, the loss is huge. Used for classification (predicting categories).
+
+```python
+# MSE: average of squared differences
+predictions = np.array([250000, 340000, 190000])
+actuals = np.array([260000, 350000, 180000])
+mse = np.mean((predictions - actuals) ** 2)
+# Each error: 10000², 10000², 10000² → MSE = 100,000,000
+
+# If one prediction was wildly off:
+predictions_bad = np.array([250000, 340000, 400000])  # last one way off
+mse_bad = np.mean((predictions_bad - actuals) ** 2)
+# Errors: 10000², 10000², 220000² → MSE = 16,200,000,000
+# One big miss dominates! That's MSE punishing outlier errors.
+```
+
+The choice of loss function shapes what the model optimizes for. Use the
+wrong one and your model will solve the wrong problem perfectly.
 
 ---
 

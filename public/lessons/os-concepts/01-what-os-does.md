@@ -87,6 +87,77 @@ kernel catches it and typically kills your process with a segfault.
 
 ---
 
+## Virtual Memory: Every Process Gets Its Own Universe
+
+One of the most profound illusions the OS creates: every process believes
+it has the entire computer's memory to itself.
+
+**Analogy — the apartment number system:** In an apartment building, every
+apartment has the same layout. Apartment 5A's "living room" and Apartment
+12B's "living room" are at the same relative position within each unit, but
+they're completely different physical rooms. If a guest in 5A says "go to
+the living room," they mean THEIR living room, not 12B's.
+
+Virtual memory works the same way. Every process sees addresses starting
+from 0 and going up to some huge number. Process A's address `0x4000` and
+Process B's address `0x4000` are completely different physical locations in
+RAM. The OS maintains a translation table (the **page table**) that maps
+each process's virtual addresses to actual physical RAM locations.
+
+```
+Process A sees:              Physical RAM:            Process B sees:
+┌──────────────┐             ┌──────────────┐         ┌──────────────┐
+│ 0x0000: code │ ──────┐     │ 0x0000: ...  │    ┌──> │ 0x0000: code │
+│ 0x1000: data │ ──┐   │     │ 0x1000: A's  │◄───┘    │ 0x1000: data │
+│ 0x2000: heap │   │   ├───> │ 0x2000: A's  │         │ 0x2000: heap │
+│ 0x3000: stack│   │         │ 0x3000: B's  │◄───┐    │ 0x3000: stack│
+└──────────────┘   │         │ 0x4000: B's  │    │    └──────────────┘
+                   └───────> │ 0x5000: A's  │    └────────────┘
+                             │ ...          │
+                             └──────────────┘
+```
+
+This is why one program crashing doesn't take down another — they literally
+can't see each other's memory. The CPU hardware enforces this: if Process A
+tries to access an address that doesn't map to its allocated physical memory,
+the CPU raises a **page fault** and the kernel kills the process (that's
+your "segmentation fault").
+
+---
+
+## Context Switching: The Invisible Juggling Act
+
+Your computer runs hundreds of processes but might only have 4-8 CPU cores.
+How? The kernel rapidly switches between processes — so fast that each
+process thinks it has the CPU all to itself.
+
+**Analogy — a doctor's office:** A doctor sees 30 patients per day but only
+one at a time. Each patient has a chart. When the doctor switches patients,
+they put down one chart, pick up the next, read where they left off, and
+resume. The patient doesn't know (or care) that the doctor saw someone else
+in between. From each patient's perspective, the doctor is dedicated to them.
+
+A context switch is the CPU equivalent of the doctor switching charts:
+
+1. **Save** the current process's state (registers, program counter, stack
+   pointer) into its "chart" (the process control block)
+2. **Load** the next process's saved state from its chart
+3. **Resume** execution as if nothing happened
+
+This happens thousands of times per second. A typical Linux context switch
+takes 1-10 microseconds. The overhead is real but tiny — it's the price of
+multitasking.
+
+```
+CPU Timeline (single core):
+
+[Process A] → save → [Process B] → save → [Process C] → save → [Process A]
+  5ms           1μs     5ms          1μs     5ms          1μs     5ms
+              switch                switch                switch
+```
+
+---
+
 ## The Kernel's Five Main Jobs
 
 ### 1. Process Management
@@ -214,6 +285,53 @@ What actually happens:
 5. Kernel creates a file descriptor, returns it to your process.
 6. CPU switches back to user mode (ring 3).
 7. `File::open()` returns `Ok(file)`.
+
+---
+
+## System Calls: The Formal Request Form
+
+Every time your program needs the OS to do something, it files a "request
+form" — a system call. This is the ONLY way user-space code can talk to
+the kernel.
+
+**Analogy — the bank teller window:** You can't walk into the bank vault
+and grab money yourself. You fill out a withdrawal slip (the syscall number
+and arguments), slide it through the bulletproof window (the syscall
+interface), and the teller (the kernel) processes your request and slides
+back the result. The bulletproof glass exists for a reason — it protects
+the bank's assets from you, and your assets from other customers.
+
+Here's what a `write()` syscall actually involves at the CPU level:
+
+```
+Your code:  println!("hello");
+
+What actually happens:
+1. Rust's println! macro formats the string into a buffer
+2. The standard library calls the write() wrapper function
+3. The wrapper puts syscall number (1 = write on Linux) into register RAX
+4. Arguments go into registers: RDI=fd(1=stdout), RSI=buffer_ptr, RDX=length
+5. The SYSCALL instruction fires
+6. CPU switches from Ring 3 (user) to Ring 0 (kernel)
+7. Kernel validates: Is fd 1 open? Is the buffer pointer in valid memory?
+8. Kernel copies your data to the terminal's output buffer
+9. Kernel puts the return value (bytes written) into RAX
+10. SYSRET instruction switches back to Ring 3
+11. Your code continues
+```
+
+That's 11 steps for a single `println!`. And yet it happens in roughly
+1-5 microseconds. Modern CPUs are astonishingly fast at this dance.
+
+Common syscalls you trigger without realizing it:
+
+| What you write | Syscall triggered | What the kernel does |
+|---------------|-------------------|---------------------|
+| `File::open()` | `openat` | Find file on disk, check permissions, create fd |
+| `println!()` | `write` | Copy bytes to terminal output buffer |
+| `Vec::push()` (when growing) | `mmap` or `brk` | Allocate more heap memory |
+| `TcpStream::connect()` | `socket`, `connect` | Create socket, do TCP handshake |
+| Process exits | `exit_group` | Free all memory, close all fds, notify parent |
 
 ---
 

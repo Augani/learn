@@ -141,6 +141,127 @@ network, and **up** the stack on the destination machine:
 
 ---
 
+## Ports, IP Addresses, and MAC Addresses: Three Different Address Systems
+
+One of the most confusing parts of networking is that there are THREE
+different address systems operating simultaneously. Each solves a different
+problem at a different scale.
+
+**Analogy — sending a letter to a specific person at a company:**
+
+- **MAC address** = the physical building number on the street. Only useful
+  for delivery on your local block. The mail carrier uses it to find the right
+  building. Useless once the letter leaves your neighborhood. (Link layer)
+
+- **IP address** = the mailing address (123 Main St, City, State, ZIP). Used
+  by the postal system to route across the country. Every post office along
+  the way reads this to decide where to forward it. (Network layer)
+
+- **Port number** = the person's name or department. The mailroom at 123
+  Main St receives the letter, reads "Attn: Accounting Dept," and delivers
+  it internally to the right desk. (Transport layer)
+
+```
+Your machine has:
+  MAC: AA:BB:CC:DD:EE:FF  (burned into your network card at the factory)
+  IP:  192.168.1.42        (assigned by your router via DHCP)
+
+When you connect to a web server:
+  Source:      192.168.1.42:52431   (your IP, random high port)
+  Destination: 93.184.216.34:443    (server IP, HTTPS port)
+
+  Port 443 tells the server: "this is for the web server process"
+  Port 22 would mean: "this is for the SSH server process"
+  Port 5432 would mean: "this is for the PostgreSQL process"
+```
+
+**Why MAC addresses are local-only:** Your MAC address gets replaced at
+every hop. When your packet reaches your home router, the router strips your
+MAC address and puts its own MAC as the source for the next hop. By the time
+the packet reaches the destination server, your original MAC is long gone.
+IPs persist across the journey; MACs are just for the current leg.
+
+---
+
+## DNS: The Internet's Phone Book
+
+When you type `github.com`, your computer has no idea where that is. It
+needs to look up the IP address, like looking up a phone number.
+
+**Analogy — calling 411 (directory assistance):**
+
+You know the name "Pizza Palace" but not the phone number. You call
+directory assistance, they look it up, and tell you "555-0123." Next time
+you call Pizza Palace, you might remember the number (caching).
+
+DNS works the same way, but with a hierarchy:
+
+```
+You: "What's the IP for api.github.com?"
+  │
+  ▼
+Your computer's cache: "I don't know"
+  │
+  ▼
+Your router's cache: "I don't know"
+  │
+  ▼
+ISP's DNS resolver: "I don't know, let me ask around"
+  │
+  ├──> Root DNS server: "I don't know github.com, but .com is handled
+  │    by these servers: [a.gtld-servers.net, ...]"
+  │
+  ├──> .com TLD server: "I don't know github.com, but github.com's
+  │    authoritative servers are: [dns1.p08.nsone.net, ...]"
+  │
+  └──> GitHub's DNS server: "api.github.com is 140.82.112.5"
+
+ISP resolver: caches this for 300 seconds (the TTL)
+Your computer: caches this too
+Result: 140.82.112.5
+```
+
+This entire chain typically takes 10-100ms. After that, the result is
+cached at multiple levels, so subsequent lookups are nearly instant.
+
+---
+
+## TCP: Reliable Delivery Over an Unreliable Network
+
+The internet is inherently unreliable — packets get lost, duplicated,
+reordered, or corrupted. TCP adds reliability on top of this chaos.
+
+**Analogy — sending a book one page at a time through an unreliable courier:**
+
+Imagine mailing a 500-page book, one page per envelope, through a postal
+service that sometimes loses envelopes, delivers them out of order, or
+accidentally duplicates them. TCP's approach:
+
+1. **Number every page** (sequence numbers): Page 1, Page 2, Page 3...
+2. **Require receipts** (acknowledgments): The recipient sends back "I got
+   pages 1-5" after each batch
+3. **Resend lost pages** (retransmission): If you don't get a receipt for
+   page 6 within a reasonable time, send it again
+4. **Reassemble in order** (reordering): The recipient sorts pages by number
+   regardless of arrival order
+5. **Detect duplicates** (dedup): If page 3 arrives twice, keep only one copy
+
+```
+Sender                              Receiver
+  |-- Page 1 ----------------------->| ✓
+  |-- Page 2 -----X (lost!)          |
+  |-- Page 3 ----------------------->| ✓ (but waiting for page 2)
+  |<---- "Got page 1, need page 2" --|
+  |-- Page 2 (resent) -------------->| ✓ (now has 1,2,3 in order)
+  |<---- "Got pages 1-3" ------------|
+```
+
+This is why TCP is used for web pages, file downloads, and APIs — you need
+every byte in the right order. UDP skips all this for speed (used for video
+calls, gaming, DNS) where it's better to skip a lost packet than wait for it.
+
+---
+
 ## Encapsulation: Headers All the Way Down
 
 Each layer adds its own header to the data from the layer above. Think of it

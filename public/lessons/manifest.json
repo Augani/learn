@@ -14,7 +14,7 @@
           "title": "Lesson 01: Ownership, Moves, and Borrowing",
           "trackId": "rust",
           "order": 1,
-          "wordCount": 1203,
+          "wordCount": 1798,
           "isReference": false
         },
         {
@@ -59,7 +59,7 @@
           "title": "Lesson 06: Traits — Shared Behavior and Interfaces",
           "trackId": "rust",
           "order": 6,
-          "wordCount": 991,
+          "wordCount": 1599,
           "isReference": false
         },
         {
@@ -95,7 +95,7 @@
           "title": "Lesson 10: Collections (Vec, HashMap, HashSet)",
           "trackId": "rust",
           "order": 10,
-          "wordCount": 1191,
+          "wordCount": 1814,
           "isReference": false
         },
         {
@@ -131,7 +131,7 @@
           "title": "Lesson 14: Smart Pointers (Box, Rc, Arc)",
           "trackId": "rust",
           "order": 14,
-          "wordCount": 960,
+          "wordCount": 1768,
           "isReference": false
         },
         {
@@ -140,7 +140,7 @@
           "title": "Lesson 15: Concurrency (Threads, Async/Await, Tokio)",
           "trackId": "rust",
           "order": 15,
-          "wordCount": 1094,
+          "wordCount": 1804,
           "isReference": false
         },
         {
@@ -412,7 +412,7 @@
           "title": "Lesson 01: What the OS Does — The Big Picture",
           "trackId": "os-concepts",
           "order": 1,
-          "wordCount": 1517,
+          "wordCount": 2360,
           "isReference": false
         },
         {
@@ -538,7 +538,7 @@
           "title": "Lesson 15: Working with the OS from Rust — std::process, std::fs, std::io",
           "trackId": "os-concepts",
           "order": 15,
-          "wordCount": 2146,
+          "wordCount": 2815,
           "isReference": false
         },
         {
@@ -747,7 +747,7 @@
           "title": "Lesson 01: What Is a Database (And Why Not Just Use Files)",
           "trackId": "databases",
           "order": 1,
-          "wordCount": 1096,
+          "wordCount": 1700,
           "isReference": false
         },
         {
@@ -973,7 +973,7 @@
           "title": "Lesson 01: The Big Picture -- How Data Gets From A to B",
           "trackId": "networking",
           "order": 1,
-          "wordCount": 2093,
+          "wordCount": 2837,
           "isReference": false
         },
         {
@@ -1045,7 +1045,7 @@
           "title": "Lesson 09: TLS/SSL -- Encryption and HTTPS",
           "trackId": "networking",
           "order": 9,
-          "wordCount": 2447,
+          "wordCount": 3188,
           "isReference": false
         },
         {
@@ -1199,7 +1199,7 @@
           "title": "Lesson 06: Pandas",
           "trackId": "python-for-ai",
           "order": 6,
-          "wordCount": 1282,
+          "wordCount": 2022,
           "isReference": false
         },
         {
@@ -1516,7 +1516,7 @@
           "title": "Lesson 01: What Machine Learning Actually Is",
           "trackId": "ml-fundamentals",
           "order": 1,
-          "wordCount": 1512,
+          "wordCount": 2275,
           "isReference": false
         },
         {
@@ -1914,7 +1914,7 @@
           "title": "Lesson 07: Diffusion Models",
           "trackId": "advanced-deep-learning",
           "order": 7,
-          "wordCount": 1350,
+          "wordCount": 2077,
           "isReference": false
         },
         {
@@ -3145,7 +3145,7 @@
           "title": "Lesson 07: Goroutines",
           "trackId": "go",
           "order": 7,
-          "wordCount": 1054,
+          "wordCount": 1769,
           "isReference": false
         },
         {
@@ -3281,7 +3281,7 @@
           "title": "01 - Concurrency vs Parallelism",
           "trackId": "concurrency-parallelism",
           "order": 1,
-          "wordCount": 858,
+          "wordCount": 1487,
           "isReference": false
         },
         {
@@ -3453,7 +3453,7 @@
           "title": "Lesson 1: Why Distributed Systems",
           "trackId": "distributed-systems",
           "order": 1,
-          "wordCount": 975,
+          "wordCount": 2042,
           "isReference": false
         },
         {
@@ -3507,7 +3507,7 @@
           "title": "Lesson 7: Consistency Models",
           "trackId": "distributed-systems",
           "order": 7,
-          "wordCount": 1198,
+          "wordCount": 1941,
           "isReference": false
         },
         {
@@ -3833,7 +3833,7 @@
           "title": "Lesson 01: Containers vs Virtual Machines",
           "trackId": "docker",
           "order": 1,
-          "wordCount": 2677,
+          "wordCount": 3202,
           "isReference": false
         },
         {
@@ -4637,7 +4637,7 @@
           "title": "Lesson 5: IAM & Access Control",
           "trackId": "cloud-architecture",
           "order": 5,
-          "wordCount": 1132,
+          "wordCount": 1801,
           "isReference": false
         },
         {
@@ -5307,7 +5307,7 @@
           "title": "Why Cryptography Exists",
           "trackId": "security-cryptography",
           "order": 1,
-          "wordCount": 3834,
+          "wordCount": 4337,
           "isReference": false
         },
         {
@@ -5370,7 +5370,7 @@
           "title": "OWASP Top 10 (2021)",
           "trackId": "security-cryptography",
           "order": 8,
-          "wordCount": 3359,
+          "wordCount": 3941,
           "isReference": false
         },
         {
@@ -5533,7 +5533,7 @@
           "title": "Lesson 1: How Languages Work — The Compilation Pipeline",
           "trackId": "compilers-interpreters",
           "order": 1,
-          "wordCount": 2046,
+          "wordCount": 2582,
           "isReference": false
         },
         {
@@ -6091,5 +6091,5 @@
     }
   ],
   "totalLessons": 578,
-  "generatedAt": "2026-03-10T10:17:24.063Z"
+  "generatedAt": "2026-03-10T12:21:18.075Z"
 }

@@ -24,6 +24,33 @@ Traits let you write APIs around capabilities instead:
 
 That is how Rust gets polymorphism while keeping types explicit.
 
+### Analogy — Job Qualifications
+
+A trait is like a set of job qualifications on a job posting. The posting says
+"must be able to drive" and "must be able to lift 50 lbs." It doesn't care if
+you're tall, short, young, old — it only cares about what you **can DO**.
+Similarly, a trait says "must be able to summarize itself" without caring if the
+type is an `Article`, `Tweet`, or anything else. This is "programming to
+capabilities, not identities."
+
+This is different from inheritance (like Java/C++). Inheritance says "you must
+**BE** a Vehicle." Traits say "you must be able to **MOVE**." A skateboard, a
+car, and a horse can all implement `Movable` — they have nothing else in common.
+
+```
+Inheritance (IS-A):          Traits (CAN-DO):
+
+  Vehicle                     Movable
+   / | \                      /  |  \
+ Car Truck Bus               Car  Horse  Skateboard
+ (must be a Vehicle)         (just needs to move)
+
+                              Displayable
+                              /  |  \
+                             Car  Point  Error
+                             (just needs to display)
+```
+
 ---
 
 ## Basic Traits
@@ -82,6 +109,15 @@ impl Summary for Tweet {
     // summarize() uses the default implementation
 }
 ```
+
+### Analogy — Company Policies with Exceptions
+
+Default implementations are like a company handbook. The handbook says
+"employees should introduce themselves by saying their department and name."
+But the CEO overrides this — she just says "I'm the CEO." The handbook provides
+a default behavior; individual types can override it when they need something
+different. The key insight: you only need to implement the "core" method
+(`summarize_author`), and the "derived" method (`summarize`) comes free.
 
 ## Traits as Parameters (the powerful part)
 
@@ -149,6 +185,44 @@ fn create_summary(is_tweet: bool) -> impl Summary {
 ```
 
 For that, you need trait objects (Lesson 16).
+
+---
+
+## Static vs Dynamic Dispatch: The Phone Book Analogy
+
+When you call `notify(item: &impl Summary)`, the compiler knows the exact type
+at compile time. It's like looking up a name in a phone book and dialing the
+number directly — fast, no lookup needed at runtime. This is **static dispatch**
+(also called monomorphization — the compiler generates a specialized version of
+the function for each concrete type).
+
+When you use `&dyn Summary` (trait objects, covered in Lesson 16), the compiler
+doesn't know the type until runtime. It's like calling a switchboard operator
+who looks up the right extension — there's an extra lookup step (the vtable) at
+runtime. This is **dynamic dispatch**.
+
+```
+Static dispatch (impl Trait):
+  notify::<Article>(article)  → compiled to notify_article()
+  notify::<Tweet>(tweet)      → compiled to notify_tweet()
+  Two specialized functions. No runtime cost. But: larger binary.
+
+Dynamic dispatch (dyn Trait):
+  notify(item: &dyn Summary)  → one function, looks up method via vtable
+
+  +--------+       +---------+
+  | object |------>| vtable  |
+  | data   |       +---------+
+  +--------+       | summarize → Article::summarize |
+                   | drop      → Article::drop      |
+                   +----------------------------------+
+
+  One function. Tiny runtime cost (~1 pointer dereference). Smaller binary.
+```
+
+Most of the time, use `impl Trait` (static dispatch). Use `dyn Trait` when you
+need to store different types in the same collection or return different types
+from a function.
 
 ---
 
@@ -259,6 +333,32 @@ fn main() {
 ```
 
 `derive` is one of Rust's main ways to remove boilerplate for standard traits.
+
+---
+
+## The Orphan Rule: Why You Can't Implement Traits Everywhere
+
+You might try to implement `Display` for `Vec<T>` and get a compiler error.
+That's the **orphan rule**: you can only implement a trait for a type if you own
+either the trait or the type (or both).
+
+### Analogy — House Rules
+
+You can set rules in YOUR house (your trait, any type). You can follow rules AT
+your house (any trait, your type). But you can't set rules in someone ELSE's
+house for someone ELSE's guest (foreign trait + foreign type). This prevents two
+different libraries from implementing the same trait for the same type in
+conflicting ways.
+
+```
+✓ impl MyTrait for Vec<i32>     (your trait, foreign type)
+✓ impl Display for MyStruct      (foreign trait, your type)
+✗ impl Display for Vec<i32>      (foreign trait, foreign type — ORPHAN!)
+
+Workaround: the newtype pattern
+  struct MyVec(Vec<i32>);
+  impl Display for MyVec { ... }  // ✓ (your type!)
+```
 
 ---
 

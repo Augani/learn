@@ -93,6 +93,39 @@ POLICY STRUCTURE
   Explicit Deny ALWAYS wins over Allow.
 ```
 
+### Policy Evaluation: A Real-World Walkthrough
+
+**Analogy — a bouncer with a checklist:**
+
+Imagine a bouncer at a VIP event with three lists:
+1. **Banned list** (explicit deny) — checked FIRST. If you're on it, you're out. Period.
+2. **VIP list** (explicit allow) — checked second. If you're on it, you're in.
+3. **Default: no entry** — if you're on neither list, you're denied.
+
+```
+Request: "Can user alice perform s3:DeleteBucket on my-prod-bucket?"
+
+Step 1: Gather ALL policies that apply to alice
+  ├── alice's user policy (inline)
+  ├── "Developers" group policy
+  ├── Permission boundary (if set)
+  └── Resource-based policy on my-prod-bucket
+
+Step 2: Evaluate
+  ┌─────────────────────────────────────────────┐
+  │ Any EXPLICIT DENY in ANY policy?            │
+  │   Group policy says: Deny s3:Delete* on *   │──→ DENIED
+  │                                             │
+  │ Even though alice's user policy says:       │
+  │   Allow s3:* on my-prod-bucket              │
+  │                                             │
+  │ DENY ALWAYS WINS. No exceptions.            │
+  └─────────────────────────────────────────────┘
+
+  This is why security teams add "guardrail" deny policies
+  to groups — they can't be overridden by individual allows.
+```
+
 ### Example Policies
 
 ```hcl
@@ -222,6 +255,66 @@ BAD: Overly permissive                GOOD: Least privilege
                                       +---------------------------+
 ```
 
+### Why Developers Over-Permission: The Convenience Trap
+
+**Analogy — giving everyone the master key:**
+
+It's 2 AM, the deploy is broken, and the error says "Access Denied." The fastest fix? `"Action": "*", "Resource": "*"`. It works. The developer moves on. That wildcard policy stays in production for 3 years until a breach.
+
+This is the #1 cause of cloud security incidents. The fix:
+
+```
+The permission escalation ladder (from worst to best):
+
+Level 0: "Action": "*", "Resource": "*"
+  → God mode. One compromised credential = entire AWS account.
+
+Level 1: "Action": "s3:*", "Resource": "*"
+  → Full S3 access. Can read billing data, delete backups.
+
+Level 2: "Action": "s3:*", "Resource": "arn:aws:s3:::my-bucket/*"
+  → Full access to one bucket. Better, but includes Delete.
+
+Level 3: "Action": ["s3:GetObject", "s3:PutObject"],
+         "Resource": "arn:aws:s3:::my-bucket/*"
+  → Read/write to one bucket. No delete. Good.
+
+Level 4: Level 3 + Condition:
+         "IpAddress": {"aws:SourceIp": "10.0.0.0/8"}
+  → Same as Level 3 but only from internal network. Best.
+
+Start at Level 4. Widen ONLY when you hit a real error.
+```
+
+### Permission Boundaries: The Safety Net
+
+**Analogy — a child's allowance:**
+
+A parent (admin) gives a child (developer) $50/week (permission boundary). The child can decide to spend it however they want (IAM policies they create), but can NEVER spend more than $50. Even if the child writes "I can spend $1000" on a piece of paper, the boundary enforces the limit.
+
+```
+Without permission boundary:
+  Developer creates role → can grant themselves ANY permission
+
+With permission boundary:
+  Boundary says: max permissions = S3 + DynamoDB
+  Developer creates role with EC2 access → DENIED
+  Even though the role policy says "Allow EC2"
+  The boundary doesn't include EC2
+
+  Effective permissions = Policy ∩ Boundary
+  (intersection, not union)
+
+  ┌──────────────────────────────────┐
+  │        Policy allows             │
+  │   ┌──────────────────────────┐   │
+  │   │  S3 ✓  DynamoDB ✓       │   │
+  │   │  EC2 ✗  (boundary denies)│   │
+  │   └──────────────────────────┘   │
+  │        Boundary allows           │
+  └──────────────────────────────────┘
+```
+
 ## Cross-Account Access
 
 ```
@@ -270,6 +363,34 @@ resource "aws_iam_role_policy_attachment" "audit_readonly" {
   policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 }
 ```
+
+### The Confused Deputy Problem
+
+**Analogy — tricking a locksmith:**
+
+You call a locksmith and say "I locked myself out of apartment 5B." The locksmith opens the door — but it's not YOUR apartment. You tricked the locksmith (a trusted service) into using their access on your behalf.
+
+In AWS, this happens when Service A trusts Service B to assume a role, but an attacker tricks Service B into assuming the role for them.
+
+```
+The attack:
+  Attacker → "Hey Service B, access Account A for me"
+  Service B → assumes role in Account A (it's allowed to!)
+  Account A → "Service B is trusted, access granted"
+
+  But Service B is acting on the ATTACKER's behalf.
+
+The fix: External ID (a shared secret)
+  Account A's trust policy:
+    "Allow Service B to assume role IF ExternalId = abc123"
+
+  Attacker doesn't know abc123, so:
+  Attacker → "Hey Service B, access Account A for me"
+  Service B → assumes role... but with wrong/no ExternalId
+  Account A → DENIED
+```
+
+This is why cross-account trust policies should ALWAYS include an ExternalId condition — it prevents the confused deputy attack.
 
 ### AWS CLI for IAM
 
