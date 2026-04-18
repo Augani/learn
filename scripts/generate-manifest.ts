@@ -75,6 +75,8 @@ const TRACK_ORDER: Record<string, number> = {
   'ml-glossary': 48,
   'ml-scale-infrastructure': 49,
   'build-deploy-llm': 50,
+  'time-series-forecasting': 51,
+  'ethics-fairness-ai': 52,
 };
 
 function extractTitle(content: string, filename: string): string {
@@ -146,6 +148,8 @@ function formatTrackTitle(dirName: string): string {
     'ml-glossary': 'ML Glossary',
     'ml-scale-infrastructure': 'Scale & Infrastructure',
     'build-deploy-llm': 'Build & Deploy LLM Capstone',
+    'time-series-forecasting': 'Time Series & Forecasting',
+    'ethics-fairness-ai': 'Ethics, Fairness & Responsible AI',
   };
   return titles[dirName] || dirName.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
@@ -277,8 +281,9 @@ const CAREER_TRACKS: CareerTrack[] = [
     difficulty: 'intermediate',
     icon: 'Sparkles',
     color: 'text-amber-500',
-    estimatedHours: 160,
+    estimatedHours: 190,
     topicIds: [
+      'math-foundations', 'gpu-cuda-fundamentals', 'ml-glossary',
       'python-for-ai', 'ml-fundamentals', 'llms-transformers', 'nlp',
       'ai-engineering', 'applied-ml', 'testing-quality', 'api-design',
       'databases', 'docker', 'cloud-architecture', 'ci-cd-pipelines',
@@ -287,6 +292,33 @@ const CAREER_TRACKS: CareerTrack[] = [
       { title: 'Build a Large Language Model (From Scratch)', author: 'Sebastian Raschka', year: 2024, description: 'Understand what is under the hood of LLMs' },
       { title: 'Natural Language Processing with Transformers', author: 'Lewis Tunstall, Leandro von Werra, and Thomas Wolf', year: 2022, description: 'Practical transformer-based NLP by Hugging Face authors' },
       { title: 'Designing Machine Learning Systems', author: 'Chip Huyen', year: 2022, description: 'Production AI system design' },
+    ],
+  },
+  {
+    id: 'data-scientist',
+    title: 'Data Scientist',
+    description: 'Analyze data, build predictive models, and communicate insights. From statistics and EDA through hypothesis testing, visualization, ML, and time series — the complete data science toolkit.',
+    difficulty: 'beginner-intermediate',
+    icon: 'BarChart3',
+    color: 'text-cyan-500',
+    estimatedHours: 200,
+    topicIds: [
+      'python-for-ai',
+      'math-foundations',
+      'math-for-ai',
+      'data-structures',
+      'databases',
+      'applied-ml',
+      'ml-fundamentals',
+      'time-series-forecasting',
+      'testing-quality',
+      'ethics-fairness-ai',
+    ],
+    books: [
+      { title: 'Python for Data Analysis', author: 'Wes McKinney', year: 2022, description: "The pandas creator's guide to data wrangling" },
+      { title: 'An Introduction to Statistical Learning', author: 'Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani', year: 2023, free: true, description: 'Practical statistical learning — free PDF at statlearning.com' },
+      { title: 'Storytelling with Data', author: 'Cole Nussbaumer Knaflic', year: 2015, description: 'Data visualization and communication' },
+      { title: 'Forecasting: Principles and Practice', author: 'Rob J Hyndman and George Athanasopoulos', year: 2021, free: true, description: 'The forecasting bible — free at otexts.com/fpp3' },
     ],
   },
   {

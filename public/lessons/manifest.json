@@ -8608,6 +8608,350 @@
           "isReference": true
         }
       ]
+    },
+    {
+      "id": "time-series-forecasting",
+      "title": "Time Series & Forecasting",
+      "description": "Welcome to the Time Series & Forecasting track. Time is the one",
+      "lessonCount": 16,
+      "status": "Complete",
+      "order": 51,
+      "lessons": [
+        {
+          "id": "time-series-forecasting/01-what-is-time-series",
+          "filename": "01-what-is-time-series.md",
+          "title": "Lesson 01: What is a Time Series?",
+          "trackId": "time-series-forecasting",
+          "order": 1,
+          "wordCount": 822,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/02-components-decomposition",
+          "filename": "02-components-decomposition.md",
+          "title": "Lesson 02: Components and Decomposition",
+          "trackId": "time-series-forecasting",
+          "order": 2,
+          "wordCount": 756,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/03-stationarity",
+          "filename": "03-stationarity.md",
+          "title": "Lesson 03: Stationarity and Why It Matters",
+          "trackId": "time-series-forecasting",
+          "order": 3,
+          "wordCount": 941,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/04-autocorrelation",
+          "filename": "04-autocorrelation.md",
+          "title": "Lesson 04: Autocorrelation and Partial Autocorrelation",
+          "trackId": "time-series-forecasting",
+          "order": 4,
+          "wordCount": 838,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/05-moving-averages-smoothing",
+          "filename": "05-moving-averages-smoothing.md",
+          "title": "Lesson 05: Moving Averages and Smoothing",
+          "trackId": "time-series-forecasting",
+          "order": 5,
+          "wordCount": 825,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/06-arima",
+          "filename": "06-arima.md",
+          "title": "Lesson 06: ARIMA Models",
+          "trackId": "time-series-forecasting",
+          "order": 6,
+          "wordCount": 900,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/07-sarima-seasonal",
+          "filename": "07-sarima-seasonal.md",
+          "title": "Lesson 07: SARIMA and Seasonal Models",
+          "trackId": "time-series-forecasting",
+          "order": 7,
+          "wordCount": 690,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/08-evaluation-metrics",
+          "filename": "08-evaluation-metrics.md",
+          "title": "Lesson 08: Time Series Evaluation",
+          "trackId": "time-series-forecasting",
+          "order": 8,
+          "wordCount": 932,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/09-feature-engineering-ts",
+          "filename": "09-feature-engineering-ts.md",
+          "title": "Lesson 09: Feature Engineering for Time Series",
+          "trackId": "time-series-forecasting",
+          "order": 9,
+          "wordCount": 896,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/10-ml-for-time-series",
+          "filename": "10-ml-for-time-series.md",
+          "title": "Lesson 10: Machine Learning for Time Series",
+          "trackId": "time-series-forecasting",
+          "order": 10,
+          "wordCount": 794,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/11-prophet",
+          "filename": "11-prophet.md",
+          "title": "Lesson 11: Prophet and Additive Models",
+          "trackId": "time-series-forecasting",
+          "order": 11,
+          "wordCount": 731,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/12-deep-learning-forecasting",
+          "filename": "12-deep-learning-forecasting.md",
+          "title": "Lesson 12: Deep Learning for Forecasting",
+          "trackId": "time-series-forecasting",
+          "order": 12,
+          "wordCount": 949,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/13-temporal-fusion-transformers",
+          "filename": "13-temporal-fusion-transformers.md",
+          "title": "Lesson 13: Temporal Fusion Transformers",
+          "trackId": "time-series-forecasting",
+          "order": 13,
+          "wordCount": 823,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/14-anomaly-detection-ts",
+          "filename": "14-anomaly-detection-ts.md",
+          "title": "Lesson 14: Anomaly Detection in Time Series",
+          "trackId": "time-series-forecasting",
+          "order": 14,
+          "wordCount": 1018,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/15-domain-applications",
+          "filename": "15-domain-applications.md",
+          "title": "Lesson 15: Domain Applications",
+          "trackId": "time-series-forecasting",
+          "order": 15,
+          "wordCount": 1053,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/16-end-to-end-project",
+          "filename": "16-end-to-end-project.md",
+          "title": "Lesson 16: Capstone — End-to-End Forecasting Project",
+          "trackId": "time-series-forecasting",
+          "order": 16,
+          "wordCount": 1005,
+          "isReference": false
+        },
+        {
+          "id": "time-series-forecasting/reference-datasets",
+          "filename": "reference-datasets.md",
+          "title": "Reference: Time Series Datasets",
+          "trackId": "time-series-forecasting",
+          "order": 916,
+          "wordCount": 749,
+          "isReference": true
+        },
+        {
+          "id": "time-series-forecasting/reference-methods",
+          "filename": "reference-methods.md",
+          "title": "Reference: Forecasting Methods Comparison",
+          "trackId": "time-series-forecasting",
+          "order": 917,
+          "wordCount": 713,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "ethics-fairness-ai",
+      "title": "Ethics, Fairness & Responsible AI",
+      "description": "Welcome to the Ethics, Fairness & Responsible AI track. Building",
+      "lessonCount": 16,
+      "status": "Complete",
+      "order": 52,
+      "lessons": [
+        {
+          "id": "ethics-fairness-ai/01-ai-ethics-foundations",
+          "filename": "01-ai-ethics-foundations.md",
+          "title": "Lesson 01: AI Ethics Foundations",
+          "trackId": "ethics-fairness-ai",
+          "order": 1,
+          "wordCount": 1542,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/02-types-of-bias",
+          "filename": "02-types-of-bias.md",
+          "title": "Lesson 02: Types of Bias in ML",
+          "trackId": "ethics-fairness-ai",
+          "order": 2,
+          "wordCount": 1552,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/03-fairness-definitions",
+          "filename": "03-fairness-definitions.md",
+          "title": "Lesson 03: Fairness Definitions and Metrics",
+          "trackId": "ethics-fairness-ai",
+          "order": 3,
+          "wordCount": 1400,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/04-measuring-bias",
+          "filename": "04-measuring-bias.md",
+          "title": "Lesson 04: Measuring Bias in Models",
+          "trackId": "ethics-fairness-ai",
+          "order": 4,
+          "wordCount": 1413,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/05-bias-mitigation-preprocessing",
+          "filename": "05-bias-mitigation-preprocessing.md",
+          "title": "Lesson 05: Bias Mitigation: Pre-processing",
+          "trackId": "ethics-fairness-ai",
+          "order": 5,
+          "wordCount": 1365,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/06-bias-mitigation-inprocessing",
+          "filename": "06-bias-mitigation-inprocessing.md",
+          "title": "Lesson 06: Bias Mitigation: In-processing and Post-processing",
+          "trackId": "ethics-fairness-ai",
+          "order": 6,
+          "wordCount": 1320,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/07-interpretability-basics",
+          "filename": "07-interpretability-basics.md",
+          "title": "Lesson 07: Model Interpretability Basics",
+          "trackId": "ethics-fairness-ai",
+          "order": 7,
+          "wordCount": 1225,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/08-shap-lime",
+          "filename": "08-shap-lime.md",
+          "title": "Lesson 08: SHAP and LIME",
+          "trackId": "ethics-fairness-ai",
+          "order": 8,
+          "wordCount": 1247,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/09-deep-learning-interpretability",
+          "filename": "09-deep-learning-interpretability.md",
+          "title": "Lesson 09: Interpreting Deep Learning Models",
+          "trackId": "ethics-fairness-ai",
+          "order": 9,
+          "wordCount": 1495,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/10-ai-governance-frameworks",
+          "filename": "10-ai-governance-frameworks.md",
+          "title": "Lesson 10: AI Governance Frameworks",
+          "trackId": "ethics-fairness-ai",
+          "order": 10,
+          "wordCount": 1551,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/11-eu-ai-act-regulation",
+          "filename": "11-eu-ai-act-regulation.md",
+          "title": "Lesson 11: The EU AI Act and Regulatory Landscape",
+          "trackId": "ethics-fairness-ai",
+          "order": 11,
+          "wordCount": 1250,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/12-responsible-deployment",
+          "filename": "12-responsible-deployment.md",
+          "title": "Lesson 12: Responsible Deployment Practices",
+          "trackId": "ethics-fairness-ai",
+          "order": 12,
+          "wordCount": 1317,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/13-privacy-data-protection",
+          "filename": "13-privacy-data-protection.md",
+          "title": "Lesson 13: Privacy and Data Protection in ML",
+          "trackId": "ethics-fairness-ai",
+          "order": 13,
+          "wordCount": 1384,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/14-auditing-ml-systems",
+          "filename": "14-auditing-ml-systems.md",
+          "title": "Lesson 14: Auditing ML Systems",
+          "trackId": "ethics-fairness-ai",
+          "order": 14,
+          "wordCount": 1436,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/15-llm-ethics",
+          "filename": "15-llm-ethics.md",
+          "title": "Lesson 15: Ethics of Large Language Models",
+          "trackId": "ethics-fairness-ai",
+          "order": 15,
+          "wordCount": 1296,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/16-capstone-ethical-audit",
+          "filename": "16-capstone-ethical-audit.md",
+          "title": "Lesson 16: Capstone: Ethical AI Audit",
+          "trackId": "ethics-fairness-ai",
+          "order": 16,
+          "wordCount": 1479,
+          "isReference": false
+        },
+        {
+          "id": "ethics-fairness-ai/reference-frameworks",
+          "filename": "reference-frameworks.md",
+          "title": "Governance Frameworks Reference",
+          "trackId": "ethics-fairness-ai",
+          "order": 916,
+          "wordCount": 951,
+          "isReference": true
+        },
+        {
+          "id": "ethics-fairness-ai/reference-tools",
+          "filename": "reference-tools.md",
+          "title": "Fairness & Interpretability Tools Reference",
+          "trackId": "ethics-fairness-ai",
+          "order": 917,
+          "wordCount": 1167,
+          "isReference": true
+        }
+      ]
     }
   ],
   "careerTracks": [
@@ -8851,8 +9195,11 @@
       "difficulty": "intermediate",
       "icon": "Sparkles",
       "color": "text-amber-500",
-      "estimatedHours": 160,
+      "estimatedHours": 190,
       "topicIds": [
+        "math-foundations",
+        "gpu-cuda-fundamentals",
+        "ml-glossary",
         "python-for-ai",
         "ml-fundamentals",
         "llms-transformers",
@@ -8884,6 +9231,55 @@
           "author": "Chip Huyen",
           "year": 2022,
           "description": "Production AI system design"
+        }
+      ]
+    },
+    {
+      "id": "data-scientist",
+      "title": "Data Scientist",
+      "description": "Analyze data, build predictive models, and communicate insights. From statistics and EDA through hypothesis testing, visualization, ML, and time series — the complete data science toolkit.",
+      "difficulty": "beginner-intermediate",
+      "icon": "BarChart3",
+      "color": "text-cyan-500",
+      "estimatedHours": 200,
+      "topicIds": [
+        "python-for-ai",
+        "math-foundations",
+        "math-for-ai",
+        "data-structures",
+        "databases",
+        "applied-ml",
+        "ml-fundamentals",
+        "time-series-forecasting",
+        "testing-quality",
+        "ethics-fairness-ai"
+      ],
+      "books": [
+        {
+          "title": "Python for Data Analysis",
+          "author": "Wes McKinney",
+          "year": 2022,
+          "description": "The pandas creator's guide to data wrangling"
+        },
+        {
+          "title": "An Introduction to Statistical Learning",
+          "author": "Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani",
+          "year": 2023,
+          "free": true,
+          "description": "Practical statistical learning — free PDF at statlearning.com"
+        },
+        {
+          "title": "Storytelling with Data",
+          "author": "Cole Nussbaumer Knaflic",
+          "year": 2015,
+          "description": "Data visualization and communication"
+        },
+        {
+          "title": "Forecasting: Principles and Practice",
+          "author": "Rob J Hyndman and George Athanasopoulos",
+          "year": 2021,
+          "free": true,
+          "description": "The forecasting bible — free at otexts.com/fpp3"
         }
       ]
     },
@@ -9205,6 +9601,6 @@
       ]
     }
   ],
-  "totalLessons": 809,
-  "generatedAt": "2026-04-18T14:06:20.615Z"
+  "totalLessons": 841,
+  "generatedAt": "2026-04-18T16:41:12.796Z"
 }

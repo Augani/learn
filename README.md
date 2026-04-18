@@ -6,8 +6,8 @@ Bite-sized lessons for learning computer science, software engineering, AI/ML, a
 
 ## What's Here
 
-- **764 lessons** across **45 topics**
-- **13 career tracks** guiding you from beginner to advanced
+- **841 lessons** across **52 topics**
+- **14 career tracks** guiding you from beginner to advanced
 - **Book recommendations** on every topic (verified, real books — free ones marked)
 - **Offline support** — download tracks to read without internet
 - **Progress tracking** — pick up where you left off
@@ -22,7 +22,7 @@ Pick a career path and follow the ordered topics:
 | Full-Stack Developer | Beginner → Intermediate | 13 | 248 |
 | Cloud / DevOps Engineer | Beginner → Intermediate | 11 | 199 |
 | ML Engineer | Intermediate → Advanced | 14 | 236 |
-| AI Engineer | Intermediate | 12 | 208 |
+| AI Engineer | Intermediate | 15 | 263 |
 | Data Engineer | Intermediate | 11 | 193 |
 | Security Engineer | Intermediate → Advanced | 12 | 212 |
 | Site Reliability Engineer | Intermediate → Advanced | 14 | 273 |
@@ -30,6 +30,7 @@ Pick a career path and follow the ordered topics:
 | Platform Engineer | Intermediate → Advanced | 12 | 205 |
 | Advanced ML Engineer | Advanced | 10 | 150 |
 | Staff+ Backend Engineer | Advanced | 12 | 226 |
+| Data Scientist | Beginner → Intermediate | 10 | 182 |
 | ML Research Engineer | Advanced | 10 | 150 |
 
 ## Topics
@@ -55,6 +56,8 @@ Pick a career path and follow the ordered topics:
 - **Computer Vision** — CNNs, object detection, segmentation, video analysis
 - **Reinforcement Learning** — MDPs, Q-learning, policy gradients, PPO, RLHF
 - **AI Engineering** — Prompt engineering, RAG, agents, function calling, production AI
+- **Time Series & Forecasting** — Stationarity, ARIMA, Prophet, neural forecasting, anomaly detection
+- **Ethics, Fairness & Responsible AI** — Bias detection, fairness metrics, interpretability, governance, responsible deployment
 - **Math for AI** — Linear algebra, calculus, probability, information theory
 
 ### Advanced AI/ML (for seasoned engineers)

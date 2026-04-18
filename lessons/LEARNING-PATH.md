@@ -1,127 +1,223 @@
 # Systems Programming, DevOps & AI Learning Path
 
 A self-taught path to systems programming, infrastructure, and AI competency.
-Each track is independent — work through them in parallel or sequentially.
+52 tracks, 841 lessons — work through them in parallel or sequentially.
 
 ---
 
 ## Recommended Order
 
-Start with **Track 1 and Track 4 in parallel** (Rust is your language,
-Linux is your environment). Then add databases and the rest.
-Docker before Kubernetes. ML before LLMs.
+The tracks are organized into **8 sections** below. A good approach:
+
+1. Start with **Fundamentals** and a **Language** in parallel
+2. Add **Infrastructure** basics (Linux, Docker) early
+3. Move into **AI / Machine Learning** or **Software Engineering** based on your goals
+4. Tackle **Architecture** and **Advanced AI/ML** once you have a solid base
+5. Fill in **Operations** topics as needed
 
 ```
-Week 1-2:   Rust (Track 1) + Linux Fundamentals (Track 4)
-Week 3-4:   Databases (Track 2) + Data Structures (Track 5)
-Week 5-6:   OS Concepts (Track 3) + Networking (Track 6)
-Week 7-8:   ML Fundamentals (Track 7)
-Week 9-10:  LLMs & Transformers (Track 8)
-Week 11-12: Docker Deep Dive (Track 9)
-Week 13-14: Kubernetes (Track 10)
-Week 15-17: System Design (Track 11)
-Week 18-20: Security & Cryptography (Track 12)
-Week 21-23: Compilers & Interpreters (Track 13)
-Week 24+:   Build projects combining everything
+Weeks 1-4:    Fundamentals (CS, Data Structures) + a Language (Rust or Python)
+Weeks 5-8:    Linux + Docker + Networking basics
+Weeks 9-12:   ML Fundamentals + Applied ML (or Software Engineering tracks)
+Weeks 13-16:  LLMs & Transformers + AI Engineering
+Weeks 17-20:  System Design + Cloud Architecture
+Weeks 21-24:  Advanced tracks based on your career path
+Weeks 25+:    Capstone projects combining everything
 ```
 
 ---
 
-## Track 1: Rust
-**[→ Start here](./rust/00-roadmap.md)**
-20 lessons — ownership, traits, async, building real programs.
-*Status: Complete*
+## Fundamentals
 
-## Track 2: Databases
-**[→ Start here](./databases/00-roadmap.md)**
-22 lessons — PostgreSQL internals, SQL, schema design, Rust/sqlx.
-*Status: Complete*
+**[CS Fundamentals](./cs-fundamentals/00-roadmap.md)**
+12 lessons — how computers work, memory, types, pointers, compilation, linking.
 
-## Track 3: Operating Systems
-**[→ Start here](./os-concepts/00-roadmap.md)**
-16 lessons — processes, memory, threads, syscalls, file systems.
-*Status: Complete*
-
-## Track 4: Linux/Unix Fundamentals
-**[→ Start here](./linux-fundamentals/00-roadmap.md)**
-18 lessons — shell, processes, Docker, SSH, debugging tools.
-*Status: Complete*
-
-## Track 5: Data Structures & Algorithms
-**[→ Start here](./data-structures/00-roadmap.md)**
+**[Data Structures & Algorithms](./data-structures/00-roadmap.md)**
 16 lessons — arrays, hash maps, trees, graphs, caching. In Rust.
-*Status: Complete*
 
-## Track 6: Networking
-**[→ Start here](./networking/00-roadmap.md)**
-18 lessons — TCP/IP, HTTP, TLS, sockets, building servers in Rust.
-*Status: Complete*
+**[Discrete Math & Logic](./discrete-math/00-roadmap.md)**
+14 lessons — sets, logic, proofs, combinatorics, graph theory, number theory.
 
-## Track 7: Machine Learning Fundamentals
-**[→ Start here](./ml-fundamentals/00-roadmap.md)**
-14 lessons — linear regression, neural networks, CNNs, embeddings. In Python.
-*Status: Complete*
+**[Math Foundations](./math-foundations/00-roadmap.md)**
+9 lessons — vectors, matrices, dot products, derivatives, gradients, chain rule, probability, MLE.
 
-## Track 8: LLMs & Transformers
-**[→ Start here](./llms-transformers/00-roadmap.md)**
-16 lessons — attention, transformer architecture, GPT, RLHF, chat-model alignment.
-*Status: Complete*
-
-## Track 9: Docker Deep Dive
-**[→ Start here](./docker/00-roadmap.md)**
-18 lessons — namespaces, cgroups, overlayfs, images, networking, compose, security.
-*Status: Complete*
-
-## Track 10: Kubernetes
-**[→ Start here](./kubernetes/00-roadmap.md)**
-20 lessons — Pods, Deployments, Services, Ingress, Helm, RBAC, observability.
-*Status: Complete*
-
-## Track 11: System Design
-**[→ Start here](./system-design/00-roadmap.md)**
-22 lessons — scaling, caching, databases, queues, microservices, real-world designs.
-*Status: Complete*
-
-## Track 12: Security & Cryptography
-**[→ Start here](./security-cryptography/00-roadmap.md)**
-22 lessons — hashing, encryption, TLS, OWASP Top 10, auth, secrets, threat modeling.
-*Status: Complete*
-
-## Track 13: Compilers & Interpreters
-**[→ Start here](./compilers-interpreters/00-roadmap.md)**
-22 lessons — lexers, parsers, ASTs, interpreters, type checkers, bytecode VMs, LLVM.
-*Status: Complete*
-
-## Track 14: Math Foundations
-**[→ Start here](./math-foundations/00-roadmap.md)**
-9 lessons — vectors, matrices, dot products, derivatives, gradients, chain rule, probability, MLE, and the math-to-ML map.
-*Status: Complete*
-
-## Track 15: GPU & CUDA Fundamentals
-**[→ Start here](./gpu-cuda-fundamentals/00-roadmap.md)**
-11 lessons — CPU vs GPU architecture, memory hierarchy, CUDA programming, tensor ops, ML hardware, multi-GPU, profiling, capstone.
-*Status: Complete*
-
-## Track 16: ML Glossary
-**[→ Start here](./ml-glossary/00-roadmap.md)**
-7 lessons — model sizes, quantization, training terminology, architecture terminology, scaling, modern LLM terms, data & evaluation. Use as a companion alongside any ML/AI track.
-*Status: Complete*
-
-## Track 17: Scale & Infrastructure
-**[→ Start here](./ml-scale-infrastructure/00-roadmap.md)**
-9 lessons — training data pipelines, compute planning, distributed training, pre-training & post-training pipelines, cost estimation, evaluation at scale.
-*Status: Complete*
-
-## Track 18: Build & Deploy LLM Capstone
-**[→ Start here](./build-deploy-llm/00-roadmap.md)**
-9 lessons — build a small transformer from scratch, train it, optimize, export to ONNX, deploy to browser and CLI. The capstone project.
-*Status: Complete*
+**[Math for AI](./math-for-ai/00-roadmap.md)**
+18 lessons — linear algebra, calculus, probability, statistics, optimization for ML.
 
 ---
 
-## Total: ~289 lessons across 18 tracks
+## Languages
 
-Estimated time: 30-38 weeks at ~2 hours/day, or 15-19 weeks at ~4 hours/day.
+**[Rust](./rust/00-roadmap.md)**
+20 lessons — ownership, traits, async, building real programs.
+
+**[Go](./go/00-roadmap.md)**
+18 lessons — goroutines, channels, interfaces, building services and CLI tools.
+
+**[Python for AI](./python-for-ai/00-roadmap.md)**
+16 lessons — NumPy, pandas, matplotlib, Jupyter, Python for ML practitioners.
+
+**[TypeScript & Modern Web](./typescript-web/00-roadmap.md)**
+18 lessons — types, generics, React, Node, full-stack patterns for systems thinkers.
+
+**[C/C++ for ML](./c-cpp-for-ml/00-roadmap.md)**
+14 lessons — just enough C/C++ to understand ML frameworks, CUDA kernels, and performance code.
+
+---
+
+## AI / Machine Learning
+
+**[Machine Learning Fundamentals](./ml-fundamentals/00-roadmap.md)**
+14 lessons — linear regression, neural networks, CNNs, embeddings. In Python.
+
+**[Applied ML](./applied-ml/00-roadmap.md)**
+18 lessons — EDA, feature engineering, model selection, XGBoost, evaluation, deployment.
+
+**[Advanced Deep Learning](./advanced-deep-learning/00-roadmap.md)**
+16 lessons — regularization, GANs, diffusion models, vision transformers, distributed training.
+
+**[LLMs & Transformers](./llms-transformers/00-roadmap.md)**
+16 lessons — attention, transformer architecture, GPT, RLHF, chat-model alignment.
+
+**[NLP Deep Dive](./nlp/00-roadmap.md)**
+16 lessons — tokenization, embeddings, sequence models, NER, sentiment, summarization.
+
+**[Computer Vision](./computer-vision/00-roadmap.md)**
+16 lessons — image classification, object detection, segmentation, video understanding.
+
+**[Reinforcement Learning](./reinforcement-learning/00-roadmap.md)**
+16 lessons — MDPs, Q-learning, policy gradients, PPO, multi-agent RL.
+
+**[AI Engineering](./ai-engineering/00-roadmap.md)**
+20 lessons — prompt engineering, RAG, fine-tuning, agents, function calling, production AI.
+
+**[Time Series & Forecasting](./time-series-forecasting/00-roadmap.md)**
+16 lessons — stationarity, ARIMA, Prophet, neural forecasting, anomaly detection, domain applications.
+
+**[Ethics, Fairness & Responsible AI](./ethics-fairness-ai/00-roadmap.md)**
+16 lessons — bias detection, fairness metrics, interpretability, governance, responsible deployment.
+
+---
+
+## Advanced AI/ML
+
+**[ML Systems at Scale](./ml-systems-at-scale/00-roadmap.md)**
+12 lessons — distributed training, data pipelines, feature stores, model serving at scale.
+
+**[Advanced LLM Engineering](./advanced-llm-engineering/00-roadmap.md)**
+14 lessons — pretraining, custom tokenizers, MoE, KV-cache optimization, speculative decoding.
+
+**[ML Performance Optimization](./ml-performance-optimization/00-roadmap.md)**
+12 lessons — profiling, quantization, pruning, kernel fusion, inference optimization.
+
+**[ML Research to Production](./ml-research-to-production/00-roadmap.md)**
+12 lessons — reading papers, reproducing results, experiment tracking, production-ready code.
+
+**[GPU & CUDA Fundamentals](./gpu-cuda-fundamentals/00-roadmap.md)**
+11 lessons — CPU vs GPU architecture, memory hierarchy, CUDA programming, tensor ops, profiling.
+
+**[ML Glossary](./ml-glossary/00-roadmap.md)**
+7 lessons — model sizes, quantization, training terminology, architecture terms, scaling, modern LLM terms.
+
+**[Scale & Infrastructure](./ml-scale-infrastructure/00-roadmap.md)**
+9 lessons — training data pipelines, compute planning, distributed training, cost estimation.
+
+**[Build & Deploy LLM Capstone](./build-deploy-llm/00-roadmap.md)**
+9 lessons — build a small transformer from scratch, train it, optimize, export to ONNX, deploy.
+
+---
+
+## Software Engineering
+
+**[Testing & Quality](./testing-quality/00-roadmap.md)**
+18 lessons — unit testing, integration testing, TDD, property-based testing, CI testing.
+
+**[Design Patterns](./design-patterns/00-roadmap.md)**
+18 lessons — creational, structural, behavioral patterns, SOLID principles, refactoring.
+
+**[CI/CD Pipelines](./ci-cd-pipelines/00-roadmap.md)**
+16 lessons — GitHub Actions, build automation, deployment strategies, release management.
+
+**[Authentication & Authorization](./authentication-authorization/00-roadmap.md)**
+16 lessons — OAuth 2.0, OIDC, JWTs, RBAC, session management, API keys.
+
+**[API Design & Protocols](./api-design/00-roadmap.md)**
+16 lessons — REST, GraphQL, gRPC, WebSockets, versioning, rate limiting, documentation.
+
+---
+
+## Infrastructure
+
+**[Linux/Unix Fundamentals](./linux-fundamentals/00-roadmap.md)**
+18 lessons — shell, processes, file systems, SSH, debugging tools.
+
+**[Docker Deep Dive](./docker/00-roadmap.md)**
+18 lessons — namespaces, cgroups, overlayfs, images, networking, compose, security.
+
+**[Kubernetes](./kubernetes/00-roadmap.md)**
+20 lessons — Pods, Deployments, Services, Ingress, Helm, RBAC, observability.
+
+**[Cloud Architecture & IaC](./cloud-architecture/00-roadmap.md)**
+18 lessons — AWS/GCP/Azure patterns, well-architected framework, Terraform, cost optimization.
+
+**[Infrastructure as Code](./infrastructure-as-code/00-roadmap.md)**
+15 lessons — Terraform, Pulumi, CloudFormation, state management, modules, testing.
+
+**[Message Queues & Streaming](./message-queues-streaming/00-roadmap.md)**
+16 lessons — Kafka, RabbitMQ, SQS, event-driven architecture, stream processing.
+
+**[Platform Engineering](./platform-engineering/00-roadmap.md)**
+12 lessons — internal developer platforms, golden paths, self-service infrastructure.
+
+---
+
+## Architecture
+
+**[System Design](./system-design/00-roadmap.md)**
+38 lessons — scaling, caching, databases, queues, microservices, real-world designs.
+
+**[Advanced System Design](./advanced-system-design/00-roadmap.md)**
+13 lessons — distributed transactions, event sourcing at scale, multi-region, service mesh.
+
+**[Distributed Systems](./distributed-systems/00-roadmap.md)**
+20 lessons — consensus, replication, partitioning, CAP theorem, CRDTs, Raft.
+
+**[Networking](./networking/00-roadmap.md)**
+18 lessons — TCP/IP, HTTP, TLS, sockets, DNS, load balancing, building servers.
+
+**[Concurrency & Parallelism](./concurrency-parallelism/00-roadmap.md)**
+16 lessons — threads, locks, atomics, async, channels, actor model, SIMD.
+
+---
+
+## Operations
+
+**[Operating Systems](./os-concepts/00-roadmap.md)**
+16 lessons — processes, memory, threads, syscalls, file systems.
+
+**[Databases](./databases/00-roadmap.md)**
+22 lessons — PostgreSQL internals, SQL, schema design, indexing, transactions, Rust/sqlx.
+
+**[SRE & Observability](./sre-observability/00-roadmap.md)**
+16 lessons — SLOs, monitoring, logging, tracing, incident response, chaos engineering.
+
+**[Security & Cryptography](./security-cryptography/00-roadmap.md)**
+22 lessons — hashing, encryption, TLS, OWASP Top 10, auth, secrets, threat modeling.
+
+**[Compilers & Interpreters](./compilers-interpreters/00-roadmap.md)**
+22 lessons — lexers, parsers, ASTs, interpreters, type checkers, bytecode VMs, LLVM.
+
+**[MLOps & Production ML](./mlops/00-roadmap.md)**
+18 lessons — experiment tracking, model registries, feature stores, monitoring, pipelines.
+
+**[Data Engineering](./data-engineering/00-roadmap.md)**
+14 lessons — data pipelines, ETL, data warehouses, Spark, dbt, data quality.
+
+---
+
+## Total: 841 lessons across 52 tracks
+
+Estimated time: 60-80 weeks at ~2 hours/day, or 30-40 weeks at ~4 hours/day.
 
 ---
 
@@ -132,28 +228,28 @@ to building and deploying your own language model.
 
 ```
   ┌─────────────────┐
-  │ Math Foundations │  (Track 14)
+  │ Math Foundations │
   │   (9 lessons)   │
   └────────┬────────┘
            │
   ┌────────▼────────┐
-  │  GPU & CUDA     │  (Track 15)
+  │  GPU & CUDA     │
   │  (11 lessons)   │
   └────────┬────────┘
            │
   ┌────────▼────────┐
-  │ ML Fundamentals │  (Track 7)
+  │ ML Fundamentals │
   │  (14 lessons)   │
   └────────┬────────┘
            │
   ┌────────▼────────┐
-  │ LLMs &          │  (Track 8)
+  │ LLMs &          │
   │ Transformers    │
   │  (16 lessons)   │
   └────────┬────────┘
            │
   ┌────────▼────────┐     ┌──────────────────┐
-  │  Applied ML     │     │   ML Glossary    │  (Track 16)
+  │  Applied ML     │     │   ML Glossary    │
   │  (18 lessons)   │◄───►│  (7 lessons)     │
   └────────┬────────┘     │  companion ref   │
            │              └──────────────────┘
@@ -168,8 +264,20 @@ to building and deploying your own language model.
   │  (20 lessons)   │
   └────────┬────────┘
            │
+  ┌────────▼────────────┐
+  │ Time Series &       │
+  │ Forecasting         │
+  │  (16 lessons)       │
+  └────────┬────────────┘
+           │
+  ┌────────▼────────────┐
+  │ Ethics, Fairness &  │
+  │ Responsible AI      │
+  │  (16 lessons)       │
+  └────────┬────────────┘
+           │
   ┌────────▼────────┐
-  │ Scale &         │  (Track 17)
+  │ Scale &         │
   │ Infrastructure  │
   │  (9 lessons)    │
   └────────┬────────┘
@@ -181,7 +289,7 @@ to building and deploying your own language model.
   └────────┬────────┘
            │
   ┌────────▼────────┐
-  │ Build & Deploy  │  (Track 18)
+  │ Build & Deploy  │
   │ LLM Capstone    │
   │  (9 lessons)    │
   └─────────────────┘
@@ -190,23 +298,25 @@ to building and deploying your own language model.
 **Suggested schedule:**
 
 ```
-Weeks 1-2:   Math Foundations (Track 14)
-Weeks 3-4:   GPU & CUDA Fundamentals (Track 15)
-Weeks 5-6:   ML Fundamentals (Track 7)
-Weeks 7-8:   LLMs & Transformers (Track 8)
-Weeks 9-10:  Applied ML + ML Glossary as companion (Tracks + Track 16)
+Weeks 1-2:   Math Foundations
+Weeks 3-4:   GPU & CUDA Fundamentals
+Weeks 5-6:   ML Fundamentals
+Weeks 7-8:   LLMs & Transformers
+Weeks 9-10:  Applied ML + ML Glossary as companion
 Weeks 11-12: Advanced Deep Learning
 Weeks 13-14: AI Engineering
-Weeks 15-16: Scale & Infrastructure (Track 17)
-Weeks 17-18: Advanced LLM Engineering
-Weeks 19-21: Build & Deploy LLM Capstone (Track 18)
+Weeks 15-16: Time Series & Forecasting
+Weeks 17-18: Ethics, Fairness & Responsible AI
+Weeks 19-20: Scale & Infrastructure
+Weeks 21-22: Advanced LLM Engineering
+Weeks 23-25: Build & Deploy LLM Capstone
 ```
 
 ---
 
 ## Quick Reference
 
-- **[ML Glossary](./ml-glossary/00-roadmap.md)** — Use as a companion resource alongside any ML/AI track. Covers model sizes, quantization, training terms, architecture terms, scaling, modern LLM terminology, and evaluation. Keep it open while working through Tracks 7, 8, 14–18, Applied ML, Advanced Deep Learning, AI Engineering, and Advanced LLM Engineering.
+- **[ML Glossary](./ml-glossary/00-roadmap.md)** — Use as a companion resource alongside any ML/AI track. Covers model sizes, quantization, training terms, architecture terms, scaling, modern LLM terminology, and evaluation. Keep it open while working through ML Fundamentals, LLMs & Transformers, Applied ML, Advanced Deep Learning, AI Engineering, Advanced LLM Engineering, and the capstone tracks.
 
 ---
 
@@ -237,3 +347,6 @@ Weeks 19-21: Build & Deploy LLM Capstone (Track 18)
 | Build a programming language | Compilers, Data Structures, Rust |
 | Build a Lua/Lisp interpreter | Compilers, OS Concepts |
 | Write a linter for your language | Compilers, ASTs, Go |
+| Build a demand forecasting system | Time Series, Applied ML, Python |
+| Audit an ML model for fairness | Ethics & Fairness, Applied ML, Python |
+| Build a stock price anomaly detector | Time Series, AI Engineering, Python |
