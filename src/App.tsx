@@ -54,6 +54,11 @@ const TRACK_CATEGORIES: Record<string, { label: string; icon: typeof Zap; color:
   'ml-performance-optimization': { label: 'AI/ML', icon: Brain, color: 'text-orange-400' },
   'advanced-system-design': { label: 'Architecture', icon: Zap, color: 'text-yellow-500' },
   'platform-engineering': { label: 'Infra', icon: Server, color: 'text-indigo-400' },
+  'math-foundations': { label: 'AI/ML', icon: Brain, color: 'text-blue-400' },
+  'gpu-cuda-fundamentals': { label: 'AI/ML', icon: Brain, color: 'text-lime-400' },
+  'ml-glossary': { label: 'AI/ML', icon: Brain, color: 'text-slate-400' },
+  'ml-scale-infrastructure': { label: 'AI/ML', icon: Brain, color: 'text-indigo-400' },
+  'build-deploy-llm': { label: 'AI/ML', icon: Brain, color: 'text-amber-500' },
 };
 
 const CAREER_TRACK_ICONS: Record<string, typeof Zap> = {
@@ -341,7 +346,7 @@ export default function App() {
     if (activeCategory === 'All') return true;
     const cat = TRACK_CATEGORIES[t.id];
     return cat?.label === activeCategory;
-  });
+  }).sort((a, b) => a.title.localeCompare(b.title));
 
   const renderTracks = () => (
     <div className="min-h-screen flex flex-col">

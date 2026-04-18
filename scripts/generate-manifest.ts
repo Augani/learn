@@ -70,6 +70,11 @@ const TRACK_ORDER: Record<string, number> = {
   'ml-performance-optimization': 43,
   'advanced-system-design': 44,
   'platform-engineering': 45,
+  'math-foundations': 46,
+  'gpu-cuda-fundamentals': 47,
+  'ml-glossary': 48,
+  'ml-scale-infrastructure': 49,
+  'build-deploy-llm': 50,
 };
 
 function extractTitle(content: string, filename: string): string {
@@ -136,6 +141,11 @@ function formatTrackTitle(dirName: string): string {
     'ml-performance-optimization': 'ML Performance Optimization',
     'advanced-system-design': 'Advanced System Design',
     'platform-engineering': 'Platform Engineering',
+    'math-foundations': 'Math Foundations',
+    'gpu-cuda-fundamentals': 'GPU & CUDA Fundamentals',
+    'ml-glossary': 'ML Glossary',
+    'ml-scale-infrastructure': 'Scale & Infrastructure',
+    'build-deploy-llm': 'Build & Deploy LLM Capstone',
   };
   return titles[dirName] || dirName.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
@@ -194,7 +204,7 @@ const CAREER_TRACKS: CareerTrack[] = [
       'python-for-ai', 'math-for-ai', 'data-structures', 'ml-fundamentals',
       'advanced-deep-learning', 'llms-transformers', 'applied-ml', 'testing-quality',
       'ci-cd-pipelines', 'mlops', 'docker', 'kubernetes', 'cloud-architecture',
-      'data-engineering',
+      'data-engineering', 'math-foundations', 'gpu-cuda-fundamentals', 'ml-glossary',
     ],
     books: [
       { title: 'Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow', author: 'Aurelien Geron', year: 2022, description: 'The most practical ML book' },
@@ -350,6 +360,7 @@ const CAREER_TRACKS: CareerTrack[] = [
       'ml-systems-at-scale', 'advanced-llm-engineering', 'ml-performance-optimization',
       'ml-research-to-production', 'advanced-deep-learning', 'llms-transformers',
       'c-cpp-for-ml', 'mlops', 'distributed-systems', 'concurrency-parallelism',
+      'gpu-cuda-fundamentals', 'ml-scale-infrastructure', 'build-deploy-llm',
     ],
     books: [
       { title: 'Build a Large Language Model (From Scratch)', author: 'Sebastian Raschka', year: 2024, description: 'Understand LLMs from the ground up' },

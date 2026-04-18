@@ -8108,6 +8108,506 @@
           "isReference": true
         }
       ]
+    },
+    {
+      "id": "math-foundations",
+      "title": "Math Foundations",
+      "description": "Welcome to Math Foundations. This track gives you the mathematical",
+      "lessonCount": 9,
+      "status": "Complete",
+      "order": 46,
+      "lessons": [
+        {
+          "id": "math-foundations/01-vectors-matrices",
+          "filename": "01-vectors-matrices.md",
+          "title": "Lesson 01: Vectors and Matrices — The Language of Data",
+          "trackId": "math-foundations",
+          "order": 1,
+          "wordCount": 1514,
+          "isReference": false
+        },
+        {
+          "id": "math-foundations/02-dot-products-similarity",
+          "filename": "02-dot-products-similarity.md",
+          "title": "Lesson 02: Dot Products and Similarity — Measuring How Alike Things Are",
+          "trackId": "math-foundations",
+          "order": 2,
+          "wordCount": 1167,
+          "isReference": false
+        },
+        {
+          "id": "math-foundations/03-matrix-multiplication",
+          "filename": "03-matrix-multiplication.md",
+          "title": "Lesson 03: Matrix Multiplication — The Engine of Neural Networks",
+          "trackId": "math-foundations",
+          "order": 3,
+          "wordCount": 1497,
+          "isReference": false
+        },
+        {
+          "id": "math-foundations/04-transpose-eigenvalues",
+          "filename": "04-transpose-eigenvalues.md",
+          "title": "Lesson 04: Transpose, Eigenvalues, and Decomposition — Seeing Inside Matrices",
+          "trackId": "math-foundations",
+          "order": 4,
+          "wordCount": 1342,
+          "isReference": false
+        },
+        {
+          "id": "math-foundations/05-derivatives-gradients",
+          "filename": "05-derivatives-gradients.md",
+          "title": "Lesson 05: Derivatives and Gradients — How Machines Know Which Way to Adjust",
+          "trackId": "math-foundations",
+          "order": 5,
+          "wordCount": 1437,
+          "isReference": false
+        },
+        {
+          "id": "math-foundations/06-chain-rule-backprop",
+          "filename": "06-chain-rule-backprop.md",
+          "title": "Lesson 06: The Chain Rule and Backpropagation — How Gradients Flow Backward",
+          "trackId": "math-foundations",
+          "order": 6,
+          "wordCount": 1382,
+          "isReference": false
+        },
+        {
+          "id": "math-foundations/07-probability-distributions",
+          "filename": "07-probability-distributions.md",
+          "title": "Lesson 07: Probability and Distributions — How Models Handle Uncertainty",
+          "trackId": "math-foundations",
+          "order": 7,
+          "wordCount": 1307,
+          "isReference": false
+        },
+        {
+          "id": "math-foundations/08-expectation-variance-mle",
+          "filename": "08-expectation-variance-mle.md",
+          "title": "Lesson 08: Expectation, Variance, and MLE — The Statistics Behind Training",
+          "trackId": "math-foundations",
+          "order": 8,
+          "wordCount": 1394,
+          "isReference": false
+        },
+        {
+          "id": "math-foundations/09-math-to-ml-map",
+          "filename": "09-math-to-ml-map.md",
+          "title": "Lesson 09: The Math-to-ML Map — Connecting Every Concept",
+          "trackId": "math-foundations",
+          "order": 9,
+          "wordCount": 1252,
+          "isReference": false
+        },
+        {
+          "id": "math-foundations/reference-formulas",
+          "filename": "reference-formulas.md",
+          "title": "Math Foundations — Formula Cheat Sheet",
+          "trackId": "math-foundations",
+          "order": 909,
+          "wordCount": 952,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "gpu-cuda-fundamentals",
+      "title": "GPU & CUDA Fundamentals",
+      "description": "Welcome to GPU & CUDA Fundamentals. This track takes you from \"why are",
+      "lessonCount": 11,
+      "status": "Complete",
+      "order": 47,
+      "lessons": [
+        {
+          "id": "gpu-cuda-fundamentals/01-cpu-vs-gpu",
+          "filename": "01-cpu-vs-gpu.md",
+          "title": "Lesson 01: CPU vs GPU Architecture — Why Parallel Processing Matters",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 1,
+          "wordCount": 1705,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/02-gpu-memory-hierarchy",
+          "filename": "02-gpu-memory-hierarchy.md",
+          "title": "Lesson 02: GPU Memory Hierarchy — Why Memory Is the Real Bottleneck",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 2,
+          "wordCount": 1813,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/03-cuda-hello-world",
+          "filename": "03-cuda-hello-world.md",
+          "title": "Lesson 03: CUDA Programming Basics — Kernels, Threads, Blocks, and Grids",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 3,
+          "wordCount": 1747,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/04-cuda-patterns",
+          "filename": "04-cuda-patterns.md",
+          "title": "Lesson 04: CUDA Programming Patterns — Memory Coalescing, Shared Memory, and Reductions",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 4,
+          "wordCount": 1574,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/05-tensor-ops-on-gpu",
+          "filename": "05-tensor-ops-on-gpu.md",
+          "title": "Lesson 05: Tensor Operations on GPU — Why Transformers Love GPUs",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 5,
+          "wordCount": 1734,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/06-ml-hardware-landscape",
+          "filename": "06-ml-hardware-landscape.md",
+          "title": "Lesson 06: ML Hardware Landscape — GPUs, TPUs, and Beyond",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 6,
+          "wordCount": 1633,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/07-memory-estimation",
+          "filename": "07-memory-estimation.md",
+          "title": "Lesson 07: Memory Management for ML — Will Your Model Fit?",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 7,
+          "wordCount": 1751,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/08-multi-gpu-basics",
+          "filename": "08-multi-gpu-basics.md",
+          "title": "Lesson 08: Multi-GPU and Distributed Compute — Scaling Beyond One GPU",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 8,
+          "wordCount": 1540,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/09-profiling-debugging",
+          "filename": "09-profiling-debugging.md",
+          "title": "Lesson 09: Profiling and Debugging GPU Code — Finding the Bottleneck",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 9,
+          "wordCount": 1480,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/10-pytorch-cuda-integration",
+          "filename": "10-pytorch-cuda-integration.md",
+          "title": "Lesson 10: PyTorch and CUDA Integration — How the Framework Talks to the GPU",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 10,
+          "wordCount": 1526,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/11-capstone-cuda-matmul",
+          "filename": "11-capstone-cuda-matmul.md",
+          "title": "Lesson 11: Capstone — CUDA Matrix Multiplication",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 11,
+          "wordCount": 1957,
+          "isReference": false
+        },
+        {
+          "id": "gpu-cuda-fundamentals/reference-gpu-specs",
+          "filename": "reference-gpu-specs.md",
+          "title": "GPU Specs Reference — Comparison Table",
+          "trackId": "gpu-cuda-fundamentals",
+          "order": 911,
+          "wordCount": 1213,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "ml-glossary",
+      "title": "ML Glossary",
+      "description": "Machine learning is drowning in jargon. \"10B parameters.\" \"INT4",
+      "lessonCount": 7,
+      "status": "Complete",
+      "order": 48,
+      "lessons": [
+        {
+          "id": "ml-glossary/01-model-sizes-parameters",
+          "filename": "01-model-sizes-parameters.md",
+          "title": "Lesson 01: Model Sizes and Parameters — What the Numbers Actually Mean",
+          "trackId": "ml-glossary",
+          "order": 1,
+          "wordCount": 1766,
+          "isReference": false
+        },
+        {
+          "id": "ml-glossary/02-quantization-precision",
+          "filename": "02-quantization-precision.md",
+          "title": "Lesson 02: Quantization and Precision — Making Models Fit",
+          "trackId": "ml-glossary",
+          "order": 2,
+          "wordCount": 1978,
+          "isReference": false
+        },
+        {
+          "id": "ml-glossary/03-training-terminology",
+          "filename": "03-training-terminology.md",
+          "title": "Lesson 03: Training Terminology — The Language of Learning",
+          "trackId": "ml-glossary",
+          "order": 3,
+          "wordCount": 1857,
+          "isReference": false
+        },
+        {
+          "id": "ml-glossary/04-architecture-terminology",
+          "filename": "04-architecture-terminology.md",
+          "title": "Lesson 04: Architecture Terminology — The Building Blocks",
+          "trackId": "ml-glossary",
+          "order": 4,
+          "wordCount": 2301,
+          "isReference": false
+        },
+        {
+          "id": "ml-glossary/05-scaling-compute-terminology",
+          "filename": "05-scaling-compute-terminology.md",
+          "title": "Lesson 05: Scaling and Compute Terminology — Measuring the Machine",
+          "trackId": "ml-glossary",
+          "order": 5,
+          "wordCount": 2029,
+          "isReference": false
+        },
+        {
+          "id": "ml-glossary/06-modern-llm-terminology",
+          "filename": "06-modern-llm-terminology.md",
+          "title": "Lesson 06: Modern LLM Terminology — Alignment, Decoding, and Control",
+          "trackId": "ml-glossary",
+          "order": 6,
+          "wordCount": 2153,
+          "isReference": false
+        },
+        {
+          "id": "ml-glossary/07-data-and-evaluation",
+          "filename": "07-data-and-evaluation.md",
+          "title": "Lesson 07: Data and Evaluation Terminology — Input and Output",
+          "trackId": "ml-glossary",
+          "order": 7,
+          "wordCount": 2202,
+          "isReference": false
+        },
+        {
+          "id": "ml-glossary/reference-quick-lookup",
+          "filename": "reference-quick-lookup.md",
+          "title": "Quick Lookup Reference — Alphabetical Term Index",
+          "trackId": "ml-glossary",
+          "order": 907,
+          "wordCount": 1494,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "ml-scale-infrastructure",
+      "title": "Scale & Infrastructure",
+      "description": "You have learned how neural networks work, how transformers process",
+      "lessonCount": 9,
+      "status": "Complete",
+      "order": 49,
+      "lessons": [
+        {
+          "id": "ml-scale-infrastructure/01-training-data-pipelines",
+          "filename": "01-training-data-pipelines.md",
+          "title": "Lesson 01: Training Data Pipelines — From the Raw Web to Training Tokens",
+          "trackId": "ml-scale-infrastructure",
+          "order": 1,
+          "wordCount": 2323,
+          "isReference": false
+        },
+        {
+          "id": "ml-scale-infrastructure/02-compute-planning",
+          "filename": "02-compute-planning.md",
+          "title": "Lesson 02: Compute Planning and Scaling Laws — How Much Compute Do You Actually Need?",
+          "trackId": "ml-scale-infrastructure",
+          "order": 2,
+          "wordCount": 1857,
+          "isReference": false
+        },
+        {
+          "id": "ml-scale-infrastructure/03-distributed-training-infra",
+          "filename": "03-distributed-training-infra.md",
+          "title": "Lesson 03: Distributed Training Infrastructure — Coordinating Thousands of GPUs",
+          "trackId": "ml-scale-infrastructure",
+          "order": 3,
+          "wordCount": 2115,
+          "isReference": false
+        },
+        {
+          "id": "ml-scale-infrastructure/04-pretraining-pipeline",
+          "filename": "04-pretraining-pipeline.md",
+          "title": "Lesson 04: The Pre-Training Pipeline — From Raw Data to Base Model",
+          "trackId": "ml-scale-infrastructure",
+          "order": 4,
+          "wordCount": 1942,
+          "isReference": false
+        },
+        {
+          "id": "ml-scale-infrastructure/05-post-training-pipeline",
+          "filename": "05-post-training-pipeline.md",
+          "title": "Lesson 05: The Post-Training Pipeline — From Base Model to Aligned Assistant",
+          "trackId": "ml-scale-infrastructure",
+          "order": 5,
+          "wordCount": 1840,
+          "isReference": false
+        },
+        {
+          "id": "ml-scale-infrastructure/06-cost-estimation",
+          "filename": "06-cost-estimation.md",
+          "title": "Lesson 06: Cost and Resource Estimation — How Much Does It Actually Cost?",
+          "trackId": "ml-scale-infrastructure",
+          "order": 6,
+          "wordCount": 1625,
+          "isReference": false
+        },
+        {
+          "id": "ml-scale-infrastructure/07-evaluation-at-scale",
+          "filename": "07-evaluation-at-scale.md",
+          "title": "Lesson 07: Model Evaluation at Scale — How Do You Know If Your Model Is Any Good?",
+          "trackId": "ml-scale-infrastructure",
+          "order": 7,
+          "wordCount": 1627,
+          "isReference": false
+        },
+        {
+          "id": "ml-scale-infrastructure/08-data-quality-curation",
+          "filename": "08-data-quality-curation.md",
+          "title": "Lesson 08: Data Quality and Curation — The Art of Building a Good Dataset",
+          "trackId": "ml-scale-infrastructure",
+          "order": 8,
+          "wordCount": 2017,
+          "isReference": false
+        },
+        {
+          "id": "ml-scale-infrastructure/09-capstone-plan-training-run",
+          "filename": "09-capstone-plan-training-run.md",
+          "title": "Lesson 09: Capstone — Plan a Training Run",
+          "trackId": "ml-scale-infrastructure",
+          "order": 9,
+          "wordCount": 1736,
+          "isReference": false
+        },
+        {
+          "id": "ml-scale-infrastructure/reference-cost-calculator",
+          "filename": "reference-cost-calculator.md",
+          "title": "Cost Calculator Reference — Quick-Reference Tables and Formulas",
+          "trackId": "ml-scale-infrastructure",
+          "order": 909,
+          "wordCount": 1136,
+          "isReference": true
+        }
+      ]
+    },
+    {
+      "id": "build-deploy-llm",
+      "title": "Build & Deploy LLM Capstone",
+      "description": "This is the capstone. You have learned the math, the hardware, the",
+      "lessonCount": 9,
+      "status": "Complete",
+      "order": 50,
+      "lessons": [
+        {
+          "id": "build-deploy-llm/01-project-setup",
+          "filename": "01-project-setup.md",
+          "title": "Lesson 01: Project Setup and Architecture",
+          "trackId": "build-deploy-llm",
+          "order": 1,
+          "wordCount": 1647,
+          "isReference": false
+        },
+        {
+          "id": "build-deploy-llm/02-tokenizer-from-scratch",
+          "filename": "02-tokenizer-from-scratch.md",
+          "title": "Lesson 02: Building a Tokenizer from Scratch",
+          "trackId": "build-deploy-llm",
+          "order": 2,
+          "wordCount": 1750,
+          "isReference": false
+        },
+        {
+          "id": "build-deploy-llm/03-transformer-architecture",
+          "filename": "03-transformer-architecture.md",
+          "title": "Lesson 03: Building the Transformer",
+          "trackId": "build-deploy-llm",
+          "order": 3,
+          "wordCount": 1848,
+          "isReference": false
+        },
+        {
+          "id": "build-deploy-llm/04-training-loop",
+          "filename": "04-training-loop.md",
+          "title": "Lesson 04: The Training Loop",
+          "trackId": "build-deploy-llm",
+          "order": 4,
+          "wordCount": 1540,
+          "isReference": false
+        },
+        {
+          "id": "build-deploy-llm/05-training-the-model",
+          "filename": "05-training-the-model.md",
+          "title": "Lesson 05: Training the Model",
+          "trackId": "build-deploy-llm",
+          "order": 5,
+          "wordCount": 1606,
+          "isReference": false
+        },
+        {
+          "id": "build-deploy-llm/06-model-optimization",
+          "filename": "06-model-optimization.md",
+          "title": "Lesson 06: Model Optimization for Deployment",
+          "trackId": "build-deploy-llm",
+          "order": 6,
+          "wordCount": 1084,
+          "isReference": false
+        },
+        {
+          "id": "build-deploy-llm/07-export-onnx",
+          "filename": "07-export-onnx.md",
+          "title": "Lesson 07: Exporting to ONNX",
+          "trackId": "build-deploy-llm",
+          "order": 7,
+          "wordCount": 1191,
+          "isReference": false
+        },
+        {
+          "id": "build-deploy-llm/08-browser-deployment",
+          "filename": "08-browser-deployment.md",
+          "title": "Lesson 08: Browser Deployment",
+          "trackId": "build-deploy-llm",
+          "order": 8,
+          "wordCount": 1761,
+          "isReference": false
+        },
+        {
+          "id": "build-deploy-llm/09-cli-tool",
+          "filename": "09-cli-tool.md",
+          "title": "Lesson 09: CLI Tool Deployment",
+          "trackId": "build-deploy-llm",
+          "order": 9,
+          "wordCount": 1540,
+          "isReference": false
+        },
+        {
+          "id": "build-deploy-llm/reference-deployment-checklist",
+          "filename": "reference-deployment-checklist.md",
+          "title": "Deployment Checklist Reference",
+          "trackId": "build-deploy-llm",
+          "order": 909,
+          "wordCount": 859,
+          "isReference": true
+        }
+      ]
     }
   ],
   "careerTracks": [
@@ -8186,7 +8686,10 @@
         "docker",
         "kubernetes",
         "cloud-architecture",
-        "data-engineering"
+        "data-engineering",
+        "math-foundations",
+        "gpu-cuda-fundamentals",
+        "ml-glossary"
       ],
       "books": [
         {
@@ -8533,7 +9036,10 @@
         "c-cpp-for-ml",
         "mlops",
         "distributed-systems",
-        "concurrency-parallelism"
+        "concurrency-parallelism",
+        "gpu-cuda-fundamentals",
+        "ml-scale-infrastructure",
+        "build-deploy-llm"
       ],
       "books": [
         {
@@ -8699,6 +9205,6 @@
       ]
     }
   ],
-  "totalLessons": 764,
-  "generatedAt": "2026-03-10T15:41:34.655Z"
+  "totalLessons": 809,
+  "generatedAt": "2026-04-18T14:06:20.615Z"
 }

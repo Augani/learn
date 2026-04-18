@@ -92,11 +92,121 @@ Week 24+:   Build projects combining everything
 22 lessons — lexers, parsers, ASTs, interpreters, type checkers, bytecode VMs, LLVM.
 *Status: Complete*
 
+## Track 14: Math Foundations
+**[→ Start here](./math-foundations/00-roadmap.md)**
+9 lessons — vectors, matrices, dot products, derivatives, gradients, chain rule, probability, MLE, and the math-to-ML map.
+*Status: Complete*
+
+## Track 15: GPU & CUDA Fundamentals
+**[→ Start here](./gpu-cuda-fundamentals/00-roadmap.md)**
+11 lessons — CPU vs GPU architecture, memory hierarchy, CUDA programming, tensor ops, ML hardware, multi-GPU, profiling, capstone.
+*Status: Complete*
+
+## Track 16: ML Glossary
+**[→ Start here](./ml-glossary/00-roadmap.md)**
+7 lessons — model sizes, quantization, training terminology, architecture terminology, scaling, modern LLM terms, data & evaluation. Use as a companion alongside any ML/AI track.
+*Status: Complete*
+
+## Track 17: Scale & Infrastructure
+**[→ Start here](./ml-scale-infrastructure/00-roadmap.md)**
+9 lessons — training data pipelines, compute planning, distributed training, pre-training & post-training pipelines, cost estimation, evaluation at scale.
+*Status: Complete*
+
+## Track 18: Build & Deploy LLM Capstone
+**[→ Start here](./build-deploy-llm/00-roadmap.md)**
+9 lessons — build a small transformer from scratch, train it, optimize, export to ONNX, deploy to browser and CLI. The capstone project.
+*Status: Complete*
+
 ---
 
-## Total: ~244 lessons across 13 tracks
+## Total: ~289 lessons across 18 tracks
 
-Estimated time: 23-27 weeks at ~2 hours/day, or 12-14 weeks at ~4 hours/day.
+Estimated time: 30-38 weeks at ~2 hours/day, or 15-19 weeks at ~4 hours/day.
+
+---
+
+## ML/AI Deep Dive Path
+
+A recommended sequential path through all ML/AI tracks — from math foundations
+to building and deploying your own language model.
+
+```
+  ┌─────────────────┐
+  │ Math Foundations │  (Track 14)
+  │   (9 lessons)   │
+  └────────┬────────┘
+           │
+  ┌────────▼────────┐
+  │  GPU & CUDA     │  (Track 15)
+  │  (11 lessons)   │
+  └────────┬────────┘
+           │
+  ┌────────▼────────┐
+  │ ML Fundamentals │  (Track 7)
+  │  (14 lessons)   │
+  └────────┬────────┘
+           │
+  ┌────────▼────────┐
+  │ LLMs &          │  (Track 8)
+  │ Transformers    │
+  │  (16 lessons)   │
+  └────────┬────────┘
+           │
+  ┌────────▼────────┐     ┌──────────────────┐
+  │  Applied ML     │     │   ML Glossary    │  (Track 16)
+  │  (18 lessons)   │◄───►│  (7 lessons)     │
+  └────────┬────────┘     │  companion ref   │
+           │              └──────────────────┘
+  ┌────────▼────────┐
+  │ Advanced Deep   │
+  │ Learning        │
+  │  (16 lessons)   │
+  └────────┬────────┘
+           │
+  ┌────────▼────────┐
+  │ AI Engineering  │
+  │  (20 lessons)   │
+  └────────┬────────┘
+           │
+  ┌────────▼────────┐
+  │ Scale &         │  (Track 17)
+  │ Infrastructure  │
+  │  (9 lessons)    │
+  └────────┬────────┘
+           │
+  ┌────────▼────────┐
+  │ Advanced LLM    │
+  │ Engineering     │
+  │  (14 lessons)   │
+  └────────┬────────┘
+           │
+  ┌────────▼────────┐
+  │ Build & Deploy  │  (Track 18)
+  │ LLM Capstone    │
+  │  (9 lessons)    │
+  └─────────────────┘
+```
+
+**Suggested schedule:**
+
+```
+Weeks 1-2:   Math Foundations (Track 14)
+Weeks 3-4:   GPU & CUDA Fundamentals (Track 15)
+Weeks 5-6:   ML Fundamentals (Track 7)
+Weeks 7-8:   LLMs & Transformers (Track 8)
+Weeks 9-10:  Applied ML + ML Glossary as companion (Tracks + Track 16)
+Weeks 11-12: Advanced Deep Learning
+Weeks 13-14: AI Engineering
+Weeks 15-16: Scale & Infrastructure (Track 17)
+Weeks 17-18: Advanced LLM Engineering
+Weeks 19-21: Build & Deploy LLM Capstone (Track 18)
+```
+
+---
+
+## Quick Reference
+
+- **[ML Glossary](./ml-glossary/00-roadmap.md)** — Use as a companion resource alongside any ML/AI track. Covers model sizes, quantization, training terms, architecture terms, scaling, modern LLM terminology, and evaluation. Keep it open while working through Tracks 7, 8, 14–18, Applied ML, Advanced Deep Learning, AI Engineering, and Advanced LLM Engineering.
 
 ---
 
