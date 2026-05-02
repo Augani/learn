@@ -59,6 +59,7 @@ const TRACK_CATEGORIES: Record<string, { label: string; icon: typeof Zap; color:
   'ml-glossary': { label: 'AI/ML', icon: Brain, color: 'text-slate-400' },
   'ml-scale-infrastructure': { label: 'AI/ML', icon: Brain, color: 'text-indigo-400' },
   'build-deploy-llm': { label: 'AI/ML', icon: Brain, color: 'text-amber-500' },
+  'dsa-mastery': { label: 'Fundamentals', icon: GraduationCap, color: 'text-emerald-400' },
 };
 
 const CAREER_TRACK_ICONS: Record<string, typeof Zap> = {
