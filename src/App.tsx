@@ -123,7 +123,7 @@ export default function App() {
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
-    fetch(`${BASE_URL}lessons/manifest.json`)
+    fetch(`${BASE_URL}lessons/manifest.json?t=${Date.now()}`)
       .then(r => r.json())
       .then(setManifest)
       .catch(console.error);
