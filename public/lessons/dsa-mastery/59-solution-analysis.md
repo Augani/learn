@@ -220,11 +220,28 @@ That is much stronger than saying “I think it is probably $O(n \log n)$.”
 
 ## Exercises
 
-1. Why do nested loops not automatically imply quadratic time?
+1. Why do nested loops not automatically imply quadratic time? Analyze
+   a monotonic deque algorithm and show why it is linear despite the `while`
+   loop inside the `for` loop.
 2. What should you check before claiming a solution is $O(1)$ space?
+   List at least four hidden sources of space usage that candidates often
+   ignore.
 3. Why is naming the invariant helpful for correctness reasoning?
-4. What kinds of problems suggest precomputation?
-5. Why is “hash map is $O(1)$” an incomplete statement?
+   Write the invariant for a sliding-window problem in your own words and
+   explain how it proves correctness.
+4. What kinds of problems suggest precomputation? Distinguish between
+   problems that need prefix sums versus those that need sparse tables.
+5. Why is “hash map is $O(1)$” an incomplete statement? When does it
+   become $O(n)$ worst case, and how do Java's `HashMap` and Python's `dict`
+   mitigate this?
+6. Take a solution you recently wrote. Analyze it using the five-step
+   framework from this lesson: dominant work, time/space separation,
+   redundant work, precomputation opportunities, and invariant verification.
+7. In an interview, how would you explain why your Dijkstra implementation
+   is $O(E \log V)$? Break down exactly which operations cost what.
+8. A recursive memoized solution uses a cache of size $2^n$. Explain why
+   the time complexity might still be polynomial even though the state
+   space looks exponential.
 
 ---
 

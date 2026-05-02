@@ -303,14 +303,27 @@ sum pass.
 
 ## Exercises
 
-1. Why is “contiguous” such a strong clue for sliding window or prefix
-   sums?
+1. Why is "contiguous" such a strong clue for sliding window or prefix
+   sums? What distinguishes when sliding window applies versus prefix sums?
 2. What makes binary search on the answer different from normal binary
-   search?
-3. Why is sorting often the first move in interval problems?
-4. What kind of prompt should make you think monotonic stack
-   immediately?
+   search? Explain the monotonic feasibility condition with an example.
+3. Why is sorting often the first move in interval problems? What
+   invariant does sorting establish that makes merge or count operations
+   linear?
+4. What kind of prompt should make you think monotonic stack immediately?
+   What is the structural property of "next greater element" problems?
 5. When is a difference array better than directly applying updates?
+   Calculate the runtime difference for `m` range updates on an array of
+   size `n`.
+6. For each pattern in this lesson (sliding window, two pointers, prefix
+   sums, difference array, merge intervals, monotonic stack, monotonic
+   queue, binary search on answer), name one classic LeetCode problem
+   that uses it and explain the signal that triggered the pattern.
+7. A problem asks for the "minimum size subarray sum." Is this sliding
+   window, prefix sums, or binary search on answer? Explain when each
+   applies and what constraints determine the choice.
+8. Design a problem that looks like it needs nested loops but is actually
+   solvable with two pointers. What property must the input have?
 
 ---
 

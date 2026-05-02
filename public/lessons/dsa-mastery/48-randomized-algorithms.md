@@ -9,16 +9,30 @@
 
 ## Why This Matters
 
-Randomization appears in:
+Randomization is one of the most powerful and underappreciated tools in
+algorithm design. Its purpose is often not raw speed — it is
+**robustness against adversarial inputs** and **simplicity of analysis**.
 
-- randomized quicksort
-- skip lists
-- reservoir sampling
-- hashing and load balancing
-- approximation and streaming algorithms
+Randomization appears in many practical systems:
 
-Its purpose is often not magic speed. It is robustness against bad
-input structure.
+- **Randomized quicksort**: picking pivots randomly defeats adversarial
+  inputs that would make deterministic quicksort hit `O(n^2)` worst case
+- **Skip lists**: probabilistic balancing replaces complex tree rotations
+  with coin flips, yielding simpler code with expected logarithmic
+  performance
+- **Reservoir sampling**: selecting a random sample from a stream of
+  unknown length in a single pass, essential for real-time analytics
+- **Hashing and load balancing**: randomized hash functions spread keys
+  evenly, preventing worst-case collision clusters
+- **Approximation algorithms**: randomized rounding and sampling often
+  yield provable approximations for NP-hard problems in polynomial time
+- **Streaming algorithms**: when data is too large to store, random
+  sketches (like Count-Min Sketch) estimate frequencies with small
+  bounded error
+
+Understanding the difference between Monte Carlo (fast, possibly wrong)
+and Las Vegas (always correct, random runtime) algorithms is essential
+for choosing the right tool in systems where correctness guarantees vary.
 
 ---
 
@@ -177,24 +191,46 @@ random outcomes are sufficiently unlikely.
 ## Exercises
 
 1. Why is randomized quicksort more robust than deterministic quicksort
-   with a fixed pivot rule?
+   with a fixed pivot rule? Construct a specific adversarial input that
+   breaks deterministic quicksort.
 2. What is the difference between Monte Carlo and Las Vegas algorithms?
-3. How does a skip list use randomness to simulate balancing?
+   Give one example of each from this lesson.
+3. How does a skip list use randomness to simulate balancing? Why does
+   the expected height remain logarithmic?
 4. Why does reservoir sampling work when the stream length is unknown?
+   Prove by induction that after processing `i` items, each item has
+   probability `1/i` of being stored.
 5. Give an example where randomness helps avoid adversarial structure.
+   How does hashing use this principle?
+6. A Las Vegas algorithm always produces a correct answer but its
+   runtime is a random variable. Why is expected runtime analysis the
+   right tool rather than worst-case analysis?
+7. What would go wrong if a skip list used a fixed height for every node
+   instead of random heights?
+8. In a distributed system, load balancing assigns requests to servers.
+   Why might randomized assignment outperform round-robin under certain
+   adversarial load patterns?
 
 ---
 
 ## Key Takeaways
 
-- Randomization often improves robustness more than raw asymptotic
-  complexity.
-- Monte Carlo and Las Vegas algorithms differ in whether correctness or
-  runtime is random.
-- Randomized quicksort, skip lists, and reservoir sampling are classic
-  patterns worth knowing deeply.
-- Expected analysis is the right tool for many randomized algorithms.
-- Randomness can neutralize predictable worst-case inputs.
+- **Randomization** often improves robustness more than raw asymptotic
+  complexity by defeating adversarial input structure.
+- **Monte Carlo algorithms** are always fast but may be wrong with small
+  probability. **Las Vegas algorithms** are always correct but have
+  random runtime.
+- **Randomized quicksort** picks random pivots to guarantee `O(n log n)`
+  expected time regardless of input ordering.
+- **Skip lists** use random tower heights to achieve expected
+  `O(log n)` search/insert/delete with simpler code than balanced trees.
+- **Reservoir sampling** selects a uniform random sample from a stream of
+  unknown length in a single pass using a simple probability update rule.
+- **Expected analysis** is the right tool for randomized algorithms
+  because it averages over random choices, not worst-case inputs.
+- **Randomness neutralizes predictable worst-case inputs** in hashing,
+  load balancing, and randomized algorithms by making behavior
+  independent of input structure.
 
 The next lesson moves to computational geometry, where spatial structure
 drives the algorithms.

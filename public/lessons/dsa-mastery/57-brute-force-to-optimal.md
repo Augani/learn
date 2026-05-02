@@ -324,12 +324,24 @@ memorize 500 problems.
 
 ## Exercises
 
-1. Why is brute force useful even when it is obviously too slow?
-2. What kind of repeated work suggests prefix sums?
-3. What kind of repeated work suggests DP?
+1. Why is brute force useful even when it is obviously too slow? How
+   does writing it out help with edge cases and optimization insight?
+2. What kind of repeated work suggests prefix sums? Give a concrete
+   example of a brute-force sum-over-range operation.
+3. What kind of repeated work suggests DP? Distinguish overlapping
+   subproblems from optimal substructure with examples.
 4. Why must binary search on the answer have a monotonic feasibility
-   function?
+   function? Construct a problem where feasibility is NOT monotonic.
 5. In the stock-profit example, why is the minimum-so-far summary enough?
+   Why does tracking the full history of prices not help?
+6. Pick a problem solvable with nested loops. Show step-by-step how
+   a hash map upgrade replaces the inner loop with `O(1)` lookup.
+7. For a problem with `O(n^2)` brute force, explain how recognizing
+   monotonicity lets you reduce to `O(n)` with two pointers or sliding
+   window. Draw the "wasted work" the brute force does.
+8. A brute-force backtracking solution explores all permutations. How
+   does adding pruning (branch and bound) change the search tree
+   without changing the underlying structure?
 
 ---
 

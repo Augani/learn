@@ -9183,7 +9183,7 @@
           "title": "Lesson 25: Tree Techniques — LCA, Morris Traversal, and Tree DP",
           "trackId": "dsa-mastery",
           "order": 25,
-          "wordCount": 1668,
+          "wordCount": 3341,
           "isReference": false
         },
         {
@@ -9192,7 +9192,7 @@
           "title": "Lesson 26: Graph Representations",
           "trackId": "dsa-mastery",
           "order": 26,
-          "wordCount": 1063,
+          "wordCount": 2039,
           "isReference": false
         },
         {
@@ -9201,7 +9201,7 @@
           "title": "Lesson 27: Graph Traversals — BFS and DFS",
           "trackId": "dsa-mastery",
           "order": 27,
-          "wordCount": 1066,
+          "wordCount": 1771,
           "isReference": false
         },
         {
@@ -9210,7 +9210,7 @@
           "title": "Lesson 28: Shortest Path Algorithms",
           "trackId": "dsa-mastery",
           "order": 28,
-          "wordCount": 1154,
+          "wordCount": 2269,
           "isReference": false
         },
         {
@@ -9219,7 +9219,7 @@
           "title": "Lesson 29: Minimum Spanning Trees — Kruskal's and Prim's",
           "trackId": "dsa-mastery",
           "order": 29,
-          "wordCount": 866,
+          "wordCount": 2738,
           "isReference": false
         },
         {
@@ -9228,7 +9228,7 @@
           "title": "Lesson 30: Topological Sort",
           "trackId": "dsa-mastery",
           "order": 30,
-          "wordCount": 786,
+          "wordCount": 1981,
           "isReference": false
         },
         {
@@ -9237,7 +9237,7 @@
           "title": "Lesson 31: Union-Find (Disjoint Set Union)",
           "trackId": "dsa-mastery",
           "order": 31,
-          "wordCount": 810,
+          "wordCount": 1935,
           "isReference": false
         },
         {
@@ -9246,7 +9246,7 @@
           "title": "Lesson 32: Network Flow",
           "trackId": "dsa-mastery",
           "order": 32,
-          "wordCount": 1019,
+          "wordCount": 2847,
           "isReference": false
         },
         {
@@ -9255,7 +9255,7 @@
           "title": "Lesson 33: Strongly Connected Components",
           "trackId": "dsa-mastery",
           "order": 33,
-          "wordCount": 960,
+          "wordCount": 2840,
           "isReference": false
         },
         {
@@ -9264,7 +9264,7 @@
           "title": "Lesson 34: Practice Problems — Graphs",
           "trackId": "dsa-mastery",
           "order": 34,
-          "wordCount": 2031,
+          "wordCount": 2220,
           "isReference": false
         },
         {
@@ -9273,7 +9273,7 @@
           "title": "Lesson 35: Graph Modeling Techniques",
           "trackId": "dsa-mastery",
           "order": 35,
-          "wordCount": 734,
+          "wordCount": 1033,
           "isReference": false
         },
         {
@@ -9291,7 +9291,7 @@
           "title": "Lesson 37: Divide and Conquer",
           "trackId": "dsa-mastery",
           "order": 37,
-          "wordCount": 1502,
+          "wordCount": 1652,
           "isReference": false
         },
         {
@@ -9300,7 +9300,7 @@
           "title": "Lesson 38: Dynamic Programming Fundamentals",
           "trackId": "dsa-mastery",
           "order": 38,
-          "wordCount": 1381,
+          "wordCount": 1502,
           "isReference": false
         },
         {
@@ -9309,7 +9309,7 @@
           "title": "Lesson 39: Advanced Dynamic Programming",
           "trackId": "dsa-mastery",
           "order": 39,
-          "wordCount": 1354,
+          "wordCount": 1512,
           "isReference": false
         },
         {
@@ -9318,7 +9318,7 @@
           "title": "Lesson 40: Greedy Algorithms",
           "trackId": "dsa-mastery",
           "order": 40,
-          "wordCount": 1056,
+          "wordCount": 1437,
           "isReference": false
         },
         {
@@ -9327,7 +9327,7 @@
           "title": "Lesson 41: Backtracking",
           "trackId": "dsa-mastery",
           "order": 41,
-          "wordCount": 997,
+          "wordCount": 1126,
           "isReference": false
         },
         {
@@ -9336,7 +9336,7 @@
           "title": "Lesson 42: Practice Problems — Algorithm Design Paradigms",
           "trackId": "dsa-mastery",
           "order": 42,
-          "wordCount": 909,
+          "wordCount": 1058,
           "isReference": false
         },
         {
@@ -9345,7 +9345,7 @@
           "title": "Lesson 43: Choosing the Right Paradigm",
           "trackId": "dsa-mastery",
           "order": 43,
-          "wordCount": 920,
+          "wordCount": 1075,
           "isReference": false
         },
         {
@@ -9354,7 +9354,7 @@
           "title": "Lesson 44: String Matching Algorithms",
           "trackId": "dsa-mastery",
           "order": 44,
-          "wordCount": 1419,
+          "wordCount": 1582,
           "isReference": false
         },
         {
@@ -9363,7 +9363,7 @@
           "title": "Lesson 45: Advanced String Data Structures",
           "trackId": "dsa-mastery",
           "order": 45,
-          "wordCount": 855,
+          "wordCount": 1217,
           "isReference": false
         },
         {
@@ -9372,7 +9372,7 @@
           "title": "Lesson 46: Practice Problems — Strings",
           "trackId": "dsa-mastery",
           "order": 46,
-          "wordCount": 850,
+          "wordCount": 1014,
           "isReference": false
         },
         {
@@ -9381,7 +9381,7 @@
           "title": "Lesson 47: Bit Manipulation",
           "trackId": "dsa-mastery",
           "order": 47,
-          "wordCount": 790,
+          "wordCount": 907,
           "isReference": false
         },
         {
@@ -9390,7 +9390,7 @@
           "title": "Lesson 48: Randomized Algorithms",
           "trackId": "dsa-mastery",
           "order": 48,
-          "wordCount": 707,
+          "wordCount": 1047,
           "isReference": false
         },
         {
@@ -9399,7 +9399,7 @@
           "title": "Lesson 49: Computational Geometry",
           "trackId": "dsa-mastery",
           "order": 49,
-          "wordCount": 709,
+          "wordCount": 1030,
           "isReference": false
         },
         {
@@ -9408,7 +9408,7 @@
           "title": "Lesson 50: NP-Completeness and Computational Complexity",
           "trackId": "dsa-mastery",
           "order": 50,
-          "wordCount": 847,
+          "wordCount": 1212,
           "isReference": false
         },
         {
@@ -9417,7 +9417,7 @@
           "title": "Lesson 51: Advanced Data Structures",
           "trackId": "dsa-mastery",
           "order": 51,
-          "wordCount": 710,
+          "wordCount": 1044,
           "isReference": false
         },
         {
@@ -9426,7 +9426,7 @@
           "title": "Lesson 52: Cache-Friendly Algorithms",
           "trackId": "dsa-mastery",
           "order": 52,
-          "wordCount": 649,
+          "wordCount": 1005,
           "isReference": false
         },
         {
@@ -9435,7 +9435,7 @@
           "title": "Lesson 53: Practice Problems — Advanced Topics",
           "trackId": "dsa-mastery",
           "order": 53,
-          "wordCount": 1968,
+          "wordCount": 2145,
           "isReference": false
         },
         {
@@ -9444,7 +9444,7 @@
           "title": "Lesson 54: Amortized and Probabilistic Analysis",
           "trackId": "dsa-mastery",
           "order": 54,
-          "wordCount": 1579,
+          "wordCount": 1782,
           "isReference": false
         },
         {
@@ -9453,7 +9453,7 @@
           "title": "Lesson 55: Problem-Solving Methodology",
           "trackId": "dsa-mastery",
           "order": 55,
-          "wordCount": 1180,
+          "wordCount": 1326,
           "isReference": false
         },
         {
@@ -9462,7 +9462,7 @@
           "title": "Lesson 56: Recognizing Common LeetCode Patterns",
           "trackId": "dsa-mastery",
           "order": 56,
-          "wordCount": 1157,
+          "wordCount": 1306,
           "isReference": false
         },
         {
@@ -9471,7 +9471,7 @@
           "title": "Lesson 57: The Brute-Force-to-Optimal Methodology",
           "trackId": "dsa-mastery",
           "order": 57,
-          "wordCount": 1119,
+          "wordCount": 1243,
           "isReference": false
         },
         {
@@ -9480,7 +9480,7 @@
           "title": "Lesson 58: Advanced LeetCode Patterns",
           "trackId": "dsa-mastery",
           "order": 58,
-          "wordCount": 1127,
+          "wordCount": 1695,
           "isReference": false
         },
         {
@@ -9489,7 +9489,7 @@
           "title": "Lesson 59: Solution Analysis and Optimization",
           "trackId": "dsa-mastery",
           "order": 59,
-          "wordCount": 991,
+          "wordCount": 1147,
           "isReference": false
         },
         {
@@ -9498,7 +9498,7 @@
           "title": "Lesson 60: Hard Problem Strategies",
           "trackId": "dsa-mastery",
           "order": 60,
-          "wordCount": 846,
+          "wordCount": 1122,
           "isReference": false
         },
         {
@@ -9507,7 +9507,7 @@
           "title": "Lesson 61: Practice Problems — Easy and Medium Patterns",
           "trackId": "dsa-mastery",
           "order": 61,
-          "wordCount": 843,
+          "wordCount": 977,
           "isReference": false
         },
         {
@@ -9516,7 +9516,7 @@
           "title": "Lesson 62: Practice Problems — Medium to Hard Transition",
           "trackId": "dsa-mastery",
           "order": 62,
-          "wordCount": 875,
+          "wordCount": 1017,
           "isReference": false
         },
         {
@@ -9525,7 +9525,7 @@
           "title": "Lesson 63: Practice Problems — Hard Combined Techniques",
           "trackId": "dsa-mastery",
           "order": 63,
-          "wordCount": 777,
+          "wordCount": 923,
           "isReference": false
         },
         {
@@ -9534,7 +9534,7 @@
           "title": "Lesson 64: Capstone Assessment — Hard Problems",
           "trackId": "dsa-mastery",
           "order": 64,
-          "wordCount": 1149,
+          "wordCount": 1363,
           "isReference": false
         },
         {
@@ -9543,7 +9543,7 @@
           "title": "Lesson 65: What's Next — Beyond This Track",
           "trackId": "dsa-mastery",
           "order": 65,
-          "wordCount": 843,
+          "wordCount": 996,
           "isReference": false
         },
         {
@@ -10233,5 +10233,5 @@
     }
   ],
   "totalLessons": 906,
-  "generatedAt": "2026-05-02T17:32:22.924Z"
+  "generatedAt": "2026-05-02T20:18:11.654Z"
 }

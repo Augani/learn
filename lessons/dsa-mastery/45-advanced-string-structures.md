@@ -9,21 +9,33 @@
 
 ## Why This Matters
 
-String matching answers: does this pattern occur?
+String matching answers: does this pattern occur? Advanced string
+structures answer richer questions efficiently over **large fixed texts**
+that are queried many times:
 
-Advanced string structures answer richer questions efficiently:
+- **Where does a pattern occur?**: return all starting positions, not
+  just a yes/no answer
+- **How many times does it occur?**: count occurrences without scanning
+  the entire text
+- **What substrings repeat?**: find longest repeated substrings for
+  plagiarism detection or genome analysis
+- **How can we support fast substring search over a fixed large text?**
+  preprocess once, query many times — essential for search engines and
+  databases
+- **How can a text be transformed to help compression?**: rearrange text
+  so similar contexts cluster, improving run-length and entropy coding
 
-- where does a pattern occur?
-- how many times does it occur?
-- what substrings repeat?
-- how can we support fast substring search over a fixed large text?
-- how can a text be transformed to help compression?
+These structures matter most when the text is large (genomes, log files,
+web crawls) and queried repeatedly. Preprocessing pays off because each
+query becomes logarithmic or linear in pattern length, not text length.
 
 This lesson covers:
 
-- suffix arrays
-- suffix trees
-- Burrows-Wheeler transform
+- **Suffix arrays**: sort all suffixes for binary-search-based queries
+- **Suffix trees**: compress all suffixes into a trie for linear-time
+  substring operations
+- **Burrows-Wheeler transform (BWT)**: a reversible transform that
+  clusters similar characters for better compression
 
 ---
 
@@ -239,25 +251,48 @@ times.
 
 ## Exercises
 
-1. Build the suffix array for `mississippi` conceptually on paper.
-2. Why does a suffix array support binary search for substrings?
-3. What extra information does the LCP array provide?
+1. Build the suffix array for `mississippi` conceptually on paper. List
+   all 11 suffixes, sort them lexicographically, and write the suffix
+   array indices.
+2. Why does a suffix array support binary search for substrings? What is
+   the time complexity of searching for a pattern of length `m` in a
+   text of length `n`?
+3. What extra information does the LCP array provide? How can you use it
+   to find the longest repeated substring in `O(n)` time?
 4. Why are suffix trees considered powerful but implementation-heavy?
+   Compare the space complexity of a suffix tree versus a suffix array.
 5. Why does the BWT help compression without itself being compression?
+   Explain how it creates runs of similar characters and why that benefits
+   run-length encoding or Huffman coding.
+6. Given a suffix array, design an algorithm to count how many times a
+   pattern occurs in the original text.
+7. Explain why the Burrows-Wheeler transform is reversible. What
+   information do you need to reconstruct the original string?
+8. In bioinformatics, why are suffix arrays and suffix trees essential
+   for genome sequence alignment? What makes brute-force scanning
+   infeasible for human genomes (3 billion base pairs)?
 
 ---
 
 ## Key Takeaways
 
-- Suffix arrays sort all suffixes and support efficient substring query
-  patterns over fixed text.
-- The LCP array enhances suffix arrays by exposing shared prefix
-  structure.
-- Suffix trees compress all suffixes into a powerful query structure.
-- The Burrows-Wheeler transform rearranges text to make compression more
-  effective.
-- Advanced string structures are about preprocessing a text so later
-  queries become much cheaper.
+- **Suffix arrays** sort all suffixes lexicographically and support
+  efficient substring query patterns over fixed text. A pattern search
+  becomes binary search in `O(m log n)` time where `m` is pattern length.
+- **The LCP array** enhances suffix arrays by exposing shared prefix
+  structure between adjacent sorted suffixes. It enables finding longest
+  repeated substrings and counting occurrences efficiently.
+- **Suffix trees** compress all suffixes into a trie-like structure where
+  shared prefixes collapse. Many substring problems become solvable in
+  time linear in the query length, but implementation is complex.
+- **Suffix arrays are often preferred in practice** because they are more
+  cache-friendly, use less memory, and are easier to implement correctly.
+- **The Burrows-Wheeler transform (BWT)** rearranges text so characters
+  with similar contexts cluster together, making subsequent compression
+  stages more effective. It is reversible and used in tools like `bzip2`.
+- **Advanced string structures** are about preprocessing a large text once
+  so that later queries become much cheaper. The investment pays off when
+  the text is queried many times.
 
 The next lesson turns string ideas into interview-style practice.
 

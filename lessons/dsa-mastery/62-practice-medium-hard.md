@@ -191,13 +191,29 @@ That is why the medium-to-hard jump feels sharp.
 
 ## Exercises
 
-1. Why is `Word Break II` much harder than `Word Break I`?
+1. Why is `Word Break II` much harder than `Word Break I`? What does the
+   enumeration requirement change about the algorithm structure?
 2. Why does `Largest Rectangle in Histogram` naturally lead to monotonic
-   stack reasoning?
+   stack reasoning? What is the structural dependency between each bar
+   and its nearest smaller neighbors?
 3. What makes `Minimum Number of Refueling Stops` a heap-greedy problem
-   instead of a simple local greedy problem?
-4. Why is assumption checking so important in transition problems?
+   instead of a simple local greedy problem? Explain the "delayed choice"
+   principle at work.
+4. Why is assumption checking so important in transition problems? Give
+   an example from this lesson where a hidden assumption makes or breaks
+   the pattern.
 5. What is one signal that a problem has crossed from medium into hard?
+   How can you recognize it early before investing too much time in a
+   naive approach?
+6. In `Top K Frequent Elements`, compare the min-heap approach versus
+   bucket sort by frequency. When is each preferable, and what are their
+   time and space trade-offs?
+7. Explain why `Course Schedule II` requires topological sort rather than
+   simple cycle detection. What additional output does the constructive
+   version demand?
+8. A candidate solves `Minimum Size Subarray Sum` with sliding window but
+   does not check that all values are positive. Construct a small
+   counterexample with a negative number where the sliding window fails.
 
 ---
 

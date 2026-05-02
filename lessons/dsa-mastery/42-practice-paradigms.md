@@ -222,13 +222,29 @@ paradigm hiding beneath the surface problem.
 ## Exercises
 
 1. Why is `best time to buy and sell stock` greedy rather than DP in its
-   simplest form?
+   simplest form? What past information is sufficient, and why does
+   tracking only the minimum-so-far work?
 2. Why is `partition equal subset sum` really a knapsack-style problem?
-3. What state defines `edit distance`?
+   Explain the reduction from subset selection to boolean reachability on
+   a sum state.
+3. What state defines `edit distance`? Explain why the recurrence
+   compares three possibilities and how the base cases handle empty
+   prefixes.
 4. Why does `burst balloons` become easier when you think in terms of
-   the last balloon burst in an interval?
+   the last balloon burst in an interval? How does this reframe break
+   the problem into independent left/right subproblems?
 5. Give one problem from this lesson that could tempt you into the wrong
-   paradigm at first glance.
+   paradigm at first glance. Describe the wrong paradigm, why it seems
+   natural, and what signal should redirect you.
+6. In `house robber`, explain why the recurrence `dp[i] = max(nums[i] +
+   dp[i+2], dp[i+1])` captures all valid choices. Why is there no need
+   to track which specific houses were robbed?
+7. For `coin change`, contrast the brute-force recursive tree with the
+   memoized version. How many distinct states exist, and what is the
+   branching factor of the naive recursion?
+8. `maximum subarray` can be solved with either DP or greedy reasoning.
+   Explain both perspectives and why they lead to the same Kadane's
+   algorithm implementation.
 
 ---
 

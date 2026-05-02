@@ -419,14 +419,28 @@ fn merge_sort(values: &[i32]) -> Vec<i32> {
 ## Exercises
 
 1. Explain the difference between the divide step and the combine step.
+   In merge sort, which step is trivial and which does the real work? In
+   closest pair of points, which step contains the geometric insight?
 2. Why does merge sort achieve $O(n \log n)$ even though it makes two
-   recursive calls?
-3. Why can quicksort degrade to $O(n^2)$?
-4. What is the key insight behind Karatsuba's speedup?
+   recursive calls? Trace the recurrence tree and show the total work per
+   level.
+3. Why can quicksort degrade to $O(n^2)$? What input triggers this, and
+   how does randomized pivot selection prevent it in expectation?
+4. What is the key insight behind Karatsuba's speedup? Show the algebra
+   that reduces 4 multiplications to 3, and explain why this matters for
+   large numbers.
 5. Why is closest pair of points not obviously a divide-and-conquer
-   problem until you study the strip argument?
+   problem until you study the strip argument? Explain why the naive
+   combine step would be $O(n^2)$ and how the strip reduces it to $O(n)$.
 6. Give an example where a divide-and-conquer design would create
-   overlapping subproblems and suggest a better paradigm.
+   overlapping subproblems and suggest a better paradigm. Explain why
+   memoization or tabulation fixes the overlap.
+7. Analyze the recurrence $T(n) = 2T(n/2) + O(n^2)$. Does this yield a
+   good divide-and-conquer algorithm? What does the Master Theorem say,
+   and why is the combine step the bottleneck?
+8. Explain why Strassen's matrix multiplication, which uses 7 multiplications
+   instead of 8, represents a similar philosophy to Karatsuba. What is
+   the recurrence, and what is the resulting complexity?
 
 ---
 

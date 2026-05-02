@@ -215,13 +215,28 @@ not from one obvious standard pattern.
 ## Exercises
 
 1. Why does `longest substring without repeating characters` fit sliding
-   window so naturally?
+   window so naturally? What is the precise invariant maintained by the
+   `left` and `right` pointers, and why does it guarantee correctness?
 2. Why is `longest palindromic substring` often cleaner with center
-   expansion than with full DP?
-3. What makes `group anagrams` a hashing problem?
-4. What invariant makes `minimum window substring` work?
+   expansion than with full DP? What is the time complexity of each,
+   and when would DP be preferable?
+3. What makes `group anagrams` a hashing problem? Explain why sorting the
+   letters is a valid canonical signature and why character counts are
+   often preferred.
+4. What invariant makes `minimum window substring` work? Describe the
+   exact condition that tells you the current window is valid and why
+   shrinking from the left preserves validity.
 5. Why is `palindrome pairs` structurally harder than the other string
-   problems in this lesson?
+   problems in this lesson? Explain the case analysis (prefix palindrome,
+   suffix palindrome, empty string) and why a hash map is essential.
+6. For `valid anagram`, compare the frequency-count approach with sorting.
+   What are the time and space trade-offs, and why is counting usually
+   better for fixed alphabets?
+7. In `strStr`, explain why the naive `O(n*m)` approach is often
+   acceptable in practice and when KMP's `O(n+m)` preprocessing pays off.
+8. Design a string problem that looks like it needs nested loops over
+   all substrings but is actually solvable with a single pass. What
+   structural property of strings enables the linear solution?
 
 ---
 

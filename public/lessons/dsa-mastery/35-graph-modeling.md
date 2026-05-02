@@ -9,15 +9,24 @@
 
 ## Why This Matters
 
-You can know every graph algorithm and still miss the right solution if
-you fail to model the problem as a graph.
+You can know every graph algorithm — Dijkstra, BFS, DFS, topological
+sort, union-find — and still miss the right solution if you fail to
+recognize that the problem is a graph problem in disguise.
+
+Graph modeling is the single most important skill for solving
+competition programming and interview problems. The hardest problems
+rarely say "this is a graph." Instead they describe grids, locks, word
+ladders, game states, dependencies, or transformations.
 
 This lesson teaches how to recognize:
 
-- when objects are nodes
-- when transitions are edges
-- when the graph is implicit
-- when extra state should become part of the node
+- **When objects are nodes**: each entity of interest becomes a vertex
+- **When transitions are edges**: each valid move or relationship
+  becomes a directed or undirected edge
+- **When the graph is implicit**: the graph is not given; you generate
+  neighbors on the fly
+- **When extra state should become part of the node**: sometimes a node
+  is a full state tuple like `(position, keys_collected)`
 
 ---
 
@@ -172,21 +181,44 @@ close by.
 
 ## Exercises
 
-1. Convert a lock-combination puzzle into a graph model.
-2. Explain why a grid shortest-path problem is often implicit.
+1. Convert a lock-combination puzzle into a graph model. How many nodes?
+   How many edges per node? What algorithm finds the minimum turns?
+2. Explain why a grid shortest-path problem is often modeled as an
+   implicit graph rather than building an explicit adjacency list.
 3. Give a problem where nodes must include extra state beyond location.
-4. Explain when multi-source BFS is better than repeated BFS.
-5. Describe when 0-1 BFS should replace Dijkstra.
+   What goes wrong if you only track location?
+4. Explain when multi-source BFS is better than repeated BFS. What is
+   the runtime difference?
+5. Describe when 0-1 BFS should replace Dijkstra. Why is it faster?
+6. A social network has influencers and followers. How would you model
+   the spread of a rumor as a graph problem?
+7. In a word ladder problem, how would you construct the graph if the
+   dictionary has 100,000 words? Can you avoid building all edges?
+8. Design a graph model for collecting keys in a maze. What is the full
+   state representation?
 
 ---
 
 ## Key Takeaways
 
-- Graph modeling is the skill of identifying hidden states and transitions.
-- Many "non-graph" problems are graph problems in disguise.
-- Implicit graphs avoid unnecessary storage and often fit naturally.
-- Extra constraints often belong inside the node state.
-- The best graph algorithm depends on what the modeled edges mean.
+- **Graph modeling** is the skill of identifying hidden states and
+transitions. It is often the hardest part of solving advanced graph
+problems.
+- Many "non-graph" problems are graph problems in disguise. Look for
+  keywords like "minimum steps," "reachability," "dependencies," and
+  "transformations."
+- **Implicit graphs** avoid unnecessary storage by generating neighbors
+  on the fly. This is essential for large grids and state spaces.
+- **Extra constraints often belong inside the node state**. A position
+  alone is rarely enough; augment with keys, stops, direction, or time.
+- **Multi-source BFS** expands from all sources simultaneously in `O(V +
+  E)` time, beating `k` separate BFS runs.
+- **0-1 BFS** replaces Dijkstra when edge weights are only 0 or 1,
+  achieving `O(V + E)` with a simple deque.
+- The best graph algorithm depends on what the modeled edges mean:
+  unweighted → BFS, weighted non-negative → Dijkstra, 0/1 weights →
+  0-1 BFS, general weights → Bellman-Ford, dependencies → topological
+  sort, connectivity → union-find.
 
 Phase 4 is complete: you can now represent graphs, traverse them,
 optimize on them, reason about directed structure, and model new

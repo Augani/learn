@@ -376,14 +376,29 @@ For a more introductory strings lesson, see
 
 ## Exercises
 
-1. Give a worst-case input where naive matching wastes many repeated
-   comparisons.
-2. What does the LPS array in KMP actually encode?
-3. Why does KMP stay linear even after mismatches?
+1. Trace the naive search for pattern `ABABAC` in text `ABABABAC` and
+   count the character comparisons. Then trace KMP on the same input and
+   compare the number of comparisons. What does KMP save?
+2. What does the LPS array in KMP actually encode? For pattern `ABABCABAB`,
+   compute the LPS array manually and explain what each entry means.
+3. Why does KMP stay linear even after mismatches? Explain the two cases
+   (LPS > 0 and LPS = 0) and why neither causes more than `O(n)` total
+   backtracking.
 4. Why must Rabin-Karp still verify characters after a hash match?
-5. Why can Boyer-Moore skip much farther than naive matching?
+   Explain the birthday paradox intuition and why a single verification
+   step is cheap insurance against hash collisions.
+5. Why can Boyer-Moore skip much farther than naive matching? Explain the
+   bad-character and good-suffix rules and why the skip distance depends
+   on the mismatch position, not just the pattern length.
 6. Which algorithm would you consider first for searching many patterns
-   in a very long text and why?
+   in a very long text and why? Compare building a suffix array, using
+   Aho-Corasick, and running KMP multiple times.
+7. In KMP, explain why the LPS array is computed using a modified version
+   of the search algorithm itself. What makes this self-referential
+   construction elegant and efficient?
+8. For Rabin-Karp with base=256 and modulus=10^9+7, calculate the rolling
+   hash update formula when shifting the window by one character. Why
+   does modular arithmetic require adding the modulus before taking `%`?
 
 ---
 

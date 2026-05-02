@@ -532,11 +532,29 @@ function criticalConnections(n: number, connections: number[][]): number[][] {
 
 ## Exercises
 
-1. Explain why grids are often implicit graphs.
+1. Explain why grids are often implicit graphs. Draw a small 3x3 grid
+   with obstacles and list the implicit edges from the center cell.
 2. For `course schedule`, compare Kahn's algorithm vs DFS cycle checks.
-3. Why does `cheapest flights within K stops` need extra state?
+   When would you prefer each, and what does Kahn's algorithm provide
+   that DFS cycle detection does not?
+3. Why does `cheapest flights within K stops` need extra state? Explain
+   why Dijkstra on `(city)` alone fails and why `(city, stops)` is the
+   minimal correct state.
 4. Explain why `alien dictionary` is a graph-construction problem first.
-5. What low-link signal identifies a bridge?
+   Describe the exact inference rule for extracting edges from adjacent
+   words and the invalid-input case that requires special handling.
+5. What low-link signal identifies a bridge? Explain the relationship
+   between `discovery[u]`, `low[v]`, and the bridge condition
+   `low[v] > discovery[u]` for a tree edge `u -> v`.
+6. In `number of islands`, explain why DFS and BFS are both correct but
+   may differ in memory usage. What determines which is better for a
+   very wide grid versus a very deep grid?
+7. For `network delay time`, explain why the answer is the maximum finite
+   distance from the source, not the sum. Construct a counterexample
+   where summing all distances gives the wrong answer.
+8. Trace the `critical connections` algorithm on a simple graph with
+   4 nodes and 4 edges forming a square with one diagonal. Which edges
+   are bridges, and what do the `discovery` and `low` values look like?
 
 ---
 

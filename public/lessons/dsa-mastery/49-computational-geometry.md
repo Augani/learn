@@ -10,20 +10,28 @@
 
 ## Why This Matters
 
-Computational geometry appears in:
+Computational geometry appears wherever the physical world meets
+algorithmic abstraction:
 
-- mapping and GIS
-- graphics
-- robotics
-- motion planning
-- clustering and spatial data analysis
+- **Mapping and GIS**: computing visible horizons, area coverage, and
+  route boundaries from GPS point clouds
+- **Graphics and game engines**: collision detection, visibility culling,
+  and convex hulls for bounding volumes
+- **Robotics and motion planning**: finding paths around polygonal
+  obstacles using configuration-space geometry
+- **Clustering and spatial data analysis**: nearest-neighbor queries,
+  Voronoi diagrams, and density estimation
+- **Computer-aided design (CAD)**: Boolean operations on polygons and
+  mesh intersection testing
+- **Autonomous vehicles**: LiDAR point processing, lane boundary
+  detection, and object boundary extraction
 
-This lesson covers:
+This lesson covers the foundational techniques:
 
-- convex hull
-- line segment intersection
-- closest pair of points
-- sweep line thinking
+- **Convex hull**: the smallest enclosing convex shape
+- **Line segment intersection**: a primitive that drives many algorithms
+- **Closest pair of points**: divide-and-conquer in geometric space
+- **Sweep line**: processing events in sorted order for efficiency
 
 ---
 
@@ -168,25 +176,49 @@ This idea appears across many advanced geometric problems.
 
 ## Exercises
 
-1. Why is orientation testing central to convex hull algorithms?
-2. What does the rubber-band analogy mean mathematically?
+1. Why is orientation testing (cross product) central to convex hull
+   algorithms? What does a positive cross product tell you about three
+   points?
+2. What does the rubber-band analogy mean mathematically? Why must the
+   convex hull boundary only contain left turns (or right turns,
+   depending on direction)?
 3. Why does the closest-pair divide-and-conquer combine step not become
-   quadratic again?
+   quadratic again? How many points must be checked in the strip for
+   each point, and why is that number bounded by a constant?
 4. What kind of problem structure suggests a sweep line approach?
+   When would sweep line fail to improve over brute force?
 5. Give one example where geometry reduces to maintaining an active set.
+   How does the active set get updated as the sweep line progresses?
+6. Explain why sorting points lexicographically is the first step in
+   Andrew's monotone chain convex hull algorithm. What would go wrong
+   without sorting?
+7. Design a brute-force algorithm for line segment intersection among `n`
+   segments. What is its runtime? How does sweep line improve this?
+8. In the closest pair of points problem, why is it sufficient to check
+   points within distance `d` of the dividing line, where `d` is the
+   minimum of the two halves?
 
 ---
 
 ## Key Takeaways
 
-- Computational geometry is driven by a small set of geometric
-  invariants such as orientation and sorted event order.
-- Convex hull algorithms rely on turn tests and boundary maintenance.
-- Closest pair of points is a classic geometric divide-and-conquer win.
-- Sweep line algorithms process geometry in event order while maintaining
-  an active structure.
-- Many geometric problems become manageable only after the right
-  invariant is identified.
+- **Computational geometry** is driven by a small set of geometric
+  invariants: orientation (cross product), sorted event order, and
+  carefully constrained divide-and-conquer splits.
+- **Convex hull algorithms** rely on turn tests to maintain boundary
+  convexity. Andrew's monotone chain sorts points and builds lower/upper
+  hulls in `O(n log n)` time.
+- **Line segment intersection** reduces to orientation tests. Two segments
+  intersect if their endpoints straddle each other in orientation terms.
+- **Closest pair of points** is a classic geometric divide-and-conquer
+  win: split by x-coordinate, solve halves recursively, then check a
+  narrow strip around the dividing line in linear time.
+- **Sweep line algorithms** process events in sorted coordinate order
+  while maintaining an active set of "current" objects. They work when
+  only nearby active objects interact.
+- **Many geometric problems become manageable only after the right
+  invariant is identified** — the algorithmic insight is often geometric,
+  not combinatorial.
 
 The next lesson steps away from efficient exact algorithms and studies
 the limits of tractability with NP-completeness.

@@ -260,12 +260,36 @@ That is the real end goal of DSA mastery.
 
 ## Final Exercises
 
-1. Which capstone problem required the biggest transformation before the
-   true structure became visible?
-2. Which ones depended most on adding the correct state dimension?
-3. Which dead ends were appealing but fundamentally wrong?
-4. Which problem most clearly required proof rather than only coding?
-5. Which category still feels least automatic to you, and why?
+1. For each capstone problem, identify the hidden pattern or
+   transformation before reading any hints. Write down your first instinct
+   and then analyze why it fails.
+2. Explain why `Trapping Rain Water II` is fundamentally harder than the
+   1D version and what data structure captures the difference. Why does a
+   priority queue (min-heap) correctly model the boundary elevation?
+3. Why does `Cherry Pickup` force DP on path pairs rather than two
+   independent traversals? What information would be lost if you optimized
+   each path separately?
+4. What makes `Remove Invalid Parentheses` a search-plus-pruning problem
+   instead of a pure stack problem? Why is BFS-level-by-level a natural
+   fit for finding the minimum removals?
+5. Why is `Employee Free Time` deceptively difficult despite involving
+   only interval merging? What happens when multiple employees have
+   overlapping and nested schedules?
+6. For `Trapping Rain Water II`, explain why Dijkstra-like expansion from
+   the boundary works. What invariant does the priority queue maintain
+   about water level?
+7. In `Cherry Pickup`, the state is `(r1, c1, r2, c2)` with `r1 + c1 = r2 + c2`.
+   Why can you reduce this to three dimensions? What is the intuition
+   behind this optimization?
+8. Design a variant of `Remove Invalid Parentheses` where you must remove
+   the minimum number of parentheses AND minimize the number of distinct
+   results. Would your algorithm change?
+9. Explain why `Path With Minimum Effort` is not a typical shortest path
+   problem. How does the maximum effort along the path affect the
+   solution?
+10. In `Design Search Autocomplete System`, how would you handle updates
+    to the sentence database? What data structure changes would you make
+    to support efficient updates?
 
 ---
 

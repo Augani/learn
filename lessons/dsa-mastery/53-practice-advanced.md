@@ -527,13 +527,29 @@ list.
 ## Exercises
 
 1. Why is XOR the right abstraction for `single number` but not for most
-   duplicate-detection problems?
-2. Why does `subsets` serve as a gateway to bitmask DP?
-3. Why is weighted random picking naturally a prefix-sum problem?
+   duplicate-detection problems? Explain the algebraic property that makes
+   XOR work and why it fails when duplicates appear an odd number of times
+   greater than 1.
+2. Why does `subsets` serve as a gateway to bitmask DP? Explain how each
+   subset maps to a bitmask and why iterating over all bitmasks is `O(2^n)`.
+3. Why is weighted random picking naturally a prefix-sum problem? Explain
+   the geometric interpretation of cumulative intervals and why binary
+   search on the prefix sum array gives `O(log n)` selection.
 4. What clue in `maximum students taking exam` should make you consider
-   row-state masks?
+   row-state masks? Explain why small width + binary seating choices +
+   cross-row constraints equals bitmask DP.
 5. Why is `count of range sum` really a transformed prefix problem rather
-   than a direct subarray problem?
+   than a direct subarray problem? Explain the prefix transformation and
+   why ordered counting (merge-sort or Fenwick tree) becomes the next layer.
+6. For `single number II` (every number appears three times except one),
+   explain why XOR no longer works and how bitwise counting over all 32
+   bit positions solves it.
+7. In `maximum XOR of two numbers`, explain why a trie of bit prefixes
+   allows greedy high-bit optimization. What is the trie depth, and why is
+   each query `O(32)`?
+8. Design a small 2x3 grid for `maximum students taking exam` with one
+   broken seat. Enumerate all valid row masks and show why diagonal
+   constraints eliminate some transitions between rows.
 
 ---
 

@@ -141,16 +141,29 @@ That extra layer is what makes them hard.
 
 ## Exercises
 
-1. Why does `Binary Tree Maximum Path Sum` need two notions of “best” at
-   each node?
+1. Why does `Binary Tree Maximum Path Sum` need two notions of "best" at
+   each node? Explain the difference between the best downward path and
+   the best path passing through the node as a global answer.
 2. Why is `Path With Minimum Effort` often cleaner with binary search on
-   answer than with direct shortest-path thinking?
+   answer than with direct shortest-path thinking? What is the
+   monotonic feasibility condition here?
 3. What clue in `Stickers to Spell Word` suggests memoization should join
-   the search?
+   the search? How does the state space explode without it, and how does
+   a compact state representation fix this?
 4. Why does `Rectangle Area II` need both sweep line and a range data
-   structure?
+   structure? What does sweep line alone miss, and what does a segment tree
+   alone miss?
 5. What is the main sign that a problem is really a combined-technique
-   problem?
+   problem rather than a single-pattern problem?
+6. For each of the 4 problems in this lesson, identify the primary
+   pattern, the supporting structure, and the proof burden that makes the
+   combination valid.
+7. Explain why tree DP problems often require separating "return value"
+   from "global best." What happens if you try to return the global best
+   from every subtree call?
+8. Design a small 3x3 grid with varying elevation costs and walk through
+   how binary search on answer + BFS would find the path with minimum
+   maximum elevation difference.
 
 ---
 

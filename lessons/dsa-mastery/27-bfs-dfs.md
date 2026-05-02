@@ -11,20 +11,45 @@
 
 Most graph algorithms are built from just two traversal ideas:
 
-- breadth-first search
-- depth-first search
+- **Breadth-first search (BFS)**: explores layer by layer, guaranteeing
+  shortest paths in unweighted graphs
+- **Depth-first search (DFS)**: explores deeply before backtracking,
+  ideal for structural reasoning and connectivity
 
-These power:
+These two traversals power a surprising range of problems:
 
-- connected components
-- shortest paths in unweighted graphs
-- cycle detection
-- bipartite checks
-- topological sorting
-- SCC algorithms
+- **Connected components**: which nodes can reach each other?
+- **Shortest paths in unweighted graphs**: minimum number of hops between
+  two points
+- **Cycle detection**: does the graph contain a loop?
+- **Bipartite checks**: can nodes be colored with two colors such that no
+  edge connects same-colored nodes?
+- **Topological sorting**: what order should tasks run given dependencies?
+- **Strongly connected components (SCCs)**: which groups of nodes form
+  mutually reachable clusters?
 
-If trees taught you traversal, graphs teach you why traversal order
-changes the kind of structure you discover.
+If trees taught you traversal, graphs teach you why **traversal order**
+changes the kind of structure you discover. BFS and DFS are not just
+ways to visit nodes — they are lenses that reveal different properties
+of the graph.
+
+---
+
+## The Maze Analogy — Deeper
+
+Imagine you are lost in a hedge maze and your friend is at the exit.
+
+**BFS (Water Spreading)**
+You send out scouts in all directions simultaneously. After 1 minute, every corridor 1 step from the entrance is checked. After 2 minutes, every corridor 2 steps away is checked. The first scout to reach your friend guarantees they found the shortest route.
+
+**DFS (Persistent Explorer)**
+You pick one corridor and walk until you hit a dead end. Then you backtrack to the last intersection and try the next unexplored corridor. You might find your friend quickly — or you might wander deep into a long blind alley before trying the direct path.
+
+The key difference is not whether they find the exit. It is **what they guarantee**:
+- BFS guarantees the shortest path in an unweighted maze
+- DFS guarantees every reachable corridor is eventually explored
+
+This difference shapes every algorithm built on top of them.
 
 ---
 
@@ -65,13 +90,26 @@ BFS uses a queue.
 
   Pop C, push F
   queue = [D, E, F]
+
+  Pop D, no new neighbors
+  queue = [E, F]
+
+  Pop E, no new neighbors
+  queue = [F]
+
+  Pop F, no new neighbors
+  queue = []
+  
+  Done. Visited order: A, B, C, D, E, F
 ```
 
 ### Why BFS finds shortest paths in unweighted graphs
 
 Because it reaches nodes in increasing number of edges from the
-source. The first time you see a node, you have found the shortest
-unweighted path to it.
+ source. The first time you see a node, you have found the shortest
+ unweighted path to it.
+
+**Proof sketch:** Suppose BFS reaches node X at distance d. Any other path to X must pass through some node at distance d-1. But BFS already processed all nodes at distance d-1 before touching distance d. Therefore no shorter path could exist.
 
 #### Python
 
@@ -179,10 +217,20 @@ DFS can be implemented with:
   stack = [C, B]
   pop B, push E, D
   stack = [C, E, D]
+  pop D, no children
+  stack = [C, E]
+  pop E, no children
+  stack = [C]
+  pop C, push F
+  stack = [F]
+  pop F, no children
+  stack = []
+  
+  Done. Visited order: A, B, D, E, C, F
 ```
 
 DFS does not guarantee shortest paths in general. It explores a path,
-not a distance frontier.
+ not a distance frontier.
 
 #### Python
 
@@ -273,7 +321,7 @@ fn dfs(graph: &HashMap<&str, Vec<&str>>, start: &str) -> Vec<String> {
 ### What if we used DFS to find shortest paths?
 
 DFS might find a path quickly, but not the shortest one. It commits to
-depth before considering all paths with fewer edges.
+ depth before considering all paths with fewer edges.
 
 ```
   A -- B -- C -- D
@@ -284,6 +332,34 @@ depth before considering all paths with fewer edges.
   BFS finds E immediately at distance 1.
 ```
 
+This is not a theoretical quibble. In unweighted routing, using DFS
+ could route a packet through 10 hops when a direct 1-hop link exists.
+
+### What if the graph is very deep?
+
+Recursive DFS may overflow the call stack. An explicit stack is safer:
+
+```python
+def dfs_iterative(graph: dict[str, list[str]], start: str) -> list[str]:
+    stack = [start]
+    visited: set[str] = set()
+    order: list[str] = []
+
+    while stack:
+        node = stack.pop()
+        if node in visited:
+            continue
+        visited.add(node)
+        order.append(node)
+        for neighbor in reversed(graph.get(node, [])):
+            if neighbor not in visited:
+                stack.append(neighbor)
+
+    return order
+```
+
+The `reversed()` is only needed if you want to mimic recursive order.
+
 ---
 
 ## Classic Applications
@@ -291,13 +367,29 @@ depth before considering all paths with fewer edges.
 ### Connected components
 
 Run BFS or DFS from each unvisited node. Every traversal marks one
-component.
+ component.
+
+```
+  Graph:   A -- B    C -- D -- E    F
+
+  Component 1: A, B
+  Component 2: C, D, E
+  Component 3: F
+```
 
 ### Cycle detection
 
 In undirected graphs, track parent edges.
 
-In directed graphs, DFS can track recursion-stack state.
+In directed graphs, DFS can track recursion-stack state:
+
+```
+  WHITE = unvisited
+  GRAY  = currently being processed (in recursion stack)
+  BLACK = fully processed
+
+  If DFS reaches a GRAY node, a cycle exists.
+```
 
 ### Bipartiteness
 
@@ -305,12 +397,19 @@ Color nodes with two colors while traversing.
 
 If an edge connects same-colored nodes, the graph is not bipartite.
 
+```
+  Bipartite:        Not bipartite:
+  A -- B            A -- B
+  |    |             \  /
+  C -- D              C
+```
+
 ---
 
 ## Iterative Deepening
 
 Iterative deepening DFS runs depth-limited DFS multiple times with
-increasing depth limits.
+ increasing depth limits.
 
 It combines:
 
@@ -318,6 +417,16 @@ It combines:
 - BFS's layered search order
 
 It is useful when the solution is shallow but memory is tight.
+
+```
+  Limit 1: explore nodes within 1 edge of start
+  Limit 2: explore nodes within 2 edges of start
+  Limit 3: explore nodes within 3 edges of start
+  ...
+```
+
+The overhead of re-exploring early layers is small compared to the
+ exponential growth of deeper layers.
 
 ---
 
@@ -336,17 +445,29 @@ It is useful when the solution is shallow but memory is tight.
 ```
 
 The traversal order is not cosmetic. It determines what structure the
-algorithm exposes first.
+ algorithm exposes first.
+
+BFS discovers proximity first. DFS discovers depth first.
 
 ---
 
 ## Exercises
 
-1. Explain why BFS needs a queue and DFS needs a stack-like behavior.
-2. Give a graph where DFS finds a path but not the shortest path.
-3. Modify BFS to return distances from the source.
-4. Describe how to count connected components with DFS.
-5. Explain how traversal changes on directed vs undirected graphs.
+1. Explain why BFS needs a queue and DFS needs a stack-like behavior. What would happen if you swapped them?
+
+2. Give a graph where DFS finds a path but not the shortest path. Trace both BFS and DFS on it.
+
+3. Modify BFS to return distances from the source to every reachable node.
+
+4. Describe how to count connected components with DFS. Trace it on a graph with 3 components.
+
+5. Explain how traversal changes on directed vs undirected graphs. What new complication arises with directed edges?
+
+6. Implement cycle detection for an undirected graph using DFS. What special case must you handle?
+
+7. Why does iterative deepening DFS not waste too much time re-exploring shallow layers? Use the branching factor in your answer.
+
+8. In a directed graph, explain why the "parent edge" rule for cycle detection is not enough. What extra state do you need?
 
 ---
 
@@ -359,9 +480,10 @@ algorithm exposes first.
 - The right traversal depends on what property you need, not which
   one is simpler to code.
 - Many advanced graph algorithms are just BFS or DFS plus extra state.
+- Iterative deepening combines BFS's completeness with DFS's memory efficiency.
 
 The next lesson moves from traversal to optimization: shortest path
-algorithms on weighted graphs.
+ algorithms on weighted graphs.
 
 ---
 

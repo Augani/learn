@@ -257,12 +257,27 @@ These are methodology failures, not knowledge failures.
 
 ## Exercises
 
-1. Why are constraints often the strongest clue in a problem statement?
-2. Why should you derive a brute-force solution even when you know it is
-   too slow?
-3. What is the difference between a pattern and an invariant?
-4. Why can two array problems require completely different techniques?
-5. What should you verify before writing the first line of code?
+1. Pick a medium problem you have not solved. Walk through each step of
+   this methodology before writing any code. Time yourself: how long do
+   you spend understanding versus coding?
+2. Write out the brute-force version of a problem before optimizing it.
+   Explicitly identify the repeated work or bottleneck.
+3. Identify one past problem where you misread the prompt. What specific
+   clarifying question would have caught the mistake before you started
+   coding?
+4. For a problem with `n <= 10^5`, explain why an `O(n^2)` solution is
+   likely dead. What is the approximate number of operations, and how
+   does it compare to typical time limits?
+5. Write a short checklist (no more than 5 items) you can recite at the
+   start of any interview problem. Practice using it on three new problems.
+6. Choose a problem where the answer format matters (e.g., length vs.
+   the actual substring). How would returning the wrong format break test
+   cases even if your algorithm logic is correct?
+7. For a problem with multiple constraints (time, space, uniqueness),
+   list them in order of strictness. Which constraint eliminates the
+   most candidate solutions?
+8. Explain why generating your own examples and edge cases before coding
+   is more reliable than relying on the provided examples alone.
 
 ---
 

@@ -201,13 +201,27 @@ DFS explores reachability well, but not shortest unweighted paths.
 
 ## Exercises
 
-1. Why is fixed window size such a strong sliding-window clue?
-2. Why does “next greater element” almost immediately suggest a monotonic
-   stack?
+1. Why is fixed window size such a strong sliding-window clue? What would
+   go wrong if you tried to use prefix sums instead for a fixed-size
+   window problem?
+2. Why does "next greater element" almost immediately suggest a monotonic
+   stack? What is the structural property that makes a stack the right
+   data structure?
 3. What makes `Koko Eating Bananas` a binary-search-on-answer problem?
-4. Why is stock with cooldown better modeled as modes than as raw greedy
-   choices?
-5. Why is BFS the right tool for shortest path in an unweighted grid?
+   Explain the monotonic feasibility condition that validates the binary
+   search.
+4. Why is stock with cooldown better modeled as modes (state-machine DP)
+   than as raw greedy choices? What information does a greedy approach fail
+   to track?
+5. Why is BFS the right tool for shortest path in an unweighted grid? What
+   would happen if you used DFS instead in terms of correctness and
+   efficiency?
+6. For each of the 8 problems in this lesson, write out the exact signal
+   that should trigger the pattern before you write any code.
+7. Explain why the "carry the window sum" approach in Maximum Average
+   Subarray reduces the runtime from `O(n*k)` to `O(n)`.
+8. A problem seems to need sorting and merging intervals. What is the
+   first move, and why does sorting make the merge step linear?
 
 ---
 

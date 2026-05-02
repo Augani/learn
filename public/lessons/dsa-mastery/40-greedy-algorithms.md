@@ -10,21 +10,35 @@
 
 ## Why This Matters
 
-Greedy algorithms are seductive because they feel simple.
+Greedy algorithms are seductive because they feel simple. At each step,
+you make the locally best choice and never look back. No recursion, no
+backtracking, no complex state — just pick what looks best right now.
 
-- choose the best-looking option now
-- never revisit it
-- keep moving forward
+When greedy works, it often gives:
+- **Elegant, short code**: activity selection is 5 lines; Huffman coding
+  is a simple priority queue loop
+- **Fast runtime**: sorting plus a linear scan beats dynamic programming
+  for the same problem when the greedy choice property holds
+- **Natural intuition**: the solution often matches how humans would
+  reason about the problem
 
-When greedy works, it often gives elegant and fast algorithms.
-When it fails, it can produce answers that look plausible but are wrong.
+When it fails, it can produce answers that look plausible but are wrong:
+- **0/1 knapsack**: picking the highest value-density item first can
+  block a better combination of smaller items
+- **Shortest path with negative edges**: Dijkstra's greedy shortest-first
+  approach fails because a longer initial path might lead to a much
+  shorter total
+- **Set cover**: the greedy approach of picking the set covering the
+  most uncovered elements achieves a logarithmic approximation, not
+  the optimal solution
 
 This lesson is about understanding both sides:
 
-- why greedy succeeds in some problems
-- why it fails in others
-- how to reason about correctness using greedy choice and exchange
-  arguments
+- Why greedy succeeds in some problems (greedy choice property, optimal
+  substructure)
+- Why it fails in others (local optima trap, irreversible decisions)
+- How to reason about correctness using exchange arguments and
+  stays-ahead proofs
 
 ---
 
@@ -260,25 +274,51 @@ the algorithm.
 
 ## Exercises
 
-1. Why does earliest finishing time solve activity selection?
+1. Why does earliest finishing time solve activity selection? Give the
+   exchange argument in your own words.
 2. Why does value density solve fractional knapsack but not 0/1
-   knapsack?
-3. What is the greedy choice in Huffman coding?
-4. Explain the farthest-reach invariant in Jump Game.
-5. Give a small problem where a natural greedy rule fails.
-6. For one greedy algorithm in this lesson, outline an exchange
-   argument.
+   knapsack? Construct a concrete counterexample for 0/1 knapsack.
+3. What is the greedy choice in Huffman coding? Why does merging the two
+   least frequent symbols lead to an optimal prefix code?
+4. Explain the farthest-reach invariant in Jump Game. Prove that if you
+   can reach index `i`, and `i + nums[i]` extends the farthest reach,
+   you will never get stuck before reaching the end.
+5. Give a small problem where a natural greedy rule fails. Explain why
+   the failure occurs — is it missing the greedy choice property or
+   optimal substructure?
+6. For activity selection, outline a full exchange argument proving that
+   replacing the first interval in any optimal solution with the
+   earliest-finishing interval preserves optimality.
+7. Why might a greedy algorithm fail for shortest path on a graph with
+   negative edge weights? How does Dijkstra's assumption break?
+8. In interval scheduling, what happens if you sort by start time
+   instead of finish time? Does greedy still work? Prove or give a
+   counterexample.
 
 ---
 
 ## Key Takeaways
 
-- Greedy algorithms commit to local decisions without backtracking.
-- Greedy works only when a locally optimal choice is globally safe.
-- Correctness usually depends on an exchange or stays-ahead proof.
-- Fractional knapsack, activity selection, Huffman coding, and Jump Game
-  are classic examples where greedy succeeds.
-- Greedy is powerful, but only with a proof.
+- **Greedy algorithms** commit to local decisions without backtracking.
+  They are fast and elegant but only correct when the problem structure
+  supports them.
+- **Greedy works only when a locally optimal choice is globally safe**.
+  This requires two properties: the **greedy choice property** (some
+  optimal solution includes the greedy pick) and **optimal
+  substructure** (the remaining problem after the greedy pick is still
+  optimally solvable).
+- **Correctness usually depends on an exchange or stays-ahead proof**.
+  Without a proof, a greedy algorithm is just an optimistic heuristic.
+- **Fractional knapsack, activity selection, Huffman coding, and Jump
+  Game** are classic examples where greedy succeeds because the local
+  choice cannot block a better global solution.
+- **Greedy often fails** when choices interact globally (0/1 knapsack),
+  when future consequences are hard to repair (set cover), or when
+  negative weights break monotonicity (Dijkstra with negatives).
+- **Exchange argument**: show any optimal solution can be transformed to
+  include the greedy choice without becoming worse.
+- **Stays-ahead argument**: show the greedy solution is never behind any
+  competitor at any stage.
 
 The next lesson turns from irrevocable local choices to full recursive
 search with undoing: backtracking.

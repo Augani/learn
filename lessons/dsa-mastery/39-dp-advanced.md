@@ -351,13 +351,30 @@ The consistent move is not "write a table." It is:
 ## Exercises
 
 1. Explain why greedy fails for 0/1 knapsack but works for fractional
-   knapsack.
-2. What does `dp[i][j]` mean in edit distance?
-3. Why is matrix chain multiplication an interval DP problem?
+   knapsack. Construct a concrete counterexample where value-density
+   greedy picks a suboptimal set.
+2. What does `dp[i][j]` mean in edit distance? Explain the three recursive
+   cases (match/replace, insert, delete) and why taking the minimum of all
+   valid predecessor states is correct.
+3. Why is matrix chain multiplication an interval DP problem? Explain why
+   the optimal split point `k` divides the problem into two independent
+   subproblems and how the recurrence combines their costs.
 4. Why is LIS a good example of DP being optimized beyond a direct table?
-5. Give an example of a tree problem that naturally becomes DP.
+   Explain the `O(n^2)` DP and how the patience sorting / binary search
+   optimization reduces it to `O(n log n)`.
+5. Give an example of a tree problem that naturally becomes DP. Explain
+   why the state typically includes "best including root" and "best
+   excluding root" or similar subtree aggregations.
 6. For one problem in this lesson, describe the progression from brute
-   force to memoization to tabulation.
+   force to memoization to tabulation. Explicitly identify the state space
+   size at each step and the final time/space complexity.
+7. In 0/1 knapsack, explain why iterating items outermost and capacity
+   innermost (in reverse) preserves correctness, while iterating capacity
+   forward would allow unlimited reuse of items. What invariant does
+   reverse-order protect?
+8. For matrix chain multiplication, trace the DP table for three matrices
+   with dimensions `A(10x30)`, `B(30x5)`, `C(5x60)`. Show the optimal
+   split and the total cost.
 
 ---
 

@@ -185,13 +185,28 @@ problem environments.
 
 ## Final Exercises
 
-1. Which topic from this track still feels least stable to you?
+1. Which topic from this track still feels least stable to you? Write
+   down three specific problem types within that topic and plan concrete
+   practice problems to address each.
 2. What kind of mistakes do you make most often: modeling, invariant,
-   implementation, or analysis?
+   implementation, or analysis? Design a personal checklist to catch
+   your most common mistake before you start coding.
 3. Which advanced topic would be the best next stretch topic for you and
-   why?
+   why? How does it connect to a weakness you identified in your recent
+   practice?
 4. How would you structure your own 4-week review cycle after finishing?
-5. What does “problem-solving fluency” now mean to you?
+   Balance new exposure, spaced repetition, and weakness-focused drilling.
+5. What does "problem-solving fluency" now mean to you? Distinguish it
+   from "having seen the solution before" and "memorizing the code."
+6. Pick one hard problem you failed recently. Walk through it using the
+   full methodology from Lesson 55: understand, constrain, brute-force,
+   bottleneck, upgrade. Where did your original attempt deviate?
+7. Explain to an imaginary interviewer, in two minutes or less, why
+   Dijkstra's algorithm is correct and when it fails. Time yourself and
+   refine your explanation for clarity.
+8. Build a personal "pattern trigger" cheat sheet: for each of the 8
+   patterns from Lesson 56, write the exact phrase or constraint that
+   should make you think of that pattern instantly.
 
 ---
 

@@ -387,14 +387,24 @@ Optimization comes after state design, not before it.
 ## Exercises
 
 1. Explain the difference between overlapping subproblems and optimal
-   substructure.
-2. Why is Fibonacci the canonical DP teaching example?
-3. For coin change, what does the state `dp[a]` mean?
-4. For LCS, why is a 2D state natural?
+   substructure. Give a problem that has one but not the other, or explain
+   why both are needed for DP.
+2. Why is Fibonacci the canonical DP teaching example? Trace the naive
+   recursion tree for `fib(5)` and count how many times `fib(2)` is called.
+3. For coin change, what does the state `dp[a]` mean? Explain the
+   recurrence and why iterating coins outermost versus innermost matters.
+4. For LCS, why is a 2D state natural? Explain the four cases in the
+   recurrence and draw a small DP table for two short strings.
 5. Convert a recursive memoized solution into a tabulated one for a
-   simple problem of your choice.
+   simple problem of your choice. Show the dependency order and explain
+   why bottom-up avoids recursion stack limits.
 6. Give an example of a problem that has recursion but not overlapping
-   subproblems.
+   subproblems. Why is memoization useless there?
+7. In climbing stairs, explain why space-optimized DP works and what
+   invariant it preserves. Why can you discard `dp[i-2]` once `dp[i]` is
+   computed?
+8. Design a small problem with optimal substructure but no overlapping
+   subproblems. Is DP still useful, or would divide-and-conquer suffice?
 
 ---
 

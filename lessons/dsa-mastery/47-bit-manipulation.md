@@ -9,19 +9,26 @@
 
 ## Why This Matters
 
-Bit manipulation matters because it gives:
+Bit manipulation matters because it lets you operate on data at the
+lowest level of abstraction — individual bits instead of whole values.
+This unlocks:
 
-- compact state representation
-- fast constant-time operations
-- elegant parity and XOR tricks
-- bitmask DP and subset iteration techniques
+- **Compact state representation**: a 32-bit integer can represent a
+  subset of 32 items as a bitmask, replacing boolean arrays in DP
+- **Fast constant-time operations**: checking, setting, clearing, and
+  toggling bits are all single CPU instructions
+- **Elegant parity and XOR tricks**: finding the unique element in a
+  duplicate array, swapping variables without temporary storage,
+  detecting odd counts
+- **Bitmask DP and subset iteration**: iterating over all subsets of a
+  set of size `n` in `O(2^n)` time with simple bitwise loops
+- **Memory efficiency**: in high-performance systems, packing multiple
+  boolean flags into a single integer reduces cache misses
+- **Algorithmic speedups**: Brian Kernighan's bit counting runs in time
+  proportional to set bits, not word size
 
-This lesson covers:
-
-- core bitwise operators
-- common bit tricks
-- XOR properties
-- bitmask reasoning
+This lesson covers the operators, tricks, and patterns that make bit
+manipulation a practical tool, not just a theoretical curiosity.
 
 ---
 

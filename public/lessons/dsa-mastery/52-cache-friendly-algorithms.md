@@ -9,19 +9,29 @@
 
 ## Why This Matters
 
-Big-O tells you how runtime grows. It does not tell you how well your
-algorithm fits real hardware.
+Big-O tells you how runtime grows with input size. It does not tell you
+how well your algorithm fits real hardware.
 
-Cache-friendly algorithms matter because CPUs are much faster than main
-memory. If your algorithm jumps around memory unpredictably, the CPU may
-spend much of its time waiting for data.
+Cache-friendly algorithms matter because modern CPUs execute billions of
+instructions per second, but accessing main memory takes hundreds of
+cycles. If your algorithm jumps around memory unpredictably, the CPU may
+spend most of its time waiting for data — not computing.
+
+A cache-naive algorithm with better asymptotic complexity can lose to a
+cache-aware algorithm with worse Big-O on realistic input sizes. This is
+one of the most important lessons for high-performance software
+engineering.
 
 This lesson covers:
 
-- spatial and temporal locality
-- arrays vs pointer-heavy structures
-- blocking / tiling
-- layout-aware algorithm design
+- **Spatial and temporal locality**: how access patterns determine
+  whether data is already in fast cache memory
+- **Arrays vs pointer-heavy structures**: why contiguous memory often
+  wins despite similar asymptotic complexity
+- **Blocking / tiling**: restructuring algorithms to fit working sets
+  into cache
+- **Layout-aware algorithm design**: making data structure choices based
+  on hardware memory hierarchy, not just theoretical operations
 
 ---
 
@@ -148,22 +158,52 @@ model.
 ## Exercises
 
 1. Why can arrays outperform linked structures even when asymptotic costs
-   look similar?
-2. What is the difference between spatial and temporal locality?
-3. Why does matrix blocking help in practice?
-4. Why can traversal order change runtime significantly?
-5. What is the appeal of cache-oblivious algorithms?
+   look similar? What is the hardware mechanism (cache lines) that
+   causes this difference?
+2. What is the difference between spatial and temporal locality? Give an
+   example of an algorithm that exploits each.
+3. Why does matrix blocking help in practice? Calculate how many cache
+   misses naive row-by-column matrix multiplication causes versus a
+   blocked approach.
+4. Why can traversal order change runtime significantly? Compare row-major
+   versus column-major traversal of a large 2D array in terms of cache
+   performance.
+5. What is the appeal of cache-oblivious algorithms? How does recursive
+   subdivision naturally produce cache-friendly behavior without knowing
+   cache size?
+6. Design a linked list traversal and an array traversal that both visit
+   `n` elements. Explain why the array version is typically 5-10x faster
+   on modern CPUs despite both being `O(n)`.
+7. In matrix multiplication, what block size would you choose if your L1
+   cache is 32KB and you are multiplying double-precision matrices? Why
+   does the answer depend on cache size?
+8. Explain why binary search on a sorted array can be slower than
+   sequential search for very small arrays. How does cache line size
+   play a role?
 
 ---
 
 ## Key Takeaways
 
-- Modern performance depends heavily on memory locality.
-- Contiguous layouts often beat pointer-heavy layouts in practice.
-- Blocking and traversal order can matter enormously.
-- Cache-aware and cache-oblivious design extend algorithmic thinking to
-  real hardware.
-- Big-O is essential, but not sufficient for high-performance reasoning.
+- **Modern performance depends heavily on memory locality**, not just
+  operation counts. CPUs are orders of magnitude faster than RAM; cache
+  misses dominate runtime for memory-bound algorithms.
+- **Spatial locality** means accessing nearby memory locations together.
+  **Temporal locality** means reusing the same memory locations soon.
+  Both keep data in fast cache memory.
+- **Contiguous layouts** (arrays, vectors) often beat pointer-heavy layouts
+  (linked lists, trees with scattered nodes) in practice because they
+  maximize cache line utilization.
+- **Blocking and tiling** restructure algorithms so that working sets fit
+  into cache. A blocked matrix multiplication can be 5-10x faster than
+  the naive triple-loop version despite both being `O(n^3)`.
+- **Traversal order matters enormously**. Row-major arrays reward row-major
+  traversal; column-major traversal can trigger a cache miss per element.
+- **Cache-aware algorithms** are tuned to specific cache sizes.
+  **Cache-oblivious algorithms** use recursive subdivision to perform well
+  across all cache levels without knowing their sizes.
+- **Big-O is essential, but not sufficient for high-performance
+  reasoning**. Hardware-aware design completes the picture.
 
 The next lesson applies advanced topics through a mixed practice set.
 

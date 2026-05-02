@@ -9,19 +9,30 @@
 
 ## Why This Matters
 
-By this point in the track, you know many efficient algorithms. This
-lesson is about learning when efficient exact algorithms may not exist.
+By this point in the track, you know many efficient algorithms: sorting,
+graph traversal, dynamic programming, greedy methods, and more. This lesson
+is about recognizing when **efficient exact algorithms may not exist** —
+and what to do instead.
 
 That matters because it changes what you should do next:
 
-- stop searching for a clean polynomial-time exact solution
-- look for approximation
-- look for heuristics
-- restrict the problem
-- use exponential search with pruning only when input sizes are small
+- **Stop searching** for a clean polynomial-time exact solution if the
+  problem is NP-hard; you are unlikely to find one unless `P = NP`
+- **Look for approximation algorithms** that run in polynomial time and
+  guarantee a solution within some factor of optimal
+- **Look for heuristics** when guarantees are impossible but good
+  solutions are sufficient
+- **Restrict the problem** to a special case that may be tractable
+  (e.g., trees, bounded degree, planar graphs)
+- **Use exponential search with pruning** (branch and bound, backtracking)
+  only when input sizes are small enough to make it feasible
 
-NP-completeness is not only theory. It is a practical signal about what
-kind of solution strategy is realistic.
+NP-completeness is not only theory. It is a **practical signal** about
+what kind of solution strategy is realistic. When a client asks you to
+solve an optimal routing problem for 10,000 cities, knowing that TSP is
+NP-hard tells you that exact optimality in polynomial time is
+computationally infeasible — you should suggest approximation or
+constraint relaxation instead.
 
 ---
 
@@ -200,26 +211,49 @@ This is the real engineering value of the theory.
 ## Exercises
 
 1. What is the difference between solving a problem and verifying a
-   proposed solution?
-2. Why does reduction direction matter?
+   proposed solution? Give a concrete example where verification is much
+   easier than solving.
+2. Why does reduction direction matter? Explain what happens if you
+   accidentally reverse the direction in an NP-hardness proof.
 3. Why is 3-SAT such a common starting point for NP-hardness proofs?
+   What makes it a good "hub" problem?
 4. Why does NP-completeness often push us toward approximation or
-   heuristics?
-5. What would change if $P = NP$?
+   heuristics? What is the alternative for small inputs?
+5. What would change if $P = NP$? Name three areas of computer science
+   or daily life that would be transformed.
+6. Explain why the 2-approximation for Vertex Cover works. Is it
+   possible to do better in polynomial time if $P \ne NP$?
+7. A colleague claims they have a polynomial-time algorithm for the
+   Traveling Salesman Problem. What should you ask them before
+   believing it?
+8. Design a small instance of Subset Sum that is solvable by brute force.
+   How does the difficulty scale as the number of elements grows?
 
 ---
 
 ## Key Takeaways
 
-- NP-completeness helps you recognize when efficient exact algorithms
-  are unlikely.
-- Reductions are the main tool for proving hardness.
-- SAT, 3-SAT, Vertex Cover, TSP, and Subset Sum are core landmark
-  problems.
-- Once exact tractability looks unlikely, approximation and heuristics
-  become central.
-- Complexity theory is practical because it shapes which solution
-  strategies are realistic.
+- **NP-completeness** helps you recognize when efficient exact algorithms
+  are unlikely, saving you from searching for polynomial-time solutions
+  that probably do not exist.
+- **P** contains problems solvable in polynomial time. **NP** contains
+  problems whose proposed solutions can be verified in polynomial time.
+  **NP-hard** problems are at least as hard as every problem in NP.
+  **NP-complete** problems are both in NP and NP-hard.
+- **Reductions** are the main tool for proving hardness: show that solving
+  problem B efficiently would also solve known-hard problem A efficiently.
+  Direction matters — reduce FROM a known-hard problem TO your target.
+- **SAT and 3-SAT** are foundational NP-complete problems, often used as
+  starting points for hardness proofs. 3-SAT's clause structure makes it
+  particularly convenient for reductions.
+- **Vertex Cover, TSP, Subset Sum, Clique, and Hamiltonian Cycle** are core
+  landmark NP-complete problems. Recognizing their structural patterns
+  helps identify new NP-hard problems.
+- **Once exact tractability looks unlikely**, shift to approximation
+  algorithms, heuristics, special-case restrictions, or exponential
+  algorithms with pruning for small inputs.
+- **Complexity theory is practical engineering guidance**: it tells you
+  which solution strategies are realistic and which are wishful thinking.
 
 The next lesson returns to advanced data structures, including skip
 lists, splay trees, treaps, and Fibonacci heaps.

@@ -9,14 +9,25 @@
 
 ## Why This Matters
 
-What often makes a problem “hard” is not bigger code. It is one of these:
+What often makes a problem "hard" is not bigger code or more variables.
+It is usually one of these structural challenges:
 
-- multiple constraints interact
-- the right abstraction is hidden
-- one paradigm alone is not enough
-- the proof of correctness is subtle
+- **Multiple constraints interact**: a problem has a time limit, a
+  space limit, and a correctness constraint that all fight against each
+  other. Satisfying one makes another harder.
+- **The right abstraction is hidden**: the surface description looks like
+  one paradigm (e.g., graph traversal) but the real structure needs
+  another (e.g., dynamic programming on augmented state).
+- **One paradigm alone is not enough**: you need binary search to set a
+  parameter, greedy to check feasibility, and a data structure to make
+  the check fast — all layered together.
+- **The proof of correctness is subtle**: the algorithm looks simple,
+  but explaining why it always works requires careful invariant reasoning.
 
-This lesson focuses on combination strategies.
+This lesson focuses on **combination strategies** — how to recognize
+when multiple techniques must work together, and how to build the
+solution layer by layer rather than trying to see the whole answer at
+once.
 
 ---
 
@@ -193,14 +204,26 @@ modeling is needed.
 ## Exercises
 
 1. Why do binary-search-plus-greedy problems require a monotonic
-   feasibility condition?
+   feasibility condition? Construct a small problem where the feasibility
+   test is NOT monotonic and binary search would fail.
 2. Why does adding resource state often turn a graph problem into a hard
-   problem?
-3. What problem signal suggests coordinate compression?
+   problem? Explain the state-space explosion and how to bound it.
+3. What problem signal suggests coordinate compression? Give a problem
+   where coordinates go up to `10^9` but only `10^5` distinct values appear.
 4. Why is backtracking alone often insufficient on hard combinatorial
-   problems?
-5. What usually distinguishes a “standard pattern” problem from a hard
-   combined-technique problem?
+   problems? How do pruning and memoization together make it feasible?
+5. What usually distinguishes a "standard pattern" problem from a hard
+   combined-technique problem? Give an example of each from your own
+   practice.
+6. In the "ship packages within D days" problem, explain why the greedy
+   feasibility check is valid. What property of the problem makes "fill
+   each truck as much as possible without exceeding capacity" correct?
+7. Design a small instance of "shortest path to get all keys" and show
+   how the state space grows with each additional key. Why is plain BFS
+   without `keys_mask` guaranteed to be wrong?
+8. For a problem requiring segment tree + coordinate compression, explain
+   why a direct segment tree over the raw coordinate range is impossible
+   and how compression fixes it without losing correctness.
 
 ---
 

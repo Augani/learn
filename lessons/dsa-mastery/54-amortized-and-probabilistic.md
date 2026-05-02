@@ -384,14 +384,31 @@ often.
 ## Exercises
 
 1. Why is dynamic-array append amortized $O(1)$ even though resizing can
-   cost $O(n)$?
-2. What does the potential function conceptually represent?
+   cost $O(n)$? Use the accounting method: how many "coins" do you deposit
+   per append, and how do you pay for the expensive resize?
+2. What does the potential function conceptually represent? In the context
+   of a dynamic array, what is the potential when the array is half full
+   versus completely full?
 3. Why are splay trees more naturally explained with amortized analysis
-   than strict worst-case per-operation analysis?
+   than strict worst-case per-operation analysis? Describe a sequence of
+   operations where a single splay is expensive but the total sequence is
+   cheap.
 4. Why is randomized quicksort analyzed probabilistically rather than
-   amortized?
+   amortized? What is the fundamental difference between averaging over
+   random input order versus averaging over random pivot choices?
 5. What problem does a Chernoff bound solve that expectation alone does
-   not?
+   not? Explain with a concrete example: if a skip list level expects 2
+   promoted nodes, why might you care about the probability of seeing 20?
+6. A data structure has operations that cost either 1 or 100 units. After
+   every expensive operation, the next 50 operations are guaranteed cheap.
+   Use aggregate or accounting analysis to show the amortized cost per
+   operation is $O(1)$.
+7. In reservoir sampling, prove by induction that after processing `i` items,
+   each item has probability `1/i` of being stored. Why is this a
+   probabilistic invariant rather than an amortized guarantee?
+8. Compare amortized analysis and probabilistic analysis for a hash table
+   with chaining. Which analysis is appropriate for the cost of a single
+   insert? Which is appropriate for the cost of rehashing the entire table?
 
 ---
 

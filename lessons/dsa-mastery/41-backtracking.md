@@ -304,14 +304,27 @@ backtracking.
 
 ## Exercises
 
-1. What is the purpose of the undo step in backtracking?
+1. What is the purpose of the undo step in backtracking? Why is it
+   conceptually different from simply not saving changes in the first place?
 2. Why is pruning more important than recursion syntax in these problems?
+   Explain the difference in search space size between naive generation and
+   pruned backtracking for a concrete example.
 3. Explain why subset generation is backtracking even though it has no
-   explicit invalid states.
-4. What state must be tracked in permutations?
-5. For N-Queens, what conditions allow immediate pruning?
+   explicit invalid states. What is the choose/unchoose pattern doing here?
+4. What state must be tracked in permutations? Explain why a `used`
+   boolean array is sufficient and how it prevents duplicates.
+5. For N-Queens, what conditions allow immediate pruning? Explain the
+   column, diagonal, and anti-diagonal constraints and how checking all
+   three is necessary.
 6. Give an example where backtracking is the right first approach but a
-   more optimized method might exist later.
+   more optimized method might exist later. Describe the optimization
+   technique and why it does not invalidate the backtracking reasoning.
+7. In combination sum, explain why sorting candidates and skipping
+   duplicates during recursion is correct. What would go wrong if you
+   skipped duplicates before sorting?
+8. Compare the recursive tree depth of subset generation (2^n leaves)
+   versus permutation generation (n! leaves) for n = 5. Which grows faster
+   as n increases?
 
 ---
 

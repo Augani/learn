@@ -299,12 +299,39 @@ The obstacle is not coding. The obstacle is modeling.
 
 ## Exercises
 
-1. Why is “state expansion” such a common idea in advanced graph
-   problems?
-2. What signal distinguishes interval DP from prefix DP?
-3. Why does digit DP need a “tight” flag?
-4. When is meet-in-the-middle more appropriate than bitmask DP?
+1. Why is "state expansion" such a common idea in advanced graph
+   problems? Explain how a grid-with-keys problem turns BFS into a
+   multi-dimensional state-space search.
+
+   State expansion is a common idea in advanced graph problems because it allows us to model complex problems by adding more dimensions to the state space. For example, in a grid-with-keys problem, we can start with a simple BFS state that only tracks the current position. However, as we add more constraints such as keys and locks, we need to expand the state space to track the keys we have collected and the locks we have opened. This expansion of the state space allows us to model the problem more accurately and find the optimal solution.
+
+2. What signal distinguishes interval DP from prefix DP? Give a problem
+   where prefix DP fails and interval DP is needed.
+
+   The signal that distinguishes interval DP from prefix DP is the need to make decisions over contiguous intervals where a split point or chosen last action matters. A problem where prefix DP fails and interval DP is needed is the burst balloons problem. In this problem, we need to find the maximum coins we can collect by bursting balloons in a specific order. The problem requires us to make decisions over contiguous intervals (the balloons) and the split point (the balloon we choose to burst next) matters.
+
+3. Why does digit DP need a "tight" flag? Explain what goes wrong if you
+   ignore whether the prefix already matches the bound.
+
+   Digit DP needs a "tight" flag because it allows us to track whether the prefix we have constructed so far already matches the bound. If we ignore this flag, we may end up counting prefixes that exceed the bound, which is incorrect. For example, if we are counting numbers without repeated digits up to a certain bound, we need to make sure that the prefix we have constructed so far does not exceed the bound. If it does, we should not count it.
+
+4. When is meet-in-the-middle more appropriate than bitmask DP? Compare
+   the runtime for `n = 40` using both approaches.
+
+   Meet-in-the-middle is more appropriate than bitmask DP when the size of the input `n` is around 30 to 40, where `2^n` is too large but `2^(n/2)` may be manageable. For `n = 40`, the runtime of meet-in-the-middle is `O(2^(n/2)) = O(2^20)`, which is much faster than the runtime of bitmask DP, which is `O(2^n) = O(2^40)`.
+
 5. Why do hard problems so often require a problem transformation first?
+   Give an example of an array problem that becomes a graph problem.
+
+   Hard problems often require a problem transformation first because it allows us to model the problem more accurately and find the optimal solution. An example of an array problem that becomes a graph problem is the minimum spanning tree problem. In this problem, we are given an array of edges and we need to find the minimum spanning tree. We can transform this problem into a graph problem by constructing a graph where the edges are the elements of the array and the nodes are the vertices of the graph. We can then use graph algorithms such as Kruskal's algorithm to find the minimum spanning tree.
+
+6. In tree path-sum problems, why must you distinguish between the best
+   downward path (return value) and the best path anywhere (global answer)?
+7. Explain why state-machine DP is the right tool for stock problems with
+   cooldown. How many states are needed, and what transitions connect them?
+8. Design a small graph problem where topological sort is the first move,
+   but you still need dynamic programming on the resulting DAG to compute
+   an optimal path. What does each layer contribute?
 
 ---
 

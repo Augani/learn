@@ -235,13 +235,29 @@ The paradigms are tools, not tribes.
 ## Exercises
 
 1. Give one signal that points strongly toward each of the four major
-   paradigms.
+   paradigms (divide and conquer, DP, greedy, backtracking). For each
+   signal, name a classic problem that exhibits it.
 2. Why is overlap the key separator between divide and conquer and DP?
-3. Why does greedy require a proof rather than intuition?
+   Draw a small recursion tree where subproblems overlap and explain why
+   memoization is necessary.
+3. Why does greedy require a proof rather than intuition? Construct a
+   small problem where intuition suggests a greedy rule that is actually
+   suboptimal.
 4. Why is backtracking often the right choice for "find all valid
-   solutions" problems?
+   solutions" problems? Explain why greedy or DP cannot enumerate all
+   solutions by their nature.
 5. Take one problem from a previous lesson and explain why an
-   alternative paradigm would be less natural.
+   alternative paradigm would be less natural. Be specific about what
+   property the chosen paradigm exploits that the alternative misses.
+6. A problem asks for the maximum sum of non-adjacent elements in a
+   circular array. How does the circular constraint change the paradigm
+   application from the linear `house robber` case?
+7. In the decision flowchart, why is "Is there a safe local choice
+   rule?" positioned AFTER checking for overlapping subproblems?
+   What would go wrong if you checked greedy before DP?
+8. Design a problem that can be solved by either divide-and-conquer or
+   DP, but one is asymptotically better. Explain the overlap property
+   that makes the difference.
 
 ---
 

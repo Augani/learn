@@ -29,6 +29,26 @@ This lesson covers:
 
 ---
 
+## The Navigation Analogy — Deeper
+
+Imagine four different navigation scenarios:
+
+**Scenario 1: City with positive distances only (Dijkstra)**
+Every road has a positive length. Once you have found the shortest route to an intersection, no future discovery can make it shorter. This is Dijkstra's world.
+
+**Scenario 2: Roads with toll rebates (Bellman-Ford)**
+Some roads give you money back (negative weight). Now a longer path might become shorter overall because of a big rebate later. You cannot finalize any intersection until you have checked all possible paths up to V-1 edges.
+
+**Scenario 3: All-pairs travel guide (Floyd-Warshall)**
+You are publishing a guide that needs the shortest route between EVERY pair of cities. Instead of running Dijkstra from every city, you use dynamic programming to build all answers at once.
+
+**Scenario 4: GPS with "as the crow flies" estimate (A*)**
+You know the straight-line distance to the destination. Instead of exploring equally in all directions, you prioritize roads that seem to point toward the goal.
+
+Each scenario demands a different algorithm because the assumptions differ.
+
+---
+
 ## Dijkstra's Algorithm
 
 ### When it applies
@@ -38,7 +58,7 @@ Use Dijkstra when all edge weights are non-negative.
 ### Core idea
 
 Always expand the unprocessed node with the smallest known distance.
-That greedy choice is safe only because weights are never negative.
+ That greedy choice is safe only because weights are never negative.
 
 ```
        4
@@ -51,7 +71,46 @@ That greedy choice is safe only because weights are never negative.
 ```
 
 If we know the cheapest unsettled node is `C` with distance `1`, then
-no future path can make `C` cheaper without using negative edges.
+ no future path can make `C` cheaper without using negative edges.
+
+### Step-by-Step Trace
+
+```
+  Graph:
+  A --4--> B
+  A --1--> C
+  C --3--> D
+  B --2--> D
+
+  Initial state:
+  distances: A=0, B=∞, C=∞, D=∞
+  visited:   {}
+  priority queue: [(0, A)]
+
+  Step 1: pop A (dist 0)
+    relax A->B: new_dist = 0+4 = 4 < ∞ → update B to 4
+    relax A->C: new_dist = 0+1 = 1 < ∞ → update C to 1
+    queue: [(1, C), (4, B)]
+    visited: {A}
+
+  Step 2: pop C (dist 1)
+    relax C->D: new_dist = 1+3 = 4 < ∞ → update D to 4
+    queue: [(4, B), (4, D)]
+    visited: {A, C}
+
+  Step 3: pop B (dist 4)
+    relax B->D: new_dist = 4+2 = 6 > 4 → no update
+    queue: [(4, D)]
+    visited: {A, C, B}
+
+  Step 4: pop D (dist 4)
+    D has no outgoing edges
+    queue: []
+    visited: {A, C, B, D}
+
+  Final distances:
+  A=0, B=4, C=1, D=4
+```
 
 ### Relaxation
 
@@ -98,9 +157,24 @@ def dijkstra(graph: dict[str, list[tuple[str, int]]], start: str) -> dict[str, i
 ```
 
 Dijkstra may finalize `B` at cost `2` before discovering the path
-`A -> C -> B` with total cost `1`.
+ `A -> C -> B` with total cost `1`.
 
 Negative edges destroy the greedy guarantee.
+
+**Why?** Dijkstra's proof relies on this invariant: once a node is popped from the priority queue, its distance is final. With negative edges, a future path through an unsettled node could reduce that distance, breaking the invariant.
+
+```
+  Step 1: pop A (dist 0)
+    B = 2, C = 5
+
+  Step 2: pop B (dist 2)  ← Dijkstra thinks B is done!
+    But path A->C->B = 5 + (-4) = 1 < 2
+    Too late — B was already finalized.
+```
+
+### What if we ran Dijkstra anyway and just "re-relaxed"?
+
+That is the idea behind the **Bellman-Ford** algorithm. Instead of greedily finalizing nodes, we relax all edges repeatedly, giving each path up to V-1 edges a chance to propagate.
 
 ---
 
@@ -114,12 +188,58 @@ Use Bellman-Ford when negative edges may exist.
 
 Repeat relaxation over all edges `V - 1` times.
 
-Why `V - 1`? A shortest simple path uses at most `V - 1` edges.
+Why `V - 1`? A shortest simple path uses at most `V - 1` edges. After k passes, all shortest paths using at most k edges are correct.
+
+### Step-by-Step Trace
+
+```
+  Graph:
+  A --2--> B
+  A --5--> C
+  C --(-4)-> B
+  B --1--> D
+
+  Initial: A=0, B=∞, C=∞, D=∞
+
+  Pass 1:
+    A->B: B = min(∞, 0+2) = 2
+    A->C: C = min(∞, 0+5) = 5
+    C->B: B = min(2, 5-4) = 1  ← negative edge improves B!
+    B->D: D = min(∞, 2+1) = 3  (uses old B value in this pass)
+
+    After pass 1: A=0, B=1, C=5, D=3
+
+  Pass 2:
+    A->B: no change
+    A->C: no change
+    C->B: no change
+    B->D: D = min(3, 1+1) = 2  ← B improved, so D improves too!
+
+    After pass 2: A=0, B=1, C=5, D=2
+
+  Pass 3:
+    No changes.
+
+  Final distances: A=0, B=1, C=5, D=2
+```
+
+Notice how the negative edge C->B allowed B to improve, which then allowed D to improve in the next pass. This propagation is exactly what Dijkstra cannot handle.
 
 ### Negative cycle detection
 
 If one more full relaxation still improves some distance, then a
-negative cycle is reachable.
+ negative cycle is reachable.
+
+```
+  A --1--> B
+  B --(-2)-> C
+  C --1--> A
+
+  Cycle A->B->C->A has total weight 1 + (-2) + 1 = 0.
+  If it were negative (e.g., C->A = 0.5), we could loop forever,
+  decreasing the distance each time. Bellman-Ford detects this
+  because distances would keep improving after V-1 passes.
+```
 
 #### Python
 
@@ -157,7 +277,7 @@ def bellman_ford(
 ### When it applies
 
 Use Floyd-Warshall when you need all-pairs shortest paths and the graph
-is small enough for $O(V^3)$ time.
+ is small enough for $O(V^3)$ time.
 
 ### Core idea
 
@@ -174,6 +294,57 @@ $$
 
 This is elegant, dense, and powerful.
 
+### Step-by-Step Trace
+
+```
+  Graph (4 nodes, directed):
+  0 --5--> 1
+  0 --10-> 3
+  1 --3--> 2
+  2 --1--> 3
+  1 --9--> 3
+
+  Initial distance matrix:
+      0    1    2    3
+  0 [ 0,   5,   ∞,  10 ]
+  1 [ ∞,   0,   3,   9 ]
+  2 [ ∞,   ∞,   0,   1 ]
+  3 [ ∞,   ∞,   ∞,   0 ]
+
+  k=0 (allow paths through node 0):
+    Nothing improves — node 0 has no incoming edges from others.
+
+  k=1 (allow paths through node 1):
+    Check 0->1->2: dist[0][1] + dist[1][2] = 5 + 3 = 8 < ∞
+      → dist[0][2] = 8
+    Check 0->1->3: dist[0][1] + dist[1][3] = 5 + 9 = 14 > 10
+      → no change
+
+    Matrix:
+      0 [ 0,   5,   8,  10 ]
+
+  k=2 (allow paths through node 2):
+    Check 0->2->3: dist[0][2] + dist[2][3] = 8 + 1 = 9 < 10
+      → dist[0][3] = 9
+    Check 1->2->3: dist[1][2] + dist[2][3] = 3 + 1 = 4 < 9
+      → dist[1][3] = 4
+
+    Matrix:
+      0 [ 0,   5,   8,   9 ]
+      1 [ ∞,   0,   3,   4 ]
+
+  k=3 (allow paths through node 3):
+    Nothing improves — node 3 has no outgoing edges.
+
+  Final all-pairs shortest paths:
+      0 [ 0,   5,   8,   9 ]
+      1 [ ∞,   0,   3,   4 ]
+      2 [ ∞,   ∞,   0,   1 ]
+      3 [ ∞,   ∞,   ∞,   0 ]
+```
+
+Notice how allowing intermediate nodes progressively builds shorter paths. The final matrix contains every shortest path in one table.
+
 ---
 
 ## A* Search
@@ -181,7 +352,7 @@ This is elegant, dense, and powerful.
 ### When it applies
 
 Use A* when you want one source-to-target shortest path and you have a
-useful heuristic `h(n)` estimating remaining distance.
+ useful heuristic `h(n)` estimating remaining distance.
 
 ### Core idea
 
@@ -199,9 +370,27 @@ where:
 ### Why it helps
 
 A* pushes search toward the goal instead of expanding evenly in all
-directions like Dijkstra.
+ directions like Dijkstra.
 
 In a grid, Manhattan distance is a common heuristic.
+
+```
+  Grid with obstacles (#):
+  S . . # . . .
+  . # . # . . .
+  . . . . . # .
+  . # # . . . T
+
+  Dijkstra expands in a circle from S.
+  A* prioritizes cells closer to T, skipping many dead-end explorations.
+```
+
+### What makes a good heuristic?
+
+- **Admissible**: never overestimates the true cost (h(n) ≤ true cost)
+- **Consistent**: h(u) ≤ cost(u,v) + h(v) for every edge
+
+If admissible, A* is guaranteed optimal. If also consistent, it is optimally efficient among all optimal algorithms.
 
 ---
 
@@ -322,20 +511,37 @@ fn dijkstra(graph: &HashMap<&str, Vec<(&str, i32)>>, start: &str) -> HashMap<Str
 
 ---
 
-## Cross-Reference
+## Algorithm Selection Guide
 
-For a focused introduction to Dijkstra's algorithm, see
-[../data-structures/13-shortest-path.md](../data-structures/13-shortest-path.md).
+```
+  CONDITION                                 ALGORITHM
+
+  Non-negative weights, single source       Dijkstra
+  Negative weights possible, single source  Bellman-Ford
+  All-pairs shortest paths, small graph     Floyd-Warshall
+  Single target, good heuristic available   A*
+  Unweighted graph, shortest path           BFS
+```
 
 ---
 
 ## Exercises
 
-1. Explain why Dijkstra's greedy choice depends on non-negative edges.
-2. Give a graph where BFS fails but Dijkstra succeeds.
-3. Explain how Bellman-Ford detects a negative cycle.
-4. When would Floyd-Warshall be preferable to repeated Dijkstra?
-5. Give an example of a good heuristic for A* on a grid.
+1. Explain why Dijkstra's greedy choice depends on non-negative edges. What exactly breaks when negative edges exist?
+
+2. Give a graph where BFS fails but Dijkstra succeeds. Trace both algorithms.
+
+3. Explain how Bellman-Ford detects a negative cycle. Why does the V-th pass matter?
+
+4. When would Floyd-Warshall be preferable to repeated Dijkstra? Consider both time complexity and implementation simplicity.
+
+5. Give an example of a good heuristic for A* on a grid. Prove it is admissible.
+
+6. Trace Floyd-Warshall on a 3-node triangle graph with weights 1, 2, and 3. Show the matrix after each k.
+
+7. Why does Bellman-Ford need V-1 passes? Construct a graph where the shortest path uses exactly V-1 edges.
+
+8. In Dijkstra, what happens if you use a regular queue instead of a priority queue? Trace it on a small weighted graph.
 
 ---
 
@@ -347,10 +553,11 @@ For a focused introduction to Dijkstra's algorithm, see
   programming.
 - A* uses heuristics to focus the search toward a target.
 - Shortest path algorithms differ because graph assumptions differ.
+- Negative edges break greedy finalization; Bellman-Ford replaces it with repeated relaxation.
 
 The next lesson covers a different graph optimization problem:
-connecting all vertices as cheaply as possible with a minimum spanning
-tree.
+ connecting all vertices as cheaply as possible with a minimum spanning
+ tree.
 
 ---
 
