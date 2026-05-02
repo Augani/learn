@@ -8952,6 +8952,637 @@
           "isReference": true
         }
       ]
+    },
+    {
+      "id": "dsa-mastery",
+      "title": "DSA Mastery",
+      "description": "The complete data structures and algorithms track. No CS degree required.",
+      "lessonCount": 65,
+      "status": "Complete",
+      "order": 53,
+      "lessons": [
+        {
+          "id": "dsa-mastery/01-what-are-data-structures",
+          "filename": "01-what-are-data-structures.md",
+          "title": "Lesson 01: What Are Data Structures and Why Do They Matter?",
+          "trackId": "dsa-mastery",
+          "order": 1,
+          "wordCount": 2461,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/02-computational-complexity",
+          "filename": "02-computational-complexity.md",
+          "title": "Lesson 02: Computational Complexity — Big-O and Beyond",
+          "trackId": "dsa-mastery",
+          "order": 2,
+          "wordCount": 3134,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/03-arrays-and-dynamic-arrays",
+          "filename": "03-arrays-and-dynamic-arrays.md",
+          "title": "Lesson 03: Arrays and Dynamic Arrays",
+          "trackId": "dsa-mastery",
+          "order": 3,
+          "wordCount": 2951,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/04-linked-lists",
+          "filename": "04-linked-lists.md",
+          "title": "Lesson 04: Linked Lists — Singly, Doubly, and Circular",
+          "trackId": "dsa-mastery",
+          "order": 4,
+          "wordCount": 3565,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/05-stacks",
+          "filename": "05-stacks.md",
+          "title": "Lesson 05: Stacks — Last In, First Out",
+          "trackId": "dsa-mastery",
+          "order": 5,
+          "wordCount": 3178,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/06-queues-and-deques",
+          "filename": "06-queues-and-deques.md",
+          "title": "Lesson 06: Queues, Deques, and Circular Buffers",
+          "trackId": "dsa-mastery",
+          "order": 6,
+          "wordCount": 3456,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/07-hash-tables",
+          "filename": "07-hash-tables.md",
+          "title": "Lesson 07: Hash Tables — O(1) Lookup Magic",
+          "trackId": "dsa-mastery",
+          "order": 7,
+          "wordCount": 4041,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/08-hash-sets-and-multisets",
+          "filename": "08-hash-sets-and-multisets.md",
+          "title": "Lesson 08: Hash Sets, Multisets, and Bloom Filters",
+          "trackId": "dsa-mastery",
+          "order": 8,
+          "wordCount": 4448,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/09-practice-fundamentals",
+          "filename": "09-practice-fundamentals.md",
+          "title": "Lesson 09: Practice Problems — Fundamentals",
+          "trackId": "dsa-mastery",
+          "order": 9,
+          "wordCount": 7060,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/10-amortized-analysis-deep-dive",
+          "filename": "10-amortized-analysis-deep-dive.md",
+          "title": "Lesson 10: Amortized Analysis Deep Dive",
+          "trackId": "dsa-mastery",
+          "order": 10,
+          "wordCount": 4260,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/11-comparison-sorting",
+          "filename": "11-comparison-sorting.md",
+          "title": "Lesson 11: Comparison-Based Sorting",
+          "trackId": "dsa-mastery",
+          "order": 11,
+          "wordCount": 5184,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/12-non-comparison-sorting",
+          "filename": "12-non-comparison-sorting.md",
+          "title": "Lesson 12: Non-Comparison Sorting — Breaking the O(n log n) Barrier",
+          "trackId": "dsa-mastery",
+          "order": 12,
+          "wordCount": 4325,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/13-searching-algorithms",
+          "filename": "13-searching-algorithms.md",
+          "title": "Lesson 13: Searching Algorithms",
+          "trackId": "dsa-mastery",
+          "order": 13,
+          "wordCount": 4654,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/14-two-pointers-sliding-window",
+          "filename": "14-two-pointers-sliding-window.md",
+          "title": "Lesson 14: Two Pointers and Sliding Window",
+          "trackId": "dsa-mastery",
+          "order": 14,
+          "wordCount": 2691,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/15-practice-sorting-searching",
+          "filename": "15-practice-sorting-searching.md",
+          "title": "Lesson 15: Practice Problems — Sorting and Searching",
+          "trackId": "dsa-mastery",
+          "order": 15,
+          "wordCount": 3626,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/16-sorting-in-practice",
+          "filename": "16-sorting-in-practice.md",
+          "title": "Lesson 16: Sorting in Practice — Hybrid Algorithms and Real-World Considerations",
+          "trackId": "dsa-mastery",
+          "order": 16,
+          "wordCount": 1953,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/17-binary-trees",
+          "filename": "17-binary-trees.md",
+          "title": "Lesson 17: Binary Trees and Traversals",
+          "trackId": "dsa-mastery",
+          "order": 17,
+          "wordCount": 2584,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/18-binary-search-trees",
+          "filename": "18-binary-search-trees.md",
+          "title": "Lesson 18: Binary Search Trees",
+          "trackId": "dsa-mastery",
+          "order": 18,
+          "wordCount": 2352,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/19-balanced-trees",
+          "filename": "19-balanced-trees.md",
+          "title": "Lesson 19: Balanced Binary Search Trees — AVL and Red-Black Trees",
+          "trackId": "dsa-mastery",
+          "order": 19,
+          "wordCount": 2033,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/20-heaps-and-priority-queues",
+          "filename": "20-heaps-and-priority-queues.md",
+          "title": "Lesson 20: Heaps and Priority Queues",
+          "trackId": "dsa-mastery",
+          "order": 20,
+          "wordCount": 2512,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/21-b-trees",
+          "filename": "21-b-trees.md",
+          "title": "Lesson 21: B-Trees and B+ Trees — Disk-Oriented Search Trees",
+          "trackId": "dsa-mastery",
+          "order": 21,
+          "wordCount": 1869,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/22-tries",
+          "filename": "22-tries.md",
+          "title": "Lesson 22: Tries — Prefix Trees",
+          "trackId": "dsa-mastery",
+          "order": 22,
+          "wordCount": 1690,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/23-segment-trees-fenwick",
+          "filename": "23-segment-trees-fenwick.md",
+          "title": "Lesson 23: Segment Trees and Fenwick Trees",
+          "trackId": "dsa-mastery",
+          "order": 23,
+          "wordCount": 2563,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/24-practice-trees",
+          "filename": "24-practice-trees.md",
+          "title": "Lesson 24: Practice Problems — Trees",
+          "trackId": "dsa-mastery",
+          "order": 24,
+          "wordCount": 2757,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/25-tree-techniques",
+          "filename": "25-tree-techniques.md",
+          "title": "Lesson 25: Tree Techniques — LCA, Morris Traversal, and Tree DP",
+          "trackId": "dsa-mastery",
+          "order": 25,
+          "wordCount": 1668,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/26-graph-representations",
+          "filename": "26-graph-representations.md",
+          "title": "Lesson 26: Graph Representations",
+          "trackId": "dsa-mastery",
+          "order": 26,
+          "wordCount": 1063,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/27-bfs-dfs",
+          "filename": "27-bfs-dfs.md",
+          "title": "Lesson 27: Graph Traversals — BFS and DFS",
+          "trackId": "dsa-mastery",
+          "order": 27,
+          "wordCount": 1066,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/28-shortest-paths",
+          "filename": "28-shortest-paths.md",
+          "title": "Lesson 28: Shortest Path Algorithms",
+          "trackId": "dsa-mastery",
+          "order": 28,
+          "wordCount": 1154,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/29-minimum-spanning-trees",
+          "filename": "29-minimum-spanning-trees.md",
+          "title": "Lesson 29: Minimum Spanning Trees — Kruskal's and Prim's",
+          "trackId": "dsa-mastery",
+          "order": 29,
+          "wordCount": 866,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/30-topological-sort",
+          "filename": "30-topological-sort.md",
+          "title": "Lesson 30: Topological Sort",
+          "trackId": "dsa-mastery",
+          "order": 30,
+          "wordCount": 786,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/31-union-find",
+          "filename": "31-union-find.md",
+          "title": "Lesson 31: Union-Find (Disjoint Set Union)",
+          "trackId": "dsa-mastery",
+          "order": 31,
+          "wordCount": 810,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/32-network-flow",
+          "filename": "32-network-flow.md",
+          "title": "Lesson 32: Network Flow",
+          "trackId": "dsa-mastery",
+          "order": 32,
+          "wordCount": 1019,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/33-strongly-connected-components",
+          "filename": "33-strongly-connected-components.md",
+          "title": "Lesson 33: Strongly Connected Components",
+          "trackId": "dsa-mastery",
+          "order": 33,
+          "wordCount": 960,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/34-practice-graphs",
+          "filename": "34-practice-graphs.md",
+          "title": "Lesson 34: Practice Problems — Graphs",
+          "trackId": "dsa-mastery",
+          "order": 34,
+          "wordCount": 2031,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/35-graph-modeling",
+          "filename": "35-graph-modeling.md",
+          "title": "Lesson 35: Graph Modeling Techniques",
+          "trackId": "dsa-mastery",
+          "order": 35,
+          "wordCount": 734,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/36-recursion-recurrences",
+          "filename": "36-recursion-recurrences.md",
+          "title": "Lesson 36: Recursion and Recurrence Relations",
+          "trackId": "dsa-mastery",
+          "order": 36,
+          "wordCount": 3156,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/37-divide-and-conquer",
+          "filename": "37-divide-and-conquer.md",
+          "title": "Lesson 37: Divide and Conquer",
+          "trackId": "dsa-mastery",
+          "order": 37,
+          "wordCount": 1502,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/38-dp-fundamentals",
+          "filename": "38-dp-fundamentals.md",
+          "title": "Lesson 38: Dynamic Programming Fundamentals",
+          "trackId": "dsa-mastery",
+          "order": 38,
+          "wordCount": 1381,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/39-dp-advanced",
+          "filename": "39-dp-advanced.md",
+          "title": "Lesson 39: Advanced Dynamic Programming",
+          "trackId": "dsa-mastery",
+          "order": 39,
+          "wordCount": 1354,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/40-greedy-algorithms",
+          "filename": "40-greedy-algorithms.md",
+          "title": "Lesson 40: Greedy Algorithms",
+          "trackId": "dsa-mastery",
+          "order": 40,
+          "wordCount": 1056,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/41-backtracking",
+          "filename": "41-backtracking.md",
+          "title": "Lesson 41: Backtracking",
+          "trackId": "dsa-mastery",
+          "order": 41,
+          "wordCount": 997,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/42-practice-paradigms",
+          "filename": "42-practice-paradigms.md",
+          "title": "Lesson 42: Practice Problems — Algorithm Design Paradigms",
+          "trackId": "dsa-mastery",
+          "order": 42,
+          "wordCount": 909,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/43-paradigm-selection",
+          "filename": "43-paradigm-selection.md",
+          "title": "Lesson 43: Choosing the Right Paradigm",
+          "trackId": "dsa-mastery",
+          "order": 43,
+          "wordCount": 920,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/44-string-matching",
+          "filename": "44-string-matching.md",
+          "title": "Lesson 44: String Matching Algorithms",
+          "trackId": "dsa-mastery",
+          "order": 44,
+          "wordCount": 1419,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/45-advanced-string-structures",
+          "filename": "45-advanced-string-structures.md",
+          "title": "Lesson 45: Advanced String Data Structures",
+          "trackId": "dsa-mastery",
+          "order": 45,
+          "wordCount": 855,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/46-practice-strings",
+          "filename": "46-practice-strings.md",
+          "title": "Lesson 46: Practice Problems — Strings",
+          "trackId": "dsa-mastery",
+          "order": 46,
+          "wordCount": 850,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/47-bit-manipulation",
+          "filename": "47-bit-manipulation.md",
+          "title": "Lesson 47: Bit Manipulation",
+          "trackId": "dsa-mastery",
+          "order": 47,
+          "wordCount": 790,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/48-randomized-algorithms",
+          "filename": "48-randomized-algorithms.md",
+          "title": "Lesson 48: Randomized Algorithms",
+          "trackId": "dsa-mastery",
+          "order": 48,
+          "wordCount": 707,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/49-computational-geometry",
+          "filename": "49-computational-geometry.md",
+          "title": "Lesson 49: Computational Geometry",
+          "trackId": "dsa-mastery",
+          "order": 49,
+          "wordCount": 709,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/50-np-completeness",
+          "filename": "50-np-completeness.md",
+          "title": "Lesson 50: NP-Completeness and Computational Complexity",
+          "trackId": "dsa-mastery",
+          "order": 50,
+          "wordCount": 847,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/51-advanced-data-structures",
+          "filename": "51-advanced-data-structures.md",
+          "title": "Lesson 51: Advanced Data Structures",
+          "trackId": "dsa-mastery",
+          "order": 51,
+          "wordCount": 710,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/52-cache-friendly-algorithms",
+          "filename": "52-cache-friendly-algorithms.md",
+          "title": "Lesson 52: Cache-Friendly Algorithms",
+          "trackId": "dsa-mastery",
+          "order": 52,
+          "wordCount": 649,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/53-practice-advanced",
+          "filename": "53-practice-advanced.md",
+          "title": "Lesson 53: Practice Problems — Advanced Topics",
+          "trackId": "dsa-mastery",
+          "order": 53,
+          "wordCount": 1968,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/54-amortized-and-probabilistic",
+          "filename": "54-amortized-and-probabilistic.md",
+          "title": "Lesson 54: Amortized and Probabilistic Analysis",
+          "trackId": "dsa-mastery",
+          "order": 54,
+          "wordCount": 1579,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/55-problem-solving-methodology",
+          "filename": "55-problem-solving-methodology.md",
+          "title": "Lesson 55: Problem-Solving Methodology",
+          "trackId": "dsa-mastery",
+          "order": 55,
+          "wordCount": 1180,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/56-common-patterns",
+          "filename": "56-common-patterns.md",
+          "title": "Lesson 56: Recognizing Common LeetCode Patterns",
+          "trackId": "dsa-mastery",
+          "order": 56,
+          "wordCount": 1157,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/57-brute-force-to-optimal",
+          "filename": "57-brute-force-to-optimal.md",
+          "title": "Lesson 57: The Brute-Force-to-Optimal Methodology",
+          "trackId": "dsa-mastery",
+          "order": 57,
+          "wordCount": 1119,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/58-advanced-patterns",
+          "filename": "58-advanced-patterns.md",
+          "title": "Lesson 58: Advanced LeetCode Patterns",
+          "trackId": "dsa-mastery",
+          "order": 58,
+          "wordCount": 1127,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/59-solution-analysis",
+          "filename": "59-solution-analysis.md",
+          "title": "Lesson 59: Solution Analysis and Optimization",
+          "trackId": "dsa-mastery",
+          "order": 59,
+          "wordCount": 991,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/60-hard-problem-strategies",
+          "filename": "60-hard-problem-strategies.md",
+          "title": "Lesson 60: Hard Problem Strategies",
+          "trackId": "dsa-mastery",
+          "order": 60,
+          "wordCount": 846,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/61-practice-easy-medium",
+          "filename": "61-practice-easy-medium.md",
+          "title": "Lesson 61: Practice Problems — Easy and Medium Patterns",
+          "trackId": "dsa-mastery",
+          "order": 61,
+          "wordCount": 843,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/62-practice-medium-hard",
+          "filename": "62-practice-medium-hard.md",
+          "title": "Lesson 62: Practice Problems — Medium to Hard Transition",
+          "trackId": "dsa-mastery",
+          "order": 62,
+          "wordCount": 875,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/63-practice-hard-combined",
+          "filename": "63-practice-hard-combined.md",
+          "title": "Lesson 63: Practice Problems — Hard Combined Techniques",
+          "trackId": "dsa-mastery",
+          "order": 63,
+          "wordCount": 777,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/64-practice-hard-capstone",
+          "filename": "64-practice-hard-capstone.md",
+          "title": "Lesson 64: Capstone Assessment — Hard Problems",
+          "trackId": "dsa-mastery",
+          "order": 64,
+          "wordCount": 1149,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/65-what-next",
+          "filename": "65-what-next.md",
+          "title": "Lesson 65: What's Next — Beyond This Track",
+          "trackId": "dsa-mastery",
+          "order": 65,
+          "wordCount": 843,
+          "isReference": false
+        },
+        {
+          "id": "dsa-mastery/reference-complexity",
+          "filename": "reference-complexity.md",
+          "title": "DSA Mastery Reference: Complexity Cheat Sheet",
+          "trackId": "dsa-mastery",
+          "order": 965,
+          "wordCount": 1988,
+          "isReference": true
+        },
+        {
+          "id": "dsa-mastery/reference-decision-guide",
+          "filename": "reference-decision-guide.md",
+          "title": "DSA Mastery Reference: Data Structure and Algorithm Selection Guide",
+          "trackId": "dsa-mastery",
+          "order": 966,
+          "wordCount": 856,
+          "isReference": true
+        },
+        {
+          "id": "dsa-mastery/reference-patterns",
+          "filename": "reference-patterns.md",
+          "title": "DSA Mastery Reference: LeetCode Patterns Catalog",
+          "trackId": "dsa-mastery",
+          "order": 967,
+          "wordCount": 955,
+          "isReference": true
+        },
+        {
+          "id": "dsa-mastery/reference-problem-solving",
+          "filename": "reference-problem-solving.md",
+          "title": "DSA Mastery Reference: Problem-Solving Checklist and Pattern Recognition",
+          "trackId": "dsa-mastery",
+          "order": 968,
+          "wordCount": 717,
+          "isReference": true
+        }
+      ]
     }
   ],
   "careerTracks": [
@@ -9601,6 +10232,6 @@
       ]
     }
   ],
-  "totalLessons": 841,
-  "generatedAt": "2026-04-18T16:41:12.796Z"
+  "totalLessons": 906,
+  "generatedAt": "2026-05-02T17:32:22.924Z"
 }

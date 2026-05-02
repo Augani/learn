@@ -1,7 +1,7 @@
 # Systems Programming, DevOps & AI Learning Path
 
-A self-taught path to systems programming, infrastructure, and AI competency.
-52 tracks, 841 lessons — work through them in parallel or sequentially.
+A self-taught path to systems programming, infrastructure, AI, and deep algorithmic problem solving.
+53 tracks, 906 lessons — work through them in parallel or sequentially.
 
 ---
 
@@ -34,6 +34,9 @@ Weeks 25+:    Capstone projects combining everything
 
 **[Data Structures & Algorithms](./data-structures/00-roadmap.md)**
 16 lessons — arrays, hash maps, trees, graphs, caching. In Rust.
+
+**[DSA Mastery](./dsa-mastery/00-roadmap.md)**
+65 lessons — a full zero-to-hard LeetCode sequence covering data structures, algorithms, paradigms, strings, advanced topics, and interview problem-solving methodology. No prerequisites required.
 
 **[Discrete Math & Logic](./discrete-math/00-roadmap.md)**
 14 lessons — sets, logic, proofs, combinatorics, graph theory, number theory.
@@ -215,7 +218,7 @@ Weeks 25+:    Capstone projects combining everything
 
 ---
 
-## Total: 841 lessons across 52 tracks
+## Total: 906 lessons across 53 tracks
 
 Estimated time: 60-80 weeks at ~2 hours/day, or 30-40 weeks at ~4 hours/day.
 

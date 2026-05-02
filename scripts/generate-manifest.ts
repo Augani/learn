@@ -77,6 +77,7 @@ const TRACK_ORDER: Record<string, number> = {
   'build-deploy-llm': 50,
   'time-series-forecasting': 51,
   'ethics-fairness-ai': 52,
+  'dsa-mastery': 53,
 };
 
 function extractTitle(content: string, filename: string): string {
@@ -150,6 +151,7 @@ function formatTrackTitle(dirName: string): string {
     'build-deploy-llm': 'Build & Deploy LLM Capstone',
     'time-series-forecasting': 'Time Series & Forecasting',
     'ethics-fairness-ai': 'Ethics, Fairness & Responsible AI',
+    'dsa-mastery': 'DSA Mastery',
   };
   return titles[dirName] || dirName.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }

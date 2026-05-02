@@ -6,7 +6,7 @@ Bite-sized lessons for learning computer science, software engineering, AI/ML, a
 
 ## What's Here
 
-- **841 lessons** across **52 topics**
+- **906 lessons** across **53 topics**
 - **14 career tracks** guiding you from beginner to advanced
 - **Book recommendations** on every topic (verified, real books — free ones marked)
 - **Offline support** — download tracks to read without internet
@@ -38,6 +38,7 @@ Pick a career path and follow the ordered topics:
 ### Fundamentals
 - **CS Fundamentals** — How computers work, memory, types, compilation, concurrency
 - **Data Structures & Algorithms** — Arrays to graphs, Big-O, searching, sorting, caching
+- **DSA Mastery** — A full zero-to-hard interview track for data structures, algorithms, advanced techniques, and LeetCode-style problem solving
 - **Discrete Math & Logic** — Propositional logic, sets, graph theory, computability
 
 ### Languages
