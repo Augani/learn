@@ -119,6 +119,160 @@
       ]
     },
     {
+      "id": "computer-architecture",
+      "title": "Computer Architecture",
+      "description": "This track explains what the CPU is actually doing while your code runs.",
+      "lessonCount": 16,
+      "status": "Complete",
+      "order": 1.5,
+      "lessons": [
+        {
+          "id": "computer-architecture/01-von-neumann-architecture",
+          "filename": "01-von-neumann-architecture.md",
+          "title": "Lesson 01: Von Neumann Architecture",
+          "trackId": "computer-architecture",
+          "order": 1,
+          "wordCount": 1646,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/02-instruction-set-architecture",
+          "filename": "02-instruction-set-architecture.md",
+          "title": "Lesson 02: Instruction Set Architecture",
+          "trackId": "computer-architecture",
+          "order": 2,
+          "wordCount": 1763,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/03-registers-and-the-register-file",
+          "filename": "03-registers-and-the-register-file.md",
+          "title": "Lesson 03: Registers and the Register File",
+          "trackId": "computer-architecture",
+          "order": 3,
+          "wordCount": 1477,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/04-fetch-decode-execute-cycle",
+          "filename": "04-fetch-decode-execute-cycle.md",
+          "title": "Lesson 04: The Fetch-Decode-Execute Cycle",
+          "trackId": "computer-architecture",
+          "order": 4,
+          "wordCount": 1369,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/05-pipelining",
+          "filename": "05-pipelining.md",
+          "title": "Lesson 05: Pipelining",
+          "trackId": "computer-architecture",
+          "order": 5,
+          "wordCount": 1222,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/06-branch-prediction",
+          "filename": "06-branch-prediction.md",
+          "title": "Lesson 06: Branch Prediction",
+          "trackId": "computer-architecture",
+          "order": 6,
+          "wordCount": 1212,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/07-out-of-order-execution",
+          "filename": "07-out-of-order-execution.md",
+          "title": "Lesson 07: Out-of-Order Execution",
+          "trackId": "computer-architecture",
+          "order": 7,
+          "wordCount": 1336,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/08-superscalar-and-vliw",
+          "filename": "08-superscalar-and-vliw.md",
+          "title": "Lesson 08: Superscalar and VLIW",
+          "trackId": "computer-architecture",
+          "order": 8,
+          "wordCount": 1138,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/09-cache-hierarchy",
+          "filename": "09-cache-hierarchy.md",
+          "title": "Lesson 09: Cache Hierarchy (L1, L2, L3)",
+          "trackId": "computer-architecture",
+          "order": 9,
+          "wordCount": 1172,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/10-cache-behavior-and-performance",
+          "filename": "10-cache-behavior-and-performance.md",
+          "title": "Lesson 10: Cache Behavior and Performance",
+          "trackId": "computer-architecture",
+          "order": 10,
+          "wordCount": 1151,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/11-virtual-memory-and-the-tlb",
+          "filename": "11-virtual-memory-and-the-tlb.md",
+          "title": "Lesson 11: Virtual Memory and the TLB",
+          "trackId": "computer-architecture",
+          "order": 11,
+          "wordCount": 1047,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/12-memory-ordering-and-barriers",
+          "filename": "12-memory-ordering-and-barriers.md",
+          "title": "Lesson 12: Memory Ordering and Barriers",
+          "trackId": "computer-architecture",
+          "order": 12,
+          "wordCount": 1047,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/13-simd-and-vector-processing",
+          "filename": "13-simd-and-vector-processing.md",
+          "title": "Lesson 13: SIMD and Vector Processing",
+          "trackId": "computer-architecture",
+          "order": 13,
+          "wordCount": 921,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/14-multicore-and-cache-coherence",
+          "filename": "14-multicore-and-cache-coherence.md",
+          "title": "Lesson 14: Multicore and Cache Coherence",
+          "trackId": "computer-architecture",
+          "order": 14,
+          "wordCount": 1024,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/15-power-thermals-and-frequency",
+          "filename": "15-power-thermals-and-frequency.md",
+          "title": "Lesson 15: Power, Thermals, and Frequency",
+          "trackId": "computer-architecture",
+          "order": 15,
+          "wordCount": 1001,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/16-modern-cpu-trends",
+          "filename": "16-modern-cpu-trends.md",
+          "title": "Lesson 16: Modern CPU Trends",
+          "trackId": "computer-architecture",
+          "order": 16,
+          "wordCount": 968,
+          "isReference": false
+        }
+      ]
+    },
+    {
       "id": "rust",
       "title": "Rust",
       "description": "This track is for learners from any programming background, including people",
@@ -10232,6 +10386,6 @@
       ]
     }
   ],
-  "totalLessons": 906,
-  "generatedAt": "2026-05-02T20:52:56.334Z"
+  "totalLessons": 922,
+  "generatedAt": "2026-05-05T05:07:16.698Z"
 }

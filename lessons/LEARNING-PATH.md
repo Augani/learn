@@ -32,6 +32,9 @@ Weeks 25+:    Capstone projects combining everything
 **[CS Fundamentals](./cs-fundamentals/00-roadmap.md)**
 12 lessons — how computers work, memory, types, pointers, compilation, linking.
 
+**[Computer Architecture](./computer-architecture/00-roadmap.md)**
+16 lessons — CPU execution, instruction sets, pipelines, caches, virtual memory, SIMD, multicore.
+
 **[Data Structures & Algorithms](./data-structures/00-roadmap.md)**
 16 lessons — arrays, hash maps, trees, graphs, caching. In Rust.
 
