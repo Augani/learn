@@ -27,6 +27,8 @@ interface Track {
 const TRACK_ORDER: Record<string, number> = {
   'cs-fundamentals': 1,
   'computer-architecture': 1.5,
+  'data-representation-encoding': 1.75,
+  'digital-logic-circuit-foundations': 1.875,
   'rust': 2,
   'linux-fundamentals': 3,
   'os-concepts': 4,
@@ -134,6 +136,8 @@ function formatTrackTitle(dirName: string): string {
     'discrete-math': 'Discrete Math & Logic',
     'cs-fundamentals': 'CS Fundamentals',
     'computer-architecture': 'Computer Architecture',
+    'data-representation-encoding': 'Data Representation & Encoding',
+    'digital-logic-circuit-foundations': 'Digital Logic & Circuit Foundations',
     'testing-quality': 'Testing & Quality',
     'design-patterns': 'Design Patterns',
     'ci-cd-pipelines': 'CI/CD Pipelines',

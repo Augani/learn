@@ -273,6 +273,242 @@
       ]
     },
     {
+      "id": "data-representation-encoding",
+      "title": "Data Representation & Encoding",
+      "description": "This track explains how numbers, text, images, audio, and structured data",
+      "lessonCount": 12,
+      "status": "Complete",
+      "order": 1.75,
+      "lessons": [
+        {
+          "id": "data-representation-encoding/01-why-binary",
+          "filename": "01-why-binary.md",
+          "title": "Lesson 01: Why Binary",
+          "trackId": "data-representation-encoding",
+          "order": 1,
+          "wordCount": 905,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/02-integer-representation",
+          "filename": "02-integer-representation.md",
+          "title": "Lesson 02: Integer Representation",
+          "trackId": "data-representation-encoding",
+          "order": 2,
+          "wordCount": 950,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/03-floating-point-ieee-754",
+          "filename": "03-floating-point-ieee-754.md",
+          "title": "Lesson 03: Floating Point (IEEE 754)",
+          "trackId": "data-representation-encoding",
+          "order": 3,
+          "wordCount": 874,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/04-floating-point-pitfalls",
+          "filename": "04-floating-point-pitfalls.md",
+          "title": "Lesson 04: Floating Point Pitfalls",
+          "trackId": "data-representation-encoding",
+          "order": 4,
+          "wordCount": 929,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/05-character-encoding",
+          "filename": "05-character-encoding.md",
+          "title": "Lesson 05: Character Encoding",
+          "trackId": "data-representation-encoding",
+          "order": 5,
+          "wordCount": 822,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/06-utf8-and-beyond",
+          "filename": "06-utf8-and-beyond.md",
+          "title": "Lesson 06: UTF-8 and Beyond",
+          "trackId": "data-representation-encoding",
+          "order": 6,
+          "wordCount": 865,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/07-endianness",
+          "filename": "07-endianness.md",
+          "title": "Lesson 07: Endianness",
+          "trackId": "data-representation-encoding",
+          "order": 7,
+          "wordCount": 782,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/08-pixel-data-and-color",
+          "filename": "08-pixel-data-and-color.md",
+          "title": "Lesson 08: Pixel Data and Color",
+          "trackId": "data-representation-encoding",
+          "order": 8,
+          "wordCount": 802,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/09-audio-representation",
+          "filename": "09-audio-representation.md",
+          "title": "Lesson 09: Audio Representation",
+          "trackId": "data-representation-encoding",
+          "order": 9,
+          "wordCount": 677,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/10-compression-fundamentals",
+          "filename": "10-compression-fundamentals.md",
+          "title": "Lesson 10: Compression Fundamentals",
+          "trackId": "data-representation-encoding",
+          "order": 10,
+          "wordCount": 743,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/11-image-and-video-formats",
+          "filename": "11-image-and-video-formats.md",
+          "title": "Lesson 11: Image and Video Formats",
+          "trackId": "data-representation-encoding",
+          "order": 11,
+          "wordCount": 740,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/12-serialization-and-wire-formats",
+          "filename": "12-serialization-and-wire-formats.md",
+          "title": "Lesson 12: Serialization and Wire Formats",
+          "trackId": "data-representation-encoding",
+          "order": 12,
+          "wordCount": 840,
+          "isReference": false
+        }
+      ]
+    },
+    {
+      "id": "digital-logic-circuit-foundations",
+      "title": "Digital Logic & Circuit Foundations",
+      "description": "This track explains how hardware performs logic, stores bits, and builds up from",
+      "lessonCount": 12,
+      "status": "Complete",
+      "order": 1.875,
+      "lessons": [
+        {
+          "id": "digital-logic-circuit-foundations/01-from-switches-to-logic",
+          "filename": "01-from-switches-to-logic.md",
+          "title": "Lesson 01: From Switches to Logic",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 1,
+          "wordCount": 708,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/02-logic-gates",
+          "filename": "02-logic-gates.md",
+          "title": "Lesson 02: Logic Gates",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 2,
+          "wordCount": 703,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/03-combining-gates",
+          "filename": "03-combining-gates.md",
+          "title": "Lesson 03: Combining Gates",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 3,
+          "wordCount": 652,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/04-the-alu",
+          "filename": "04-the-alu.md",
+          "title": "Lesson 04: The ALU",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 4,
+          "wordCount": 754,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/05-flip-flops-and-memory",
+          "filename": "05-flip-flops-and-memory.md",
+          "title": "Lesson 05: Flip-Flops and Memory",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 5,
+          "wordCount": 561,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/06-registers-and-counters",
+          "filename": "06-registers-and-counters.md",
+          "title": "Lesson 06: Registers and Counters",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 6,
+          "wordCount": 459,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/07-multiplexers-and-decoders",
+          "filename": "07-multiplexers-and-decoders.md",
+          "title": "Lesson 07: Multiplexers and Decoders",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 7,
+          "wordCount": 495,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/08-sequential-vs-combinational",
+          "filename": "08-sequential-vs-combinational.md",
+          "title": "Lesson 08: Sequential vs Combinational Logic",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 8,
+          "wordCount": 450,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/09-the-clock",
+          "filename": "09-the-clock.md",
+          "title": "Lesson 09: The Clock",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 9,
+          "wordCount": 466,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/10-building-a-simple-cpu",
+          "filename": "10-building-a-simple-cpu.md",
+          "title": "Lesson 10: Building a Simple CPU",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 10,
+          "wordCount": 536,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/11-from-diagram-to-silicon",
+          "filename": "11-from-diagram-to-silicon.md",
+          "title": "Lesson 11: From Diagram to Silicon",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 11,
+          "wordCount": 455,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/12-why-this-matters",
+          "filename": "12-why-this-matters.md",
+          "title": "Lesson 12: Why This Matters",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 12,
+          "wordCount": 523,
+          "isReference": false
+        }
+      ]
+    },
+    {
       "id": "rust",
       "title": "Rust",
       "description": "This track is for learners from any programming background, including people",
@@ -10386,6 +10622,6 @@
       ]
     }
   ],
-  "totalLessons": 922,
-  "generatedAt": "2026-05-05T05:07:16.698Z"
+  "totalLessons": 946,
+  "generatedAt": "2026-05-05T05:17:20.072Z"
 }

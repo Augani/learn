@@ -35,6 +35,12 @@ Weeks 25+:    Capstone projects combining everything
 **[Computer Architecture](./computer-architecture/00-roadmap.md)**
 16 lessons — CPU execution, instruction sets, pipelines, caches, virtual memory, SIMD, multicore.
 
+**[Data Representation & Encoding](./data-representation-encoding/00-roadmap.md)**
+12 lessons — integers, floating point, text encodings, endianness, media formats, compression, serialization.
+
+**[Digital Logic & Circuit Foundations](./digital-logic-circuit-foundations/00-roadmap.md)**
+12 lessons — switches, gates, adders, memory cells, registers, counters, simple CPU construction.
+
 **[Data Structures & Algorithms](./data-structures/00-roadmap.md)**
 16 lessons — arrays, hash maps, trees, graphs, caching. In Rust.
 
