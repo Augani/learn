@@ -509,6 +509,288 @@
       ]
     },
     {
+      "id": "boot-process-firmware",
+      "title": "Boot Process & Firmware",
+      "description": "This track explains what happens between pressing the power button and reaching",
+      "lessonCount": 10,
+      "status": "Complete",
+      "order": 1.9375,
+      "lessons": [
+        {
+          "id": "boot-process-firmware/01-power-on-what-happens-first",
+          "filename": "01-power-on-what-happens-first.md",
+          "title": "Lesson 01: Power On — What Happens First",
+          "trackId": "boot-process-firmware",
+          "order": 1,
+          "wordCount": 731,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/02-bios-vs-uefi",
+          "filename": "02-bios-vs-uefi.md",
+          "title": "Lesson 02: BIOS vs UEFI",
+          "trackId": "boot-process-firmware",
+          "order": 2,
+          "wordCount": 722,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/03-post-and-hardware-discovery",
+          "filename": "03-post-and-hardware-discovery.md",
+          "title": "Lesson 03: POST and Hardware Discovery",
+          "trackId": "boot-process-firmware",
+          "order": 3,
+          "wordCount": 650,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/04-the-bootloader",
+          "filename": "04-the-bootloader.md",
+          "title": "Lesson 04: The Bootloader",
+          "trackId": "boot-process-firmware",
+          "order": 4,
+          "wordCount": 473,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/05-kernel-initialization",
+          "filename": "05-kernel-initialization.md",
+          "title": "Lesson 05: Kernel Initialization",
+          "trackId": "boot-process-firmware",
+          "order": 5,
+          "wordCount": 475,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/06-init-systems",
+          "filename": "06-init-systems.md",
+          "title": "Lesson 06: Init Systems",
+          "trackId": "boot-process-firmware",
+          "order": 6,
+          "wordCount": 441,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/07-device-drivers-and-modules",
+          "filename": "07-device-drivers-and-modules.md",
+          "title": "Lesson 07: Device Drivers and Modules",
+          "trackId": "boot-process-firmware",
+          "order": 7,
+          "wordCount": 505,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/08-user-space-startup",
+          "filename": "08-user-space-startup.md",
+          "title": "Lesson 08: User Space Startup",
+          "trackId": "boot-process-firmware",
+          "order": 8,
+          "wordCount": 469,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/09-firmware-beyond-pcs",
+          "filename": "09-firmware-beyond-pcs.md",
+          "title": "Lesson 09: Firmware Beyond PCs",
+          "trackId": "boot-process-firmware",
+          "order": 9,
+          "wordCount": 523,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/10-secure-boot-and-trust-chains",
+          "filename": "10-secure-boot-and-trust-chains.md",
+          "title": "Lesson 10: Secure Boot and Trust Chains",
+          "trackId": "boot-process-firmware",
+          "order": 10,
+          "wordCount": 565,
+          "isReference": false
+        }
+      ]
+    },
+    {
+      "id": "bus-io-peripherals",
+      "title": "Bus Architecture, I/O & Peripherals",
+      "description": "This track explains how the CPU communicates with the rest of the machine:",
+      "lessonCount": 10,
+      "status": "Complete",
+      "order": 1.96875,
+      "lessons": [
+        {
+          "id": "bus-io-peripherals/01-the-system-bus",
+          "filename": "01-the-system-bus.md",
+          "title": "Lesson 01: The System Bus",
+          "trackId": "bus-io-peripherals",
+          "order": 1,
+          "wordCount": 484,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/02-interrupts",
+          "filename": "02-interrupts.md",
+          "title": "Lesson 02: Interrupts",
+          "trackId": "bus-io-peripherals",
+          "order": 2,
+          "wordCount": 502,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/03-dma-direct-memory-access",
+          "filename": "03-dma-direct-memory-access.md",
+          "title": "Lesson 03: DMA — Direct Memory Access",
+          "trackId": "bus-io-peripherals",
+          "order": 3,
+          "wordCount": 518,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/04-pcie",
+          "filename": "04-pcie.md",
+          "title": "Lesson 04: PCIe",
+          "trackId": "bus-io-peripherals",
+          "order": 4,
+          "wordCount": 386,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/05-usb-architecture",
+          "filename": "05-usb-architecture.md",
+          "title": "Lesson 05: USB Architecture",
+          "trackId": "bus-io-peripherals",
+          "order": 5,
+          "wordCount": 445,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/06-storage-interfaces",
+          "filename": "06-storage-interfaces.md",
+          "title": "Lesson 06: Storage Interfaces",
+          "trackId": "bus-io-peripherals",
+          "order": 6,
+          "wordCount": 479,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/07-display-and-gpu-communication",
+          "filename": "07-display-and-gpu-communication.md",
+          "title": "Lesson 07: Display and GPU Communication",
+          "trackId": "bus-io-peripherals",
+          "order": 7,
+          "wordCount": 448,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/08-network-interface-cards",
+          "filename": "08-network-interface-cards.md",
+          "title": "Lesson 08: Network Interface Cards",
+          "trackId": "bus-io-peripherals",
+          "order": 8,
+          "wordCount": 463,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/09-memory-mapped-io-vs-port-io",
+          "filename": "09-memory-mapped-io-vs-port-io.md",
+          "title": "Lesson 09: Memory-Mapped I/O vs Port I/O",
+          "trackId": "bus-io-peripherals",
+          "order": 9,
+          "wordCount": 453,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/10-putting-it-together",
+          "filename": "10-putting-it-together.md",
+          "title": "Lesson 10: Putting It Together",
+          "trackId": "bus-io-peripherals",
+          "order": 10,
+          "wordCount": 498,
+          "isReference": false
+        }
+      ]
+    },
+    {
+      "id": "history-mental-models-computing",
+      "title": "History & Mental Models of Computing",
+      "description": "This track explains why modern computing looks the way it does. It is not a",
+      "lessonCount": 8,
+      "status": "Complete",
+      "order": 1.984375,
+      "lessons": [
+        {
+          "id": "history-mental-models-computing/01-turing-machines-and-computability",
+          "filename": "01-turing-machines-and-computability.md",
+          "title": "Lesson 01: Turing Machines and Computability",
+          "trackId": "history-mental-models-computing",
+          "order": 1,
+          "wordCount": 498,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/02-von-neumann-and-stored-programs",
+          "filename": "02-von-neumann-and-stored-programs.md",
+          "title": "Lesson 02: Von Neumann and Stored Programs",
+          "trackId": "history-mental-models-computing",
+          "order": 2,
+          "wordCount": 501,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/03-from-vacuum-tubes-to-transistors",
+          "filename": "03-from-vacuum-tubes-to-transistors.md",
+          "title": "Lesson 03: From Vacuum Tubes to Transistors",
+          "trackId": "history-mental-models-computing",
+          "order": 3,
+          "wordCount": 441,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/04-the-os-revolution",
+          "filename": "04-the-os-revolution.md",
+          "title": "Lesson 04: The OS Revolution",
+          "trackId": "history-mental-models-computing",
+          "order": 4,
+          "wordCount": 537,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/05-the-network-revolution",
+          "filename": "05-the-network-revolution.md",
+          "title": "Lesson 05: The Network Revolution",
+          "trackId": "history-mental-models-computing",
+          "order": 5,
+          "wordCount": 428,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/06-risc-vs-cisc-and-the-architecture-wars",
+          "filename": "06-risc-vs-cisc-and-the-architecture-wars.md",
+          "title": "Lesson 06: RISC vs CISC and the Architecture Wars",
+          "trackId": "history-mental-models-computing",
+          "order": 6,
+          "wordCount": 500,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/07-the-memory-wall-and-caching",
+          "filename": "07-the-memory-wall-and-caching.md",
+          "title": "Lesson 07: The Memory Wall and Caching",
+          "trackId": "history-mental-models-computing",
+          "order": 7,
+          "wordCount": 426,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/08-parallelism-and-the-end-of-free-lunch",
+          "filename": "08-parallelism-and-the-end-of-free-lunch.md",
+          "title": "Lesson 08: Parallelism and the End of Free Lunch",
+          "trackId": "history-mental-models-computing",
+          "order": 8,
+          "wordCount": 523,
+          "isReference": false
+        }
+      ]
+    },
+    {
       "id": "rust",
       "title": "Rust",
       "description": "This track is for learners from any programming background, including people",
@@ -10622,6 +10904,6 @@
       ]
     }
   ],
-  "totalLessons": 946,
-  "generatedAt": "2026-05-05T05:17:20.072Z"
+  "totalLessons": 974,
+  "generatedAt": "2026-05-05T05:26:26.909Z"
 }

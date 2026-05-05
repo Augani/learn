@@ -41,6 +41,15 @@ Weeks 25+:    Capstone projects combining everything
 **[Digital Logic & Circuit Foundations](./digital-logic-circuit-foundations/00-roadmap.md)**
 12 lessons — switches, gates, adders, memory cells, registers, counters, simple CPU construction.
 
+**[Boot Process & Firmware](./boot-process-firmware/00-roadmap.md)**
+10 lessons — power-on, BIOS vs UEFI, bootloaders, kernel init, drivers, init systems, secure boot.
+
+**[Bus Architecture, I/O & Peripherals](./bus-io-peripherals/00-roadmap.md)**
+10 lessons — system bus, interrupts, DMA, PCIe, USB, storage, GPU, NICs, MMIO, full device-to-app paths.
+
+**[History & Mental Models of Computing](./history-mental-models-computing/00-roadmap.md)**
+8 lessons — computability, stored programs, transistors, OS evolution, networking, ISA wars, caches, multicore.
+
 **[Data Structures & Algorithms](./data-structures/00-roadmap.md)**
 16 lessons — arrays, hash maps, trees, graphs, caching. In Rust.
 
