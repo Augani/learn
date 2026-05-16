@@ -119,6 +119,678 @@
       ]
     },
     {
+      "id": "computer-architecture",
+      "title": "Computer Architecture",
+      "description": "This track explains what the CPU is actually doing while your code runs.",
+      "lessonCount": 16,
+      "status": "Complete",
+      "order": 1.5,
+      "lessons": [
+        {
+          "id": "computer-architecture/01-von-neumann-architecture",
+          "filename": "01-von-neumann-architecture.md",
+          "title": "Lesson 01: Von Neumann Architecture",
+          "trackId": "computer-architecture",
+          "order": 1,
+          "wordCount": 1646,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/02-instruction-set-architecture",
+          "filename": "02-instruction-set-architecture.md",
+          "title": "Lesson 02: Instruction Set Architecture",
+          "trackId": "computer-architecture",
+          "order": 2,
+          "wordCount": 1763,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/03-registers-and-the-register-file",
+          "filename": "03-registers-and-the-register-file.md",
+          "title": "Lesson 03: Registers and the Register File",
+          "trackId": "computer-architecture",
+          "order": 3,
+          "wordCount": 1477,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/04-fetch-decode-execute-cycle",
+          "filename": "04-fetch-decode-execute-cycle.md",
+          "title": "Lesson 04: The Fetch-Decode-Execute Cycle",
+          "trackId": "computer-architecture",
+          "order": 4,
+          "wordCount": 1369,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/05-pipelining",
+          "filename": "05-pipelining.md",
+          "title": "Lesson 05: Pipelining",
+          "trackId": "computer-architecture",
+          "order": 5,
+          "wordCount": 1222,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/06-branch-prediction",
+          "filename": "06-branch-prediction.md",
+          "title": "Lesson 06: Branch Prediction",
+          "trackId": "computer-architecture",
+          "order": 6,
+          "wordCount": 1212,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/07-out-of-order-execution",
+          "filename": "07-out-of-order-execution.md",
+          "title": "Lesson 07: Out-of-Order Execution",
+          "trackId": "computer-architecture",
+          "order": 7,
+          "wordCount": 1336,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/08-superscalar-and-vliw",
+          "filename": "08-superscalar-and-vliw.md",
+          "title": "Lesson 08: Superscalar and VLIW",
+          "trackId": "computer-architecture",
+          "order": 8,
+          "wordCount": 1138,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/09-cache-hierarchy",
+          "filename": "09-cache-hierarchy.md",
+          "title": "Lesson 09: Cache Hierarchy (L1, L2, L3)",
+          "trackId": "computer-architecture",
+          "order": 9,
+          "wordCount": 1172,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/10-cache-behavior-and-performance",
+          "filename": "10-cache-behavior-and-performance.md",
+          "title": "Lesson 10: Cache Behavior and Performance",
+          "trackId": "computer-architecture",
+          "order": 10,
+          "wordCount": 1151,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/11-virtual-memory-and-the-tlb",
+          "filename": "11-virtual-memory-and-the-tlb.md",
+          "title": "Lesson 11: Virtual Memory and the TLB",
+          "trackId": "computer-architecture",
+          "order": 11,
+          "wordCount": 1047,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/12-memory-ordering-and-barriers",
+          "filename": "12-memory-ordering-and-barriers.md",
+          "title": "Lesson 12: Memory Ordering and Barriers",
+          "trackId": "computer-architecture",
+          "order": 12,
+          "wordCount": 1047,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/13-simd-and-vector-processing",
+          "filename": "13-simd-and-vector-processing.md",
+          "title": "Lesson 13: SIMD and Vector Processing",
+          "trackId": "computer-architecture",
+          "order": 13,
+          "wordCount": 921,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/14-multicore-and-cache-coherence",
+          "filename": "14-multicore-and-cache-coherence.md",
+          "title": "Lesson 14: Multicore and Cache Coherence",
+          "trackId": "computer-architecture",
+          "order": 14,
+          "wordCount": 1024,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/15-power-thermals-and-frequency",
+          "filename": "15-power-thermals-and-frequency.md",
+          "title": "Lesson 15: Power, Thermals, and Frequency",
+          "trackId": "computer-architecture",
+          "order": 15,
+          "wordCount": 1001,
+          "isReference": false
+        },
+        {
+          "id": "computer-architecture/16-modern-cpu-trends",
+          "filename": "16-modern-cpu-trends.md",
+          "title": "Lesson 16: Modern CPU Trends",
+          "trackId": "computer-architecture",
+          "order": 16,
+          "wordCount": 968,
+          "isReference": false
+        }
+      ]
+    },
+    {
+      "id": "data-representation-encoding",
+      "title": "Data Representation & Encoding",
+      "description": "This track explains how numbers, text, images, audio, and structured data",
+      "lessonCount": 12,
+      "status": "Complete",
+      "order": 1.75,
+      "lessons": [
+        {
+          "id": "data-representation-encoding/01-why-binary",
+          "filename": "01-why-binary.md",
+          "title": "Lesson 01: Why Binary",
+          "trackId": "data-representation-encoding",
+          "order": 1,
+          "wordCount": 905,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/02-integer-representation",
+          "filename": "02-integer-representation.md",
+          "title": "Lesson 02: Integer Representation",
+          "trackId": "data-representation-encoding",
+          "order": 2,
+          "wordCount": 950,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/03-floating-point-ieee-754",
+          "filename": "03-floating-point-ieee-754.md",
+          "title": "Lesson 03: Floating Point (IEEE 754)",
+          "trackId": "data-representation-encoding",
+          "order": 3,
+          "wordCount": 874,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/04-floating-point-pitfalls",
+          "filename": "04-floating-point-pitfalls.md",
+          "title": "Lesson 04: Floating Point Pitfalls",
+          "trackId": "data-representation-encoding",
+          "order": 4,
+          "wordCount": 929,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/05-character-encoding",
+          "filename": "05-character-encoding.md",
+          "title": "Lesson 05: Character Encoding",
+          "trackId": "data-representation-encoding",
+          "order": 5,
+          "wordCount": 822,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/06-utf8-and-beyond",
+          "filename": "06-utf8-and-beyond.md",
+          "title": "Lesson 06: UTF-8 and Beyond",
+          "trackId": "data-representation-encoding",
+          "order": 6,
+          "wordCount": 865,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/07-endianness",
+          "filename": "07-endianness.md",
+          "title": "Lesson 07: Endianness",
+          "trackId": "data-representation-encoding",
+          "order": 7,
+          "wordCount": 782,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/08-pixel-data-and-color",
+          "filename": "08-pixel-data-and-color.md",
+          "title": "Lesson 08: Pixel Data and Color",
+          "trackId": "data-representation-encoding",
+          "order": 8,
+          "wordCount": 802,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/09-audio-representation",
+          "filename": "09-audio-representation.md",
+          "title": "Lesson 09: Audio Representation",
+          "trackId": "data-representation-encoding",
+          "order": 9,
+          "wordCount": 677,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/10-compression-fundamentals",
+          "filename": "10-compression-fundamentals.md",
+          "title": "Lesson 10: Compression Fundamentals",
+          "trackId": "data-representation-encoding",
+          "order": 10,
+          "wordCount": 743,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/11-image-and-video-formats",
+          "filename": "11-image-and-video-formats.md",
+          "title": "Lesson 11: Image and Video Formats",
+          "trackId": "data-representation-encoding",
+          "order": 11,
+          "wordCount": 740,
+          "isReference": false
+        },
+        {
+          "id": "data-representation-encoding/12-serialization-and-wire-formats",
+          "filename": "12-serialization-and-wire-formats.md",
+          "title": "Lesson 12: Serialization and Wire Formats",
+          "trackId": "data-representation-encoding",
+          "order": 12,
+          "wordCount": 840,
+          "isReference": false
+        }
+      ]
+    },
+    {
+      "id": "digital-logic-circuit-foundations",
+      "title": "Digital Logic & Circuit Foundations",
+      "description": "This track explains how hardware performs logic, stores bits, and builds up from",
+      "lessonCount": 12,
+      "status": "Complete",
+      "order": 1.875,
+      "lessons": [
+        {
+          "id": "digital-logic-circuit-foundations/01-from-switches-to-logic",
+          "filename": "01-from-switches-to-logic.md",
+          "title": "Lesson 01: From Switches to Logic",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 1,
+          "wordCount": 708,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/02-logic-gates",
+          "filename": "02-logic-gates.md",
+          "title": "Lesson 02: Logic Gates",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 2,
+          "wordCount": 703,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/03-combining-gates",
+          "filename": "03-combining-gates.md",
+          "title": "Lesson 03: Combining Gates",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 3,
+          "wordCount": 652,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/04-the-alu",
+          "filename": "04-the-alu.md",
+          "title": "Lesson 04: The ALU",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 4,
+          "wordCount": 754,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/05-flip-flops-and-memory",
+          "filename": "05-flip-flops-and-memory.md",
+          "title": "Lesson 05: Flip-Flops and Memory",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 5,
+          "wordCount": 561,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/06-registers-and-counters",
+          "filename": "06-registers-and-counters.md",
+          "title": "Lesson 06: Registers and Counters",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 6,
+          "wordCount": 459,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/07-multiplexers-and-decoders",
+          "filename": "07-multiplexers-and-decoders.md",
+          "title": "Lesson 07: Multiplexers and Decoders",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 7,
+          "wordCount": 495,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/08-sequential-vs-combinational",
+          "filename": "08-sequential-vs-combinational.md",
+          "title": "Lesson 08: Sequential vs Combinational Logic",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 8,
+          "wordCount": 450,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/09-the-clock",
+          "filename": "09-the-clock.md",
+          "title": "Lesson 09: The Clock",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 9,
+          "wordCount": 466,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/10-building-a-simple-cpu",
+          "filename": "10-building-a-simple-cpu.md",
+          "title": "Lesson 10: Building a Simple CPU",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 10,
+          "wordCount": 536,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/11-from-diagram-to-silicon",
+          "filename": "11-from-diagram-to-silicon.md",
+          "title": "Lesson 11: From Diagram to Silicon",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 11,
+          "wordCount": 455,
+          "isReference": false
+        },
+        {
+          "id": "digital-logic-circuit-foundations/12-why-this-matters",
+          "filename": "12-why-this-matters.md",
+          "title": "Lesson 12: Why This Matters",
+          "trackId": "digital-logic-circuit-foundations",
+          "order": 12,
+          "wordCount": 523,
+          "isReference": false
+        }
+      ]
+    },
+    {
+      "id": "boot-process-firmware",
+      "title": "Boot Process & Firmware",
+      "description": "This track explains what happens between pressing the power button and reaching",
+      "lessonCount": 10,
+      "status": "Complete",
+      "order": 1.9375,
+      "lessons": [
+        {
+          "id": "boot-process-firmware/01-power-on-what-happens-first",
+          "filename": "01-power-on-what-happens-first.md",
+          "title": "Lesson 01: Power On — What Happens First",
+          "trackId": "boot-process-firmware",
+          "order": 1,
+          "wordCount": 731,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/02-bios-vs-uefi",
+          "filename": "02-bios-vs-uefi.md",
+          "title": "Lesson 02: BIOS vs UEFI",
+          "trackId": "boot-process-firmware",
+          "order": 2,
+          "wordCount": 722,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/03-post-and-hardware-discovery",
+          "filename": "03-post-and-hardware-discovery.md",
+          "title": "Lesson 03: POST and Hardware Discovery",
+          "trackId": "boot-process-firmware",
+          "order": 3,
+          "wordCount": 650,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/04-the-bootloader",
+          "filename": "04-the-bootloader.md",
+          "title": "Lesson 04: The Bootloader",
+          "trackId": "boot-process-firmware",
+          "order": 4,
+          "wordCount": 473,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/05-kernel-initialization",
+          "filename": "05-kernel-initialization.md",
+          "title": "Lesson 05: Kernel Initialization",
+          "trackId": "boot-process-firmware",
+          "order": 5,
+          "wordCount": 475,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/06-init-systems",
+          "filename": "06-init-systems.md",
+          "title": "Lesson 06: Init Systems",
+          "trackId": "boot-process-firmware",
+          "order": 6,
+          "wordCount": 441,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/07-device-drivers-and-modules",
+          "filename": "07-device-drivers-and-modules.md",
+          "title": "Lesson 07: Device Drivers and Modules",
+          "trackId": "boot-process-firmware",
+          "order": 7,
+          "wordCount": 505,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/08-user-space-startup",
+          "filename": "08-user-space-startup.md",
+          "title": "Lesson 08: User Space Startup",
+          "trackId": "boot-process-firmware",
+          "order": 8,
+          "wordCount": 469,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/09-firmware-beyond-pcs",
+          "filename": "09-firmware-beyond-pcs.md",
+          "title": "Lesson 09: Firmware Beyond PCs",
+          "trackId": "boot-process-firmware",
+          "order": 9,
+          "wordCount": 523,
+          "isReference": false
+        },
+        {
+          "id": "boot-process-firmware/10-secure-boot-and-trust-chains",
+          "filename": "10-secure-boot-and-trust-chains.md",
+          "title": "Lesson 10: Secure Boot and Trust Chains",
+          "trackId": "boot-process-firmware",
+          "order": 10,
+          "wordCount": 565,
+          "isReference": false
+        }
+      ]
+    },
+    {
+      "id": "bus-io-peripherals",
+      "title": "Bus Architecture, I/O & Peripherals",
+      "description": "This track explains how the CPU communicates with the rest of the machine:",
+      "lessonCount": 10,
+      "status": "Complete",
+      "order": 1.96875,
+      "lessons": [
+        {
+          "id": "bus-io-peripherals/01-the-system-bus",
+          "filename": "01-the-system-bus.md",
+          "title": "Lesson 01: The System Bus",
+          "trackId": "bus-io-peripherals",
+          "order": 1,
+          "wordCount": 484,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/02-interrupts",
+          "filename": "02-interrupts.md",
+          "title": "Lesson 02: Interrupts",
+          "trackId": "bus-io-peripherals",
+          "order": 2,
+          "wordCount": 502,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/03-dma-direct-memory-access",
+          "filename": "03-dma-direct-memory-access.md",
+          "title": "Lesson 03: DMA — Direct Memory Access",
+          "trackId": "bus-io-peripherals",
+          "order": 3,
+          "wordCount": 518,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/04-pcie",
+          "filename": "04-pcie.md",
+          "title": "Lesson 04: PCIe",
+          "trackId": "bus-io-peripherals",
+          "order": 4,
+          "wordCount": 386,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/05-usb-architecture",
+          "filename": "05-usb-architecture.md",
+          "title": "Lesson 05: USB Architecture",
+          "trackId": "bus-io-peripherals",
+          "order": 5,
+          "wordCount": 445,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/06-storage-interfaces",
+          "filename": "06-storage-interfaces.md",
+          "title": "Lesson 06: Storage Interfaces",
+          "trackId": "bus-io-peripherals",
+          "order": 6,
+          "wordCount": 479,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/07-display-and-gpu-communication",
+          "filename": "07-display-and-gpu-communication.md",
+          "title": "Lesson 07: Display and GPU Communication",
+          "trackId": "bus-io-peripherals",
+          "order": 7,
+          "wordCount": 448,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/08-network-interface-cards",
+          "filename": "08-network-interface-cards.md",
+          "title": "Lesson 08: Network Interface Cards",
+          "trackId": "bus-io-peripherals",
+          "order": 8,
+          "wordCount": 463,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/09-memory-mapped-io-vs-port-io",
+          "filename": "09-memory-mapped-io-vs-port-io.md",
+          "title": "Lesson 09: Memory-Mapped I/O vs Port I/O",
+          "trackId": "bus-io-peripherals",
+          "order": 9,
+          "wordCount": 453,
+          "isReference": false
+        },
+        {
+          "id": "bus-io-peripherals/10-putting-it-together",
+          "filename": "10-putting-it-together.md",
+          "title": "Lesson 10: Putting It Together",
+          "trackId": "bus-io-peripherals",
+          "order": 10,
+          "wordCount": 498,
+          "isReference": false
+        }
+      ]
+    },
+    {
+      "id": "history-mental-models-computing",
+      "title": "History & Mental Models of Computing",
+      "description": "This track explains why modern computing looks the way it does. It is not a",
+      "lessonCount": 8,
+      "status": "Complete",
+      "order": 1.984375,
+      "lessons": [
+        {
+          "id": "history-mental-models-computing/01-turing-machines-and-computability",
+          "filename": "01-turing-machines-and-computability.md",
+          "title": "Lesson 01: Turing Machines and Computability",
+          "trackId": "history-mental-models-computing",
+          "order": 1,
+          "wordCount": 498,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/02-von-neumann-and-stored-programs",
+          "filename": "02-von-neumann-and-stored-programs.md",
+          "title": "Lesson 02: Von Neumann and Stored Programs",
+          "trackId": "history-mental-models-computing",
+          "order": 2,
+          "wordCount": 501,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/03-from-vacuum-tubes-to-transistors",
+          "filename": "03-from-vacuum-tubes-to-transistors.md",
+          "title": "Lesson 03: From Vacuum Tubes to Transistors",
+          "trackId": "history-mental-models-computing",
+          "order": 3,
+          "wordCount": 441,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/04-the-os-revolution",
+          "filename": "04-the-os-revolution.md",
+          "title": "Lesson 04: The OS Revolution",
+          "trackId": "history-mental-models-computing",
+          "order": 4,
+          "wordCount": 537,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/05-the-network-revolution",
+          "filename": "05-the-network-revolution.md",
+          "title": "Lesson 05: The Network Revolution",
+          "trackId": "history-mental-models-computing",
+          "order": 5,
+          "wordCount": 428,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/06-risc-vs-cisc-and-the-architecture-wars",
+          "filename": "06-risc-vs-cisc-and-the-architecture-wars.md",
+          "title": "Lesson 06: RISC vs CISC and the Architecture Wars",
+          "trackId": "history-mental-models-computing",
+          "order": 6,
+          "wordCount": 500,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/07-the-memory-wall-and-caching",
+          "filename": "07-the-memory-wall-and-caching.md",
+          "title": "Lesson 07: The Memory Wall and Caching",
+          "trackId": "history-mental-models-computing",
+          "order": 7,
+          "wordCount": 426,
+          "isReference": false
+        },
+        {
+          "id": "history-mental-models-computing/08-parallelism-and-the-end-of-free-lunch",
+          "filename": "08-parallelism-and-the-end-of-free-lunch.md",
+          "title": "Lesson 08: Parallelism and the End of Free Lunch",
+          "trackId": "history-mental-models-computing",
+          "order": 8,
+          "wordCount": 523,
+          "isReference": false
+        }
+      ]
+    },
+    {
       "id": "rust",
       "title": "Rust",
       "description": "This track is for learners from any programming background, including people",
@@ -10232,6 +10904,6 @@
       ]
     }
   ],
-  "totalLessons": 906,
-  "generatedAt": "2026-05-02T20:52:56.334Z"
+  "totalLessons": 974,
+  "generatedAt": "2026-05-16T18:27:55.277Z"
 }
