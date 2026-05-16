@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "bun run generate && vite --port=3000",
     "generate": "bun run scripts/generate-manifest.ts",
+    "og-image": "bun run scripts/generate-og-image.ts",
     "build": "bun run generate && vite build",
     "preview": "vite preview",
     "lint": "tsc --noEmit",
